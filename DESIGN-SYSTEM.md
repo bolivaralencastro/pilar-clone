@@ -213,16 +213,18 @@ box-shadow: 0 12px 16px -4px rgba(16, 24, 40, 0.08),
 ```css
 sm: 6px   - Elementos pequenos
 md: 8px   - Padrão para inputs e botões
-lg: 12px  - Cards e containers
-xl: 16px  - Containers grandes
-2xl: 16px - Elementos especiais
+lg: 12px  - Médio, para alguns containers
+xl: 12px  - Cards e containers (customizado no Tailwind config)
+2xl: 16px - Containers grandes e especiais
 ```
+
+**Nota**: O projeto customiza `xl` para 12px e `2xl` para 16px no Tailwind config, diferente dos valores padrão do Tailwind.
 
 ### Aplicação
 
 - **Botões**: `8px` (rounded-md)
 - **Inputs**: `8px` (rounded-md)
-- **Cards**: `12px` (rounded-xl)
+- **Cards**: `12px` (rounded-xl - customizado para 12px)
 - **Badges**: `9999px` (rounded-full - círculo completo)
 - **Imagens de Avatar**: `9999px` (rounded-full)
 
@@ -461,6 +463,8 @@ Todos os tokens estão definidos na raiz do documento:
 }
 ```
 
+**Nota**: Os valores `--shadow-md` são diferentes dos usados em `.card` (que usa os valores do Tailwind config). Ambos estão disponíveis para uso dependendo do contexto.
+
 ### Uso dos Tokens
 
 Os tokens podem ser usados diretamente em CSS:
@@ -635,7 +639,7 @@ Para propor mudanças no design system:
 
 ## Changelog
 
-### Versão 1.0.0 - Dezembro 2024
+### Versão 1.0.0 - 3 de Dezembro de 2024
 - ✅ Consolidação inicial do design system
 - ✅ Documentação de paleta de cores
 - ✅ Documentação de tipografia
@@ -645,6 +649,6 @@ Para propor mudanças no design system:
 
 ---
 
-**Última atualização**: Dezembro 2024  
+**Última atualização**: 3 de Dezembro de 2024  
 **Mantido por**: Equipe Pilar Clone  
 **Versão**: 1.0.0
