@@ -2,6 +2,10 @@
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Design System
+
+Consulte o arquivo [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) para documentação completa sobre o design system do Pilar Clone, incluindo paleta de cores, tipografia, componentes e boas práticas.
+
 ## Setup
 
 Make sure to install dependencies:
