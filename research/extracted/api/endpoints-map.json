@@ -1,0 +1,14 @@
+﻿{
+    "aws":  "https://blintz-properties-sandbox.s3.amazonaws.com",
+    "routes":  [
+                   "/properties",
+                   "/agents",
+                   "/companies",
+                   "/properties/:id"
+               ],
+    "cdn":  {
+                "images":  "https://imagens.pilarhomes.com.br",
+                "static":  "https://static.pilarhomes.com.br"
+            },
+    "base":  "https://api.pilarhomes.com.br"
+}

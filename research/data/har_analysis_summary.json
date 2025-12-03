@@ -1,0 +1,105 @@
+{
+  "total_requests": 287,
+  "domains": {
+    "pilarhomes.com.br": {
+      "count": 135,
+      "size_kb": 2690.5068359375
+    },
+    "imagens.pilarhomes.com.br": {
+      "count": 70,
+      "size_kb": 3910.140625
+    },
+    "browser-intake-datadoghq.com": {
+      "count": 47,
+      "size_kb": 0.0
+    },
+    "maps.googleapis.com": {
+      "count": 9,
+      "size_kb": 1174.9931640625
+    },
+    "www.googletagmanager.com": {
+      "count": 5,
+      "size_kb": 1773.1455078125
+    },
+    "analytics.tiktok.com": {
+      "count": 5,
+      "size_kb": 606.9169921875
+    },
+    "www.facebook.com": {
+      "count": 4,
+      "size_kb": 0.130859375
+    },
+    "connect.facebook.net": {
+      "count": 2,
+      "size_kb": 713.5712890625
+    },
+    "region1.google-analytics.com": {
+      "count": 2,
+      "size_kb": 0.0
+    },
+    "sa.stape.co": {
+      "count": 2,
+      "size_kb": 0.0
+    },
+    "www.google.com": {
+      "count": 1,
+      "size_kb": 0.0
+    },
+    "www.clickcease.com": {
+      "count": 1,
+      "size_kb": 141.814453125
+    },
+    "analytics-ipv6.tiktokw.us": {
+      "count": 1,
+      "size_kb": 0.0
+    },
+    "static.hotjar.com": {
+      "count": 1,
+      "size_kb": 15.0205078125
+    },
+    "ps6siigvsc.execute-api.us-east-1.amazonaws.com": {
+      "count": 1,
+      "size_kb": 0.0
+    },
+    "script.hotjar.com": {
+      "count": 1,
+      "size_kb": 227.5888671875
+    }
+  },
+  "tracking_services": [
+    "Google Tag Manager",
+    "ClickCease",
+    "Facebook SDK",
+    "TikTok Pixel",
+    "Google Analytics",
+    "Facebook Pixel",
+    "Datadog",
+    "Hotjar"
+  ],
+  "api_domains": [
+    "maps.googleapis.com",
+    "browser-intake-datadoghq.com",
+    "analytics.tiktok.com"
+  ],
+  "cookies": [],
+  "security_headers": {
+    "x-content-type-options": "nosniff",
+    "strict-transport-security": "max-age=31536000",
+    "x-xss-protection": "1; mode=block"
+  },
+  "content_types": {
+    "text/html": 3,
+    "text/css": 3,
+    "image/webp": 70,
+    "text/javascript": 130,
+    "application/json": 5,
+    "binary/octet-stream": 3,
+    "image/svg+xml": 2,
+    "application/javascript": 10,
+    "text/plain": 7,
+    "application/x-javascript": 2,
+    "": 48,
+    "image/png": 3,
+    "image/vnd.microsoft.icon": 1
+  }
+}

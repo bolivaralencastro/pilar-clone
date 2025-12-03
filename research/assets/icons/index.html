@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PilarHomes SVG Icons Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores PilarHomes Design System */
+            --primary: hsl(0, 0%, 0%);              /* Preto puro */
+            --beige: hsl(35, 54%, 75%);             /* Bege característico */
+            --beige-light-1: hsl(35, 52%, 92%);
+            --beige-dark-1: hsl(33, 47%, 66%);
+            --white: hsl(0, 0%, 100%);
+            --white-dark-2: hsl(0, 0%, 95%);
+            --white-dark-3: hsl(0, 0%, 90%);
+            --muted-foreground: hsl(0, 0%, 63.9%);
+            
+            /* Espaçamento - escala 4px */
+            --space-2: 0.5rem;   /* 8px */
+            --space-4: 1rem;     /* 16px */
+            --space-6: 1.5rem;   /* 24px */
+            --space-8: 2rem;     /* 32px */
+            --space-12: 3rem;    /* 48px */
+        }
+
+        body {
+            font-family: Inter, "Inter Fallback: Arial", sans-serif;
+            background: var(--white-dark-2);
+            padding: var(--space-8);
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: var(--space-12) var(--space-8);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            padding: var(--space-8);
+            background: var(--white-dark-2);
+            border-bottom: 1px solid var(--white-dark-3);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--space-6);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .stat-card p {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        .controls {
+            padding: var(--space-8);
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            align-items: center;
+            background: var(--white);
+            border-bottom: 2px solid var(--white-dark-2);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--white-dark-3);
+            border-radius: 9999px;
+            font-size: 1rem;
+            transition: all 0.15s ease-in-out;
+            font-family: Inter, "Inter Fallback: Arial", sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-color: var(--primary);
+        }
+
+        .search-box::before {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23999" d="m19.485 20.154l-6.262-6.262q-.75.639-1.725.989t-1.96.35q-2.402 0-4.066-1.663T3.808 9.503T5.47 5.436t4.064-1.667t4.068 1.664T15.268 9.5q0 1.042-.369 2.017t-.97 1.668l6.262 6.261zM9.539 14.23q1.99 0 3.36-1.37t1.37-3.361t-1.37-3.36t-3.36-1.37t-3.361 1.37t-1.37 3.36t1.37 3.36t3.36 1.37"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--primary);
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.15s ease-in-out;
+            font-family: Inter, "Inter Fallback: Arial", sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: var(--beige-light-1);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .category-section {
+            padding: var(--space-8);
+        }
+
+        .category-section h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 600;
+        }
+
+        .category-section h2::before {
+            content: "";
+            width: 4px;
+            height: 1.5rem;
+            background: var(--beige);
+            border-radius: 2px;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-12);
+        }
+
+        .icon-card {
+            background: var(--white);
+            border: 1px solid var(--white-dark-3);
+            border-radius: 8px;
+            padding: var(--space-6);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+            position: relative;
+        }
+
+        .icon-card:hover {
+            border-color: var(--beige);
+            transform: translateY(-2px);
+        }
+
+        .icon-card.copied {
+            border-color: hsl(143, 100%, 34%);
+            animation: pulse 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .icon-preview {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .icon-preview svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .icon-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-2);
+            word-break: break-word;
+        }
+
+        .icon-viewbox {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .copy-notification {
+            position: fixed;
+            bottom: var(--space-8);
+            right: var(--space-8);
+            background: hsl(143, 100%, 34%);
+            color: var(--white);
+            padding: var(--space-4) var(--space-6);
+            border-radius: 8px;
+            transform: translateY(150%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+            font-weight: 500;
+        }
+
+        .copy-notification.show {
+            transform: translateY(0);
+        }
+
+        footer {
+            background: var(--white-dark-2);
+            padding: var(--space-8);
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            body {
+                padding: var(--space-4);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .icons-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: var(--space-4);
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PilarHomes SVG Icons Library</h1>
+            <p>Biblioteca de 29 ícones extraídos do Design System</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>29</h3>
+                <p>Ícones Salvos</p>
+            </div>
+            <div class="stat-card">
+                <h3>7</h3>
+                <p>Categorias</p>
+            </div>
+            <div class="stat-card">
+                <h3>98</h3>
+                <p>Meta Total</p>
+            </div>
+            <div class="stat-card">
+                <h3>29.6%</h3>
+                <p>Progresso</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar ícones...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="branding">Branding (2)</button>
+                <button class="filter-btn" data-category="navigation">Navigation (6)</button>
+                <button class="filter-btn" data-category="functional">Functional (10)</button>
+                <button class="filter-btn" data-category="property-details">Property (8)</button>
+                <button class="filter-btn" data-category="ui-controls">UI Controls (1)</button>
+                <button class="filter-btn" data-category="decorative">Decorative (1)</button>
+                <button class="filter-btn" data-category="social">Social (1)</button>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="branding">
+            <h2>Branding</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="logo-pilar-homes" data-path="branding/logo-pilar-homes.svg">
+                    <div class="icon-preview">
+                        <svg width="100%" height="100%" viewBox="0 0 1207 147" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39.63 6.46094L0 75.1109L39.63 143.761H118.9L158.53 75.1109L118.9 6.46094H39.63ZM105.25 135.041L14.37 82.5809L118.18 22.6409L105.24 135.041H105.25Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">logo-pilar-homes</div>
+                    <div class="icon-viewbox">0 0 1207 147</div>
+                </div>
+                <div class="icon-card" data-name="logo-icon-mark" data-path="branding/logo-icon-mark.svg">
+                    <div class="icon-preview">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+                            <path d="M6 0.637451L0 11L6 21.3626H18L24 11L18 0.637451H6ZM15.9331 20.0476L2.17575 12.1277L17.8912 3.08013L15.9331 20.0476Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">logo-icon-mark</div>
+                    <div class="icon-viewbox">0 0 24 22</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="navigation">
+            <h2>Navigation</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="close-x" data-path="navigation/close-x.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m6.4 18.308l-.708-.708l5.6-5.6l-5.6-5.6l.708-.708l5.6 5.6l5.6-5.6l.708.708l-5.6 5.6l5.6 5.6l-.708.708l-5.6-5.6z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">close-x</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="chevron-down" data-path="navigation/chevron-down.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M12 14.702L6.692 9.394l.708-.707l4.6 4.6l4.6-4.6l.708.707z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">chevron-down</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="chevron-right" data-path="navigation/chevron-right.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m13.292 12l-4.6-4.6l.708-.708L14.708 12L9.4 17.308l-.708-.708z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">chevron-right</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="chevron-left" data-path="navigation/chevron-left.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M14 17.308L8.692 12L14 6.692l.708.708l-4.6 4.6l4.6 4.6z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">chevron-left</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="menu-hamburger" data-path="navigation/menu-hamburger.svg">
+                    <div class="icon-preview">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                            <path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">menu-hamburger</div>
+                    <div class="icon-viewbox">0 -960 960 960</div>
+                </div>
+                <div class="icon-card" data-name="explore-compass" data-path="navigation/explore-compass.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m8.154 15.846l5.808-1.884l1.884-5.808l-5.807 1.885zm3.842-2.73q-.467 0-.79-.327q-.321-.327-.321-.793q0-.467.326-.79q.327-.321.793-.321q.467 0 .79.326q.322.327.322.793q0 .467-.327.79q-.327.322-.793.322M12.003 21q-1.867 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709M12 20q3.344 0 5.672-2.328T20 12t-2.328-5.672T12 4T6.328 6.328T4 12t2.328 5.672T12 20m0-8"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">explore-compass</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="functional">
+            <h2>Functional</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="search-magnifier" data-path="functional/search-magnifier.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m19.485 20.154l-6.262-6.262q-.75.639-1.725.989t-1.96.35q-2.402 0-4.066-1.663T3.808 9.503T5.47 5.436t4.064-1.667t4.068 1.664T15.268 9.5q0 1.042-.369 2.017t-.97 1.668l6.262 6.261zM9.539 14.23q1.99 0 3.36-1.37t1.37-3.361t-1.37-3.36t-3.36-1.37t-3.361 1.37t-1.37 3.36t1.37 3.36t3.36 1.37"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">search-magnifier</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="star-favorite" data-path="functional/star-favorite.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m8.85 16.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425zm-1.525 2.098l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102zM12 12.25"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">star-favorite</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="star-favorite-filled" data-path="functional/star-favorite-filled.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m7.325 18.923l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">star-favorite-filled</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="user-account" data-path="functional/user-account.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M12 11.385q-1.237 0-2.119-.882T9 8.385t.881-2.12T12 5.386t2.119.88t.881 2.12t-.881 2.118t-2.119.882m-7 7.23V16.97q0-.619.36-1.158q.361-.54.97-.838q1.416-.679 2.834-1.018q1.417-.34 2.836-.34t2.837.34t2.832 1.018q.61.298.97.838q.361.539.361 1.158v1.646zm1-1h12v-.646q0-.332-.215-.625q-.214-.292-.593-.494q-1.234-.598-2.546-.916T12 14.616t-2.646.318t-2.546.916q-.38.202-.593.494Q6 16.637 6 16.97zm6-7.23q.825 0 1.413-.588T14 8.384t-.587-1.412T12 6.384t-1.412.588T10 8.384t.588 1.413t1.412.587m0 7.232"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">user-account</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="share-network" data-path="functional/share-network.svg">
+                    <div class="icon-preview">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.9712 7.2085C15.1988 7.2085 14.5245 6.96544 13.9481 6.47933C13.3717 5.99322 13.0071 5.38211 12.8543 4.646H7.12516C7.00016 5.271 6.71197 5.80919 6.26058 6.26058C5.80919 6.71197 5.271 7.00016 4.646 7.12516V12.8543C5.38211 13.0071 5.99322 13.371 6.47933 13.946C6.96544 14.5211 7.2085 15.1989 7.2085 15.9793C7.2085 16.8682 6.89641 17.6217 6.27225 18.2397C5.64794 18.8578 4.89752 19.1668 4.021 19.1668C3.13211 19.1668 2.37863 18.8578 1.76058 18.2397C1.14252 17.6217 0.833496 16.8655 0.833496 15.9712C0.833496 15.1988 1.07655 14.5245 1.56266 13.9481C2.04877 13.3717 2.65988 13.0071 3.396 12.8543V7.12516C2.65988 6.97238 2.04877 6.61127 1.56266 6.04183C1.07655 5.47238 0.833496 4.79183 0.833496 4.00016C0.833496 3.12933 1.14357 2.38384 1.7637 1.7637C2.38384 1.14357 3.12933 0.833496 4.00016 0.833496C4.79183 0.833496 5.47238 1.07655 6.04183 1.56266C6.61127 2.04877 6.97238 2.65988 7.12516 3.396H12.8543C13.0071 2.65988 13.371 2.04877 13.946 1.56266C14.5211 1.07655 15.1989 0.833496 15.9793 0.833496C16.8682 0.833496 17.6217 1.14252 18.2397 1.76058C18.8578 2.37863 19.1668 3.12863 19.1668 4.01058C19.1668 4.89252 18.8578 5.646 18.2397 6.271C17.6217 6.896 16.8655 7.2085 15.9712 7.2085Z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">share-network</div>
+                    <div class="icon-viewbox">0 0 20 20</div>
+                </div>
+                <div class="icon-card" data-name="building-house" data-path="functional/building-house.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.046875 15.5V5.5L6.71354 0.5L11.7135 4.25C11.4358 4.25 11.158 4.28125 10.8802 4.34375C10.6024 4.40625 10.3455 4.49306 10.1094 4.60417L6.71354 2.0625L1.29688 6.125V14.25H5.46354V15.5H0.046875Z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">building-house</div>
+                    <div class="icon-viewbox">0 0 17 16</div>
+                </div>
+                <div class="icon-card" data-name="building-city" data-path="functional/building-city.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m14.02 21.923l-7.616-2.22V21h-4v-8.154h6.373l7.358 2.693v1.615H21v2.615zM3.403 20h2v-6.154h-2zm10.565.862l6.008-1.831v-.877h-6.921L9.95 17.142l.33-.957l2.926.969h1.929v-.92l-6.516-2.388H6.404v4.808zM19 14.769v-7l-5.5-3.846L8 7.769v2.692H7V7.29l6.5-4.635L20 7.289v7.48z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">building-city</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="map-location" data-path="functional/map-location.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="m15 19.923l-6-2.1l-3.958 1.53q-.384.143-.713-.083T4 18.634V6.404q0-.268.13-.489t.378-.307L9 4.077l6 2.1l3.958-1.53q.384-.143.713.054t.329.588v12.384q0 .287-.159.498q-.158.212-.426.298z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">map-location</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="filter-icon" data-path="functional/filter-icon.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M10.5 18.5v-1h7v1zm-6-5v-1h13v1zm0-5v-1h19v1z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">filter-icon</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="plus-add" data-path="functional/plus-add.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M11.5 17.5v-5.5h-5.5v-1h5.5v-5.5h1v5.5h5.5v1h-5.5v5.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">plus-add</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="property-details">
+            <h2>Property Details</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="whatsapp-contact" data-path="property-details/whatsapp-contact.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.001 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 0 1-5.03-1.355L2.005 22l1.352-4.968A9.95 9.95 0 0 1 2.001 12c0-5.523 4.477-10 10-10M8.593 7.3l-.2.008a1 1 0 0 0-.372.1a1.3 1.3 0 0 0-.294.228c-.12.113-.188.211-.261.306A2.73 2.73 0 0 0 6.9 9.62c.002.49.13.967.33 1.413c.409.902 1.082 1.857 1.97 2.742a9.45 9.45 0 0 0 3.84 2.046l.568.087c.185.01.37-.004.556-.013a2 2 0 0 0 .833-.231z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">whatsapp-contact</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="bed-bedroom" data-path="property-details/bed-bedroom.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M4.616 17q-.691 0-1.153-.462T3 15.385v-6.77q0-.69.463-1.152T4.615 7h14.77q.69 0 1.152.463T21 8.616v6.769q0 .69-.463 1.153T19.385 17z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">bed-bedroom</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="area-size" data-path="property-details/area-size.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M4 20v-7h1V7h16v4h1v7h-1v-2H4v2zm9.5-7H19V8h-6.5zM5 11h6.5V8H5z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">area-size</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="floor-levels" data-path="property-details/floor-levels.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M4 20v-7h1v5.312L18.312 5H13V4h7v7h-1V5.689L5.689 19H11v1z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">floor-levels</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="bathtub-bathroom" data-path="property-details/bathtub-bathroom.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M7.116 10.058q-.633 0-1.067-.435t-.433-1.046q0-.627.433-1.073q.434-.446 1.067-.446q.632 0 1.066.443t.434 1.066t-.434 1.057t-1.066.434M5.616 21q-.425 0-.713-.307t-.287-.732q-.691 0-1.153-.485T3 18.308v-4.462h2.616z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">bathtub-bathroom</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="garage-parking" data-path="property-details/garage-parking.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M8.076 16.923q-.328 0-.548-.221q-.22-.222-.22-.55t.221-.547t.55-.22t.547.221t.22.55t-.222.547t-.549.22m3.924 0q-.328 0-.548-.221t-.22-.55t.221-.547t.55-.22t.547.221t.22.55t-.221.547t-.55.22m3.924 0q-.328 0-.548-.221t-.22-.55t.222-.547q.221-.22.549-.22t.547.221t.22.55t-.221.547t-.55.22M6 13v-1q0-2.361 1.594-4.071T11.5 6.023V4h1v2.023q2.312.196 3.906 1.906T18 12v1z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">garage-parking</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="copy-clipboard" data-path="property-details/copy-clipboard.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M9.116 17q-.691 0-1.153-.462T7.5 15.385V4.615q0-.69.463-1.153T9.116 3h7.769q.69 0 1.153.462t.462 1.153v10.77q0 .69-.462 1.152T16.884 17z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">copy-clipboard</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+                <div class="icon-card" data-name="external-link" data-path="property-details/external-link.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M5.4 20L4 18.6L15.6 7H9V5h10v10h-2V8.4z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">external-link</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="ui-controls">
+            <h2>UI Controls</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="checkmark" data-path="ui-controls/checkmark.svg">
+                    <div class="icon-preview">
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.64583 16.667V7.91699H1.6875L10.3125 0.854492L18.9375 7.91699H16.9792V8.95866H15.7292V6.89616L10.3125 2.45866L4.89583 6.89616V15.417H6.97917V16.667H3.64583ZM12.1458 18.3337L8.9375 15.1253L9.8125 14.2503L12.1458 16.5837L16.9792 11.7503L17.8542 12.6253L12.1458 18.3337Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">checkmark</div>
+                    <div class="icon-viewbox">0 0 21 20</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="decorative">
+            <h2>Decorative</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="triangle-marker" data-path="decorative/triangle-marker.svg">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 26 28" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.7026 28L0 14.9304L25.9339 0L22.7026 28Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-name">triangle-marker</div>
+                    <div class="icon-viewbox">0 0 26 28</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" data-category="social">
+            <h2>Social</h2>
+            <div class="icons-grid">
+                <div class="icon-card" data-name="instagram" data-path="social/instagram.svg">
+                    <div class="icon-preview">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="instagram">
+                                <path id="Vector" d="M8 3C5.239 3 3 5.239 3 8V16C3 18.761 5.239 21 8 21H16C18.761 21 21 18.761 21 16V8C21 5.239 18.761 3 16 3H8ZM18 5C18.552 5 19 5.448 19 6C19 6.552 18.552 7 18 7C17.448 7 17 6.552 17 6C17 5.448 17.448 5 18 5ZM12 7C14.761 7 17 9.239 17 12C17 14.761 14.761 17 12 17C9.239 17 7 14.761 7 12C7 9.239 9.239 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z" fill="currentColor"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="icon-name">instagram</div>
+                    <div class="icon-viewbox">0 0 24 24</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>PilarHomes SVG Icons Library</strong> • Extraído em 03/12/2025</p>
+            <p>Clique em qualquer ícone para copiar o caminho do arquivo</p>
+        </footer>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+        Caminho copiado para clipboard
+    </div>
+
+    <script>
+        const iconCards = document.querySelectorAll('.icon-card');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+        const copyNotification = document.getElementById('copyNotification');
+        let currentFilter = 'all';
+
+        // Copy to clipboard functionality
+        iconCards.forEach(card => {
+            card.addEventListener('click', async () => {
+                const path = card.dataset.path;
+                const name = card.dataset.name;
+                
+                try {
+                    await navigator.clipboard.writeText(path);
+                    card.classList.add('copied');
+                    showNotification();
+                    
+                    setTimeout(() => {
+                        card.classList.remove('copied');
+                    }, 500);
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                }
+            });
+        });
+
+        // Show copy notification
+        function showNotification() {
+            copyNotification.classList.add('show');
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            iconCards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const matches = name.includes(searchTerm);
+                card.style.display = matches ? '' : 'none';
+            });
+
+            updateCategoryVisibility();
+        });
+
+        // Filter functionality
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                currentFilter = btn.dataset.category;
+                
+                if (currentFilter === 'all') {
+                    categorySections.forEach(section => {
+                        section.style.display = '';
+                    });
+                } else {
+                    categorySections.forEach(section => {
+                        section.style.display = section.dataset.category === currentFilter ? '' : 'none';
+                    });
+                }
+
+                searchInput.value = '';
+                iconCards.forEach(card => card.style.display = '');
+            });
+        });
+
+        // Update category section visibility based on search results
+        function updateCategoryVisibility() {
+            categorySections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.icon-card:not([style*="display: none"])');
+                section.style.display = visibleCards.length > 0 ? '' : 'none';
+            });
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && !searchInput.matches(':focus')) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.blur();
+            }
+        });
+    </script>
+</body>
+</html>

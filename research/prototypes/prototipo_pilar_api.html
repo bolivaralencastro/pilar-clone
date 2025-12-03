@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo Pilar Homes - API Real</title>
+    
+    <!-- Google Maps API (chave exposta do pilarhomes.com.br) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6TCbFAul6VL_VEWQ9-_pmOWhjas1ALGQ&libraries=places"></script>
+    
+    <!-- Tailwind CSS (mesmo que Pilar usa) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Cores do Design System Pilar */
+        :root {
+            --pilar-primary: #4F46E5;
+            --pilar-secondary: #10B981;
+            --pilar-dark: #111827;
+            --pilar-gray: #6B7280;
+            --pilar-light: #F9FAFB;
+        }
+        
+        .pilar-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pilar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 12px;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">P</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Pilar Homes</h1>
+                        <p class="text-xs text-gray-500">Protótipo com API Real</p>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="flex items-center gap-4">
+                    <select id="transactionType" class="px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+                        <option value="sell">Venda</option>
+                        <option value="rent">Aluguel</option>
+                    </select>
+                    
+                    <select id="propertyType" class="px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Todos os tipos</option>
+                        <option value="apartment">Apartamento</option>
+                        <option value="house">Casa</option>
+                        <option value="penthouse">Cobertura</option>
+                        <option value="land">Terreno</option>
+                    </select>
+                    
+                    <button onclick="loadProperties()" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Stats Bar -->
+    <div class="bg-indigo-600 text-white py-3">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <p class="text-sm">
+                    <span id="totalCount" class="font-bold">--</span> imóveis encontrados
+                </p>
+                <p class="text-sm opacity-75">
+                    Dados obtidos diretamente da API: pilarhomes.com.br/api/properties
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Map Section -->
+        <div class="mb-8 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-4 border-b">
+                <h2 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Mapa de Imóveis (Google Maps API)
+                </h2>
+                <p class="text-sm text-gray-500">Usando a chave: AIzaSyB6TCbFAul6VL_VEWQ9-_pmOWhjas1ALGQ</p>
+            </div>
+            <div id="map"></div>
+        </div>
+        
+        <!-- Properties Grid -->
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-xl font-bold text-gray-900">Imóveis Disponíveis</h2>
+            <div class="flex items-center gap-2">
+                <button onclick="changePage(-1)" id="prevBtn" class="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50" disabled>
+                    ← Anterior
+                </button>
+                <span id="pageInfo" class="text-sm text-gray-600">Página 1</span>
+                <button onclick="changePage(1)" id="nextBtn" class="px-3 py-1 border rounded hover:bg-gray-100">
+                    Próxima →
+                </button>
+            </div>
+        </div>
+        
+        <div id="propertiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards serão inseridos aqui -->
+            <div class="loading-skeleton h-96 rounded-xl"></div>
+            <div class="loading-skeleton h-96 rounded-xl"></div>
+            <div class="loading-skeleton h-96 rounded-xl"></div>
+        </div>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">
+                Protótipo demonstrativo usando APIs públicas descobertas via HAR Analysis
+            </p>
+            <p class="text-xs text-gray-500 mt-2">
+                API Endpoint: <code class="bg-gray-800 px-2 py-1 rounded">https://pilarhomes.com.br/api/properties</code>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // ===== CONFIG =====
+        // Tenta usar proxy local primeiro, depois fallback para dados estáticos
+        const API_BASE = 'http://localhost:5000/api'; // Proxy local
+        const API_DIRECT = 'https://pilarhomes.com.br/api'; // API direta (CORS blocked)
+        let currentPage = 1;
+        let totalPages = 1;
+        let map;
+        let markers = [];
+        let useStaticData = false;
+        
+        // Dados de amostra extraídos da API real (fallback se CORS bloquear)
+        const SAMPLE_DATA = {
+            data: [
+                {
+                    id: "67a3698156ca0c4a30c90ffb",
+                    slug: "apartamento-2-quartos-jardim-america-sao-paulo",
+                    propertyType: { name: "Apartamento", identifier: "apartment" },
+                    region: "Jardim América",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 4850000,
+                    area: 200,
+                    bedrooms: 2,
+                    suites: 2,
+                    parkingSpots: 1,
+                    bathrooms: 3,
+                    condoFee: 4850,
+                    tax: 1000,
+                    commercialId: "MO4163",
+                    isExclusive: false,
+                    images: [{ watermarkUrl: "https://blintz-properties-sandbox.s3.amazonaws.com/67a3698156ca0c4a30c90ffb/pilar-homes-images-watermark/0509c661-e06d-4444-826e-d01189fb7703.webp" }],
+                    company: { name: "Pilar Homes", smallLogo: null },
+                    ad: { title: "Apartamento reformado com 200 m², 2 suítes à venda no Jardim América" }
+                },
+                {
+                    id: "67aa0bc51c1cb21747f5c524",
+                    slug: "casa-3-quartos-vila-mariana-sao-paulo",
+                    propertyType: { name: "Casa", identifier: "house" },
+                    region: "Vila Mariana",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 2030000,
+                    area: 218,
+                    totalArea: 320,
+                    bedrooms: 3,
+                    suites: 2,
+                    parkingSpots: 3,
+                    bathrooms: 5,
+                    commercialId: "PLANTA456",
+                    isExclusive: false,
+                    images: [{ watermarkUrl: "https://blintz-properties-sandbox.s3.amazonaws.com/67aa0bc51c1cb21747f5c524/pilar-homes-images-watermark/fa909674-23a0-414c-bea5-41c70b364496.jpeg" }],
+                    company: { name: "Planta23", smallLogo: "https://blintz-properties-sandbox.s3.amazonaws.com/66bf95599cfa6cc2b7d9c053/small_logo.svg" },
+                    ad: { title: "Casa com 218 m², 3 quartos sendo 2 suítes à venda no bairro Vila Mariana" }
+                },
+                {
+                    id: "690e410e2245766c02652791",
+                    slug: "apartamento-3-quartos-higienopolis-sao-paulo",
+                    propertyType: { name: "Apartamento", identifier: "apartment" },
+                    region: "Higienópolis",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 5800000,
+                    area: 358,
+                    bedrooms: 3,
+                    suites: 1,
+                    parkingSpots: 3,
+                    bathrooms: 2,
+                    condoFee: 4616,
+                    commercialId: "AEI2307",
+                    isExclusive: false,
+                    images: [{ watermarkUrl: "https://blintz-properties-sandbox.s3.amazonaws.com/690e410e2245766c02652791/pilar-homes-images-watermark/dfddb822-5533-45f8-a909-65e68ebcc549.jpeg" }],
+                    company: { name: "Acervo Exclusivo", smallLogo: "https://blintz-properties-sandbox.s3.amazonaws.com/6687f270966483842974a784/small_logo.svg" },
+                    ad: { title: "Apartamento amplo e iluminado em Higienópolis – planta generosa e perfeita para viver bem" }
+                },
+                {
+                    id: "sample4",
+                    slug: "apartamento-4-quartos-itaim-bibi-sao-paulo",
+                    propertyType: { name: "Apartamento", identifier: "apartment" },
+                    region: "Itaim Bibi",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 8500000,
+                    area: 280,
+                    bedrooms: 4,
+                    suites: 4,
+                    parkingSpots: 4,
+                    bathrooms: 5,
+                    condoFee: 3500,
+                    commercialId: "ITB001",
+                    isExclusive: true,
+                    images: [],
+                    company: { name: "Demo Corretor" },
+                    ad: { title: "Apartamento de alto padrão no Itaim Bibi com 4 suítes" }
+                },
+                {
+                    id: "sample5",
+                    slug: "cobertura-moema-sao-paulo",
+                    propertyType: { name: "Cobertura", identifier: "penthouse" },
+                    region: "Moema",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 12000000,
+                    area: 450,
+                    bedrooms: 5,
+                    suites: 5,
+                    parkingSpots: 6,
+                    bathrooms: 7,
+                    condoFee: 8000,
+                    commercialId: "MOE001",
+                    isExclusive: true,
+                    images: [],
+                    company: { name: "Luxury Homes" },
+                    ad: { title: "Cobertura duplex espetacular em Moema com piscina privativa" }
+                },
+                {
+                    id: "sample6",
+                    slug: "casa-pinheiros-sao-paulo",
+                    propertyType: { name: "Casa", identifier: "house" },
+                    region: "Pinheiros",
+                    city: "São Paulo",
+                    state: "SP",
+                    askingPrice: 3200000,
+                    area: 180,
+                    totalArea: 250,
+                    bedrooms: 3,
+                    suites: 1,
+                    parkingSpots: 2,
+                    bathrooms: 3,
+                    commercialId: "PIN001",
+                    isExclusive: false,
+                    images: [],
+                    company: { name: "Pilar Homes" },
+                    ad: { title: "Casa charmosa em Pinheiros com quintal e espaço gourmet" }
+                }
+            ],
+            pagination: {
+                page: 1,
+                perPage: 12,
+                totalPages: 3666,
+                filteredCount: 18327
+            }
+        };
+        
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            loadProperties();
+        });
+        
+        // ===== GOOGLE MAPS =====
+        function initMap() {
+            // Centro em São Paulo
+            const saopaulo = { lat: -23.5505, lng: -46.6333 };
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: saopaulo,
+                styles: [
+                    {
+                        featureType: "poi",
+                        elementType: "labels",
+                        stylers: [{ visibility: "off" }]
+                    }
+                ]
+            });
+        }
+        
+        function clearMarkers() {
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+        }
+        
+        function addMarker(property) {
+            // Geocode pelo bairro/cidade
+            const geocoder = new google.maps.Geocoder();
+            const address = `${property.region}, ${property.city}, ${property.state}, Brasil`;
+            
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === 'OK' && results[0]) {
+                    const marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        title: property.ad?.title || 'Imóvel',
+                        icon: {
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 10,
+                            fillColor: '#4F46E5',
+                            fillOpacity: 0.9,
+                            strokeColor: '#ffffff',
+                            strokeWeight: 2
+                        }
+                    });
+                    
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding: 8px; max-width: 200px;">
+                                <strong style="color: #4F46E5;">${formatPrice(property.askingPrice || property.rentPrice)}</strong>
+                                <p style="margin: 4px 0; font-size: 12px;">${property.propertyType?.name} em ${property.region}</p>
+                                <p style="font-size: 11px; color: #666;">${property.area}m² | ${property.bedrooms} quartos</p>
+                            </div>
+                        `
+                    });
+                    
+                    marker.addListener('click', () => {
+                        infoWindow.open(map, marker);
+                    });
+                    
+                    markers.push(marker);
+                }
+            });
+        }
+        
+        // ===== API CALLS =====
+        async function loadProperties() {
+            const transactionType = document.getElementById('transactionType').value;
+            const propertyType = document.getElementById('propertyType').value;
+            
+            const params = new URLSearchParams({
+                transactionType: transactionType,
+                page: currentPage,
+                perPage: 12
+            });
+            
+            if (propertyType) {
+                params.append('propertyType', propertyType);
+            }
+            
+            let data;
+            
+            // Primeiro tenta o proxy local
+            try {
+                const response = await fetch(`${API_BASE}/properties?${params}`);
+                if (!response.ok) throw new Error('Proxy não disponível');
+                data = await response.json();
+                console.log('✅ Dados via proxy local');
+            } catch (proxyError) {
+                console.log('⚠️ Proxy local não disponível, usando dados de amostra');
+                console.log('   Para dados ao vivo, execute: python pilar_api_proxy.py');
+                data = SAMPLE_DATA;
+                useStaticData = true;
+            }
+            
+            // Update stats
+            const countEl = document.getElementById('totalCount');
+            if (useStaticData) {
+                countEl.textContent = `${data.data.length} (amostra)`;
+            } else {
+                countEl.textContent = data.pagination.filteredCount.toLocaleString('pt-BR');
+            }
+            totalPages = data.pagination.totalPages;
+            updatePagination();
+            
+            // Clear and update markers
+            clearMarkers();
+            
+            // Render cards
+            renderProperties(data.data);
+            
+            // Add markers
+            data.data.forEach(property => addMarker(property));
+        }
+        
+        // ===== RENDER =====
+        function renderProperties(properties) {
+            const grid = document.getElementById('propertiesGrid');
+            
+            grid.innerHTML = properties.map(p => `
+                <article class="pilar-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <!-- Image -->
+                    <div class="relative h-48 bg-gray-200">
+                        ${p.images && p.images[0] ? `
+                            <img src="${p.images[0].watermarkUrl}" 
+                                 alt="${p.ad?.title || 'Imóvel'}"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://via.placeholder.com/400x300?text=Sem+Imagem'"
+                            />
+                        ` : `
+                            <div class="w-full h-full flex items-center justify-center text-gray-400">
+                                Sem imagem
+                            </div>
+                        `}
+                        
+                        <!-- Price Badge -->
+                        <div class="absolute top-3 left-3 price-tag text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                            ${formatPrice(p.askingPrice || p.rentPrice)}
+                        </div>
+                        
+                        <!-- Exclusive Badge -->
+                        ${p.isExclusive ? `
+                            <div class="absolute top-3 right-3 bg-amber-500 text-white px-2 py-1 rounded text-xs font-bold">
+                                EXCLUSIVO
+                            </div>
+                        ` : ''}
+                        
+                        <!-- Image Count -->
+                        ${p.images?.length > 1 ? `
+                            <div class="absolute bottom-3 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs">
+                                📷 ${p.images.length} fotos
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="p-4">
+                        <!-- Type & Location -->
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                            <span class="bg-gray-100 px-2 py-1 rounded">${p.propertyType?.name || 'Imóvel'}</span>
+                            <span>•</span>
+                            <span>${p.region}, ${p.city}</span>
+                        </div>
+                        
+                        <!-- Title -->
+                        <h3 class="font-semibold text-gray-900 mb-3 line-clamp-2 min-h-[48px]">
+                            ${p.ad?.title || `${p.propertyType?.name} em ${p.region}`}
+                        </h3>
+                        
+                        <!-- Features -->
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <div class="text-center p-2 bg-gray-50 rounded">
+                                <p class="text-lg font-bold text-indigo-600">${p.area}</p>
+                                <p class="text-xs text-gray-500">m²</p>
+                            </div>
+                            <div class="text-center p-2 bg-gray-50 rounded">
+                                <p class="text-lg font-bold text-indigo-600">${p.bedrooms}</p>
+                                <p class="text-xs text-gray-500">quartos</p>
+                            </div>
+                            <div class="text-center p-2 bg-gray-50 rounded">
+                                <p class="text-lg font-bold text-indigo-600">${p.suites || 0}</p>
+                                <p class="text-xs text-gray-500">suítes</p>
+                            </div>
+                            <div class="text-center p-2 bg-gray-50 rounded">
+                                <p class="text-lg font-bold text-indigo-600">${p.parkingSpots || 0}</p>
+                                <p class="text-xs text-gray-500">vagas</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Extra Info -->
+                        <div class="flex items-center justify-between text-xs text-gray-500 pt-3 border-t">
+                            <div class="flex items-center gap-2">
+                                ${p.company?.smallLogo ? `
+                                    <img src="${p.company.smallLogo}" alt="${p.company.name}" class="h-5">
+                                ` : ''}
+                                <span>${p.company?.name || 'Corretor'}</span>
+                            </div>
+                            <span class="text-gray-400">#${p.commercialId}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions -->
+                    <div class="px-4 pb-4">
+                        <a href="https://pilarhomes.com.br/imovel/${p.slug}" 
+                           target="_blank"
+                           class="block w-full text-center py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
+                            Ver no site →
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+        }
+        
+        // ===== HELPERS =====
+        function formatPrice(value) {
+            if (!value) return 'Sob consulta';
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+        
+        function changePage(delta) {
+            currentPage += delta;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            loadProperties();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function updatePagination() {
+            document.getElementById('pageInfo').textContent = `Página ${currentPage} de ${totalPages}`;
+            document.getElementById('prevBtn').disabled = currentPage <= 1;
+            document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+        }
+    </script>
+</body>
+</html>

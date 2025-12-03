@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Imóveis - PilarHomes</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===========================================
+           DESIGN SYSTEM - PILARHOMES
+           =========================================== */
+        
+        :root {
+            /* Cores Principais */
+            --primary: hsl(0, 0%, 0%);
+            --primary-light-1: hsl(0, 0%, 40%);
+            --primary-light-2: hsl(0, 0%, 30%);
+            
+            /* Secondary (Bege) */
+            --secondary: hsl(48, 20%, 95%);
+            --secondary-dark-1: hsl(50, 12%, 91%);
+            --secondary-dark-2: hsl(32, 19%, 82%);
+            
+            /* Beige - Cor característica */
+            --beige: hsl(35, 54%, 75%);
+            --beige-light-1: hsl(35, 52%, 92%);
+            --beige-light-2: hsl(34, 54%, 84%);
+            --beige-dark-1: hsl(33, 47%, 66%);
+            
+            /* Blue - Institucional */
+            --blue: #b9cddf;
+            --blue-light-1: hsl(208, 37%, 93%);
+            --blue-dark-1: hsl(206, 44%, 67%);
+            
+            /* Estados */
+            --success: hsl(143, 100%, 34%);
+            --success-light: hsl(137, 35%, 92%);
+            --error: hsl(359, 83%, 58%);
+            --error-light: hsl(347, 100%, 91%);
+            --warning: hsl(39, 100%, 50%);
+            --warning-light: hsl(43, 100%, 95%);
+            
+            /* Neutros */
+            --white: hsl(0, 0%, 100%);
+            --white-dark-1: hsl(0, 0%, 98%);
+            --white-dark-2: hsl(0, 0%, 95%);
+            --gray-light: #F2F2F2;
+            --gray-medium: #4C4C4C;
+            --gray-dark: #AAA;
+            
+            /* Espaçamento (4px base) */
+            --space-1: 0.25rem;   /* 4px */
+            --space-2: 0.5rem;    /* 8px */
+            --space-3: 0.75rem;   /* 12px */
+            --space-4: 1rem;      /* 16px */
+            --space-5: 1.25rem;   /* 20px */
+            --space-6: 1.5rem;    /* 24px */
+            --space-8: 2rem;      /* 32px */
+            --space-10: 2.5rem;   /* 40px */
+            --space-12: 3rem;     /* 48px */
+            
+            /* Tipografia */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease-in-out;
+            --transition-normal: 0.3s ease-in-out;
+        }
+        
+        /* ===========================================
+           RESET & BASE
+           =========================================== */
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            color: var(--primary);
+            background-color: var(--white);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        
+        /* ===========================================
+           LAYOUT
+           =========================================== */
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+        
+        /* ===========================================
+           HEADER
+           =========================================== */
+        
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid var(--white-dark-2);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            font-weight: 300;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        /* ===========================================
+           COMPARISON BAR (Sticky)
+           =========================================== */
+        
+        .comparison-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--white);
+            padding: var(--space-4) var(--space-6);
+            transform: translateY(100%);
+            transition: transform var(--transition-normal);
+            z-index: 1000;
+        }
+        
+        .comparison-bar.active {
+            transform: translateY(0);
+        }
+        
+        .comparison-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-6);
+        }
+        
+        .comparison-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .comparison-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .comparison-count {
+            font-weight: 600;
+        }
+        
+        .comparison-items {
+            display: flex;
+            gap: var(--space-3);
+            flex: 1;
+            overflow-x: auto;
+        }
+        
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255,255,255,0.1);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            white-space: nowrap;
+        }
+        
+        .comparison-item-remove {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            font-size: 14px;
+            transition: background var(--transition-fast);
+        }
+        
+        .comparison-item-remove:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        
+        .comparison-actions {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        /* ===========================================
+           BUTTONS
+           =========================================== */
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-5);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light-1);
+            border-color: var(--primary-light-1);
+        }
+        
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .btn-compare {
+            background: var(--beige);
+            color: var(--primary);
+            border: 1px solid var(--beige);
+        }
+        
+        .btn-compare:hover {
+            background: var(--beige-dark-1);
+            border-color: var(--beige-dark-1);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* ===========================================
+           PAGE TITLE
+           =========================================== */
+        
+        .page-header {
+            padding: var(--space-10) 0;
+            border-bottom: 1px solid var(--white-dark-2);
+            margin-bottom: var(--space-8);
+        }
+        
+        .page-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+        
+        .page-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--gray-medium);
+            margin-top: var(--space-2);
+        }
+        
+        .page-actions {
+            display: flex;
+            gap: var(--space-3);
+            margin-top: var(--space-6);
+        }
+        
+        /* ===========================================
+           PROPERTY GRID (Seleção)
+           =========================================== */
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-6);
+            padding-bottom: 120px;
+        }
+        
+        /* ===========================================
+           PROPERTY CARD
+           =========================================== */
+        
+        .property-card {
+            position: relative;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .property-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .property-card.selected {
+            box-shadow: 0 0 0 3px var(--blue-dark-1);
+        }
+        
+        .property-card.selected::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(185, 205, 223, 0.1);
+            pointer-events: none;
+        }
+        
+        .property-image-wrapper {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+        
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .property-card:hover .property-image {
+            transform: scale(1.05);
+        }
+        
+        /* Checkbox de seleção */
+        .property-checkbox {
+            position: absolute;
+            top: var(--space-3);
+            left: var(--space-3);
+            width: 28px;
+            height: 28px;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            z-index: 2;
+        }
+        
+        .property-card.selected .property-checkbox {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .property-checkbox svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .property-card.selected .property-checkbox svg {
+            opacity: 1;
+        }
+        
+        /* Badges */
+        .property-badges {
+            position: absolute;
+            top: var(--space-3);
+            right: var(--space-3);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            z-index: 2;
+        }
+        
+        .badge {
+            padding: var(--space-1) var(--space-2);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-sm);
+        }
+        
+        .badge-exclusive {
+            background: var(--beige);
+            color: var(--primary);
+        }
+        
+        .badge-new {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Card Content */
+        .property-content {
+            padding: var(--space-5);
+        }
+        
+        .property-price {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+        
+        .property-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            font-size: var(--font-size-sm);
+            color: var(--gray-medium);
+            margin-bottom: var(--space-3);
+        }
+        
+        .property-features span:not(:last-child)::after {
+            content: '•';
+            margin-left: var(--space-2);
+            opacity: 0.5;
+        }
+        
+        .property-location {
+            font-size: var(--font-size-sm);
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .property-code {
+            font-size: var(--font-size-xs);
+            color: var(--gray-dark);
+            margin-top: var(--space-2);
+        }
+        
+        /* Card Actions */
+        .property-actions {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--white-dark-2);
+        }
+        
+        .property-actions .btn {
+            flex: 1;
+            padding: var(--space-2) var(--space-3);
+        }
+        
+        /* ===========================================
+           COMPARISON VIEW
+           =========================================== */
+        
+        .comparison-view {
+            display: none;
+            padding-bottom: var(--space-12);
+        }
+        
+        .comparison-view.active {
+            display: block;
+        }
+        
+        .selection-view.hidden {
+            display: none;
+        }
+        
+        /* Comparison Header */
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-8) 0;
+            border-bottom: 1px solid var(--white-dark-2);
+            margin-bottom: var(--space-8);
+        }
+        
+        .comparison-back {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--font-size-sm);
+            color: var(--gray-medium);
+            transition: color var(--transition-fast);
+        }
+        
+        .comparison-back:hover {
+            color: var(--primary);
+        }
+        
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(var(--cols, 3), 1fr);
+            gap: 0;
+        }
+        
+        .comparison-grid.cols-2 { --cols: 2; }
+        .comparison-grid.cols-3 { --cols: 3; }
+        
+        /* Property Headers in Comparison */
+        .comparison-property-header {
+            padding: var(--space-4);
+            background: var(--white-dark-1);
+            border-bottom: 1px solid var(--white-dark-2);
+        }
+        
+        .comparison-property-header:first-child {
+            background: var(--white);
+            font-weight: 600;
+            color: var(--gray-medium);
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .comparison-property-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-4);
+        }
+        
+        .comparison-property-price {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+        
+        .comparison-property-location {
+            font-size: var(--font-size-sm);
+            color: var(--gray-medium);
+        }
+        
+        .comparison-property-code {
+            font-size: var(--font-size-xs);
+            color: var(--gray-dark);
+            margin-top: var(--space-2);
+        }
+        
+        .comparison-remove {
+            margin-top: var(--space-4);
+        }
+        
+        /* Comparison Rows */
+        .comparison-row {
+            display: contents;
+        }
+        
+        .comparison-cell {
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--white-dark-2);
+            display: flex;
+            align-items: center;
+        }
+        
+        .comparison-cell:first-child {
+            font-weight: 500;
+            color: var(--gray-medium);
+            font-size: var(--font-size-sm);
+            background: var(--white-dark-1);
+        }
+        
+        /* Highlight best/worst values */
+        .comparison-cell.highlight-best {
+            background: var(--success-light);
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .comparison-cell.highlight-worst {
+            background: var(--error-light);
+            color: var(--error);
+        }
+        
+        .comparison-cell.highlight-neutral {
+            background: var(--warning-light);
+            color: var(--warning);
+        }
+        
+        /* Comparison Category Headers */
+        .comparison-category {
+            display: contents;
+        }
+        
+        .comparison-category-header {
+            grid-column: 1 / -1;
+            padding: var(--space-4) var(--space-4);
+            background: var(--secondary);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            border-bottom: 1px solid var(--white-dark-2);
+        }
+        
+        /* CTA Section in Comparison */
+        .comparison-cta {
+            display: grid;
+            grid-template-columns: 200px repeat(var(--cols, 3), 1fr);
+            gap: 0;
+            margin-top: var(--space-8);
+            background: var(--secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+        }
+        
+        .comparison-cta.cols-2 { --cols: 2; }
+        .comparison-cta.cols-3 { --cols: 3; }
+        
+        .cta-label {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--gray-medium);
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .cta-property {
+            padding: 0 var(--space-4);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .cta-broker {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .cta-broker-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .cta-broker-info {
+            flex: 1;
+        }
+        
+        .cta-broker-name {
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+        
+        .cta-broker-company {
+            font-size: var(--font-size-xs);
+            color: var(--gray-medium);
+        }
+        
+        /* ===========================================
+           MODAL
+           =========================================== */
+        
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            transform: translateY(20px);
+            transition: transform var(--transition-normal);
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: var(--space-6);
+            border-bottom: 1px solid var(--white-dark-2);
+        }
+        
+        .modal-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+        }
+        
+        .modal-body {
+            padding: var(--space-6);
+        }
+        
+        .modal-footer {
+            padding: var(--space-6);
+            border-top: 1px solid var(--white-dark-2);
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-3);
+        }
+        
+        /* ===========================================
+           TOAST NOTIFICATIONS
+           =========================================== */
+        
+        .toast-container {
+            position: fixed;
+            top: var(--space-6);
+            right: var(--space-6);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .toast {
+            background: var(--primary);
+            color: var(--white);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .toast.success {
+            background: var(--success);
+        }
+        
+        .toast.error {
+            background: var(--error);
+        }
+        
+        .toast.warning {
+            background: var(--warning);
+            color: var(--primary);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* ===========================================
+           RESPONSIVE
+           =========================================== */
+        
+        @media (max-width: 1024px) {
+            .comparison-grid,
+            .comparison-cta {
+                grid-template-columns: 150px repeat(var(--cols, 3), 1fr);
+            }
+            
+            .comparison-property-price {
+                font-size: var(--font-size-lg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-4);
+            }
+            
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid,
+            .comparison-cta {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-cell:first-child {
+                font-weight: 600;
+                color: var(--primary);
+            }
+            
+            .comparison-property-header:first-child {
+                display: none;
+            }
+            
+            .page-actions {
+                flex-direction: column;
+            }
+            
+            .comparison-bar-content {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .comparison-items {
+                width: 100%;
+            }
+            
+            .comparison-actions {
+                width: 100%;
+            }
+            
+            .comparison-actions .btn {
+                flex: 1;
+            }
+            
+            /* Mobile swipe view */
+            .comparison-mobile {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: var(--space-4);
+                padding-bottom: var(--space-4);
+            }
+            
+            .comparison-mobile-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+            }
+        }
+        
+        /* ===========================================
+           EMPTY STATE
+           =========================================== */
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--space-12) var(--space-6);
+            background: var(--white-dark-1);
+            border-radius: var(--radius-lg);
+        }
+        
+        .empty-state-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-6);
+            color: var(--gray-dark);
+        }
+        
+        .empty-state-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+        
+        .empty-state-text {
+            color: var(--gray-medium);
+            margin-bottom: var(--space-6);
+        }
+        
+        /* ===========================================
+           UTILITIES
+           =========================================== */
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">PILAR<span>HOMES</span></div>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="showToast('Em breve: Busca avançada', 'info')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    Buscar
+                </button>
+                <button class="btn btn-primary">Entrar</button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Selection View -->
+    <main class="container selection-view" id="selectionView">
+        <div class="page-header">
+            <h1 class="page-title">Minha Coleção</h1>
+            <p class="page-subtitle">12 imóveis salvos • Selecione até 3 para comparar</p>
+            <div class="page-actions">
+                <button class="btn btn-secondary" id="btnClearSelection">
+                    Limpar Seleção
+                </button>
+                <button class="btn btn-compare" id="btnCompare" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/>
+                    </svg>
+                    Comparar Selecionados (0/3)
+                </button>
+            </div>
+        </div>
+        
+        <div class="property-grid" id="propertyGrid">
+            <!-- Properties will be injected here -->
+        </div>
+    </main>
+    
+    <!-- Comparison View -->
+    <section class="container comparison-view" id="comparisonView">
+        <div class="comparison-header">
+            <button class="comparison-back" id="btnBack">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Voltar para seleção
+            </button>
+            <div class="comparison-actions">
+                <button class="btn btn-secondary" onclick="exportPDF()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Exportar PDF
+                </button>
+                <button class="btn btn-secondary" onclick="shareComparison()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    Compartilhar
+                </button>
+            </div>
+        </div>
+        
+        <div class="comparison-grid" id="comparisonGrid">
+            <!-- Comparison table will be injected here -->
+        </div>
+        
+        <div class="comparison-cta" id="comparisonCTA">
+            <!-- CTA section will be injected here -->
+        </div>
+    </section>
+    
+    <!-- Comparison Bar (Sticky Bottom) -->
+    <div class="comparison-bar" id="comparisonBar">
+        <div class="comparison-bar-content">
+            <div class="comparison-info">
+                <svg class="comparison-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/>
+                </svg>
+                <span class="comparison-count" id="barCount">Comparando 0/3</span>
+            </div>
+            <div class="comparison-items" id="barItems">
+                <!-- Selected items will appear here -->
+            </div>
+            <div class="comparison-actions">
+                <button class="btn btn-ghost" onclick="clearSelection()">Limpar</button>
+                <button class="btn btn-compare" id="barCompareBtn" disabled onclick="showComparison()">
+                    Comparar Agora
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <script>
+        // ===========================================
+        // DATA - Mock de Imóveis (baseado em dados reais da Pilar)
+        // ===========================================
+        
+        const properties = [
+            {
+                id: 'HS27071',
+                title: 'Apartamento de Alto Padrão',
+                price: 43980000,
+                area: 554,
+                bedrooms: 3,
+                suites: 3,
+                parking: 6,
+                neighborhood: 'Itaim Bibi',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop',
+                exclusive: true,
+                isNew: false,
+                broker: {
+                    name: 'Thiago Granato',
+                    company: 'Homesphere',
+                    avatar: 'https://i.pravatar.cc/100?img=11',
+                    whatsapp: '5511999999999'
+                },
+                condominium: 12500,
+                iptu: 8900,
+                yearBuilt: 2022,
+                floor: '22º andar',
+                view: 'Vista panorâmica',
+                features: ['Piscina privativa', 'Home theater', 'Adega climatizada', 'Spa']
+            },
+            {
+                id: 'AMS046',
+                title: 'Penthouse Exclusiva',
+                price: 60000000,
+                area: 980,
+                bedrooms: 5,
+                suites: 5,
+                parking: 10,
+                neighborhood: 'Jardim Paulista',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=500&fit=crop',
+                exclusive: true,
+                isNew: true,
+                broker: {
+                    name: 'Nicole Gomes',
+                    company: 'Pilar Homes',
+                    avatar: 'https://i.pravatar.cc/100?img=5',
+                    whatsapp: '5511988888888'
+                },
+                condominium: 25000,
+                iptu: 15600,
+                yearBuilt: 2023,
+                floor: 'Cobertura duplex',
+                view: 'Vista 360°',
+                features: ['Heliponto', 'Piscina aquecida', 'Elevador privativo', 'Wine bar']
+            },
+            {
+                id: 'VD18432',
+                title: 'Casa em Condomínio Fechado',
+                price: 28500000,
+                area: 1200,
+                bedrooms: 6,
+                suites: 6,
+                parking: 8,
+                neighborhood: 'Cidade Jardim',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop',
+                exclusive: false,
+                isNew: false,
+                broker: {
+                    name: 'Fernanda Berendt',
+                    company: 'Berendt Imóveis',
+                    avatar: 'https://i.pravatar.cc/100?img=9',
+                    whatsapp: '5511977777777'
+                },
+                condominium: 8500,
+                iptu: 22000,
+                yearBuilt: 2019,
+                floor: 'Térrea + Superior',
+                view: 'Jardim privativo',
+                features: ['Quadra de tênis', 'Piscina infinity', 'Área gourmet', 'Cinema']
+            },
+            {
+                id: 'LZ9087',
+                title: 'Apartamento Garden',
+                price: 15800000,
+                area: 420,
+                bedrooms: 4,
+                suites: 4,
+                parking: 4,
+                neighborhood: 'Vila Nova Conceição',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=500&fit=crop',
+                exclusive: true,
+                isNew: false,
+                broker: {
+                    name: 'Ricardo Almeida',
+                    company: 'Luxury Living',
+                    avatar: 'https://i.pravatar.cc/100?img=12',
+                    whatsapp: '5511966666666'
+                },
+                condominium: 9800,
+                iptu: 7200,
+                yearBuilt: 2021,
+                floor: 'Térreo',
+                view: 'Jardim 800m²',
+                features: ['Jardim privativo', 'Churrasqueira', 'Piscina', 'Sauna']
+            },
+            {
+                id: 'MR4521',
+                title: 'Cobertura Triplex',
+                price: 52000000,
+                area: 850,
+                bedrooms: 4,
+                suites: 4,
+                parking: 6,
+                neighborhood: 'Higienópolis',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&h=500&fit=crop',
+                exclusive: true,
+                isNew: true,
+                broker: {
+                    name: 'Lucila Zahran',
+                    company: 'Zahran Premium',
+                    avatar: 'https://i.pravatar.cc/100?img=16',
+                    whatsapp: '5511955555555'
+                },
+                condominium: 18000,
+                iptu: 12500,
+                yearBuilt: 2024,
+                floor: '28º ao 30º andar',
+                view: 'Vista Parque',
+                features: ['Terraço 200m²', 'Piscina panorâmica', 'Lareira', 'Academia privativa']
+            },
+            {
+                id: 'PT7834',
+                title: 'Mansão Contemporânea',
+                price: 38000000,
+                area: 1500,
+                bedrooms: 7,
+                suites: 7,
+                parking: 12,
+                neighborhood: 'Morumbi',
+                city: 'São Paulo',
+                image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=500&fit=crop',
+                exclusive: false,
+                isNew: false,
+                broker: {
+                    name: 'Carlos Mendes',
+                    company: 'Elite Properties',
+                    avatar: 'https://i.pravatar.cc/100?img=15',
+                    whatsapp: '5511944444444'
+                },
+                condominium: 0,
+                iptu: 35000,
+                yearBuilt: 2018,
+                floor: '3 pavimentos',
+                view: 'Mata Atlântica',
+                features: ['Campo de golf', 'Spa completo', 'Adega', 'Salão de festas']
+            }
+        ];
+        
+        // ===========================================
+        // STATE
+        // ===========================================
+        
+        let selectedProperties = [];
+        const MAX_SELECTION = 3;
+        
+        // ===========================================
+        // UTILS
+        // ===========================================
+        
+        function formatPrice(price) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                maximumFractionDigits: 0
+            }).format(price);
+        }
+        
+        function formatArea(area) {
+            return `${area}m²`;
+        }
+        
+        // ===========================================
+        // RENDER FUNCTIONS
+        // ===========================================
+        
+        function renderPropertyCard(property) {
+            const isSelected = selectedProperties.some(p => p.id === property.id);
+            
+            return `
+                <article class="property-card ${isSelected ? 'selected' : ''}" 
+                         data-id="${property.id}"
+                         onclick="toggleProperty('${property.id}')">
+                    <div class="property-image-wrapper">
+                        <div class="property-checkbox">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="property-badges">
+                            ${property.exclusive ? '<span class="badge badge-exclusive">Exclusivo</span>' : ''}
+                            ${property.isNew ? '<span class="badge badge-new">Novo</span>' : ''}
+                        </div>
+                        <img class="property-image" src="${property.image}" alt="${property.title}">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">${formatPrice(property.price)}</div>
+                        <div class="property-features">
+                            <span>${property.bedrooms} quartos</span>
+                            <span>${formatArea(property.area)}</span>
+                            <span>${property.parking} vagas</span>
+                        </div>
+                        <div class="property-location">${property.neighborhood}, ${property.city}</div>
+                        <div class="property-code">Cód: ${property.id}</div>
+                    </div>
+                </article>
+            `;
+        }
+        
+        function renderPropertyGrid() {
+            const grid = document.getElementById('propertyGrid');
+            grid.innerHTML = properties.map(renderPropertyCard).join('');
+        }
+        
+        function renderComparisonBar() {
+            const bar = document.getElementById('comparisonBar');
+            const count = document.getElementById('barCount');
+            const items = document.getElementById('barItems');
+            const btn = document.getElementById('barCompareBtn');
+            const compareBtn = document.getElementById('btnCompare');
+            
+            const len = selectedProperties.length;
+            
+            // Toggle bar visibility
+            bar.classList.toggle('active', len > 0);
+            
+            // Update count
+            count.textContent = `Comparando ${len}/${MAX_SELECTION}`;
+            
+            // Update items
+            items.innerHTML = selectedProperties.map(p => `
+                <div class="comparison-item">
+                    <span>${p.id} - ${p.neighborhood} | ${formatPrice(p.price)}</span>
+                    <button class="comparison-item-remove" onclick="event.stopPropagation(); removeProperty('${p.id}')">×</button>
+                </div>
+            `).join('');
+            
+            // Update buttons
+            const canCompare = len >= 2;
+            btn.disabled = !canCompare;
+            compareBtn.disabled = !canCompare;
+            compareBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/>
+                </svg>
+                Comparar Selecionados (${len}/${MAX_SELECTION})
+            `;
+        }
+        
+        function renderComparison() {
+            const grid = document.getElementById('comparisonGrid');
+            const cta = document.getElementById('comparisonCTA');
+            const cols = selectedProperties.length;
+            
+            grid.className = `comparison-grid cols-${cols}`;
+            cta.className = `comparison-cta cols-${cols}`;
+            
+            // Categories to compare
+            const categories = [
+                {
+                    name: 'Informações Básicas',
+                    rows: [
+                        { label: 'Preço', key: 'price', format: formatPrice, compare: 'lower' },
+                        { label: 'Área Total', key: 'area', format: v => `${v}m²`, compare: 'higher' },
+                        { label: 'Preço/m²', key: 'pricePerMeter', format: formatPrice, compare: 'lower' },
+                        { label: 'Quartos', key: 'bedrooms', compare: 'higher' },
+                        { label: 'Suítes', key: 'suites', compare: 'higher' },
+                        { label: 'Vagas', key: 'parking', compare: 'higher' },
+                    ]
+                },
+                {
+                    name: 'Localização',
+                    rows: [
+                        { label: 'Bairro', key: 'neighborhood' },
+                        { label: 'Cidade', key: 'city' },
+                        { label: 'Andar/Posição', key: 'floor' },
+                        { label: 'Vista', key: 'view' },
+                    ]
+                },
+                {
+                    name: 'Custos Mensais',
+                    rows: [
+                        { label: 'Condomínio', key: 'condominium', format: formatPrice, compare: 'lower' },
+                        { label: 'IPTU (anual)', key: 'iptu', format: formatPrice, compare: 'lower' },
+                    ]
+                },
+                {
+                    name: 'Características',
+                    rows: [
+                        { label: 'Ano de Construção', key: 'yearBuilt', compare: 'higher' },
+                        { label: 'Exclusivo Pilar', key: 'exclusive', format: v => v ? '✓ Sim' : 'Não' },
+                        { label: 'Diferenciais', key: 'features', format: v => v.slice(0, 3).join(', ') },
+                    ]
+                }
+            ];
+            
+            // Calculate derived values
+            selectedProperties.forEach(p => {
+                p.pricePerMeter = Math.round(p.price / p.area);
+            });
+            
+            // Build comparison grid HTML
+            let html = '';
+            
+            // Header row with property images
+            html += '<div class="comparison-property-header">Imóvel</div>';
+            selectedProperties.forEach(p => {
+                html += `
+                    <div class="comparison-property-header">
+                        <img class="comparison-property-image" src="${p.image}" alt="${p.title}">
+                        <div class="comparison-property-price">${formatPrice(p.price)}</div>
+                        <div class="comparison-property-location">${p.neighborhood}, ${p.city}</div>
+                        <div class="comparison-property-code">Cód: ${p.id}</div>
+                        <button class="btn btn-secondary comparison-remove" onclick="removeProperty('${p.id}'); renderPropertyGrid();">
+                            Remover
+                        </button>
+                    </div>
+                `;
+            });
+            
+            // Data rows
+            categories.forEach(category => {
+                html += `<div class="comparison-category-header">${category.name}</div>`;
+                
+                category.rows.forEach(row => {
+                    html += `<div class="comparison-cell">${row.label}</div>`;
+                    
+                    // Find best/worst values for highlighting
+                    let values = selectedProperties.map(p => p[row.key]);
+                    let bestValue = null, worstValue = null;
+                    
+                    if (row.compare === 'higher') {
+                        bestValue = Math.max(...values.filter(v => typeof v === 'number'));
+                        worstValue = Math.min(...values.filter(v => typeof v === 'number'));
+                    } else if (row.compare === 'lower') {
+                        bestValue = Math.min(...values.filter(v => typeof v === 'number' && v > 0));
+                        worstValue = Math.max(...values.filter(v => typeof v === 'number'));
+                    }
+                    
+                    selectedProperties.forEach(p => {
+                        const value = p[row.key];
+                        const displayValue = row.format ? row.format(value) : value;
+                        
+                        let highlightClass = '';
+                        if (row.compare && typeof value === 'number' && value > 0) {
+                            if (value === bestValue && bestValue !== worstValue) {
+                                highlightClass = 'highlight-best';
+                            } else if (value === worstValue && bestValue !== worstValue) {
+                                highlightClass = 'highlight-worst';
+                            }
+                        }
+                        
+                        html += `<div class="comparison-cell ${highlightClass}">${displayValue}</div>`;
+                    });
+                });
+            });
+            
+            grid.innerHTML = html;
+            
+            // Build CTA section
+            let ctaHtml = '<div class="cta-label">Fale com o corretor</div>';
+            selectedProperties.forEach(p => {
+                ctaHtml += `
+                    <div class="cta-property">
+                        <div class="cta-broker">
+                            <img class="cta-broker-avatar" src="${p.broker.avatar}" alt="${p.broker.name}">
+                            <div class="cta-broker-info">
+                                <div class="cta-broker-name">${p.broker.name}</div>
+                                <div class="cta-broker-company">${p.broker.company}</div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/${p.broker.whatsapp}?text=${encodeURIComponent(`Olá! Tenho interesse no imóvel ${p.id} - ${p.title} (${formatPrice(p.price)})`)}" 
+                           target="_blank" 
+                           class="btn btn-primary"
+                           onclick="event.stopPropagation()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Enviar WhatsApp
+                        </a>
+                    </div>
+                `;
+            });
+            
+            cta.innerHTML = ctaHtml;
+        }
+        
+        // ===========================================
+        // EVENT HANDLERS
+        // ===========================================
+        
+        function toggleProperty(id) {
+            const property = properties.find(p => p.id === id);
+            const index = selectedProperties.findIndex(p => p.id === id);
+            
+            if (index > -1) {
+                // Remove from selection
+                selectedProperties.splice(index, 1);
+                showToast(`${property.neighborhood} removido da comparação`);
+            } else {
+                // Add to selection
+                if (selectedProperties.length >= MAX_SELECTION) {
+                    showToast(`Máximo de ${MAX_SELECTION} imóveis. Remova um para adicionar outro.`, 'warning');
+                    return;
+                }
+                selectedProperties.push(property);
+                showToast(`${property.neighborhood} adicionado à comparação`, 'success');
+            }
+            
+            renderPropertyGrid();
+            renderComparisonBar();
+        }
+        
+        function removeProperty(id) {
+            const index = selectedProperties.findIndex(p => p.id === id);
+            if (index > -1) {
+                const property = selectedProperties[index];
+                selectedProperties.splice(index, 1);
+                showToast(`${property.neighborhood} removido`);
+                renderComparisonBar();
+                
+                // If in comparison view, update it
+                if (document.getElementById('comparisonView').classList.contains('active')) {
+                    if (selectedProperties.length < 2) {
+                        backToSelection();
+                    } else {
+                        renderComparison();
+                    }
+                }
+            }
+        }
+        
+        function clearSelection() {
+            selectedProperties = [];
+            renderPropertyGrid();
+            renderComparisonBar();
+            showToast('Seleção limpa');
+        }
+        
+        function showComparison() {
+            if (selectedProperties.length < 2) {
+                showToast('Selecione pelo menos 2 imóveis para comparar', 'warning');
+                return;
+            }
+            
+            document.getElementById('selectionView').classList.add('hidden');
+            document.getElementById('comparisonView').classList.add('active');
+            document.getElementById('comparisonBar').classList.remove('active');
+            
+            renderComparison();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function backToSelection() {
+            document.getElementById('selectionView').classList.remove('hidden');
+            document.getElementById('comparisonView').classList.remove('active');
+            renderComparisonBar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function exportPDF() {
+            showToast('Gerando PDF... (funcionalidade em desenvolvimento)', 'info');
+            // In production, would use html2pdf.js or similar
+        }
+        
+        function shareComparison() {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Comparação de Imóveis - PilarHomes',
+                    text: `Comparando ${selectedProperties.length} imóveis de alto padrão`,
+                    url: url
+                });
+            } else {
+                navigator.clipboard.writeText(url);
+                showToast('Link copiado para a área de transferência', 'success');
+            }
+        }
+        
+        // ===========================================
+        // TOAST NOTIFICATIONS
+        // ===========================================
+        
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===========================================
+        // INITIALIZATION
+        // ===========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPropertyGrid();
+            
+            // Event listeners
+            document.getElementById('btnClearSelection').addEventListener('click', clearSelection);
+            document.getElementById('btnCompare').addEventListener('click', showComparison);
+            document.getElementById('btnBack').addEventListener('click', backToSelection);
+        });
+    </script>
+</body>
+</html>

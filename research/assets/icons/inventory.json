@@ -1,0 +1,264 @@
+{
+  "extractedDate": "2025-12-03",
+  "source": "pilarhomes.com.br",
+  "pages": [
+    {
+      "url": "pilarhomes.com.br/venda/imoveis",
+      "totalSvgs": 89,
+      "uniqueIcons": 35,
+      "date": "2025-12-03"
+    },
+    {
+      "url": "pilarhomes.com.br/imovel/LA291/casa-3-quartos-jardim-guedala-sao-paulo",
+      "totalSvgs": 98,
+      "uniqueIcons": 43,
+      "newIcons": 8,
+      "date": "2025-12-03"
+    }
+  ],
+  "totalUnique": 29,
+  "targetTotal": 98,
+  "progress": 0.296,
+  "categories": {
+    "branding": 2,
+    "navigation": 6,
+    "functional": 10,
+    "uiControls": 1,
+    "decorative": 1,
+    "social": 1,
+    "propertyDetails": 8
+  },
+  "icons": [
+    {
+      "name": "logo-pilar-homes",
+      "viewBox": "0 0 1207 147",
+      "category": "branding",
+      "file": "branding/logo-pilar-homes.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "logo-icon-mark",
+      "viewBox": "0 0 24 22",
+      "category": "branding",
+      "file": "branding/logo-icon-mark.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "close-x",
+      "viewBox": "0 0 24 24",
+      "category": "navigation",
+      "file": "navigation/close-x.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "chevron-down",
+      "viewBox": "0 0 24 24",
+      "category": "navigation",
+      "file": "navigation/chevron-down.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "chevron-right",
+      "viewBox": "0 0 24 24",
+      "category": "navigation",
+      "file": "navigation/chevron-right.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "chevron-left",
+      "viewBox": "0 0 24 24",
+      "category": "navigation",
+      "file": "navigation/chevron-left.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "menu-hamburger",
+      "viewBox": "0 -960 960 960",
+      "category": "navigation",
+      "file": "navigation/menu-hamburger.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "explore-compass",
+      "viewBox": "0 0 24 24",
+      "category": "navigation",
+      "file": "navigation/explore-compass.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "search-magnifier",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/search-magnifier.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "star-favorite",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/star-favorite.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "star-favorite-filled",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/star-favorite-filled.svg",
+      "foundOn": ["property-details"]
+    },
+    {
+      "name": "user-account",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/user-account.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "share-network",
+      "viewBox": "0 0 20 20",
+      "category": "functional",
+      "file": "functional/share-network.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "building-house",
+      "viewBox": "0 0 17 16",
+      "category": "functional",
+      "file": "functional/building-house.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "building-city",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/building-city.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "map-location",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/map-location.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "filter-icon",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/filter-icon.svg",
+      "foundOn": ["homepage"]
+    },
+    {
+      "name": "plus-add",
+      "viewBox": "0 0 24 24",
+      "category": "functional",
+      "file": "functional/plus-add.svg",
+      "foundOn": ["homepage"]
+    },
+    {
+      "name": "checkmark",
+      "viewBox": "0 0 21 20",
+      "category": "uiControls",
+      "file": "ui-controls/checkmark.svg",
+      "foundOn": ["homepage"]
+    },
+    {
+      "name": "triangle-marker",
+      "viewBox": "0 0 26 28",
+      "category": "decorative",
+      "file": "decorative/triangle-marker.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "instagram",
+      "viewBox": "0 0 24 24",
+      "category": "social",
+      "file": "social/instagram.svg",
+      "foundOn": ["homepage", "property-details"]
+    },
+    {
+      "name": "whatsapp-contact",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/whatsapp-contact.svg",
+      "foundOn": ["property-details"],
+      "description": "Botão de contato via WhatsApp (preenchido)"
+    },
+    {
+      "name": "bed-bedroom",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/bed-bedroom.svg",
+      "foundOn": ["property-details"],
+      "description": "Quantidade de quartos/suítes"
+    },
+    {
+      "name": "area-size",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/area-size.svg",
+      "foundOn": ["property-details"],
+      "description": "Área construída/total do imóvel"
+    },
+    {
+      "name": "floor-levels",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/floor-levels.svg",
+      "foundOn": ["property-details"],
+      "description": "Número de andares da propriedade"
+    },
+    {
+      "name": "bathtub-bathroom",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/bathtub-bathroom.svg",
+      "foundOn": ["property-details"],
+      "description": "Quantidade de banheiros"
+    },
+    {
+      "name": "garage-parking",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/garage-parking.svg",
+      "foundOn": ["property-details"],
+      "description": "Vagas de garagem"
+    },
+    {
+      "name": "copy-clipboard",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/copy-clipboard.svg",
+      "foundOn": ["property-details"],
+      "description": "Copiar informações"
+    },
+    {
+      "name": "external-link",
+      "viewBox": "0 0 24 24",
+      "category": "propertyDetails",
+      "file": "property-details/external-link.svg",
+      "foundOn": ["property-details"],
+      "description": "Link externo (seta diagonal)"
+    }
+  ],
+  "stats": {
+    "viewBoxDistribution": {
+      "24x24": 23,
+      "26x28": 1,
+      "20x20": 1,
+      "17x16": 1,
+      "24x22": 1,
+      "1207x147": 1,
+      "960x960": 1
+    },
+    "fillPattern": "currentColor (100%)",
+    "tailwindIntegration": "size-5, size-6, size-7, text-beige, text-primary, text-white"
+  },
+  "nextSteps": [
+    "Navigate to advanced search page with filters",
+    "Navigate to login/account pages",
+    "Navigate to collections/favorites",
+    "Scroll to footer for additional social media icons",
+    "Check modals and overlays for gallery/360 tour icons"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "page": "/venda/imoveis/",
+  "total_requests": 291,
+  "total_images": 110,
+  "total_image_size_mb": 2.43,
+  "top_domains": {
+    "pilarhomes.com.br": {
+      "count": 133,
+      "size": 2711547,
+      "urls": []
+    },
+    "imagens.pilarhomes.com.br": {
+      "count": 81,
+      "size": 2345335,
+      "urls": []
+    },
+    "maps.googleapis.com": {
+      "count": 37,
+      "size": 1542405,
+      "urls": []
+    },
+    "www.googletagmanager.com": {
+      "count": 12,
+      "size": 1815483,
+      "urls": []
+    },
+    "analytics.tiktok.com": {
+      "count": 5,
+      "size": 621513,
+      "urls": []
+    },
+    "www.facebook.com": {
+      "count": 4,
+      "size": 134,
+      "urls": []
+    },
+    "www.google.com": {
+      "count": 3,
+      "size": 84,
+      "urls": []
+    },
+    "connect.facebook.net": {
+      "count": 2,
+      "size": 730752,
+      "urls": []
+    },
+    "googleads.g.doubleclick.net": {
+      "count": 2,
+      "size": 8207,
+      "urls": []
+    },
+    "www.google-analytics.com": {
+      "count": 2,
+      "size": 0,
+      "urls": []
+    }
+  },
+  "apis_found": [
+    "GET maps.googleapis.com/maps/api/mapsjs/gen_204",
+    "GET maps.googleapis.com/maps/api/js",
+    "GET pilarhomes.com.br/api/properties/clusters",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/util.js",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/marker.js",
+    "OPTIONS maps.googleapis.com/maps/api/mapsjs/mapConfigs:batchGet",
+    "POST analytics.tiktok.com/api/v2/pixel/act",
+    "POST analytics.tiktok.com/api/v2/pixel",
+    "GET maps.googleapis.com/maps/api/mapsjs/mapConfigs:batchGet",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/map.js",
+    "GET maps.googleapis.com/maps/api/js/GeocodeService.Search",
+    "GET pilarhomes.com.br/api/properties",
+    "OPTIONS maps.googleapis.com/maps/api/mapsjs/gen_204",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/places.js",
+    "GET maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate",
+    "GET pilarhomes.com.br/api/_auth/session",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/common.js",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/geocoder.js",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/log.js",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/main.js",
+    "GET maps.googleapis.com/maps-api-v3/api/js/63/1b/onion.js"
+  ],
+  "tracking_services": {
+    "GTM": 13,
+    "ClickCease": 1,
+    "Facebook": 6,
+    "TikTok": 6,
+    "Google Analytics": 2,
+    "Stape (Server GTM)": 2,
+    "Hotjar": 3
+  }
+}

@@ -1,0 +1,2392 @@
+{
+  "timestamp": "2025-12-03T08:58:17.447822",
+  "total": 104,
+  "success": 81,
+  "failed": 23,
+  "results": [
+    {
+      "domain": "pilardemo1.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='pilardemo1.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x000002467059A630>: Failed to resolve 'pilardemo1.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "pilardemo2.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='pilardemo2.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246708BCA40>: Failed to resolve 'pilardemo2.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "pilardemo3.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='pilardemo3.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246708BD160>: Failed to resolve 'pilardemo3.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "avahomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://avahomes.com.br/assets/img/lay/logo2025-120.png",
+          "file": "logos_whitelabel\\avahomes_com_br_img-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://www.avahomes.com.br/assets/upload/tmp/home.webp?1764750339",
+          "file": "logos_whitelabel\\avahomes_com_br_og-image.webp"
+        },
+        {
+          "type": "favicon",
+          "url": "https://avahomes.com.br/assets/favicon2025.png?c=1",
+          "file": "logos_whitelabel\\avahomes_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "eclathomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d89a461d5115ed107efd2a/hadid/66db07d1bd3211f6ae827ca7.svg",
+          "file": "logos_whitelabel\\eclathomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\eclathomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d89a461d5115ed107efd2a/hadid/66db07d1141b32b204a58a91.svg",
+          "file": "logos_whitelabel\\eclathomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d89a461d5115ed107efd2a/hadid/66db07d1bd3211f6ae827ca6.jpg",
+          "file": "logos_whitelabel\\eclathomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d89a461d5115ed107efd2a/hadid/66db07d1bd3211f6ae827ca8.ico",
+          "file": "logos_whitelabel\\eclathomes_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "homesphere.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY1MjA3MTZiMmE0NDc1MGQ2YTMyY2UzZC9oYWRpZC82ODEwZTZjMmU4NmZiOTBmZWNmM2Y5ZDEucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\homesphere_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\homesphere_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/homesphere/logo_hs.jpg",
+          "file": "logos_whitelabel\\homesphere_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/homesphere/favicon.svg",
+          "file": "logos_whitelabel\\homesphere_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "cmolarihomes.com.br",
+      "status": "error",
+      "error": "404 Client Error: Not Found for url: https://cmolarihomes.com.br/",
+      "logos": []
+    },
+    {
+      "domain": "mosaichomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62019420a0107a75d78e3b46/hadid/67584437ffb247ae788df6c9.svg",
+          "file": "logos_whitelabel\\mosaichomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\mosaichomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62019420a0107a75d78e3b46/hadid/67584437f92369a4a62c53dd.svg",
+          "file": "logos_whitelabel\\mosaichomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62019420a0107a75d78e3b46/hadid/675701e0f92369a4a62c53d7.jpg",
+          "file": "logos_whitelabel\\mosaichomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62019420a0107a75d78e3b46/hadid/68b85938f7af1945d3f80482.svg",
+          "file": "logos_whitelabel\\mosaichomes_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "pandorahomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY1ZjRiMjZlZWY0NzZlNDIzMzA2Zjk4Yi9oYWRpZC82NjE4NGYwMTI0NTdhNTc1YjMzZDVhYWUucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\pandorahomes_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\pandorahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f4b26eef476e423306f98b/hadid/66184f012457a575b33d5aad.jpg",
+          "file": "logos_whitelabel\\pandorahomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f4b26eef476e423306f98b/hadid/66184f012457a575b33d5aaf.svg",
+          "file": "logos_whitelabel\\pandorahomes_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "iconhomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666c9b712032947b5cc8a087/hadid/669fbfb0defd1f6408201f83.svg",
+          "file": "logos_whitelabel\\iconhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\iconhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666c9b712032947b5cc8a087/hadid/669fbfb0defd1f6408201f80.svg",
+          "file": "logos_whitelabel\\iconhomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666c9b712032947b5cc8a087/hadid/669fbfb0defd1f6408201f7e.svg",
+          "file": "logos_whitelabel\\iconhomes_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666c9b712032947b5cc8a087/hadid/669fbfb0defd1f6408201f7f.ico",
+          "file": "logos_whitelabel\\iconhomes_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "biafrancohomes.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='biafrancohomes.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670F230E0>: Failed to resolve 'biafrancohomes.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "augustahomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6814dcd092fa7bbd65a1b454/hadid/6839e840416f094ca966b1ee.svg",
+          "file": "logos_whitelabel\\augustahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\augustahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6814dcd092fa7bbd65a1b454/hadid/6839e91c416f094ca966b1f1.svg",
+          "file": "logos_whitelabel\\augustahomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6814dcd092fa7bbd65a1b454/hadid/685bf87e371df2c6399ca188.jpg",
+          "file": "logos_whitelabel\\augustahomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6814dcd092fa7bbd65a1b454/hadid/685bf838371df2c6399ca187.svg",
+          "file": "logos_whitelabel\\augustahomes_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "home2uimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/671fa00af59cdabbca5c8295/hadid/6756eef1f92369a4a62c53d5.svg",
+          "file": "logos_whitelabel\\home2uimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\home2uimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/671fa00af59cdabbca5c8295/hadid/6756eef1f92369a4a62c53d6.svg",
+          "file": "logos_whitelabel\\home2uimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/671fa00af59cdabbca5c8295/hadid/6756eef1ffb247ae788df6be.jpg",
+          "file": "logos_whitelabel\\home2uimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/671fa00af59cdabbca5c8295/hadid/6756eef1f92369a4a62c53d4.svg",
+          "file": "logos_whitelabel\\home2uimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "zeroonzeimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62729d163834b7b70ce32949/hadid/6673407bc3975aeecd6baa8e.svg",
+          "file": "logos_whitelabel\\zeroonzeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\zeroonzeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62729d163834b7b70ce32949/hadid/66733f58c3975aeecd6baa89.png",
+          "file": "logos_whitelabel\\zeroonzeimoveis_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62729d163834b7b70ce32949/hadid/66733f58c3975aeecd6baa85.svg",
+          "file": "logos_whitelabel\\zeroonzeimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "casacarambolaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65ea0110f4df8f78f5a64097%2Fhadid%2F662817f7a1b50de91c3a7028.svg",
+          "file": "logos_whitelabel\\casacarambolaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\casacarambolaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65ea0110f4df8f78f5a64097/hadid/6617f5a02457a575b33d5aa0.jpg",
+          "file": "logos_whitelabel\\casacarambolaimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65ea0110f4df8f78f5a64097/hadid/6617f5a02457a575b33d5aa5.svg",
+          "file": "logos_whitelabel\\casacarambolaimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "vistaprimeimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66829c181a1bdb71d4141b71/hadid/66996c8afe5c4c753107d244.svg",
+          "file": "logos_whitelabel\\vistaprimeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\vistaprimeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66829c181a1bdb71d4141b71/hadid/66996c8afe5c4c753107d246.jpg",
+          "file": "logos_whitelabel\\vistaprimeimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66829c181a1bdb71d4141b71/hadid/66996c8afe5c4c753107d245.ico",
+          "file": "logos_whitelabel\\vistaprimeimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "cgimoveisespeciais.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/cgimoveisespeciais/cg_pilar.svg",
+          "file": "logos_whitelabel\\cgimoveisespeciais_com_br_img-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/cgimoveisespeciais/favicon.ico",
+          "file": "logos_whitelabel\\cgimoveisespeciais_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "casalomaimoveis.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='casalomaimoveis.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670C91340>: Failed to resolve 'casalomaimoveis.com.br' ([Errno 11002] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "pecanimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6InBlY2FuL2xvZ29fd2hpdGUucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\pecanimoveis_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\pecanimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/pecan/favicon.ico",
+          "file": "logos_whitelabel\\pecanimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "openimoveissp.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/open_imoveis/logo_white.svg",
+          "file": "logos_whitelabel\\openimoveissp_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\openimoveissp_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64677f94d914c9fdd4a0ea1b/hadid/692473517c9bc56b3c6774f3.svg",
+          "file": "logos_whitelabel\\openimoveissp_com_br_container-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/open_imoveis/favicon.svg",
+          "file": "logos_whitelabel\\openimoveissp_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "rximoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/rx_imoveis/rx-horizontal.svg",
+          "file": "logos_whitelabel\\rximoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\rximoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/rx_imoveis/favicon.svg",
+          "file": "logos_whitelabel\\rximoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "area2imoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6526f2972a44750d6a32ce47/hadid/670042b10d2b99cfc75f0d21.svg",
+          "file": "logos_whitelabel\\area2imoveis_com_br_img-logo.svg"
+        }
+      ]
+    },
+    {
+      "domain": "zarahimoveis.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='zarahimoveis.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670D617C0>: Failed to resolve 'zarahimoveis.com.br' ([Errno 11002] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "globalbrokersimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67112dc511aad682e1828d71/hadid/674f3d68ddaea0a38e02f096.svg",
+          "file": "logos_whitelabel\\globalbrokersimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\globalbrokersimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67112dc511aad682e1828d71/hadid/674f3d6813c621ddf3a94fc0.svg",
+          "file": "logos_whitelabel\\globalbrokersimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67112dc511aad682e1828d71/hadid/674f3d68ddaea0a38e02f095.jpg",
+          "file": "logos_whitelabel\\globalbrokersimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67112dc511aad682e1828d71/hadid/674f3d6813c621ddf3a94fbe.ico",
+          "file": "logos_whitelabel\\globalbrokersimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "ccoliimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e8995f074521df59308763/hadid/66fc380eb2eed00e3afad686.svg",
+          "file": "logos_whitelabel\\ccoliimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\ccoliimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e8995f074521df59308763/hadid/66fc380e0d2b99cfc75f0d07.svg",
+          "file": "logos_whitelabel\\ccoliimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e8995f074521df59308763/hadid/66fc380e0d2b99cfc75f0d05.jpg",
+          "file": "logos_whitelabel\\ccoliimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e8995f074521df59308763/hadid/66fc380e0d2b99cfc75f0d06.ico",
+          "file": "logos_whitelabel\\ccoliimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "lilaximoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/625815ca7e50f411b4df8e7d/hadid/667337e5c3975aeecd6baa74.svg",
+          "file": "logos_whitelabel\\lilaximoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\lilaximoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/625815ca7e50f411b4df8e7d/hadid/667337e6c3975aeecd6baa78.png",
+          "file": "logos_whitelabel\\lilaximoveis_com_br_container-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/625815ca7e50f411b4df8e7d/hadid/667337e6c3975aeecd6baa75.png",
+          "file": "logos_whitelabel\\lilaximoveis_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/625815ca7e50f411b4df8e7d/hadid/667337e6c3975aeecd6baa76.png",
+          "file": "logos_whitelabel\\lilaximoveis_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "casapessoaimoveis.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='casapessoaimoveis.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670C03AA0>: Failed to resolve 'casapessoaimoveis.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "casalyraimoveis.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='casalyraimoveis.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670A479E0>: Failed to resolve 'casalyraimoveis.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "maisonclassiqueimoveis.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='maisonclassiqueimoveis.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670A47FE0>: Failed to resolve 'maisonclassiqueimoveis.com.br' ([Errno 11002] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "imoveismistral.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY3YjhlNzI5NTA1YzNjMGQzNTdiZWQ1Ni9oYWRpZC82N2QwNTBhYTY4YjY5NTQxYzgzOGY3YTgucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\imoveismistral_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\imoveismistral_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b8e729505c3c0d357bed56/hadid/67d0506c68b69541c838f7a7.png",
+          "file": "logos_whitelabel\\imoveismistral_com_br_container-logo.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b8e729505c3c0d357bed56/hadid/67d04cbd68b69541c838f7a4.svg",
+          "file": "logos_whitelabel\\imoveismistral_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "orosimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66717e4d1a1bdb71d4141b3d/hadid/6808da5059a19fb2ff26fdaa.svg",
+          "file": "logos_whitelabel\\orosimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\orosimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66717e4d1a1bdb71d4141b3d/hadid/66e83ea6eaa33cb09b1acb2c.svg",
+          "file": "logos_whitelabel\\orosimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66717e4d1a1bdb71d4141b3d/hadid/66b382e104456a136572be93.jpg",
+          "file": "logos_whitelabel\\orosimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66717e4d1a1bdb71d4141b3d/hadid/66b382e104456a136572be90.svg",
+          "file": "logos_whitelabel\\orosimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "imoveslaper.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='imoveslaper.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670A08EC0>: Failed to resolve 'imoveslaper.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "coimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY3NDc1OTM3MTNlMTIxMWY5MDI0MjY2ZC9oYWRpZC82OGRiY2FlMDIxM2IxMWZiMTFjNmUwYTcucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\coimoveis_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\coimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6747593713e1211f9024266d/hadid/67fd3b4b703b1784b8006cec.jpg",
+          "file": "logos_whitelabel\\coimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6747593713e1211f9024266d/hadid/6759ca98f92369a4a62c53ec.svg",
+          "file": "logos_whitelabel\\coimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "emperiaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670978c1a1bdb71d4141b39/hadid/66b2328804456a136572be83.svg",
+          "file": "logos_whitelabel\\emperiaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\emperiaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670978c1a1bdb71d4141b39/hadid/66b2328804456a136572be82.svg",
+          "file": "logos_whitelabel\\emperiaimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670978c1a1bdb71d4141b39/hadid/66b2328804456a136572be85.jpg",
+          "file": "logos_whitelabel\\emperiaimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670978c1a1bdb71d4141b39/hadid/66b2328804456a136572be87.svg",
+          "file": "logos_whitelabel\\emperiaimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "axsimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b3a3cb505c3c0d357bed3d/hadid/67c2058a50b220ac22ac5c04.svg",
+          "file": "logos_whitelabel\\axsimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\axsimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b3a3cb505c3c0d357bed3d/hadid/67c2065050b220ac22ac5c05.jpg",
+          "file": "logos_whitelabel\\axsimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b3a3cb505c3c0d357bed3d/hadid/67c2057250b220ac22ac5c03.svg",
+          "file": "logos_whitelabel\\axsimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "fikaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/643ea487a1332cd36dbfa94e/hadid/67a20b31ccdd1b16da8de87f.svg",
+          "file": "logos_whitelabel\\fikaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\fikaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/643ea487a1332cd36dbfa94e/hadid/67ab9078615270c62c1df223.jpg",
+          "file": "logos_whitelabel\\fikaimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/643ea487a1332cd36dbfa94e/hadid/67ab8fc1e1c429566beed95f.svg",
+          "file": "logos_whitelabel\\fikaimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "suagaleriadeimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6508ca265def5c211af46bdc/hadid/66aa8f6d7b0f58125dfcbb0a.svg",
+          "file": "logos_whitelabel\\suagaleriadeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6508ca265def5c211af46bdc/hadid/668564b0217bfbe781f42918.svg",
+          "file": "logos_whitelabel\\suagaleriadeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6508ca265def5c211af46bdc/hadid/66856236217bfbe781f42915.png",
+          "file": "logos_whitelabel\\suagaleriadeimoveis_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/sua_galeria/Reduzido_5-8_sqapwl.ico",
+          "file": "logos_whitelabel\\suagaleriadeimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "lhimoveisdeluxo.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/669ac9b88c7fb3678e5a9d09/hadid/66a3a0237b0f58125dfcbac5.svg",
+          "file": "logos_whitelabel\\lhimoveisdeluxo_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/669ac9b88c7fb3678e5a9d09/hadid/66a3a0237b0f58125dfcbac7.svg",
+          "file": "logos_whitelabel\\lhimoveisdeluxo_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/669ac9b88c7fb3678e5a9d09/hadid/66a3a0237b0f58125dfcbac9.jpg",
+          "file": "logos_whitelabel\\lhimoveisdeluxo_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/669ac9b88c7fb3678e5a9d09/hadid/66b519eb04456a136572beab.ico",
+          "file": "logos_whitelabel\\lhimoveisdeluxo_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "imoveisemfamilia.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/673262bdf59cdabbca5c82d0/hadid/6759ca61ffb247ae788df6d3.svg",
+          "file": "logos_whitelabel\\imoveisemfamilia_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\imoveisemfamilia_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/673262bdf59cdabbca5c82d0/hadid/6759ca61f92369a4a62c53ea.svg",
+          "file": "logos_whitelabel\\imoveisemfamilia_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/673262bdf59cdabbca5c82d0/hadid/673f8043c98ba9d4e7985fb4.jpg",
+          "file": "logos_whitelabel\\imoveisemfamilia_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/673262bdf59cdabbca5c82d0/hadid/673f804358d8cd3aed3b8236.ico",
+          "file": "logos_whitelabel\\imoveisemfamilia_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "zaraimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6706de8911aad682e1828d5a/hadid/6728e5be87d0a83ad3ca01ce.svg",
+          "file": "logos_whitelabel\\zaraimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\zaraimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6706de8911aad682e1828d5a/hadid/6728e5be87d0a83ad3ca01cc.svg",
+          "file": "logos_whitelabel\\zaraimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6706de8911aad682e1828d5a/hadid/6728e5be87d0a83ad3ca01cd.svg",
+          "file": "logos_whitelabel\\zaraimoveis_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6706de8911aad682e1828d5a/hadid/6728e5bedb37f53ac59f174e.ico",
+          "file": "logos_whitelabel\\zaraimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "kasa7imoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b60f34505c3c0d357bed47/hadid/67b76e97091e7b91ef380562.svg",
+          "file": "logos_whitelabel\\kasa7imoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\kasa7imoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b60f34505c3c0d357bed47/hadid/67b76e97074b9505bf59f67e.svg",
+          "file": "logos_whitelabel\\kasa7imoveis_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67b60f34505c3c0d357bed47/hadid/67b76e97074b9505bf59f67d.svg",
+          "file": "logos_whitelabel\\kasa7imoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "investemimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f1b817ef476e423306f983%2Fhadid%2F6627cf57a1b50de91c3a7006.svg",
+          "file": "logos_whitelabel\\investemimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\investemimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f1b817ef476e423306f983%2Fhadid%2F6627cf57a1b50de91c3a700c.jpg",
+          "file": "logos_whitelabel\\investemimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f1b817ef476e423306f983%2Fhadid%2F6627cf57a1b50de91c3a700a.svg",
+          "file": "logos_whitelabel\\investemimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "vizimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62c80aa293e5fef0243f794f/hadid/667ac49bd6376bf6063698b7.svg",
+          "file": "logos_whitelabel\\vizimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\vizimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62c80aa293e5fef0243f794f/hadid/667ac49bd6376bf6063698b5.png",
+          "file": "logos_whitelabel\\vizimoveis_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62c80aa293e5fef0243f794f/hadid/667ac49dd6376bf6063698b9.svg",
+          "file": "logos_whitelabel\\vizimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "eduardocaderaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c4fbbef476e423306f9bc%2Fhadid%2F662928b2df67676bbb65c186.svg",
+          "file": "logos_whitelabel\\eduardocaderaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\eduardocaderaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c4fbbef476e423306f9bc%2Fhadid%2F6627af93a1b50de91c3a6fa2.jpg",
+          "file": "logos_whitelabel\\eduardocaderaimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c4fbbef476e423306f9bc%2Fhadid%2F6627af93a1b50de91c3a6fa6.svg",
+          "file": "logos_whitelabel\\eduardocaderaimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "gardeimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjYyMGVhYWQ5OGZlYjgzMGVlZTUyMTZkNy9oYWRpZC82ODQwNTFjYTY0ZjIzYjA5YjdjMmM5YzQucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\gardeimoveis_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\gardeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67229559f59cdabbca5c82af/hadid/687eb7c9cbb0075d57c6949a.svg",
+          "file": "logos_whitelabel\\gardeimoveis_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/67229559f59cdabbca5c82af/hadid/687eaec2cbb0075d57c69498.svg",
+          "file": "logos_whitelabel\\gardeimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "escorsinimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6818d5db75ae689799b7bc86/hadid/681bb412bf36ff17aa668f7e.svg",
+          "file": "logos_whitelabel\\escorsinimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\escorsinimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6818d5db75ae689799b7bc86/hadid/681bb528bf36ff17aa668f81.svg",
+          "file": "logos_whitelabel\\escorsinimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6818d5db75ae689799b7bc86/hadid/681bb412f5a27c8835f86982.jpg",
+          "file": "logos_whitelabel\\escorsinimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6818d5db75ae689799b7bc86/hadid/686d82efe4c1f6167880a495.svg",
+          "file": "logos_whitelabel\\escorsinimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "luferreiraimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fac8010d8fff0985a0d8/hadid/674f17d2660b148eac82335b.svg",
+          "file": "logos_whitelabel\\luferreiraimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\luferreiraimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fac8010d8fff0985a0d8/hadid/674f17f5660b148eac82335c.svg",
+          "file": "logos_whitelabel\\luferreiraimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fac8010d8fff0985a0d8/hadid/674f18eb6fb54bb041f82598.jpg",
+          "file": "logos_whitelabel\\luferreiraimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fac8010d8fff0985a0d8/hadid/6786cc6979c5bec467bbc1ad.svg",
+          "file": "logos_whitelabel\\luferreiraimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "imoveisavenidapaulista.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY2ZTlkYzFlMDc0NTIxZGY1OTMwODc2OS9oYWRpZC82ODQwYTI4N2FmZTljODc1MzJjZDU3ZTYucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\imoveisavenidapaulista_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\imoveisavenidapaulista_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e9dc1e074521df59308769/hadid/66ff02d3b2eed00e3afad69c.svg",
+          "file": "logos_whitelabel\\imoveisavenidapaulista_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e9dc1e074521df59308769/hadid/66ff02d3b2eed00e3afad69b.jpg",
+          "file": "logos_whitelabel\\imoveisavenidapaulista_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66e9dc1e074521df59308769/hadid/66ff02d30d2b99cfc75f0d1f.svg",
+          "file": "logos_whitelabel\\imoveisavenidapaulista_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "namaiimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY3MDgyNTg2MTFhYWQ2ODJlMTgyOGQ1Zi9oYWRpZC82N2VjNTZlYjA1ZjE4N2U4M2NjODEzYTgucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\namaiimoveis_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\namaiimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6708258611aad682e1828d5f/hadid/67ec56ebf4a9dde46e59c3be.png",
+          "file": "logos_whitelabel\\namaiimoveis_com_br_container-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6708258611aad682e1828d5f/hadid/67ec575ff4a9dde46e59c3bf.png",
+          "file": "logos_whitelabel\\namaiimoveis_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6708258611aad682e1828d5f/hadid/67ec575f05f187e83cc813a9.svg",
+          "file": "logos_whitelabel\\namaiimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "sabiaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c1639ef476e423306f9b9/hadid/6633e0c6e7ae6f62a5a569d7.svg",
+          "file": "logos_whitelabel\\sabiaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\sabiaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c1639ef476e423306f9b9/hadid/6633e05fe7ae6f62a5a569cf.jpg",
+          "file": "logos_whitelabel\\sabiaimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/660c1639ef476e423306f9b9/hadid/66b5184704456a136572beaa.ico",
+          "file": "logos_whitelabel\\sabiaimoveis_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "imoveisbs.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6696681f8c7fb3678e5a9d01/hadid/66aa3ce47b0f58125dfcbb03.svg",
+          "file": "logos_whitelabel\\imoveisbs_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\imoveisbs_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6696681f8c7fb3678e5a9d01/hadid/66aa3ce47b0f58125dfcbb04.svg",
+          "file": "logos_whitelabel\\imoveisbs_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6696681f8c7fb3678e5a9d01/hadid/66aa3c387b0f58125dfcbb00.jpg",
+          "file": "logos_whitelabel\\imoveisbs_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6696681f8c7fb3678e5a9d01/hadid/66aa3c387b0f58125dfcbb01.ico",
+          "file": "logos_whitelabel\\imoveisbs_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "urbanclassimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/664f528ede04c4bb69e97908/hadid/66634e3cb3b2a5e014fb324a.svg",
+          "file": "logos_whitelabel\\urbanclassimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/664f528ede04c4bb69e97908/hadid/66634e3cb3b2a5e014fb3249.svg",
+          "file": "logos_whitelabel\\urbanclassimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/664f528ede04c4bb69e97908/hadid/66634e3cb3b2a5e014fb3248.jpg",
+          "file": "logos_whitelabel\\urbanclassimoveis_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/664f528ede04c4bb69e97908/hadid/66634e3cb3b2a5e014fb3245.svg",
+          "file": "logos_whitelabel\\urbanclassimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "olhardecorretora.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6Im9saGFyLWRlLWNvcnJldG9yYS9sb2dvX3doaXRlLnBuZyIsImVkaXRzIjp7ImZvcm1hdCI6IndlYnAiLCJyb3RhdGUiOm51bGx9fQ==",
+          "file": "logos_whitelabel\\olhardecorretora_com_br_img-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/olhar-de-corretora/thumb.jpg",
+          "file": "logos_whitelabel\\olhardecorretora_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/olhar-de-corretora/favicon.ico",
+          "file": "logos_whitelabel\\olhardecorretora_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "mg2imov.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/66da109aa6addc684c8da243/hadid/6703d3670d2b99cfc75f0d29.svg",
+          "file": "logos_whitelabel\\mg2imov_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\mg2imov_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66da109aa6addc684c8da243/hadid/6703d37cb2eed00e3afad69e.svg",
+          "file": "logos_whitelabel\\mg2imov_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66da109aa6addc684c8da243/hadid/66e47a2031a49e9180c357dc.jpg",
+          "file": "logos_whitelabel\\mg2imov_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66da109aa6addc684c8da243/hadid/66e47a2031a49e9180c357db.ico",
+          "file": "logos_whitelabel\\mg2imov_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "goinhome.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64c3dde030e5bdd434ceb975/hadid/666affcd0696030473b2102d.svg",
+          "file": "logos_whitelabel\\goinhome_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\goinhome_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64c3dde030e5bdd434ceb975/hadid/666afe930696030473b21029.jpg",
+          "file": "logos_whitelabel\\goinhome_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64c3dde030e5bdd434ceb975/hadid/66e84722eaa33cb09b1acb30.ico",
+          "file": "logos_whitelabel\\goinhome_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "pitayaimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/63f7b6db1924cf30fc120d64/hadid/6675dd7cd6376bf606369875.svg",
+          "file": "logos_whitelabel\\pitayaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\pitayaimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/63f7b6db1924cf30fc120d64/hadid/6675dd7cd6376bf606369873.svg",
+          "file": "logos_whitelabel\\pitayaimoveis_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/63f7b6db1924cf30fc120d64/hadid/6675dd7cd6376bf606369874.png",
+          "file": "logos_whitelabel\\pitayaimoveis_com_br_og-image.png"
+        }
+      ]
+    },
+    {
+      "domain": "arzbrokers.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6679b8001a1bdb71d4141b5e/hadid/669ed2c2defd1f6408201f7a.svg",
+          "file": "logos_whitelabel\\arzbrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\arzbrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6679b8001a1bdb71d4141b5e/hadid/669ed2c2defd1f6408201f79.svg",
+          "file": "logos_whitelabel\\arzbrokers_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6679b8001a1bdb71d4141b5e/hadid/669ed2c2defd1f6408201f77.jpg",
+          "file": "logos_whitelabel\\arzbrokers_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6679b8001a1bdb71d4141b5e/hadid/669ed2c2defd1f6408201f7b.ico",
+          "file": "logos_whitelabel\\arzbrokers_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "hausbrokers.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/haus-brokers/logo_white1.svg",
+          "file": "logos_whitelabel\\hausbrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/haus-brokers/favicon.ico",
+          "file": "logos_whitelabel\\hausbrokers_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "morobrokers.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66b653c5e998268bb9e99733/hadid/66cf6da4141b32b204a58a64.svg",
+          "file": "logos_whitelabel\\morobrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\morobrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66b653c5e998268bb9e99733/hadid/66cf6da4bd3211f6ae827c85.svg",
+          "file": "logos_whitelabel\\morobrokers_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66b653c5e998268bb9e99733/hadid/66cf6da4141b32b204a58a66.jpg",
+          "file": "logos_whitelabel\\morobrokers_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66b653c5e998268bb9e99733/hadid/66cf6da4bd3211f6ae827c87.svg",
+          "file": "logos_whitelabel\\morobrokers_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "enterbroker.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6ImVudGVyL2xvZ29fd2hpdGVfMi5wbmciLCJlZGl0cyI6eyJmb3JtYXQiOiJ3ZWJwIiwicm90YXRlIjpudWxsfX0=",
+          "file": "logos_whitelabel\\enterbroker_com_br_img-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/enter/thumbnail.ico",
+          "file": "logos_whitelabel\\enterbroker_com_br_og-image.ico"
+        }
+      ]
+    },
+    {
+      "domain": "biafrancobrokers.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY1ZjlhZjRlZWY0NzZlNDIzMzA2Zjk5YS9oYWRpZC82NjI2YmYwNGExYjUwZGU5MWMzYTZmNzYucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\biafrancobrokers_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\biafrancobrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f9af4eef476e423306f99a%2Fhadid%2F6626bf04a1b50de91c3a6f74.jpg",
+          "file": "logos_whitelabel\\biafrancobrokers_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/65f9af4eef476e423306f99a/hadid/66e84214bbaaf693a3c4f888.ico",
+          "file": "logos_whitelabel\\biafrancobrokers_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "sampabrokers.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6633ae0007a092003074f761/hadid/66608442b3b2a5e014fb3151.svg",
+          "file": "logos_whitelabel\\sampabrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-with-pilar-brand/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\sampabrokers_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6633ae0007a092003074f761/hadid/66608442b3b2a5e014fb314c.svg",
+          "file": "logos_whitelabel\\sampabrokers_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6633ae0007a092003074f761/hadid/66608442b3b2a5e014fb314f.jpg",
+          "file": "logos_whitelabel\\sampabrokers_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6633ae0007a092003074f761/hadid/66608442b3b2a5e014fb314d.svg",
+          "file": "logos_whitelabel\\sampabrokers_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "virtualrealty.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62f102d8269bec5ebcb1cd16/hadid/667acad3d6376bf6063698c7.svg",
+          "file": "logos_whitelabel\\virtualrealty_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\virtualrealty_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62f102d8269bec5ebcb1cd16/hadid/667ac6f7d6376bf6063698c5.png",
+          "file": "logos_whitelabel\\virtualrealty_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/62f102d8269bec5ebcb1cd16/hadid/667ac6f7d6376bf6063698c2.png",
+          "file": "logos_whitelabel\\virtualrealty_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "behomerealty.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6357e583fc0266e780854add/hadid/681b8719f5a27c8835f8697e.svg",
+          "file": "logos_whitelabel\\behomerealty_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\behomerealty_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6357e583fc0266e780854add/hadid/67f673f08d35e7fe8d2f00ec.png",
+          "file": "logos_whitelabel\\behomerealty_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6357e583fc0266e780854add/hadid/67f673f0b930a8a6d72e5163.svg",
+          "file": "logos_whitelabel\\behomerealty_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "rmproperties.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='rmproperties.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246731CEB40>: Failed to resolve 'rmproperties.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "brandrealestate.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://s3.amazonaws.com/static.nidoimovel.com.br/ea6b2efbdd4255a9f1b3bbc6399b58f4/site/BR/logo.png?1757438901?1764730800",
+          "file": "logos_whitelabel\\brandrealestate_com_br_img-logo.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://s3.amazonaws.com/static.nidoimovel.com.br/ea6b2efbdd4255a9f1b3bbc6399b58f4/site/BR/favicon.png?1757438780?1764730800",
+          "file": "logos_whitelabel\\brandrealestate_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "maximumre.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66196db9742a0e97558b757f%2Fhadid%2F662a6c9c66bc5752e5bf8dd0.svg",
+          "file": "logos_whitelabel\\maximumre_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\maximumre_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66196db9742a0e97558b757f%2Fhadid%2F662a6c9c66bc5752e5bf8dcf.jpg",
+          "file": "logos_whitelabel\\maximumre_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66196db9742a0e97558b757f/hadid/6877ab1ffa9a096fc0775f9f.ico",
+          "file": "logos_whitelabel\\maximumre_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "thelistproperties.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/the_list/logo_white.svg",
+          "file": "logos_whitelabel\\thelistproperties_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\thelistproperties_com_br_img-logo.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/the_list/favicon.ico",
+          "file": "logos_whitelabel\\thelistproperties_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "bestkey.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/651eb7ac6ed8e18a87c637e7/hadid/671fa69dc0d043e525702c72.svg",
+          "file": "logos_whitelabel\\bestkey_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\bestkey_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/651eb7ac6ed8e18a87c637e7/hadid/67059aa10d2b99cfc75f0d26.svg",
+          "file": "logos_whitelabel\\bestkey_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/651eb7ac6ed8e18a87c637e7/hadid/67044a850d2b99cfc75f0d23.jpg",
+          "file": "logos_whitelabel\\bestkey_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/651eb7ac6ed8e18a87c637e7/hadid/67044a85b2eed00e3afad69f.svg",
+          "file": "logos_whitelabel\\bestkey_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "thekeyluxury.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='thekeyluxury.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670D20B00>: Failed to resolve 'thekeyluxury.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "batellisting.com",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='batellisting.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670D23F20>: Failed to resolve 'batellisting.com' ([Errno 11002] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "tfcuradoria.com",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://tfcuradoria.com/wp-content/uploads/2025/09/Logotipo-VariacOEs-Editado-1024x348.png",
+          "file": "logos_whitelabel\\tfcuradoria_com_img-logo.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://tfcuradoria.com/wp-content/uploads/2025/09/cropped-Marca-dagua1-1-scaled-1-32x32.png",
+          "file": "logos_whitelabel\\tfcuradoria_com_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://tfcuradoria.com/wp-content/uploads/2025/09/cropped-Marca-dagua1-1-scaled-1-192x192.png",
+          "file": "logos_whitelabel\\tfcuradoria_com_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://tfcuradoria.com/wp-content/uploads/2025/09/cropped-Marca-dagua1-1-scaled-1-180x180.png",
+          "file": "logos_whitelabel\\tfcuradoria_com_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "emmegroup.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64d418f7ff04d429b80cc18a/hadid/6661b703b3b2a5e014fb31b7.svg",
+          "file": "logos_whitelabel\\emmegroup_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64d418f7ff04d429b80cc18a/hadid/6661b703b3b2a5e014fb31b6.jpg",
+          "file": "logos_whitelabel\\emmegroup_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64d418f7ff04d429b80cc18a/hadid/66919ff7fe5c4c753107d1fd.ico",
+          "file": "logos_whitelabel\\emmegroup_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "valmendonca.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6825e4a31620f92f8984ac78/hadid/683f6cd3066e36c1c6286bad.svg",
+          "file": "logos_whitelabel\\valmendonca_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\valmendonca_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6825e4a31620f92f8984ac78/hadid/683f6cd3eba8032ad2826d77.svg",
+          "file": "logos_whitelabel\\valmendonca_com_br_og-image.svg"
+        }
+      ]
+    },
+    {
+      "domain": "levav.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY0ODFjNGE5MzhiNzA5NGNjOWY2MDY4MS9oYWRpZC82NjY4NjU0MTA2OTYwMzA0NzNiMjBmZTkucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\levav_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\levav_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6481c4a938b7094cc9f60681/hadid/666862090696030473b20fe4.jpg",
+          "file": "logos_whitelabel\\levav_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6481c4a938b7094cc9f60681/hadid/666862090696030473b20fe2.svg",
+          "file": "logos_whitelabel\\levav_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "renatafarhud.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='renatafarhud.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670D23620>: Failed to resolve 'renatafarhud.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "vilamoema.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ec6d9f074521df59308778/hadid/670ed42dccfac372ca86bea6.svg",
+          "file": "logos_whitelabel\\vilamoema_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\vilamoema_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ec6d9f074521df59308778/hadid/6711117dfcde300b51dba2a6.svg",
+          "file": "logos_whitelabel\\vilamoema_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ec6d9f074521df59308778/hadid/670ed42eccfac372ca86bea8.jpg",
+          "file": "logos_whitelabel\\vilamoema_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ec6d9f074521df59308778/hadid/670ed42d9e30f6104b33e835.ico",
+          "file": "logos_whitelabel\\vilamoema_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "linsnegociosimobiliarios.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66cccedaa4dc098790db0e45/hadid/6706e7fd0d2b99cfc75f0d35.svg",
+          "file": "logos_whitelabel\\linsnegociosimobiliarios_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66cccedaa4dc098790db0e45/hadid/6706e7fd0d2b99cfc75f0d34.jpg",
+          "file": "logos_whitelabel\\linsnegociosimobiliarios_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66cccedaa4dc098790db0e45/hadid/6706e7fdb2eed00e3afad6b1.ico",
+          "file": "logos_whitelabel\\linsnegociosimobiliarios_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "andarx.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666847462032947b5cc8a07f/hadid/667ad7afd6376bf6063698cb.svg",
+          "file": "logos_whitelabel\\andarx_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\andarx_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666847462032947b5cc8a07f/hadid/667ad7afd6376bf6063698d0.svg",
+          "file": "logos_whitelabel\\andarx_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666847462032947b5cc8a07f/hadid/667ad7afd6376bf6063698cd.jpg",
+          "file": "logos_whitelabel\\andarx_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/666847462032947b5cc8a07f/hadid/667ad7afd6376bf6063698ca.svg",
+          "file": "logos_whitelabel\\andarx_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "imobilliare.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY2YmE1MTBmMWZmMmZlNTdkMTg4ZTE0NC9oYWRpZC82NmYyZjg2NjkyZjQ1ZDJjYjdmZjY2NjcucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\imobilliare_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\imobilliare_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ba510f1ff2fe57d188e144/hadid/66f2f41d92f45d2cb7ff6666.svg",
+          "file": "logos_whitelabel\\imobilliare_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ba510f1ff2fe57d188e144/hadid/66be4370103c03ff585f755d.jpg",
+          "file": "logos_whitelabel\\imobilliare_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66ba510f1ff2fe57d188e144/hadid/66f4589c92f45d2cb7ff6677.ico",
+          "file": "logos_whitelabel\\imobilliare_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "triximob.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66748a8c1a1bdb71d4141b4d/hadid/682c939fa0f43408d8c898f4.svg",
+          "file": "logos_whitelabel\\triximob_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66748a8c1a1bdb71d4141b4d/hadid/670d7da19e30f6104b33e830.jpg",
+          "file": "logos_whitelabel\\triximob_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66748a8c1a1bdb71d4141b4d/hadid/670d7da1ccfac372ca86be9c.ico",
+          "file": "logos_whitelabel\\triximob_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "fjdhelomme.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/fj-dhelomme/logo.svg",
+          "file": "logos_whitelabel\\fjdhelomme_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/fj-dhelomme/og_fjd.svg",
+          "file": "logos_whitelabel\\fjdhelomme_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/fj-dhelomme/favicon_fjd.svg",
+          "file": "logos_whitelabel\\fjdhelomme_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "barakgroup.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='barakgroup.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670A44350>: Failed to resolve 'barakgroup.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "tatuapevip.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='tatuapevip.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670A44620>: Failed to resolve 'tatuapevip.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "idurbana.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fa43010d8fff0985a0d6/hadid/67506692f92369a4a62c53bb.svg",
+          "file": "logos_whitelabel\\idurbana_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\idurbana_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fa43010d8fff0985a0d6/hadid/67506692ffb247ae788df6a1.svg",
+          "file": "logos_whitelabel\\idurbana_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fa43010d8fff0985a0d6/hadid/67506691ffb247ae788df6a0.svg",
+          "file": "logos_whitelabel\\idurbana_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6749fa43010d8fff0985a0d6/hadid/67506692f92369a4a62c53ba.svg",
+          "file": "logos_whitelabel\\idurbana_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "brossuacasa.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64aeda5aafab328fd125e3f6/hadid/678a66f297fda4fe76e81056.svg",
+          "file": "logos_whitelabel\\brossuacasa_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-black.svg",
+          "file": "logos_whitelabel\\brossuacasa_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64aeda5aafab328fd125e3f6/hadid/67855d3879c5bec467bbc1aa.jpg",
+          "file": "logos_whitelabel\\brossuacasa_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/64aeda5aafab328fd125e3f6/hadid/67855d3879c5bec467bbc1ab.svg",
+          "file": "logos_whitelabel\\brossuacasa_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "boutiquecaza.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/boutique-caza/logo_white.svg",
+          "file": "logos_whitelabel\\boutiquecaza_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/63286a0da735abcbf96d6285/hadid/667c2a18d43eb1a54083e1c6.jpg",
+          "file": "logos_whitelabel\\boutiquecaza_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/63286a0da735abcbf96d6285/hadid/66f71aed92f45d2cb7ff66a0.ico",
+          "file": "logos_whitelabel\\boutiquecaza_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "aurasignatures.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/66d1caf61d5115ed107efd17/hadid/logo_aura.svg",
+          "file": "logos_whitelabel\\aurasignatures_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\aurasignatures_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d1caf61d5115ed107efd17/hadid/66d782adbd3211f6ae827c9e.svg",
+          "file": "logos_whitelabel\\aurasignatures_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d1caf61d5115ed107efd17/hadid/66d782ad141b32b204a58a88.jpg",
+          "file": "logos_whitelabel\\aurasignatures_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66d1caf61d5115ed107efd17/hadid/66d782ad141b32b204a58a87.ico",
+          "file": "logos_whitelabel\\aurasignatures_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "casavalente.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://casavalente.com.br/wp-content/uploads/2021/01/loja-casa-valente.png",
+          "file": "logos_whitelabel\\casavalente_com_br_img-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://casavalente.com.br/wp-content/uploads/2021/01/casa-valente-brotas.jpg",
+          "file": "logos_whitelabel\\casavalente_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://casavalente.com.br/wp-content/uploads/2021/01/cropped-casa-valente-32x32.png",
+          "file": "logos_whitelabel\\casavalente_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://casavalente.com.br/wp-content/uploads/2021/01/cropped-casa-valente-192x192.png",
+          "file": "logos_whitelabel\\casavalente_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://casavalente.com.br/wp-content/uploads/2021/01/cropped-casa-valente-180x180.png",
+          "file": "logos_whitelabel\\casavalente_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "casasbacanas.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/www.casasbacanas.com/logo-casas-bacanas-purple_bsgvdy.svg",
+          "file": "logos_whitelabel\\casasbacanas_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\casasbacanas_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/636e8d3242fd17913c5650e6/hadid/6792b48897fda4fe76e81084.jpg",
+          "file": "logos_whitelabel\\casasbacanas_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/www.casasbacanas.com/favicon_casas-bacanas-1_blxxib.svg",
+          "file": "logos_whitelabel\\casasbacanas_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "morarsp.life",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='morarsp.life', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000024670C02B70>: Failed to resolve 'morarsp.life' ([Errno 11002] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "acervoexclusivo.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6687f270966483842974a784/hadid/66bb761104456a136572becf.svg",
+          "file": "logos_whitelabel\\acervoexclusivo_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\acervoexclusivo_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6687f270966483842974a784/hadid/66bb761104456a136572bed1.jpg",
+          "file": "logos_whitelabel\\acervoexclusivo_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6687f270966483842974a784/hadid/66bb761104456a136572bed2.svg",
+          "file": "logos_whitelabel\\acervoexclusivo_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "galleriadeimoveis.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://d1988evaubdc7a.cloudfront.net/eyJidWNrZXQiOiJwaWxhci1jb21wYW55LWFzc2V0cyIsImtleSI6IjY4OWNkZjNjNGU5NTFmNGIxYmExMjkyZi9oYWRpZC82OGI1ZWE5NmE0NDNkMTBiMjNlZmIxZGIucG5nIiwiZWRpdHMiOnsiZm9ybWF0Ijoid2VicCIsInJvdGF0ZSI6bnVsbH19",
+          "file": "logos_whitelabel\\galleriadeimoveis_com_br_img-logo.png"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\galleriadeimoveis_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/689cdf3c4e951f4b1ba1292f/hadid/68b068664e9ab4057751cfbb.png",
+          "file": "logos_whitelabel\\galleriadeimoveis_com_br_container-logo.png"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/689cdf3c4e951f4b1ba1292f/hadid/68b06866405f3225e808718b.svg",
+          "file": "logos_whitelabel\\galleriadeimoveis_com_br_og-image.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/689cdf3c4e951f4b1ba1292f/hadid/68adb2f21a079c66e3d39c51.svg",
+          "file": "logos_whitelabel\\galleriadeimoveis_com_br_favicon.svg"
+        }
+      ]
+    },
+    {
+      "domain": "costacesarsp.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670355b2032947b5cc8a08b/hadid/681d1467b80326b0c7d83d0f.svg",
+          "file": "logos_whitelabel\\costacesarsp_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\costacesarsp_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6670355b2032947b5cc8a08b/hadid/681d1715b80326b0c7d83d11.svg",
+          "file": "logos_whitelabel\\costacesarsp_com_br_og-image.svg"
+        }
+      ]
+    },
+    {
+      "domain": "valsahomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6626c976742a0e97558b758e/hadid/6840611a7d00f41c63cb29ef.svg",
+          "file": "logos_whitelabel\\valsahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\valsahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6626c976742a0e97558b758e/hadid/6840665d7d00f41c63cb29f1.svg",
+          "file": "logos_whitelabel\\valsahomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6626c976742a0e97558b758e/hadid/66a9213c7b0f58125dfcbafb.jpg",
+          "file": "logos_whitelabel\\valsahomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/6626c976742a0e97558b758e/hadid/66a9213c7b0f58125dfcbaf9.ico",
+          "file": "logos_whitelabel\\valsahomes_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "yvahomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66f5a1458fe8a5f52c573d6c/hadid/672d28fddb37f53ac59f1768.svg",
+          "file": "logos_whitelabel\\yvahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\yvahomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "container-logo",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66f5a1458fe8a5f52c573d6c/hadid/672d28fddb37f53ac59f1769.svg",
+          "file": "logos_whitelabel\\yvahomes_com_br_container-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66f5a1458fe8a5f52c573d6c/hadid/672d28fd87d0a83ad3ca01e8.jpg",
+          "file": "logos_whitelabel\\yvahomes_com_br_og-image.jpg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilar-company-assets.s3.amazonaws.com/66f5a1458fe8a5f52c573d6c/hadid/672d28fd87d0a83ad3ca01e7.ico",
+          "file": "logos_whitelabel\\yvahomes_com_br_favicon.ico"
+        }
+      ]
+    },
+    {
+      "domain": "denisenojardins.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/denise-no-jardins/denise-jardins_oll8t9.svg",
+          "file": "logos_whitelabel\\denisenojardins_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/default/pilar-partner-logo-white.svg",
+          "file": "logos_whitelabel\\denisenojardins_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilar-company-assets.s3.us-east-2.amazonaws.com/denise-no-jardins/favicon_denise_jardins_ydgltx.svg",
+          "file": "logos_whitelabel\\denisenojardins_com_br_og-image.svg"
+        }
+      ]
+    },
+    {
+      "domain": "luxuryhome.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='luxuryhome.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246734CC650>: Failed to resolve 'luxuryhome.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "amenities.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='amenities.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246735C7BC0>: Failed to resolve 'amenities.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "laperconsultoria.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='laperconsultoria.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246735C7350>: Failed to resolve 'laperconsultoria.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "areadois.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='areadois.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246735C68D0>: Failed to resolve 'areadois.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "mwconsultoria.com.br",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='mwconsultoria.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x00000246735C5E80>: Failed to resolve 'mwconsultoria.com.br' ([Errno 11001] getaddrinfo failed)\"))",
+      "logos": []
+    },
+    {
+      "domain": "pilarhomes.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/6626c976742a0e97558b758e/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/6863fc3f9d44e4dbdd7c4e20/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/660c1639ef476e423306f9b9/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/6670355b2032947b5cc8a08b/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/682deaa91620f92f8984ac8f/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/6520716b2a44750d6a32ce3d/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://imagens.pilarhomes.com.br/?filename=small_logo.svg&we&output=webp&w=72&url=https://blintz-properties-sandbox.s3.amazonaws.com/689cdf3c4e951f4b1ba1292f/small_logo.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://pilarhomes.com.br/images/social/openGraph/og_home.webp",
+          "file": "logos_whitelabel\\pilarhomes_com_br_og-image.webp"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon.svg",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.svg"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-32x32.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-16x16.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-96x96.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/android-chrome-128x128.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/android-chrome-192x192.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/android-chrome-512x512.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-16x16.ico",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.ico"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-32x32.ico",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.ico"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon-48x48.ico",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.ico"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/favicon.ico",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.ico"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/apple-touch-icon-180x180.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/apple-touch-icon-120x120.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/apple-touch-icon-152x152.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://pilarhomes.com.br/apple-touch-icon-167x167.png",
+          "file": "logos_whitelabel\\pilarhomes_com_br_favicon.png"
+        }
+      ]
+    },
+    {
+      "domain": "soupilar.com.br",
+      "status": "success",
+      "logos": [
+        {
+          "type": "img-logo",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/663148a92d23f454391e38b5_Group%2016.svg",
+          "file": "logos_whitelabel\\soupilar_com_br_img-logo.svg"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/66465345c104113d993fb1fb_Free%20Natural%20Paper%20Printed%20Logo%20Mockup%20PSD%20(1).webp",
+          "file": "logos_whitelabel\\soupilar_com_br_img-logo.webp"
+        },
+        {
+          "type": "img-logo",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/64dfcf8d30f9f5405af5deb3_logo-footer.svg",
+          "file": "logos_whitelabel\\soupilar_com_br_img-logo.svg"
+        },
+        {
+          "type": "og-image",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/6654dad94cda05f4a5c5ebd2_opengraph_pilar-v1.png",
+          "file": "logos_whitelabel\\soupilar_com_br_og-image.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/64e903168c1882e3ee57d81f_favicon-black.png",
+          "file": "logos_whitelabel\\soupilar_com_br_favicon.png"
+        },
+        {
+          "type": "favicon",
+          "url": "https://cdn.prod.website-files.com/64da2ef608672efcb687f22a/64dfdd00d9f2b6bb25853ee4_webclip.png",
+          "file": "logos_whitelabel\\soupilar_com_br_favicon.png"
+        }
+      ]
+    }
+  ]
+}

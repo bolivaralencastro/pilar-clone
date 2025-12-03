@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "name": "PilarHomes Design System",
+    "version": "1.0.0",
+    "extractedAt": "2025-12-03",
+    "sources": [
+      "https://pilarhomes.com.br (CSS extraction)",
+      "DESIGN_SYSTEM_PILARHOMES.md (documentation)",
+      "Homepage inspection (Nuxt.js data)"
+    ]
+  },
+  "colors": {
+    "primary": {
+      "black": {
+        "value": "hsl(0, 0%, 0%)",
+        "hex": "#000000",
+        "description": "Primary brand color - deep black for luxury positioning"
+      },
+      "charcoal": {
+        "value": "hsl(0, 0%, 5%)",
+        "hex": "#0d0d0d",
+        "description": "Near-black for elevated surfaces"
+      }
+    },
+    "neutral": {
+      "white": {
+        "value": "hsl(0, 0%, 100%)",
+        "hex": "#ffffff",
+        "description": "Pure white for backgrounds"
+      },
+      "gray-100": {
+        "value": "hsl(0, 0%, 94%)",
+        "hex": "#f0f0f0",
+        "description": "Light gray for subtle backgrounds"
+      },
+      "gray-200": {
+        "value": "hsl(0, 0%, 88%)",
+        "hex": "#e0e0e0",
+        "description": "Medium light gray for borders"
+      },
+      "gray-400": {
+        "value": "hsl(0, 0%, 67%)",
+        "hex": "#aaaaaa",
+        "description": "Medium gray for secondary text"
+      },
+      "gray-600": {
+        "value": "hsl(0, 0%, 43%)",
+        "hex": "#6d6d6d",
+        "description": "Dark gray for body text"
+      }
+    },
+    "accent": {
+      "beige": {
+        "value": "hsl(35, 54%, 75%)",
+        "hex": "#ddc79f",
+        "description": "Warm beige for accents and highlights"
+      }
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": {
+        "value": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+        "description": "Primary font family for all text"
+      }
+    },
+    "fontSizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    },
+    "fontWeights": {
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "lineHeights": {
+      "tight": 1.25,
+      "normal": 1.5,
+      "relaxed": 1.75
+    }
+  },
+  "spacing": {
+    "base": "4px",
+    "scale": {
+      "0": "0",
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "8": "32px",
+      "10": "40px",
+      "12": "48px",
+      "16": "64px",
+      "20": "80px",
+      "24": "96px"
+    }
+  },
+  "borderRadius": {
+    "none": "0",
+    "sm": "2px",
+    "base": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "2xl": "24px",
+    "pill": "9999px",
+    "full": "50%"
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgba(0, 0, 0, 0.05)",
+    "base": "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+    "md": "0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06)",
+    "lg": "0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)",
+    "xl": "0 20px 25px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.04)"
+  },
+  "transitions": {
+    "duration": {
+      "fast": "0.15s",
+      "base": "0.3s",
+      "slow": "0.5s"
+    },
+    "timing": {
+      "default": "ease-in-out",
+      "easeIn": "ease-in",
+      "easeOut": "ease-out",
+      "linear": "linear"
+    }
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  }
+}

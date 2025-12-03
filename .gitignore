@@ -25,3 +25,11 @@ logs
 
 .vercel
 .env*.local
+
+# Python virtual env (tools)
+tools/.venv
+__pycache__
+*.pyc
+
+# HAR files (contain sensitive data)
+research/**/*.har
