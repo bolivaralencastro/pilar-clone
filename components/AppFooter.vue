@@ -1,0 +1,75 @@
+<script setup lang="ts">
+</script>
+
+<template>
+  <footer class="bg-primary text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Logo e Descrição -->
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+              <span class="text-primary font-bold text-xl">P</span>
+            </div>
+            <span class="text-xl font-bold">Pilar Clone</span>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Clone do sistema de busca de imóveis Pilar Homes. 
+            Projeto desenvolvido para fins de estudo.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Este é um projeto de estudo. Dados fornecidos pela API pública da Pilar Homes.
+          </p>
+        </div>
+        
+        <!-- Links Rápidos -->
+        <div>
+          <h4 class="font-semibold mb-4">Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <NuxtLink to="/" class="text-gray-400 hover:text-white transition-colors">
+                Buscar Imóveis
+              </NuxtLink>
+            </li>
+            <li>
+              <a 
+                href="https://pilarhomes.com.br" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                Site Original
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Tecnologias -->
+        <div>
+          <h4 class="font-semibold mb-4">Tecnologias</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>Nuxt.js 3</li>
+            <li>Vue.js 3</li>
+            <li>Tailwind CSS</li>
+            <li>Vercel</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2025 Pilar Clone. Projeto de estudo - Não oficial.</p>
+      </div>
+    </div>
+  </footer>
+</template>
