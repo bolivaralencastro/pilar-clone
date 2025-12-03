@@ -220,8 +220,8 @@ xl: 16px  - Containers grandes
 
 ### Aplicação
 
-- **Botões**: `8px` (rounded-lg)
-- **Inputs**: `8px` (rounded-lg)
+- **Botões**: `8px` (rounded-md)
+- **Inputs**: `8px` (rounded-md)
 - **Cards**: `12px` (rounded-xl)
 - **Badges**: `9999px` (rounded-full - círculo completo)
 - **Imagens de Avatar**: `9999px` (rounded-full)
@@ -635,7 +635,7 @@ Para propor mudanças no design system:
 
 ## Changelog
 
-### Versão 1.0.0 - Dezembro 2025
+### Versão 1.0.0 - Dezembro 2024
 - ✅ Consolidação inicial do design system
 - ✅ Documentação de paleta de cores
 - ✅ Documentação de tipografia
@@ -645,6 +645,6 @@ Para propor mudanças no design system:
 
 ---
 
-**Última atualização**: Dezembro 2025  
+**Última atualização**: Dezembro 2024  
 **Mantido por**: Equipe Pilar Clone  
 **Versão**: 1.0.0
