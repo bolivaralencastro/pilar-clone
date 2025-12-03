@@ -152,7 +152,7 @@ Layout responsivo para cards de imóveis:
 
 Componentes seguem escala consistente:
 - **Card padding**: `1rem` (16px)
-- **Button padding**: `1rem x 0.5rem` (horizontal x vertical)
+- **Button padding**: `0.5rem 1rem` (vertical x horizontal)
 - **Input padding**: `0.75rem` (12px)
 
 ### Gaps e Margens
@@ -179,6 +179,8 @@ box-shadow: 0 1px 3px 0 rgba(16, 24, 40, 0.1),
             0 1px 2px 0 rgba(16, 24, 40, 0.06);
 ```
 **Uso**: Cards de imóveis, containers principais
+
+**Nota**: No arquivo CSS, também está definido como `--shadow-md` com valores ligeiramente diferentes para uso alternativo.
 
 #### Large Shadow (Card Hover)
 ```css
@@ -247,8 +249,7 @@ xl: 16px  - Containers grandes
 
 .btn-primary:focus {
   outline: none;
-  ring: 2px #101828;
-  ring-offset: 2px;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #101828;
 }
 ```
 
@@ -299,12 +300,14 @@ xl: 16px  - Containers grandes
   background: white;
   border-radius: 12px;
   border: 1px solid #E4E7EC;
-  box-shadow: 0 1px 3px 0 rgba(16, 24, 40, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(16, 24, 40, 0.1), 
+              0 1px 2px 0 rgba(16, 24, 40, 0.06);
   transition: box-shadow 200ms;
 }
 
 .card:hover {
-  box-shadow: 0 10px 15px -3px rgba(16, 24, 40, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 
+              0 4px 6px -2px rgba(16, 24, 40, 0.05);
 }
 ```
 
@@ -328,7 +331,7 @@ xl: 16px  - Containers grandes
 
 .input:focus {
   outline: none;
-  ring: 2px #101828;
+  box-shadow: 0 0 0 2px #101828;
   border-color: transparent;
 }
 
@@ -351,7 +354,7 @@ xl: 16px  - Containers grandes
 
 .select:focus {
   outline: none;
-  ring: 2px #101828;
+  box-shadow: 0 0 0 2px #101828;
   border-color: transparent;
 }
 ```
