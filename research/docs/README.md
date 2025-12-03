@@ -1,7 +1,9 @@
-# 🏢 Design System PilarHomes - Análise Completa
+# 🏢 Design System PilarHomes - Documentação Consolidada
 
-> Análise completa e extração do Design System do site PilarHomes.com.br  
+> Análise completa e extração do Design System do site PilarHomes.com.br
 > **Data da análise:** 02 de Dezembro de 2025
+>
+> **Atualização:** todos os materiais de Design System foram consolidados em um único guia para evitar duplicidades e manter a fonte de verdade centralizada.
 
 ---
 
@@ -13,15 +15,13 @@ Este repositório contém a análise completa do Design System da PilarHomes, ex
 
 | Arquivo | Descrição | Para quem? |
 |---------|-----------|------------|
-| **[DESIGN_SYSTEM_SUMMARY.md](./DESIGN_SYSTEM_SUMMARY.md)** | ⭐ Quick reference - Resumo executivo | Todos |
-| **[DESIGN_SYSTEM_PILARHOMES.md](./DESIGN_SYSTEM_PILARHOMES.md)** | Documentação completa do Design System | Designers & Devs |
-| **[IMPLEMENTATION_GUIDE_PILARHOMES.md](./IMPLEMENTATION_GUIDE_PILARHOMES.md)** | Guia de implementação com código | Desenvolvedores |
+| **[DESIGN_SYSTEM_CONSOLIDATED.md](./DESIGN_SYSTEM_CONSOLIDATED.md)** | ⭐ Guia único e completo do Design System | Todos |
 | **[STACK_ANALYSIS_PILARHOMES.md](./STACK_ANALYSIS_PILARHOMES.md)** | Análise técnica da stack | Tech Leads |
 | **[COMPONENT_STRUCTURE.md](./COMPONENT_STRUCTURE.md)** | Estrutura de pastas e organização | Arquitetos |
 
 ### 📁 Pastas
 
-- **`design_system_analysis/`** - Arquivos CSS baixados e análises brutas
+- **`design_system_analysis/`** - Arquivos CSS baixados e análises brutas (mantidos para rastreabilidade histórica)
   - `Hero.POdB4OBP.css`
   - `Player.7CpoSrYN.css`
   - `Content.WoSByiah.css`
@@ -88,22 +88,17 @@ Este repositório contém a análise completa do Design System da PilarHomes, ex
 
 ### Para Designers
 
-1. Comece pelo **[DESIGN_SYSTEM_SUMMARY.md](./DESIGN_SYSTEM_SUMMARY.md)** para entender a visão geral
-2. Consulte **[DESIGN_SYSTEM_PILARHOMES.md](./DESIGN_SYSTEM_PILARHOMES.md)** para detalhes de cores, tipografia e espaçamento
-3. Use os tokens para criar seu Figma/Sketch
+1. Use o **[DESIGN_SYSTEM_CONSOLIDATED.md](./DESIGN_SYSTEM_CONSOLIDATED.md)** como referência única para cores, tipografia, espaçamento, componentes e tokens prontos para Figma/CSS.
 
 ### Para Desenvolvedores
 
-1. Leia o **[IMPLEMENTATION_GUIDE_PILARHOMES.md](./IMPLEMENTATION_GUIDE_PILARHOMES.md)** primeiro
-2. Configure o Tailwind com os tokens fornecidos
-3. Implemente os componentes seguindo os exemplos
-4. Consulte **[COMPONENT_STRUCTURE.md](./COMPONENT_STRUCTURE.md)** para organização
+1. Configure o Tailwind, tokens e padrões diretamente a partir do **[DESIGN_SYSTEM_CONSOLIDATED.md](./DESIGN_SYSTEM_CONSOLIDATED.md)**.
+2. Consulte **[COMPONENT_STRUCTURE.md](./COMPONENT_STRUCTURE.md)** para organização de pastas e arquitetura sugerida.
 
 ### Para Tech Leads
 
-1. Revise **[STACK_ANALYSIS_PILARHOMES.md](./STACK_ANALYSIS_PILARHOMES.md)**
-2. Analise a arquitetura e infraestrutura
-3. Planeje a implementação baseado em **[COMPONENT_STRUCTURE.md](./COMPONENT_STRUCTURE.md)**
+1. Revise **[STACK_ANALYSIS_PILARHOMES.md](./STACK_ANALYSIS_PILARHOMES.md)**.
+2. Planeje a implementação com base no guia central **[DESIGN_SYSTEM_CONSOLIDATED.md](./DESIGN_SYSTEM_CONSOLIDATED.md)** e na estrutura proposta em **[COMPONENT_STRUCTURE.md](./COMPONENT_STRUCTURE.md)**.
 
 ---
 
@@ -261,7 +256,7 @@ Análise realizada com ferramentas automatizadas de extração de design tokens 
 
 ---
 
-**⭐ Comece por aqui:** [DESIGN_SYSTEM_SUMMARY.md](./DESIGN_SYSTEM_SUMMARY.md)
+**⭐ Comece por aqui:** [DESIGN_SYSTEM_CONSOLIDATED.md](./DESIGN_SYSTEM_CONSOLIDATED.md)
 
 ---
 
