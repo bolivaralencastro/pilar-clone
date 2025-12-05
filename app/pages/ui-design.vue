@@ -4,7 +4,7 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-text-primary selection:bg-action-primary/10 selection:text-text-text-primary">
     <!-- Header -->
-    <header class="bg-white" style="border-bottom: 1px solid #E4E4E7;">
+    <header class="bg-white border-b border-border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
@@ -561,6 +561,8 @@
     </main>
   </div>
 </template>
+
+
 
 
 

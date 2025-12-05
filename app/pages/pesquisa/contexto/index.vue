@@ -54,9 +54,9 @@ useSeoMeta({
               Estrutura organizacional, fundadores, crescimento e modelo de negócio da Pilar como proptech de suporte ao corretor.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Organização</span>
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Time</span>
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Modelo</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Organização</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Time</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Modelo</span>
             </div>
           </NuxtLink>
 
@@ -71,9 +71,9 @@ useSeoMeta({
               Análise do mercado imobiliário de alto padrão, tendências, comportamento do consumidor e oportunidades identificadas.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Tendências</span>
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Consumidor</span>
-              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full">Oportunidades</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Tendências</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Consumidor</span>
+              <span class="text-xs px-3 py-1 bg-surface-subtle border border-border-subtle rounded-full rounded-lg">Oportunidades</span>
             </div>
           </NuxtLink>
 
@@ -90,5 +90,6 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 

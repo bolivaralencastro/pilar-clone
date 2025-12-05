@@ -53,7 +53,7 @@
             </ul>
           </div>
 
-          <div class="bg-surface-subtle border border-border-hairline p-6">
+          <div class="bg-surface-subtle border border-border-hairline p-6 rounded-lg">
             <h3 class="text-xs font-mono uppercase tracking-widest mb-4 text-deep-brown">Entrega Final</h3>
             <div class="space-y-2">
               <div class="text-2xl font-light text-text-primary">Terça-feira, 09 Dez</div>
@@ -106,7 +106,7 @@
                 <div class="text-sm font-medium text-text-primary mb-1">Planejamento</div>
                 <div class="text-xs text-secondary">Briefing & Setup</div>
               </div>
-              <div class="bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors">
+              <div class="bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
                 <div class="text-[10px] text-deep-brown font-medium">19h-21h</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -142,7 +142,7 @@
               </div>
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
-              <div class="bg-action-primary/10 border border-border-subtle p-3 rounded-lg group-hover:border-action-primary/30 transition-colors">
+              <div class="bg-action-primary/10 border border-border-subtle p-3 rounded-lg group-hover:border-action-primary/30 transition-colors rounded-lg">
                 <div class="text-[10px] text-text-primary font-medium">19h-21h</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -178,7 +178,7 @@
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
-              <div class="col-span-2 bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors">
+              <div class="col-span-2 bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
                 <div class="text-[10px] text-text-primary font-medium">14h-18h (Ambos)</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -209,5 +209,6 @@
     </main>
   </div>
 </template>
+
 
 

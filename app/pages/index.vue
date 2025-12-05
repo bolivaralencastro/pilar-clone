@@ -40,7 +40,7 @@ useSeoMeta({
         </div>
 
         <!-- Navigation Grid (The Index) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle rounded-lg">
           
           <!-- Column 1: Context -->
           <div class="bg-surface-base p-12 group hover:bg-surface-card transition-colors duration-500">
@@ -101,3 +101,4 @@ useSeoMeta({
     </main>
   </div>
 </template>
+

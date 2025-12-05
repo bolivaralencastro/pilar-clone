@@ -52,7 +52,7 @@ useSeoMeta({
           <div class="lg:col-span-7 lg:col-start-6 space-y-8">
             
             <!-- Section: Sobre - Hero Section -->
-            <section id="sobre" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm min-h-[100vh] flex flex-col items-center justify-center text-center">
+            <section id="sobre" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm min-h-[100vh] flex flex-col items-center justify-center text-center rounded-lg">
               <!-- Intro -->
               <div class="max-w-3xl">
                 <p class="text-lg text-secondary font-light leading-relaxed mb-6">
@@ -83,7 +83,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Linha do Tempo -->
-            <section id="timeline" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm">
+            <section id="timeline" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-12 text-center">Linha do Tempo</h2>
               
               <div class="space-y-8 max-w-3xl mx-auto">
@@ -313,7 +313,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Estrutura Organizacional -->
-            <section id="estrutura" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm">
+            <section id="estrutura" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Estrutura Organizacional</h2>
               <p class="text-sm text-secondary font-light mb-6">A área de <strong class="text-text-primary font-medium">Tecnologia é central</strong>, representando <strong class="text-text-primary font-medium">40% do time</strong> da Pilar.</p>
               
@@ -427,10 +427,10 @@ useSeoMeta({
             </section>
 
             <!-- Section: Ecossistema de Parceiros -->
-            <section id="ecossistema" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm">
+            <section id="ecossistema" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Ecossistema de Parceiros</h2>
               
-              <div class="bg-surface-subtle p-8 border border-border-hairline">
+              <div class="bg-surface-subtle p-8 border border-border-hairline rounded-lg">
                 <h3 class="text-xl font-light text-text-primary mb-4">O Ecossistema de Parceiros</h3>
                 <p class="text-secondary font-light leading-relaxed mb-6">
                   A força da Pilar está em sua rede de parceiros — o coração do negócio:
@@ -459,7 +459,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Modelo de Negócio -->
-            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm">
+            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Modelo de Negócio</h2>
 
               <div>
@@ -498,5 +498,6 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 
