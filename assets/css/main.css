@@ -3,49 +3,65 @@
 @tailwind utilities;
 
 /* Design Tokens - Pilar Homes */
-:root {
-  /* Cores Primárias */
-  --color-primary: #101828;
-  --color-primary-light: #1D2939;
-  --color-accent: #D4AF37;
-  --color-accent-hover: #B8962F;
-  
-  /* Cores de Texto */
-  --color-text-primary: #101828;
-  --color-text-secondary: #475467;
-  --color-text-muted: #667085;
-  
-  /* Cores de Background */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F9FAFB;
-  --color-bg-tertiary: #F2F4F7;
-  
-  /* Cores de Borda */
-  --color-border: #E4E7EC;
-  --color-border-hover: #D0D5DD;
-  
-  /* Cores de Status */
-  --color-success: #12B76A;
-  --color-warning: #F79009;
-  --color-error: #F04438;
-  
-  /* Sombras */
-  --shadow-sm: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
-  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
-  --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
-  
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+@layer base {
+  :root {
+    /* ═══════════════════════════════════════════════════════════
+       REFINED LIGHT SCALE - CRESCER DS
+       Preenchendo o gap entre quase-branco e cinza-médio
+       Light Mode Tokens
+       ═══════════════════════════════════════════════════════════ */
+    
+    /* Superfícies (The White-to-Platinum Gradient) */
+    --color-surface-base: 250 250 250;    /* #FAFAFA - Porcelain (Gray-50) */
+    --color-surface-card: 255 255 255;    /* #FFFFFF - Pure White (Gray-0) */
+    --color-surface-subtle: 244 244 245;  /* #F4F4F5 - Mist (Gray-100) - NOVO */
+    --color-surface-offset: 214 214 216;  /* #D6D6D8 - Platinum (Gray-300) */
+    --color-surface-brand: 213 80 11;     /* #D5500B - Brand Orange */
+    
+    /* Textos */
+    --color-text-primary: 18 18 18;       /* #121212 - Rich Black */
+    --color-text-secondary: 74 72 67;     /* #4A4843 - Graphite Stone */
+    --color-text-inverse: 255 255 255;    /* #FFFFFF - Pure White */
+    --color-text-link: 213 80 11;         /* #D5500B - Brand Orange */
+    
+    /* Ações & Interações */
+    --color-action-primary: 213 80 11;    /* #D5500B - Brand Orange */
+    --color-action-hover: 181 66 9;       /* #B54209 - Brand Orange Dark */
+    
+    /* Bordas (Fine-tuned hierarchy) */
+    --color-border-hairline: 244 244 245; /* #F4F4F5 - Mist - Divisão quase invisível - NOVO */
+    --color-border-subtle: 228 228 231;   /* #E4E4E7 - Chromium - Divisão padrão - NOVO */
+    --color-border-strong: 214 214 216;   /* #D6D6D8 - Platinum - Divisão de contraste */
+    --color-border-focus: 18 18 18;       /* #121212 - Rich Black */
+  }
+
+  .dark {
+    /* Dark Mode Tokens */
+    --color-surface-base: 18 18 18;       /* #121212 - Rich Black */
+    --color-surface-card: 43 58 66;       /* #2B3A42 - Deep Slate */
+    --color-surface-subtle: 74 72 67;     /* #4A4843 - Graphite Stone */
+    --color-surface-offset: 74 72 67;     /* #4A4843 - Graphite Stone */
+    --color-surface-brand: 213 80 11;     /* #D5500B - Brand Orange */
+    
+    --color-text-primary: 250 250 250;    /* #FAFAFA - Porcelain */
+    --color-text-secondary: 214 214 216;  /* #D6D6D8 - Platinum */
+    --color-text-inverse: 18 18 18;       /* #121212 - Rich Black */
+    --color-text-link: 213 80 11;         /* #D5500B - Brand Orange */
+    
+    --color-action-primary: 213 80 11;    /* #D5500B - Brand Orange */
+    --color-action-hover: 181 66 9;       /* #B54209 - Brand Orange Dark */
+    
+    --color-border-hairline: 43 58 66;    /* #2B3A42 - Deep Slate */
+    --color-border-subtle: 74 72 67;      /* #4A4843 - Graphite Stone */
+    --color-border-strong: 214 214 216;   /* #D6D6D8 - Platinum */
+    --color-border-focus: 250 250 250;    /* #FAFAFA - Porcelain */
+  }
 }
 
 /* Base Styles */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-secondary);
+  font-family: 'Inter', sans-serif;
+  @apply bg-surface-base text-primary transition-colors duration-300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,68 +69,37 @@ body {
 /* Utility Classes */
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-[#101828] text-white font-medium rounded-lg 
-           hover:bg-[#1D2939] transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#101828];
+    @apply px-6 py-3 bg-action-primary text-white font-medium rounded-full 
+           hover:bg-action-hover transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-action-primary;
   }
   
   .btn-secondary {
-    @apply px-4 py-2 bg-white text-[#101828] font-medium rounded-lg border border-[#E4E7EC]
-           hover:bg-[#F9FAFB] transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E4E7EC];
+    @apply px-6 py-3 bg-surface-card text-primary font-medium rounded-full border border-border-subtle
+           hover:bg-surface-offset transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-border-subtle;
   }
   
   .btn-accent {
-    @apply px-4 py-2 bg-[#D4AF37] text-white font-medium rounded-lg
-           hover:bg-[#B8962F] transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D4AF37];
+    @apply px-6 py-3 bg-soft-beige text-primary font-medium rounded-full
+           hover:brightness-105 transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-soft-beige;
   }
   
   .card {
-    @apply bg-white rounded-xl border border-[#E4E7EC] shadow-sm
-           hover:shadow-md transition-shadow duration-200;
-  }
-  
-  .input {
-    @apply w-full px-3 py-2 border border-[#E4E7EC] rounded-lg
-           focus:outline-none focus:ring-2 focus:ring-[#101828] focus:border-transparent
-           placeholder:text-[#667085];
-  }
-  
-  .select {
-    @apply w-full px-3 py-2 border border-[#E4E7EC] rounded-lg bg-white
-           focus:outline-none focus:ring-2 focus:ring-[#101828] focus:border-transparent
-           appearance-none cursor-pointer;
-  }
-  
-  .badge {
-    @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full;
-  }
-  
-  .badge-sale {
-    @apply badge bg-green-100 text-green-800;
-  }
-  
-  .badge-rent {
-    @apply badge bg-blue-100 text-blue-800;
+    @apply bg-surface-card border border-border-subtle p-6
+           hover:border-border-focus transition-colors duration-300 shadow-card;
   }
 }
 
-/* Scrollbar personalizada */
+/* Hide scrollbar globally */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-bg-tertiary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

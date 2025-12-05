@@ -12,6 +12,13 @@ CORS(app)  # Habilita CORS para todas as origens
 
 API_BASE = "https://pilarhomes.com.br/api"
 
+# Lista branca de parâmetros aceitos pelos endpoints da API
+ALLOWED_PARAMS = {
+    'transactionType', 'page', 'perPage', 'propertyType', 'minPrice', 'maxPrice',
+    'minArea', 'maxArea', 'bedrooms', 'suites', 'parkingSpots', 'city', 'region',
+    'isExclusive'
+}
+
 # Headers necessários para passar pelo WAF
 HEADERS = {
     'Accept': 'application/json',
@@ -25,8 +32,23 @@ HEADERS = {
 def proxy_properties():
     """Proxy para /api/properties"""
     try:
-        # Repassa todos os query params
-        params = dict(request.args)
+        # Filtra apenas parâmetros permitidos e normaliza tipos simples
+        params = {}
+        for key in request.args:
+            if key in ALLOWED_PARAMS:
+                val = request.args.get(key)
+                # Normaliza booleanos comuns
+                if key == 'isExclusive':
+                    params[key] = str(val).lower() in {'1', 'true', 'yes'}
+                # Converte inteiros esperados
+                elif key in {'page', 'perPage', 'minPrice', 'maxPrice', 'minArea', 'maxArea', 'bedrooms', 'suites', 'parkingSpots'}:
+                    try:
+                        params[key] = int(val)
+                    except (TypeError, ValueError):
+                        continue  # ignora inválidos
+                else:
+                    # Strings seguras (city, region, propertyType, transactionType)
+                    params[key] = val[:100]
         response = requests.get(f"{API_BASE}/properties", params=params, headers=HEADERS)
         return jsonify(response.json()), response.status_code
     except Exception as e:
@@ -36,7 +58,11 @@ def proxy_properties():
 def proxy_clusters():
     """Proxy para /api/properties/clusters"""
     try:
-        params = dict(request.args)
+        # Clusters aceitam apenas transactionType
+        params = {}
+        txn = request.args.get('transactionType')
+        if txn:
+            params['transactionType'] = txn[:20]
         response = requests.get(f"{API_BASE}/properties/clusters", params=params, headers=HEADERS)
         return jsonify(response.json()), response.status_code
     except Exception as e:

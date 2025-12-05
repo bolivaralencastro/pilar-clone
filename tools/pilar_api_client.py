@@ -16,13 +16,15 @@ from typing import Optional, Dict, List, Any
 from dataclasses import dataclass
 from datetime import datetime
 import json
+import os
 
 # ============================================================================
 # CONFIGURAÇÃO
 # ============================================================================
 
 API_BASE_URL = "https://pilarhomes.com.br/api"
-GOOGLE_MAPS_KEY = "AIzaSyB6TCbFAul6VL_VEWQ9-_pmOWhjas1ALGQ"
+# Read Maps key from environment; avoid hardcoding secrets
+GOOGLE_MAPS_KEY = os.getenv("NUXT_PUBLIC_GOOGLE_MAPS_KEY") or os.getenv("GOOGLE_MAPS_KEY") or ""
 
 # ============================================================================
 # DATA CLASSES
@@ -487,8 +489,9 @@ def demo():
     print("\n" + "=" * 60)
     print("🗺️ GOOGLE MAPS API")
     print("-" * 40)
-    print(f"  Chave: {GOOGLE_MAPS_KEY}")
-    print("  Uso: Incluir no HTML para renderizar mapas")
+    masked = (GOOGLE_MAPS_KEY[:6] + "****" + GOOGLE_MAPS_KEY[-4:]) if GOOGLE_MAPS_KEY else "(não definida)"
+    print(f"  Chave: {masked}")
+    print("  Dica: defina 'NUXT_PUBLIC_GOOGLE_MAPS_KEY' no ambiente")
     
     print("\n" + "=" * 60)
     print("✅ Demo concluída!")

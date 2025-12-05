@@ -26,6 +26,10 @@ const props = defineProps<{
   property: Property
 }>()
 
+const emit = defineEmits<{
+  (e: 'add-to-compare', property: Property): void
+}>()
+
 const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -60,89 +64,80 @@ const propertyTypeLabel = computed(() => {
 </script>
 
 <template>
-  <article class="card overflow-hidden group cursor-pointer">
+  <article class="group cursor-pointer bg-surface-card transition-all duration-500 hover:shadow-xl">
     <!-- Imagem -->
     <div class="relative aspect-[4/3] overflow-hidden">
       <img 
         :src="mainImage" 
         :alt="property.title"
-        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         loading="lazy"
       />
       
       <!-- Badges -->
-      <div class="absolute top-3 left-3 flex gap-2">
-        <span 
-          :class="property.transactionType === 'sell' ? 'badge-sale' : 'badge-rent'"
-        >
+      <div class="absolute top-4 left-4 flex gap-2">
+        <span class="px-3 py-1 bg-surface-base/90 backdrop-blur text-[10px] uppercase tracking-widest font-medium text-text-primary">
           {{ transactionLabel }}
-        </span>
-        <span class="badge bg-white/90 text-gray-700">
-          {{ propertyTypeLabel }}
         </span>
       </div>
       
-      <!-- Favorito -->
-      <button 
-        class="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center
-               hover:bg-white transition-colors"
-        aria-label="Adicionar aos favoritos"
-      >
-        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      </button>
+      <!-- Actions Overlay -->
+      <div class="absolute inset-0 bg-deep-brown/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+        <button 
+          class="w-10 h-10 bg-off-white rounded-full flex items-center justify-center text-deep-brown hover:bg-deep-brown hover:text-off-white transition-colors duration-300"
+          @click.stop="emit('add-to-compare', property)"
+          title="Comparar"
+        >
+          <span class="text-lg">+</span>
+        </button>
+        <NuxtLink 
+          :to="`/imovel/${property.slug}`"
+          class="w-10 h-10 bg-off-white rounded-full flex items-center justify-center text-deep-brown hover:bg-deep-brown hover:text-off-white transition-colors duration-300"
+          title="Ver Detalhes"
+        >
+          <span class="text-lg">→</span>
+        </NuxtLink>
+      </div>
     </div>
     
     <!-- Conteúdo -->
-    <div class="p-4">
+    <div class="p-6 space-y-4">
+      <!-- Header -->
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-mono text-secondary uppercase tracking-widest block mb-1">
+            {{ propertyTypeLabel }}
+          </span>
+          <h3 class="text-lg font-light text-text-primary leading-tight line-clamp-1 group-hover:text-action-primary transition-colors duration-300">
+            {{ property.title }}
+          </h3>
+        </div>
+      </div>
+
       <!-- Preço -->
-      <div class="mb-2">
-        <span class="text-xl font-bold text-primary">
+      <div class="border-t border-border-subtle pt-4">
+        <span class="text-xl font-medium text-text-primary block">
           {{ formatPrice(property.price) }}
+          <span v-if="property.transactionType === 'rent'" class="text-sm font-light text-secondary">/mês</span>
         </span>
-        <span v-if="property.transactionType === 'rent'" class="text-gray-500 text-sm">
-          /mês
-        </span>
+        <p class="text-sm text-secondary font-light mt-1">
+          {{ property.address.region }}, {{ property.address.city }}
+        </p>
       </div>
       
-      <!-- Título -->
-      <h3 class="font-semibold text-gray-900 mb-1 line-clamp-1">
-        {{ property.title }}
-      </h3>
-      
-      <!-- Localização -->
-      <p class="text-gray-500 text-sm mb-3 line-clamp-1">
-        {{ property.address.region }}, {{ property.address.city }}
-      </p>
-      
-      <!-- Características -->
-      <div class="flex items-center gap-4 text-sm text-gray-600 border-t border-gray-100 pt-3">
-        <div class="flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-          </svg>
+      <!-- Specs -->
+      <div class="flex items-center gap-6 text-sm text-secondary font-light pt-2">
+        <div class="flex items-center gap-2">
           <span>{{ formatArea(property.area) }}</span>
         </div>
-        
-        <div v-if="property.bedrooms" class="flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          <span>{{ property.bedrooms }} quarto{{ property.bedrooms > 1 ? 's' : '' }}</span>
+        <div v-if="property.bedrooms" class="flex items-center gap-2">
+          <span>{{ property.bedrooms }} qts</span>
         </div>
-        
-        <div v-if="property.parkingSpots" class="flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          <span>{{ property.parkingSpots }} vaga{{ property.parkingSpots > 1 ? 's' : '' }}</span>
+        <div v-if="property.parkingSpots" class="flex items-center gap-2">
+          <span>{{ property.parkingSpots }} vgs</span>
         </div>
       </div>
     </div>
   </article>
 </template>
+

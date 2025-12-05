@@ -48,16 +48,16 @@ watch(() => filters.transactionType, () => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+  <div class="bg-surface-card border border-border-subtle p-8 shadow-sm">
     <!-- Toggle Venda/Aluguel -->
-    <div class="flex gap-2 mb-4">
+    <div class="flex gap-8 mb-8 border-b border-border-subtle pb-4">
       <button
         @click="filters.transactionType = 'sell'"
         :class="[
-          'flex-1 py-2 px-4 rounded-lg font-medium transition-colors',
+          'text-sm font-medium uppercase tracking-widest transition-colors pb-4 -mb-4 border-b-2',
           filters.transactionType === 'sell' 
-            ? 'bg-primary text-white' 
-            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            ? 'border-action-primary text-action-primary' 
+            : 'border-transparent text-secondary hover:text-action-primary'
         ]"
       >
         Comprar
@@ -65,10 +65,10 @@ watch(() => filters.transactionType, () => {
       <button
         @click="filters.transactionType = 'rent'"
         :class="[
-          'flex-1 py-2 px-4 rounded-lg font-medium transition-colors',
+          'text-sm font-medium uppercase tracking-widest transition-colors pb-4 -mb-4 border-b-2',
           filters.transactionType === 'rent' 
-            ? 'bg-primary text-white' 
-            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            ? 'border-action-primary text-action-primary' 
+            : 'border-transparent text-secondary hover:text-action-primary'
         ]"
       >
         Alugar
@@ -76,20 +76,25 @@ watch(() => filters.transactionType, () => {
     </div>
     
     <!-- Grid de Filtros -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <!-- Cidade -->
-      <div>
+      <div class="group">
+        <label class="block text-xs font-mono text-secondary uppercase tracking-widest mb-2">Localização</label>
         <input
           v-model="filters.city"
           type="text"
           placeholder="Cidade ou bairro"
-          class="input"
+          class="w-full border-b border-border-subtle py-2 text-text-primary placeholder-secondary/50 focus:outline-none focus:border-action-primary transition-colors bg-transparent"
         />
       </div>
       
       <!-- Tipo de Imóvel -->
-      <div>
-        <select v-model="filters.propertyType" class="select">
+      <div class="group">
+        <label class="block text-xs font-mono text-secondary uppercase tracking-widest mb-2">Tipo</label>
+        <select 
+          v-model="filters.propertyType" 
+          class="w-full border-b border-border-subtle py-2 text-text-primary focus:outline-none focus:border-action-primary transition-colors bg-transparent appearance-none cursor-pointer"
+        >
           <option 
             v-for="type in propertyTypes" 
             :key="type.value" 
@@ -101,8 +106,12 @@ watch(() => filters.transactionType, () => {
       </div>
       
       <!-- Quartos -->
-      <div>
-        <select v-model="filters.bedrooms" class="select">
+      <div class="group">
+        <label class="block text-xs font-mono text-secondary uppercase tracking-widest mb-2">Dormitórios</label>
+        <select 
+          v-model="filters.bedrooms" 
+          class="w-full border-b border-border-subtle py-2 text-text-primary focus:outline-none focus:border-action-primary transition-colors bg-transparent appearance-none cursor-pointer"
+        >
           <option 
             v-for="opt in bedroomOptions" 
             :key="opt.value" 
@@ -114,32 +123,37 @@ watch(() => filters.transactionType, () => {
       </div>
       
       <!-- Preço -->
-      <div class="flex gap-2">
-        <input
-          v-model="filters.minPrice"
-          type="number"
-          placeholder="Min"
-          class="input w-1/2"
-        />
-        <input
-          v-model="filters.maxPrice"
-          type="number"
-          placeholder="Max"
-          class="input w-1/2"
-        />
+      <div class="group">
+        <label class="block text-xs font-mono text-secondary uppercase tracking-widest mb-2">Faixa de Preço</label>
+        <div class="flex gap-4">
+          <input
+            v-model="filters.minPrice"
+            type="number"
+            placeholder="Min"
+            class="w-1/2 border-b border-border-subtle py-2 text-text-primary placeholder-secondary/50 focus:outline-none focus:border-action-primary transition-colors bg-transparent"
+          />
+          <input
+            v-model="filters.maxPrice"
+            type="number"
+            placeholder="Max"
+            class="w-1/2 border-b border-border-subtle py-2 text-text-primary placeholder-secondary/50 focus:outline-none focus:border-action-primary transition-colors bg-transparent"
+          />
+        </div>
       </div>
     </div>
     
     <!-- Botão Buscar -->
     <button
       @click="applyFilters"
-      class="w-full btn-primary py-3 flex items-center justify-center gap-2"
+      class="w-full btn-primary py-4 flex items-center justify-center gap-3 group"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <span class="text-sm font-medium uppercase tracking-widest">Buscar Imóveis</span>
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              d="M17 8l4 4m0 0l-4 4m4-4H3" />
       </svg>
-      Buscar Imóveis
     </button>
   </div>
 </template>
+
+

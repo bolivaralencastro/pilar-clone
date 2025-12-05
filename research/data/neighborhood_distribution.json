@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "dataColeta": "2025-12-03T00:00:00.000Z",
+    "fonte": "pilarhomes.com.br",
+    "metodo": "Chrome DevTools MCP - Extração automatizada via H1 heading",
+    "versao": "2.0.0"
+  },
+  "resumo": {
+    "totalImoveis": 16320,
+    "totalSaoPaulo": 15646,
+    "totalCuritiba": 674,
+    "percentualSaoPaulo": 95.87,
+    "percentualCuritiba": 4.13
+  },
+  "saoPaulo": {
+    "total": 15646,
+    "porFaixaDePreco": [
+      { "faixa": "Até R$ 1M", "minPrice": 0, "maxPrice": 1000000, "quantidade": 96, "percentual": 0.61 },
+      { "faixa": "R$ 1M a 2M", "minPrice": 1000000, "maxPrice": 2000000, "quantidade": 3826, "percentual": 24.45 },
+      { "faixa": "R$ 2M a 3M", "minPrice": 2000000, "maxPrice": 3000000, "quantidade": 3223, "percentual": 20.60 },
+      { "faixa": "R$ 3M a 5M", "minPrice": 3000000, "maxPrice": 5000000, "quantidade": 3772, "percentual": 24.11 },
+      { "faixa": "R$ 5M a 10M", "minPrice": 5000000, "maxPrice": 10000000, "quantidade": 3053, "percentual": 19.51 },
+      { "faixa": "R$ 10M a 20M", "minPrice": 10000000, "maxPrice": 20000000, "quantidade": 1583, "percentual": 10.12 },
+      { "faixa": "Acima de R$ 20M", "minPrice": 20000000, "maxPrice": null, "quantidade": 708, "percentual": 4.52 }
+    ],
+    "porTipo": {
+      "apartamentos": {
+        "total": 10297,
+        "percentualDoTotal": 65.84,
+        "porBairro": [
+          { "bairro": "Higienópolis", "quantidade": 547, "percentual": 5.31 },
+          { "bairro": "Moema", "quantidade": 522, "percentual": 5.07 },
+          { "bairro": "Perdizes", "quantidade": 382, "percentual": 3.71 },
+          { "bairro": "Vila Mariana", "quantidade": 243, "percentual": 2.36 },
+          { "bairro": "Cidade Jardim", "quantidade": 55, "percentual": 0.53 }
+        ]
+      },
+      "casas": {
+        "total": 2331,
+        "percentualDoTotal": 14.90,
+        "porBairro": [
+          { "bairro": "Vila Madalena", "quantidade": 157, "percentual": 6.74 },
+          { "bairro": "Cidade Jardim", "quantidade": 100, "percentual": 4.29 },
+          { "bairro": "Alto da Boa Vista", "quantidade": 74, "percentual": 3.18 },
+          { "bairro": "Morumbi", "quantidade": 50, "percentual": 2.15 },
+          { "bairro": "Vila Mariana", "quantidade": 35, "percentual": 1.50 }
+        ]
+      },
+      "coberturas": {
+        "total": 1336,
+        "percentualDoTotal": 8.54,
+        "porBairro": [
+          { "bairro": "Moema", "quantidade": 75, "percentual": 5.61 },
+          { "bairro": "Vila Olímpia", "quantidade": 66, "percentual": 4.94 },
+          { "bairro": "Vila Madalena", "quantidade": 35, "percentual": 2.62 },
+          { "bairro": "Vila Mariana", "quantidade": 22, "percentual": 1.65 },
+          { "bairro": "Alto da Boa Vista", "quantidade": 14, "percentual": 1.05 }
+        ]
+      },
+      "casasCondominio": {
+        "total": 985,
+        "percentualDoTotal": 6.30,
+        "porBairro": [
+          { "bairro": "Alto da Boa Vista", "quantidade": 142, "percentual": 14.42 },
+          { "bairro": "Brooklin", "quantidade": 76, "percentual": 7.72 },
+          { "bairro": "Morumbi", "quantidade": 44, "percentual": 4.47 },
+          { "bairro": "Campo Belo", "quantidade": 38, "percentual": 3.86 },
+          { "bairro": "Jardim Guedala", "quantidade": 33, "percentual": 3.35 }
+        ]
+      }
+    },
+    "bairrosDestaques": [
+      {
+        "bairro": "Alto da Boa Vista",
+        "categorias": ["casas", "coberturas", "casasCondominio"],
+        "totalUnidades": 230,
+        "insight": "Líder em casas de condomínio, região premium horizontal"
+      },
+      {
+        "bairro": "Moema",
+        "categorias": ["apartamentos", "coberturas"],
+        "totalUnidades": 597,
+        "insight": "Forte em apartamentos e coberturas, bairro vertical premium"
+      },
+      {
+        "bairro": "Vila Mariana",
+        "categorias": ["apartamentos", "casas", "coberturas"],
+        "totalUnidades": 300,
+        "insight": "Bairro versátil com presença em todas as categorias"
+      },
+      {
+        "bairro": "Cidade Jardim",
+        "categorias": ["apartamentos", "casas"],
+        "totalUnidades": 155,
+        "insight": "Bairro de ultra-luxo com casas e apartamentos"
+      },
+      {
+        "bairro": "Higienópolis",
+        "categorias": ["apartamentos"],
+        "totalUnidades": 547,
+        "insight": "Maior concentração de apartamentos, tradicional"
+      }
+    ]
+  },
+  "curitiba": {
+    "total": 674,
+    "porFaixaDePreco": [
+      { "faixa": "Até R$ 1M", "minPrice": 0, "maxPrice": 1000000, "quantidade": 9, "percentual": 1.30 },
+      { "faixa": "R$ 1M a 2M", "minPrice": 1000000, "maxPrice": 2000000, "quantidade": 331, "percentual": 47.83 },
+      { "faixa": "R$ 2M a 3M", "minPrice": 2000000, "maxPrice": 3000000, "quantidade": 134, "percentual": 19.36 },
+      { "faixa": "R$ 3M a 5M", "minPrice": 3000000, "maxPrice": 5000000, "quantidade": 144, "percentual": 20.81 },
+      { "faixa": "R$ 5M a 10M", "minPrice": 5000000, "maxPrice": 10000000, "quantidade": 57, "percentual": 8.24 },
+      { "faixa": "R$ 10M a 20M", "minPrice": 10000000, "maxPrice": 20000000, "quantidade": 14, "percentual": 2.02 },
+      { "faixa": "Acima de R$ 20M", "minPrice": 20000000, "maxPrice": null, "quantidade": 3, "percentual": 0.43 }
+    ],
+    "porTipo": {
+      "apartamentos": {
+        "total": 294,
+        "percentualDoTotal": 43.62
+      },
+      "casasCondominio": {
+        "total": 158,
+        "percentualDoTotal": 23.44
+      },
+      "casas": {
+        "total": 90,
+        "percentualDoTotal": 13.35
+      },
+      "coberturas": {
+        "total": 57,
+        "percentualDoTotal": 8.46
+      },
+      "outros": {
+        "total": 75,
+        "percentualDoTotal": 11.13
+      }
+    },
+    "insights": [
+      "Maior proporção de casas de condomínio que São Paulo",
+      "Mercado mais horizontal que a capital paulista",
+      "Operação secundária da Pilar Homes"
+    ]
+  },
+  "comparativo": {
+    "apartamentos": {
+      "saoPaulo": { "quantidade": 10297, "percentual": 65.84 },
+      "curitiba": { "quantidade": 294, "percentual": 43.62 },
+      "diferencaPercentual": 22.22
+    },
+    "casasCondominio": {
+      "saoPaulo": { "quantidade": 985, "percentual": 6.30 },
+      "curitiba": { "quantidade": 158, "percentual": 23.44 },
+      "diferencaPercentual": -17.14
+    }
+  }
+}
