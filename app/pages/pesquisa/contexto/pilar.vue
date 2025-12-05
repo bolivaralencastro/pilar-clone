@@ -14,7 +14,7 @@ useSeoMeta({
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-primary/10"></div>
+          <div class="h-4 w-px bg-border-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -498,6 +498,7 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 
 
