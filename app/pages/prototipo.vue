@@ -4,13 +4,13 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -40,7 +40,7 @@
           <div class="lg:col-span-7 lg:col-start-6">
             <div class="grid grid-cols-1 gap-8">
               <NuxtLink to="/" class="group block">
-                <div class="bg-surface-card border rounded-lg border-border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
+                <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-4 block">Funcionalidade 01</span>
@@ -56,7 +56,7 @@
               </NuxtLink>
 
               <NuxtLink to="/compare" class="group block">
-                <div class="bg-surface-card border rounded-lg border-border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
+                <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-4 block">Funcionalidade 02</span>
@@ -77,6 +77,7 @@
     </main>
   </div>
 </template>
+
 
 
 

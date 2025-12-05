@@ -8,13 +8,13 @@ useSeoMeta({
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -39,7 +39,7 @@ useSeoMeta({
             <h1 class="text-4xl md:text-5xl font-light tracking-tighter mb-8 text-text-primary">Sobre a<br/>Pilar</h1>
             <div class="w-12 h-1 bg-mat-stone mb-8"></div>
             
-            <nav class="space-y-4 border-l border-border-subtle pl-6">
+            <nav class="space-y-4 border-l border-subtle pl-6">
               <a href="#sobre" class="block text-sm font-medium text-primary hover:text-action-primary transition-colors">Sobre a Pilar</a>
               <a href="#timeline" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Linha do Tempo</a>
               <a href="#estrutura" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Estrutura Organizacional</a>
@@ -52,7 +52,7 @@ useSeoMeta({
           <div class="lg:col-span-7 lg:col-start-6 space-y-8">
             
             <!-- Section: Sobre - Hero Section -->
-            <section id="sobre" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm min-h-[100vh] flex flex-col items-center justify-center text-center rounded-lg">
+            <section id="sobre" class="scroll-mt-24 bg-surface-card border border-subtle r rounded-lgounded-lg p-12 shadow-sm min-h-[100vh] flex flex-col items-center justify-center text-center rounded-lg">
               <!-- Intro -->
               <div class="max-w-3xl">
                 <p class="text-lg text-secondary font-light leading-relaxed mb-6">
@@ -63,7 +63,7 @@ useSeoMeta({
                 </p>
                 
                 <!-- Fundadores - Assinatura -->
-                <div class="pt-8 border-t border-border-subtle">
+                <div class="pt-8 border-t border-subtle">
                   <div class="flex justify-center gap-8 text-left">
                     <div>
                       <p class="text-sm font-medium text-text-primary">Felipe Abramovay</p>
@@ -83,7 +83,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Linha do Tempo -->
-            <section id="timeline" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
+            <section id="timeline" class="scroll-mt-24 bg-surface-card border border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-12 text-center">Linha do Tempo</h2>
               
               <div class="space-y-8 max-w-3xl mx-auto">
@@ -313,13 +313,13 @@ useSeoMeta({
             </section>
 
             <!-- Section: Estrutura Organizacional -->
-            <section id="estrutura" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
+            <section id="estrutura" class="scroll-mt-24 bg-surface-card border border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Estrutura Organizacional</h2>
               <p class="text-sm text-secondary font-light mb-6">A área de <strong class="text-text-primary font-medium">Tecnologia é central</strong>, representando <strong class="text-text-primary font-medium">40% do time</strong> da Pilar.</p>
               
               <div class="space-y-3">
                   <!-- Engineering & Tech -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Engenharia & Tech</h4>
                       <span class="text-2xl font-light text-action-primary">10-12</span>
@@ -333,7 +333,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Marketing & Growth -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Marketing & Growth</h4>
                       <span class="text-2xl font-light text-action-primary">12-15</span>
@@ -347,7 +347,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Business Development -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Business Development & Expansão</h4>
                       <span class="text-2xl font-light text-action-primary">10+</span>
@@ -361,7 +361,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Customer Success -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Customer Success & Operations</h4>
                       <span class="text-2xl font-light text-action-primary">8-10</span>
@@ -375,7 +375,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Produto & Design -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Produto & Design</h4>
                       <span class="text-2xl font-light text-action-primary">5-7</span>
@@ -389,7 +389,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Pessoas & Cultura -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Pessoas & Cultura</h4>
                       <span class="text-2xl font-light text-action-primary">5-7</span>
@@ -403,7 +403,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Jurídico & Financeiro -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Jurídico & Financeiro</h4>
                       <span class="text-2xl font-light text-action-primary">4-6</span>
@@ -414,7 +414,7 @@ useSeoMeta({
                   </div>
 
                   <!-- Suporte & Outros -->
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle hover:border-action-primary/20 transition-colors group">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle hover:border-action-primary/20 transition-colors group">
                     <div class="flex justify-between items-start mb-3">
                       <h4 class="text-base font-medium text-text-primary group-hover:text-action-primary transition-colors">Suporte & Outros</h4>
                       <span class="text-2xl font-light text-action-primary">10+</span>
@@ -427,10 +427,10 @@ useSeoMeta({
             </section>
 
             <!-- Section: Ecossistema de Parceiros -->
-            <section id="ecossistema" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
+            <section id="ecossistema" class="scroll-mt-24 bg-surface-card border border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Ecossistema de Parceiros</h2>
               
-              <div class="bg-surface-subtle p-8 border border-border-hairline rounded-lg">
+              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg">
                 <h3 class="text-xl font-light text-text-primary mb-4">O Ecossistema de Parceiros</h3>
                 <p class="text-secondary font-light leading-relaxed mb-6">
                   A força da Pilar está em sua rede de parceiros — o coração do negócio:
@@ -459,25 +459,25 @@ useSeoMeta({
             </section>
 
             <!-- Section: Modelo de Negócio -->
-            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
+            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-subtle r rounded-lgounded-lg p-12 shadow-sm rounded-lg">
               <h2 class="text-3xl font-light text-text-primary mb-8">Modelo de Negócio</h2>
 
               <div>
                 <h3 class="text-xl font-light text-text-primary mb-4">O Modelo de Suporte</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
                     <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Tecnologia</h4>
                     <p class="text-sm text-secondary font-light">
                       CRM próprio, sistema de listing integrado e marketplace interno (Rede Pilar) para compartilhamento de imóveis.
                     </p>
                   </div>
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
                     <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Serviços</h4>
                     <p class="text-sm text-secondary font-light">
                       Marketing, infraestrutura tecnológica, assessoria jurídica e comercial. Financiamento de transações.
                     </p>
                   </div>
-                  <div class="bg-surface-card p-6 border rounded-lg border-border-subtle">
+                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
                     <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Ambiente Físico</h4>
                     <p class="text-sm text-secondary font-light">
                       Escritórios como Hubs e Coworkings para networking e parcerias presenciais.
@@ -498,6 +498,7 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 
 

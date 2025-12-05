@@ -4,13 +4,13 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -41,7 +41,7 @@
             <div class="space-y-12">
               
               <!-- Context Section -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-6 text-text-primary">Contexto</h3>
                 <p class="text-secondary font-light leading-relaxed">
                   Este projeto visa modernizar a experiência digital da Pilar Homes, alinhando-a com o posicionamento de luxo da marca. O foco principal é a implementação de um sistema de comparação de imóveis e a refatoração visual utilizando o novo Design System.
@@ -49,7 +49,7 @@
               </div>
 
               <!-- Objectives Section -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-6 text-text-primary">Objetivos Principais</h3>
                 <ul class="space-y-4">
                   <li class="flex items-start gap-4 group">
@@ -78,6 +78,7 @@
     </main>
   </div>
 </template>
+
 
 
 

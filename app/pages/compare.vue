@@ -1,13 +1,13 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Empty State -->
-        <div v-if="store.count === 0" class="py-24 border border-dashed border-border-subtle rounded-lg text-center">
+        <div v-if="store.count === 0" class="py-24 border border-dashed border-subtle rounded-lg text-center">
           <p class="text-xl font-light text-secondary mb-4">Nenhum imóvel selecionado</p>
           <NuxtLink to="/" class="btn-primary inline-flex">
             Explorar Imóveis
@@ -49,7 +49,7 @@
 
         <!-- Grid -->
         <div v-else class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div v-for="item in store.items" :key="item.id" class="group relative bg-surface-card border rounded-lg border-border-subtle hover:border-action-primary/30 transition-all duration-500 hover:shadow-lg">
+          <div v-for="item in store.items" :key="item.id" class="group relative bg-surface-card border rounded-lg border-subtle hover:border-action-primary/30 transition-all duration-500 hover:shadow-lg">
             <!-- Image Placeholder (if available in item, otherwise generic) -->
             <div class="aspect-[4/3] bg-surface-subtle relative overflow-hidden">
               <img v-if="item.image" :src="item.image" :alt="item.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -67,7 +67,7 @@
             <div class="p-6 space-y-6">
               <h2 class="text-xl font-light leading-tight min-h-[3.5rem] text-text-primary">{{ item.title }}</h2>
               
-              <div class="space-y-4 pt-4 border-t border-border-subtle">
+              <div class="space-y-4 pt-4 border-t border-subtle">
                 <div class="flex justify-between items-baseline">
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest">Preço</span>
                   <span class="font-medium text-lg text-text-primary">{{ formatPrice(item.price) }}</span>
@@ -106,6 +106,7 @@ function formatPrice(value?: number) {
   return `R$ ${value.toLocaleString('pt-BR')}`
 }
 </script>
+
 
 
 

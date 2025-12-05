@@ -244,13 +244,13 @@ const activeRegion = ref(0)
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -269,7 +269,7 @@ const activeRegion = ref(0)
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         <!-- Intro -->
-        <div class="mb-16 border-b border-border-subtle pb-12">
+        <div class="mb-16 border-b border-subtle pb-12">
           <span class="text-xs font-mono text-action-primary tracking-widest uppercase mb-4 block">Cluster 03 · Design & Referências</span>
           <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-8 text-text-primary">Benchmarking Global</h1>
           <p class="text-secondary text-xl font-light leading-relaxed max-w-3xl">
@@ -286,7 +286,7 @@ const activeRegion = ref(0)
             class="px-4 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-300"
             :class="activeRegion === index 
               ? 'bg-mat-stone text-off-white' 
-              : 'bg-surface-card text-secondary hover:text-text-primary border rounded-lg border-border-subtle hover:border-border-strong'"
+              : 'bg-surface-card text-secondary hover:text-text-primary border rounded-lg border-subtle hover:border-strong'"
           >
             {{ region.name }}
           </button>
@@ -294,19 +294,19 @@ const activeRegion = ref(0)
 
         <!-- Stats -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          <div class="bg-surface-card p-6 border rounded-lg border-border-subtle text-center">
+          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
             <span class="block text-3xl font-light text-action-primary mb-1">19</span>
             <span class="text-xs font-mono text-secondary uppercase">Empresas</span>
           </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-border-subtle text-center">
+          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
             <span class="block text-3xl font-light text-action-primary mb-1">14</span>
             <span class="text-xs font-mono text-secondary uppercase">Países</span>
           </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-border-subtle text-center">
+          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
             <span class="block text-3xl font-light text-action-primary mb-1">5</span>
             <span class="text-xs font-mono text-secondary uppercase">Continentes</span>
           </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-border-subtle text-center">
+          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
             <span class="block text-3xl font-light text-action-primary mb-1">100%</span>
             <span class="text-xs font-mono text-secondary uppercase">Premium</span>
           </div>
@@ -318,7 +318,7 @@ const activeRegion = ref(0)
             <div 
               v-for="competitor in regions[activeRegion].competitors" 
               :key="competitor.name"
-              class="bg-surface-card border rounded-lg border-border-subtle hover:border-border-strong transition-all duration-500 overflow-hidden"
+              class="bg-surface-card border rounded-lg border-subtle hover:border-strong transition-all duration-500 overflow-hidden"
             >
               <div class="flex flex-col md:flex-row">
                 <!-- Cover Image -->
@@ -413,5 +413,6 @@ const activeRegion = ref(0)
   transform: translateY(10px);
 }
 </style>
+
 
 

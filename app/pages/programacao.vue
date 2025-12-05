@@ -4,13 +4,13 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -35,7 +35,7 @@
 
         <!-- Availability Info -->
         <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-surface-card border rounded-lg border-border-subtle p-6">
+          <div class="bg-surface-card border rounded-lg border-subtle p-6">
             <h3 class="text-xs font-mono uppercase tracking-widest mb-4 text-secondary">Disponibilidade Semanal</h3>
             <ul class="space-y-3">
               <li class="flex justify-between text-sm">
@@ -46,14 +46,14 @@
                 <span class="font-medium text-text-primary">Sábado - Domingo</span>
                 <span class="text-secondary">~4h / dia (14h-18h)</span>
               </li>
-              <li class="flex justify-between text-sm border-t border-border-subtle pt-3">
+              <li class="flex justify-between text-sm border-t border-subtle pt-3">
                 <span class="font-medium text-text-primary">Total Estimado</span>
                 <span class="text-action-primary font-medium">~18h</span>
               </li>
             </ul>
           </div>
 
-          <div class="bg-surface-subtle border border-border-hairline p-6 rounded-lg">
+          <div class="bg-surface-subtle border border-hairline p-6 rounded-lg">
             <h3 class="text-xs font-mono uppercase tracking-widest mb-4 text-deep-brown">Entrega Final</h3>
             <div class="space-y-2">
               <div class="text-2xl font-light text-text-primary">Terça-feira, 09 Dez</div>
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Gantt Chart -->
-        <div class="bg-surface-card border rounded-lg border-border-subtle p-8">
+        <div class="bg-surface-card border rounded-lg border-subtle p-8">
           
           <!-- Header with Days -->
           <div class="grid grid-cols-9 gap-2 mb-6">
@@ -106,7 +106,7 @@
                 <div class="text-sm font-medium text-text-primary mb-1">Planejamento</div>
                 <div class="text-xs text-secondary">Briefing & Setup</div>
               </div>
-              <div class="bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
+              <div class="bg-surface-subtle border border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
                 <div class="text-[10px] text-deep-brown font-medium">19h-21h</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -142,7 +142,7 @@
               </div>
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
-              <div class="bg-action-primary/10 border border-border-subtle p-3 rounded-lg group-hover:border-action-primary/30 transition-colors rounded-lg">
+              <div class="bg-action-primary/10 border border-subtle p-3 rounded-lg group-hover:border-action-primary/30 transition-colors rounded-lg">
                 <div class="text-[10px] text-text-primary font-medium">19h-21h</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -178,7 +178,7 @@
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
               <div class="bg-surface-subtle"></div>
-              <div class="col-span-2 bg-surface-subtle border border-border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
+              <div class="col-span-2 bg-surface-subtle border border-strong p-3 rounded group-hover:bg-surface-subtle transition-colors rounded-lg">
                 <div class="text-[10px] text-text-primary font-medium">14h-18h (Ambos)</div>
               </div>
               <div class="bg-surface-subtle"></div>
@@ -209,6 +209,7 @@
     </main>
   </div>
 </template>
+
 
 
 

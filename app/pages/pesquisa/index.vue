@@ -8,13 +8,13 @@ useSeoMeta({
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
@@ -28,7 +28,7 @@ useSeoMeta({
     <main class="py-16">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
         <!-- Intro -->
-        <div class="mb-20 border-b border-border-subtle pb-12">
+        <div class="mb-20 border-b border-subtle pb-12">
           <span class="text-xs font-mono text-action-primary tracking-widest uppercase mb-4 block">Fase 01</span>
           <h1 class="text-6xl md:text-7xl font-light tracking-tighter mb-8 text-text-primary">Discovery</h1>
           <p class="text-secondary text-xl font-light leading-relaxed max-w-3xl">
@@ -52,11 +52,11 @@ useSeoMeta({
               </NuxtLink>
             </div>
             <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <NuxtLink to="/pesquisa/contexto/pilar" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/contexto/pilar" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">Sobre a Pilar</h3>
                 <p class="text-sm text-secondary font-light">História, valores e posicionamento de marca.</p>
               </NuxtLink>
-              <NuxtLink to="/pesquisa/contexto/mercado" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/contexto/mercado" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">Mercado</h3>
                 <p class="text-sm text-secondary font-light">Tendências do setor imobiliário de alto padrão.</p>
               </NuxtLink>
@@ -78,11 +78,11 @@ useSeoMeta({
               </NuxtLink>
             </div>
             <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <NuxtLink to="/pesquisa/personas" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/personas" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">Personas</h3>
                 <p class="text-sm text-secondary font-light">Arquétipos dos clientes ideais.</p>
               </NuxtLink>
-              <NuxtLink to="/pesquisa/jornadas" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/jornadas" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">Jornadas</h3>
                 <p class="text-sm text-secondary font-light">Mapeamento do fluxo atual vs. ideal.</p>
               </NuxtLink>
@@ -104,11 +104,11 @@ useSeoMeta({
               </NuxtLink>
             </div>
             <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <NuxtLink to="/pesquisa/benchmarking" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/benchmarking" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">Benchmarking</h3>
                 <p class="text-sm text-secondary font-light">Análise de concorrentes diretos e indiretos.</p>
               </NuxtLink>
-              <NuxtLink to="/pesquisa/ui-patterns" class="bg-surface-card p-8 border rounded-lg border-border-subtle hover:border-border-strong transition-colors">
+              <NuxtLink to="/pesquisa/ui-patterns" class="bg-surface-card p-8 border rounded-lg border-subtle hover:border-strong transition-colors">
                 <h3 class="text-lg font-medium text-text-primary mb-2">UI Patterns</h3>
                 <p class="text-sm text-secondary font-light">Estudos de componentes e interações.</p>
               </NuxtLink>
@@ -120,5 +120,6 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 

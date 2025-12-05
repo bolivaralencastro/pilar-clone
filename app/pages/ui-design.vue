@@ -4,13 +4,13 @@
 <template>
   <div class="min-h-screen bg-porcelain text-text-text-primary selection:bg-action-primary/10 selection:text-text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-subtle"></div>
           <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
             <NuxtLink to="/" class="text-text-secondary hover:text-text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-border-subtle">/</span>
@@ -41,7 +41,7 @@
             <div class="space-y-12">
               
               <!-- Introdução -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8">
                 <h3 class="text-2xl font-light mb-2 text-text-text-primary">Arquitetura do Sistema</h3>
                 <p class="text-sm text-text-secondary font-light leading-relaxed">
                   Organização profissional dividida em duas camadas: 
@@ -51,7 +51,7 @@
               </div>
 
               <!-- 01. PRIMITIVAS -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-2 text-text-text-primary">01. Primitives</h3>
                 <p class="text-sm text-text-secondary mb-8 font-light">Global Palette · A Tinta</p>
                 
@@ -59,15 +59,15 @@
                 <div class="mb-8">
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">The Light Scale (White → Platinum)</h4>
                   <div class="grid grid-cols-5 gap-4">
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-                      <div class="h-24 w-full border-b border-border-subtle" style="background-color: #FFFFFF;"></div>
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                      <div class="h-24 w-full border-b border-subtle" style="background-color: #FFFFFF;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Pure White</div>
                         <div class="text-[10px] font-mono text-text-secondary uppercase">#FFFFFF</div>
                         <div class="text-[9px] text-text-secondary mt-1">Gray-0</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #FAFAFA;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Porcelain</div>
@@ -75,7 +75,7 @@
                         <div class="text-[9px] text-text-secondary mt-1">Gray-50</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #F4F4F5;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1 flex items-center gap-2">
@@ -86,7 +86,7 @@
                         <div class="text-[9px] text-text-secondary mt-1">Gray-100</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #E4E4E7;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1 flex items-center gap-2">
@@ -97,7 +97,7 @@
                         <div class="text-[9px] text-text-secondary mt-1">Gray-200</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #D6D6D8;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Platinum</div>
@@ -112,7 +112,7 @@
                 <div class="mb-8">
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">The Dark Scale</h4>
                   <div class="grid grid-cols-3 gap-4">
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #121212;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Rich Black</div>
@@ -120,7 +120,7 @@
                         <div class="text-[9px] text-text-secondary mt-1">Gray-900</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #2B3A42;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Deep Slate</div>
@@ -128,7 +128,7 @@
                         <div class="text-[9px] text-text-secondary mt-1">Gray-800 (Cool)</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #4A4843;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Graphite Stone</div>
@@ -143,14 +143,14 @@
                 <div class="mb-8">
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">Brand & Accent</h4>
                   <div class="grid grid-cols-4 gap-4">
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #D5500B;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Brand Orange</div>
                         <div class="text-[10px] font-mono text-text-secondary uppercase">#D5500B</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #2B3A42;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Deep Slate</div>
@@ -164,21 +164,21 @@
                 <div>
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">Feedback</h4>
                   <div class="grid grid-cols-3 gap-4">
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #00AE42;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Success</div>
                         <div class="text-[10px] font-mono text-text-secondary uppercase">#00AE42</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #FFA400;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Warning</div>
                         <div class="text-[10px] font-mono text-text-secondary uppercase">#FFA400</div>
                       </div>
                     </div>
-                    <div class="bg-surface-base border border-border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-surface-base border border-subtle rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                       <div class="h-24 w-full" style="background-color: #ED3A3D;"></div>
                       <div class="p-3">
                         <div class="text-xs font-medium text-text-text-primary mb-1">Error</div>
@@ -190,14 +190,14 @@
               </div>
 
               <!-- 02. TOKENS SEMÂNTICOS -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-2 text-text-text-primary">02. Semantic Tokens</h3>
                 <p class="text-sm text-text-secondary mb-8 font-light">Usage · A Função</p>
                 
                 <!-- Surface -->
                 <div class="mb-8">
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">Surface (Backgrounds)</h4>
-                  <div class="overflow-hidden border border-border-subtle rounded-lg">
+                  <div class="overflow-hidden border border-subtle rounded-lg">
                     <table class="w-full">
                       <thead class="bg-surface-subtle">
                         <tr>
@@ -208,9 +208,9 @@
                         </tr>
                       </thead>
                       <tbody class="bg-surface-base">
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
-                            <div class="w-10 h-10 rounded border border-border-subtle" style="background-color: #FAFAFA;"></div>
+                            <div class="w-10 h-10 rounded border border-subtle" style="background-color: #FAFAFA;"></div>
                           </td>
                           <td class="px-4 py-4">
                             <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">surface-base</span>
@@ -218,9 +218,9 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Porcelain</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Cor de fundo padrão da página (body). Evita fadiga visual.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
-                            <div class="w-10 h-10 rounded border border-border-subtle" style="background-color: #FFFFFF;"></div>
+                            <div class="w-10 h-10 rounded border border-subtle" style="background-color: #FFFFFF;"></div>
                           </td>
                           <td class="px-4 py-4">
                             <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">surface-card</span>
@@ -228,9 +228,9 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Pure White</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Cards, Modais e painéis flutuantes para criar elevação.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
-                            <div class="w-10 h-10 rounded border border-border-subtle" style="background-color: #F4F4F5;"></div>
+                            <div class="w-10 h-10 rounded border border-subtle" style="background-color: #F4F4F5;"></div>
                           </td>
                           <td class="px-4 py-4">
                             <span class="inline-flex px-2 py-1 bg-surface-subtle rounded text-xs font-mono  items-center gap-2">
@@ -241,9 +241,9 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Mist</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Sidebars, áreas secundárias e hovers sutis.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
-                            <div class="w-10 h-10 rounded border border-border-subtle" style="background-color: #D6D6D8;"></div>
+                            <div class="w-10 h-10 rounded border border-subtle" style="background-color: #D6D6D8;"></div>
                           </td>
                           <td class="px-4 py-4">
                             <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">surface-offset</span>
@@ -259,7 +259,7 @@
                 <!-- Typography -->
                 <div class="mb-8">
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">Typography</h4>
-                  <div class="overflow-hidden border border-border-subtle rounded-lg">
+                  <div class="overflow-hidden border border-subtle rounded-lg">
                     <table class="w-full">
                       <thead class="bg-surface-subtle">
                         <tr>
@@ -270,7 +270,7 @@
                         </tr>
                       </thead>
                       <tbody class="bg-surface-base">
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <span class="text-2xl font-bold text-text-text-primary">Aa</span>
                           </td>
@@ -280,7 +280,7 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Rich Black</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Títulos, cabeçalhos e corpo de texto principal. Máxima legibilidade.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <span class="text-2xl font-semibold text-text-secondary">Aa</span>
                           </td>
@@ -290,7 +290,7 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Graphite Stone</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Subtítulos, legendas e textos de apoio. Menor peso visual.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle" style="background-color: #121212;">
+                        <tr class="border-t border-subtle" style="background-color: #121212;">
                           <td class="px-4 py-4">
                             <span class="text-2xl font-semibold" style="color: #FFFFFF;">Aa</span>
                           </td>
@@ -300,7 +300,7 @@
                           <td class="px-4 py-4 text-sm" style="color: #D6D6D8;">Pure White</td>
                           <td class="px-4 py-4 text-sm" style="color: #D6D6D8;">Texto sobre fundos escuros (Botões, Hero, Footer).</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <span class="text-2xl font-semibold text-text-link">Aa</span>
                           </td>
@@ -318,7 +318,7 @@
                 <!-- Borders & Dividers -->
                 <div>
                   <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-4">Borders & Dividers</h4>
-                  <div class="overflow-hidden border border-border-subtle rounded-lg">
+                  <div class="overflow-hidden border border-subtle rounded-lg">
                     <table class="w-full">
                       <thead class="bg-surface-subtle">
                         <tr>
@@ -329,7 +329,7 @@
                         </tr>
                       </thead>
                       <tbody class="bg-surface-base">
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <div class="w-10 h-10 rounded border bg-surface-base" style="border-color: #F4F4F5;"></div>
                           </td>
@@ -342,7 +342,7 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Mist</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Divisões quase invisíveis, separadores sutis em tabelas.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <div class="w-10 h-10 rounded border bg-surface-base" style="border-color: #E4E4E7;"></div>
                           </td>
@@ -355,7 +355,7 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Chromium</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Bordas padrão de cards, inputs inativos e divisórias.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <div class="w-10 h-10 rounded border bg-surface-base" style="border-color: #D6D6D8;"></div>
                           </td>
@@ -368,7 +368,7 @@
                           <td class="px-4 py-4 text-sm text-text-secondary">Platinum</td>
                           <td class="px-4 py-4 text-sm text-text-secondary">Divisões com contraste, bordas de destaque estrutural.</td>
                         </tr>
-                        <tr class="border-t border-border-subtle">
+                        <tr class="border-t border-subtle">
                           <td class="px-4 py-4">
                             <div class="w-10 h-10 rounded border-2 bg-surface-base" style="border-color: #121212;"></div>
                           </td>
@@ -385,11 +385,11 @@
               </div>
 
               <!-- Border Radius -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-2 text-text-text-primary">Border Radius</h3>
                 <p class="text-sm text-text-secondary mb-8 font-light">Hierarquia de arredondamento para cards e elementos</p>
                 
-                <div class="overflow-hidden border border-border-subtle rounded-lg">
+                <div class="overflow-hidden border border-subtle rounded-lg">
                   <table class="w-full">
                     <thead class="bg-surface-subtle">
                       <tr>
@@ -400,9 +400,9 @@
                       </tr>
                     </thead>
                     <tbody class="bg-surface-base">
-                      <tr class="border-t border-border-subtle">
+                      <tr class="border-t border-subtle">
                         <td class="px-4 py-4">
-                          <div class="w-16 h-16 bg-surface-subtle border border-border-subtle rounded-lg"></div>
+                          <div class="w-16 h-16 bg-surface-subtle border border-subtle rounded-lg"></div>
                         </td>
                         <td class="px-4 py-4">
                           <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">rounded-lg</span>
@@ -410,9 +410,9 @@
                         <td class="px-4 py-4 text-sm font-mono text-text-secondary">8px</td>
                         <td class="px-4 py-4 text-sm text-text-secondary">Cards padrão, containers principais, modais.</td>
                       </tr>
-                      <tr class="border-t border-border-subtle">
+                      <tr class="border-t border-subtle">
                         <td class="px-4 py-4">
-                          <div class="w-16 h-16 bg-surface-subtle border border-border-subtle rounded-xl"></div>
+                          <div class="w-16 h-16 bg-surface-subtle border border-subtle rounded-xl"></div>
                         </td>
                         <td class="px-4 py-4">
                           <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">rounded-lg</span>
@@ -420,9 +420,9 @@
                         <td class="px-4 py-4 text-sm font-mono text-text-secondary">12px</td>
                         <td class="px-4 py-4 text-sm text-text-secondary">Cards grandes, hero sections, painéis destacados.</td>
                       </tr>
-                      <tr class="border-t border-border-subtle">
+                      <tr class="border-t border-subtle">
                         <td class="px-4 py-4">
-                          <div class="w-16 h-16 bg-surface-subtle border border-border-subtle rounded-2xl"></div>
+                          <div class="w-16 h-16 bg-surface-subtle border border-subtle rounded-2xl"></div>
                         </td>
                         <td class="px-4 py-4">
                           <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">rounded-2xl</span>
@@ -436,7 +436,7 @@
               </div>
 
               <!-- Typography -->
-              <div class="bg-surface-card border rounded-lg border-border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-2 text-text-text-primary">Tipografia</h3>
                 <p class="text-sm text-text-secondary mb-8 font-light">Hierarquia tipográfica completa</p>
                 
@@ -462,14 +462,14 @@
                       </div>
 
                       <!-- Roboto (Terciária) -->
-                      <div class="p-4 bg-surface-subtle border-l-4 border-border-strong">
+                      <div class="p-4 bg-surface-subtle border-l-4 border-strong">
                         <div class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-2">Terciária · Roboto</div>
                         <p class="text-2xl font-roboto text-text-text-primary mb-2">The quick brown fox jumps</p>
                         <p class="text-xs text-text-secondary">Alternativa · Elementos específicos</p>
                       </div>
 
                       <!-- Monospace -->
-                      <div class="p-4 bg-surface-subtle border-l-4 border-border-strong">
+                      <div class="p-4 bg-surface-subtle border-l-4 border-strong">
                         <div class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-2">Código · Monospace</div>
                         <p class="text-lg font-mono text-text-text-primary mb-2">console.log("Hello World")</p>
                         <p class="text-xs text-text-secondary">Dados técnicos · Código e valores</p>
@@ -509,37 +509,37 @@
                   <div>
                     <h4 class="text-xs font-mono text-text-secondary uppercase tracking-widest mb-6">Escala de Tamanhos</h4>
                     <div class="space-y-3">
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-xs text-text-text-primary">text-xs</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">12px · 0.75rem</span>
                         <span class="text-xs text-text-secondary">Labels, captions</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-sm text-text-text-primary">text-sm</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">14px · 0.875rem</span>
                         <span class="text-xs text-text-secondary">Textos pequenos</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-base text-text-text-primary">text-base</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">16px · 1rem</span>
                         <span class="text-xs text-text-secondary">Corpo principal</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-lg text-text-text-primary">text-lg</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">18px · 1.125rem</span>
                         <span class="text-xs text-text-secondary">Textos destacados</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-xl text-text-text-primary">text-xl</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">20px · 1.25rem</span>
                         <span class="text-xs text-text-secondary">Subtítulos pequenos</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-2xl text-text-text-primary">text-2xl</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">24px · 1.5rem</span>
                         <span class="text-xs text-text-secondary">Títulos de seção</span>
                       </div>
-                      <div class="flex items-baseline justify-between border-b border-border-subtle pb-2">
+                      <div class="flex items-baseline justify-between border-b border-subtle pb-2">
                         <span class="text-3xl text-text-text-primary">text-3xl</span>
                         <span class="text-xs font-mono text-text-secondary mr-auto ml-4">30px · 1.875rem</span>
                         <span class="text-xs text-text-secondary">Títulos principais</span>
@@ -561,6 +561,7 @@
     </main>
   </div>
 </template>
+
 
 
 

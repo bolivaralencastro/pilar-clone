@@ -8,11 +8,11 @@ useSeoMeta({
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header Minimal -->
-    <header class="bg-white border-b border-border-subtle">
+    <header class="bg-white border-b border-subtle">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
-          <span class="text-xs font-mono text-secondary tracking-widest uppercase border-l border-border-subtle pl-4">Desafio Técnico</span>
+          <span class="text-xs font-mono text-secondary tracking-widest uppercase border-l border-subtle pl-4">Desafio Técnico</span>
         </div>
         <div class="text-xs font-mono text-action-primary tracking-widest uppercase">Bolívar Alencastro</div>
       </div>
@@ -40,7 +40,7 @@ useSeoMeta({
         </div>
 
         <!-- Navigation Grid (The Index) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-subtle border border-border-subtle rounded-lg">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-subtle border border-subtle rounded-lg">
           
           <!-- Column 1: Context -->
           <div class="bg-surface-base p-12 group hover:bg-surface-card transition-colors duration-500">
@@ -101,4 +101,5 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
