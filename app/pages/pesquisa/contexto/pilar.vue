@@ -1,7 +1,33 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 useSeoMeta({
   title: 'Contexto & Negócio - Pilar Homes',
   description: 'Análise do contexto de negócio e mercado da Pilar Homes.'
+})
+
+const activeSection = ref('sobre')
+
+const updateActiveSection = () => {
+  const sections = ['sobre', 'timeline', 'estrutura', 'ecossistema', 'modelo']
+  const scrollPosition = window.scrollY + 200 // offset for better UX
+  
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = document.getElementById(sections[i])
+    if (section && section.offsetTop <= scrollPosition) {
+      activeSection.value = sections[i]
+      break
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateActiveSection)
+  updateActiveSection()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateActiveSection)
 })
 </script>
 
@@ -40,11 +66,26 @@ useSeoMeta({
             <div class="w-12 h-1 bg-mat-stone mb-8"></div>
             
             <nav class="space-y-4 border-l border-subtle pl-6">
-              <a href="#sobre" class="block text-sm font-medium text-primary hover:text-action-primary transition-colors">Sobre a Pilar</a>
-              <a href="#timeline" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Linha do Tempo</a>
-              <a href="#estrutura" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Estrutura Organizacional</a>
-              <a href="#ecossistema" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Ecossistema de Parceiros</a>
-              <a href="#modelo" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Modelo de Negócio</a>
+              <a href="#sobre" 
+                :class="activeSection === 'sobre' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Sobre a Pilar
+              </a>
+              <a href="#timeline" 
+                :class="activeSection === 'timeline' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Linha do Tempo
+              </a>
+              <a href="#estrutura" 
+                :class="activeSection === 'estrutura' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Estrutura Organizacional
+              </a>
+              <a href="#ecossistema" 
+                :class="activeSection === 'ecossistema' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Ecossistema de Parceiros
+              </a>
+              <a href="#modelo" 
+                :class="activeSection === 'modelo' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Modelo de Negócio
+              </a>
             </nav>
           </aside>
 

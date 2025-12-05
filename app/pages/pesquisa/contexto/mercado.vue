@@ -1,7 +1,33 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 useSeoMeta({
   title: 'Visão de Mercado - Pilar Homes',
   description: 'Análise do mercado imobiliário de alto padrão e oportunidades.'
+})
+
+const activeSection = ref('panorama')
+
+const updateActiveSection = () => {
+  const sections = ['panorama', 'tendencias', 'oportunidades']
+  const scrollPosition = window.scrollY + 200
+  
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = document.getElementById(sections[i])
+    if (section && section.offsetTop <= scrollPosition) {
+      activeSection.value = sections[i]
+      break
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateActiveSection)
+  updateActiveSection()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateActiveSection)
 })
 </script>
 
@@ -40,9 +66,18 @@ useSeoMeta({
             <div class="w-12 h-1 bg-mat-stone mb-8"></div>
             
             <nav class="space-y-4 border-l border-subtle pl-6">
-              <a href="#panorama" class="block text-sm font-medium text-primary hover:text-action-primary transition-colors">Panorama</a>
-              <a href="#tendencias" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Tendências</a>
-              <a href="#oportunidades" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Oportunidades</a>
+              <a href="#panorama" 
+                :class="activeSection === 'panorama' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Panorama
+              </a>
+              <a href="#tendencias" 
+                :class="activeSection === 'tendencias' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Tendências
+              </a>
+              <a href="#oportunidades" 
+                :class="activeSection === 'oportunidades' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Oportunidades
+              </a>
             </nav>
           </aside>
 

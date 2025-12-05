@@ -1,7 +1,33 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 useSeoMeta({
   title: 'UI Patterns - Pilar Homes',
   description: 'Estudos de componentes e padrões de interface para experiências premium.'
+})
+
+const activeSection = ref('navegacao')
+
+const updateActiveSection = () => {
+  const sections = ['navegacao', 'cards', 'filtros', 'galerias']
+  const scrollPosition = window.scrollY + 200
+  
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = document.getElementById(sections[i])
+    if (section && section.offsetTop <= scrollPosition) {
+      activeSection.value = sections[i]
+      break
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateActiveSection)
+  updateActiveSection()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateActiveSection)
 })
 </script>
 
@@ -40,10 +66,22 @@ useSeoMeta({
             <div class="w-12 h-1 bg-mat-stone mb-8"></div>
             
             <nav class="space-y-4 border-l border-subtle pl-6">
-              <a href="#navegacao" class="block text-sm font-medium text-primary hover:text-action-primary transition-colors">Navegação</a>
-              <a href="#cards" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Cards</a>
-              <a href="#filtros" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Filtros</a>
-              <a href="#galerias" class="block text-sm font-light text-secondary hover:text-text-primary transition-colors">Galerias</a>
+              <a href="#navegacao" 
+                :class="activeSection === 'navegacao' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Navegação
+              </a>
+              <a href="#cards" 
+                :class="activeSection === 'cards' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Cards
+              </a>
+              <a href="#filtros" 
+                :class="activeSection === 'filtros' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Filtros
+              </a>
+              <a href="#galerias" 
+                :class="activeSection === 'galerias' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Galerias
+              </a>
             </nav>
           </aside>
 
