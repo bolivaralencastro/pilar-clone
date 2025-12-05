@@ -9,7 +9,7 @@ useSeoMeta({
 const activeSection = ref('sobre')
 
 const updateActiveSection = () => {
-  const sections = ['sobre', 'timeline', 'estrutura', 'ecossistema', 'modelo']
+  const sections = ['sobre', 'timeline', 'estrutura', 'tecnologia', 'servicos', 'hubs', 'modelo']
   const scrollPosition = window.scrollY + 200 // offset for better UX
   
   for (let i = sections.length - 1; i >= 0; i--) {
@@ -78,13 +78,21 @@ onUnmounted(() => {
                 :class="activeSection === 'estrutura' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
                 Estrutura Organizacional
               </a>
-              <a href="#ecossistema" 
-                :class="activeSection === 'ecossistema' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
-                Ecossistema de Parceiros
+              <a href="#tecnologia" 
+                :class="activeSection === 'tecnologia' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Tecnologia
+              </a>
+              <a href="#servicos" 
+                :class="activeSection === 'servicos' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Serviços de Suporte
+              </a>
+              <a href="#hubs" 
+                :class="activeSection === 'hubs' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Hubs Físicos
               </a>
               <a href="#modelo" 
                 :class="activeSection === 'modelo' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
-                Modelo de Negócio
+                Modelo de Remuneração
               </a>
             </nav>
           </aside>
@@ -467,67 +475,289 @@ onUnmounted(() => {
                 </div>
             </section>
 
-            <!-- Section: Ecossistema de Parceiros -->
-            <section id="ecossistema" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm rounded-lg">
-              <h2 class="text-3xl font-light text-text-primary mb-8">Ecossistema de Parceiros</h2>
+            <!-- Section: Tecnologia -->
+            <section id="tecnologia" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm">
+              <h2 class="text-3xl font-light text-text-primary mb-8">🌐 Tecnologia</h2>
               
-              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg">
-                <h3 class="text-xl font-light text-text-primary mb-4">O Ecossistema de Parceiros</h3>
+              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg mb-8">
                 <p class="text-secondary font-light leading-relaxed mb-6">
-                  A força da Pilar está em sua rede de parceiros — o coração do negócio:
+                  A Pilar desenvolve internamente toda sua infraestrutura digital — um dos pilares estratégicos da operação, com cerca de <strong class="text-text-primary font-medium">40% do time dedicado a produto e engenharia</strong>.
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <div class="flex items-baseline gap-2 mb-2">
-                      <span class="text-4xl font-light text-action-primary">220+</span>
-                      <span class="text-sm font-mono text-secondary uppercase tracking-widest">Imobiliárias Parceiras</span>
+              </div>
+
+              <h3 class="text-xl font-light text-text-primary mb-6">Principais Ferramentas</h3>
+              
+              <div class="space-y-6">
+                <!-- Rede Pilar -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center">
+                      <span class="text-2xl">🔗</span>
                     </div>
-                    <p class="text-xs text-secondary font-light">
-                      Boutiques e imobiliárias exclusivas na plataforma
-                    </p>
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">Rede Pilar (Marketplace Interno)</h4>
+                      <p class="text-sm text-secondary font-light mb-4">
+                        Sistema de compartilhamento de portfólios entre <strong class="text-text-primary">750+ corretores</strong> e <strong class="text-text-primary">220+ boutiques</strong>.
+                      </p>
+                      <div class="bg-action-primary/5 p-4 border-l-4 border-action-primary">
+                        <p class="text-sm text-text-primary font-light">
+                          É o <strong class="font-medium">motor de liquidez do ecossistema</strong>: mais de <strong class="font-medium">50% das vendas de 2024</strong> vieram de parcerias.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div class="flex items-baseline gap-2 mb-2">
-                      <span class="text-4xl font-light text-action-primary">750+</span>
-                      <span class="text-sm font-mono text-secondary uppercase tracking-widest">Corretores Ativos</span>
+                </div>
+
+                <!-- PilarHomes -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center">
+                      <span class="text-2xl">🏠</span>
                     </div>
-                    <p class="text-xs text-secondary font-light">
-                      Profissionais exclusivos usando a plataforma Pilar
-                    </p>
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">PilarHomes (Portal B2C)</h4>
+                      <p class="text-sm text-secondary font-light mb-3">
+                        Plataforma voltada ao cliente final, com algoritmos de IA que destacam anúncios conforme:
+                      </p>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span>Perfil do comprador e histórico de navegação</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span>Performance do corretor (respostas rápidas, qualidade do material)</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ferramentas de Produtividade -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center">
+                      <span class="text-2xl">⚡</span>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">Ferramentas de Produtividade</h4>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">CAPTA</strong> — captação via WhatsApp</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span>Criação de peças de marketing</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span>Agendamento de fotografias</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span>Integrações operacionais que reduzem fricção no dia a dia</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section: Modelo de Negócio -->
-            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm rounded-lg">
-              <h2 class="text-3xl font-light text-text-primary mb-8">Modelo de Negócio</h2>
+            <!-- Section: Serviços de Suporte -->
+            <section id="servicos" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm">
+              <h2 class="text-3xl font-light text-text-primary mb-8">🧰 Serviços de Suporte (Backoffice)</h2>
+              
+              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg mb-8">
+                <p class="text-secondary font-light leading-relaxed">
+                  A Pilar trabalha em modelo <strong class="text-text-primary font-medium">asset-light</strong>, removendo do corretor tudo que não é comercial.
+                </p>
+              </div>
 
-              <div>
-                <h3 class="text-xl font-light text-text-primary mb-4">O Modelo de Suporte</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
-                    <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Tecnologia</h4>
-                    <p class="text-sm text-secondary font-light">
-                      CRM próprio, sistema de listing integrado e marketplace interno (Rede Pilar) para compartilhamento de imóveis.
-                    </p>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Marketing & Branding -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors group">
+                  <div class="w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-action-primary/20 transition-colors">
+                    <span class="text-2xl">🎨</span>
                   </div>
-                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
-                    <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Serviços</h4>
-                    <p class="text-sm text-secondary font-light">
-                      Marketing, infraestrutura tecnológica, assessoria jurídica e comercial. Financiamento de transações.
-                    </p>
+                  <h4 class="text-base font-medium text-text-primary mb-3">Marketing & Branding</h4>
+                  <ul class="space-y-2 text-sm text-secondary font-light">
+                    <li>• Criação da marca do corretor</li>
+                    <li>• Identidade visual</li>
+                    <li>• Redes sociais</li>
+                    <li>• Tráfego pago e conteúdo</li>
+                  </ul>
+                </div>
+
+                <!-- Jurídico & Comercial -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors group">
+                  <div class="w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-action-primary/20 transition-colors">
+                    <span class="text-2xl">⚖️</span>
                   </div>
-                  <div class="bg-surface-card p-6 border rounded-lg border-subtle">
-                    <h4 class="text-xs font-mono uppercase tracking-widest text-action-primary mb-3">Ambiente Físico</h4>
-                    <p class="text-sm text-secondary font-light">
-                      Escritórios como Hubs e Coworkings para networking e parcerias presenciais.
+                  <h4 class="text-base font-medium text-text-primary mb-3">Jurídico & Comercial</h4>
+                  <ul class="space-y-2 text-sm text-secondary font-light">
+                    <li>• Contratos e diligências</li>
+                    <li>• Compliance (KYC)</li>
+                    <li>• Apoio em negociações complexas</li>
+                  </ul>
+                </div>
+
+                <!-- Infraestrutura Operacional -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors group">
+                  <div class="w-12 h-12 bg-action-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-action-primary/20 transition-colors">
+                    <span class="text-2xl">🔧</span>
+                  </div>
+                  <h4 class="text-base font-medium text-text-primary mb-3">Infraestrutura Operacional</h4>
+                  <ul class="space-y-2 text-sm text-secondary font-light">
+                    <li>• Processos organizados</li>
+                    <li>• Ferramentas integradas</li>
+                    <li>• Suporte contínuo</li>
+                    <li>• Fluidez nas transações</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section: Hubs Físicos -->
+            <section id="hubs" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm">
+              <h2 class="text-3xl font-light text-text-primary mb-8">🏢 Ambiente Físico (Hubs)</h2>
+              
+              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg mb-6">
+                <p class="text-secondary font-light leading-relaxed mb-4">
+                  Escritórios em <strong class="text-text-primary font-medium">São Paulo e Curitiba</strong> funcionam como Hubs de conexão, coworkings e pontos de encontro que fortalecem a cultura de parceria — um dos diferenciais do modelo.
+                </p>
+                <p class="text-secondary font-light leading-relaxed">
+                  O contato presencial cria <strong class="text-text-primary font-medium">confiança</strong> e favorece <strong class="text-text-primary font-medium">colaborações entre boutiques</strong>.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="text-3xl">📍</span>
+                    <h4 class="text-lg font-medium text-text-primary">São Paulo</h4>
+                  </div>
+                  <p class="text-sm text-secondary font-light">
+                    Hub principal com espaços de coworking, salas de reunião e ambiente de networking para corretores e parceiros.
+                  </p>
+                </div>
+
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="text-3xl">📍</span>
+                    <h4 class="text-lg font-medium text-text-primary">Curitiba</h4>
+                  </div>
+                  <p class="text-sm text-secondary font-light">
+                    Expansão estratégica para fortalecer a presença no Sul, facilitando parcerias regionais e suporte local.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section: Modelo de Remuneração -->
+            <section id="modelo" class="scroll-mt-24 bg-surface-card border border-subtle rounded-lg p-12 shadow-sm">
+              <h2 class="text-3xl font-light text-text-primary mb-8">💰 Modelo de Remuneração</h2>
+
+              <div class="bg-surface-subtle p-8 border border-hairline rounded-lg mb-8">
+                <p class="text-lg text-secondary font-light leading-relaxed">
+                  O modelo da Pilar é <strong class="text-text-primary font-medium">100% alinhado ao sucesso do corretor</strong>: só há remuneração quando há venda.
+                </p>
+              </div>
+
+              <div class="space-y-6 mb-8">
+                <!-- Comissão -->
+                <div class="bg-surface-card p-8 border border-subtle rounded-lg">
+                  <h3 class="text-xl font-light text-text-primary mb-4">Comissão (Take Rate)</h3>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                      <div class="flex items-baseline gap-3 mb-2">
+                        <span class="text-4xl font-light text-action-primary">10-25%</span>
+                        <span class="text-sm font-mono text-secondary uppercase tracking-widest">Pilar</span>
+                      </div>
+                      <p class="text-sm text-secondary font-light">
+                        A Pilar retém entre 10% a 25% da comissão<br/>
+                        <span class="text-xs">(em alguns modelos 10–15%)</span>
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <div class="flex items-baseline gap-3 mb-2">
+                        <span class="text-4xl font-light text-text-primary">75-90%</span>
+                        <span class="text-sm font-mono text-secondary uppercase tracking-widest">Corretor</span>
+                      </div>
+                      <p class="text-sm text-secondary font-light">
+                        O corretor fica com 75% a 90% do valor da venda
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="bg-action-primary/5 p-6 border-l-4 border-action-primary">
+                    <p class="text-sm text-text-primary font-light">
+                      <strong class="font-medium">vs. Mercado Tradicional:</strong> Imobiliárias tradicionais retêm <strong class="font-medium">60–70%</strong> da comissão.
                     </p>
                   </div>
                 </div>
-                <div class="mt-6 bg-action-primary/5 p-6 border-l-4 border-action-primary">
-                  <p class="text-sm text-text-primary font-light">
-                    <strong class="font-medium">Modelo de Remuneração:</strong> A Pilar é remunerada apenas no sucesso da transação, alinhando seus interesses com o do corretor.
+
+                <!-- Setup & Planos -->
+                <div class="bg-surface-card p-8 border border-subtle rounded-lg">
+                  <h3 class="text-xl font-light text-text-primary mb-4">Setup & Planos</h3>
+                  
+                  <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                      <span class="text-action-primary text-xl mt-1">→</span>
+                      <div>
+                        <p class="text-sm text-text-primary font-medium mb-1">Processo Seletivo</p>
+                        <p class="text-sm text-secondary font-light">
+                          Entrada na plataforma após aprovação, com cobrança de setup em alguns casos para criação da marca.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                      <span class="text-action-primary text-xl mt-1">→</span>
+                      <div>
+                        <p class="text-sm text-text-primary font-medium mb-1">Planos Evolutivos</p>
+                        <p class="text-sm text-secondary font-light mb-3">
+                          Três níveis que ampliam benefícios conforme a performance:
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          <div class="bg-surface-subtle p-4 rounded-lg border border-hairline">
+                            <p class="text-xs font-mono uppercase tracking-widest text-action-primary mb-1">Fundação</p>
+                            <p class="text-xs text-secondary">Plano inicial</p>
+                          </div>
+                          <div class="bg-surface-subtle p-4 rounded-lg border border-hairline">
+                            <p class="text-xs font-mono uppercase tracking-widest text-action-primary mb-1">Horizonte</p>
+                            <p class="text-xs text-secondary">Plano intermediário</p>
+                          </div>
+                          <div class="bg-surface-subtle p-4 rounded-lg border border-hairline">
+                            <p class="text-xs font-mono uppercase tracking-widest text-action-primary mb-1">Skyline</p>
+                            <p class="text-xs text-secondary">Plano avançado</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visão Estratégica -->
+              <div class="bg-gradient-to-br from-action-primary/5 to-action-primary/10 p-8 rounded-lg border border-action-primary/20">
+                <h3 class="text-xl font-light text-text-primary mb-4">🎯 Visão Estratégica</h3>
+                <p class="text-secondary font-light leading-relaxed mb-4">
+                  A Pilar funciona como um <strong class="text-text-primary font-medium">ecossistema</strong> que combina tecnologia, rede e infraestrutura para que corretores independentes construam sua própria marca com escala e credibilidade.
+                </p>
+                <p class="text-secondary font-light leading-relaxed mb-6">
+                  A <strong class="text-text-primary font-medium">Rede Pilar</strong> resolve o maior gargalo do mercado tradicional: <strong class="text-text-primary font-medium">falta de portfólio e liquidez</strong> fora do próprio nicho.
+                </p>
+                
+                <div class="bg-white/50 p-6 rounded-lg border border-action-primary/30">
+                  <p class="text-sm text-text-primary font-light italic leading-relaxed">
+                    <strong class="font-medium not-italic">Metáfora:</strong><br/>
+                    No modelo tradicional, a imobiliária retém a maior parte do valor gerado pelo corretor.<br/>
+                    A Pilar age como uma <strong class="font-medium not-italic">liga moderna</strong> que fornece tecnologia, parcerias e ferramentas —<br/>
+                    <strong class="font-medium not-italic text-action-primary">o corretor faz o gol, e fica com a maior parte do prêmio</strong>.
                   </p>
                 </div>
               </div>
