@@ -50,10 +50,10 @@ useSeoMeta({
           <div class="lg:col-span-7 lg:col-start-6 space-y-8">
             
             <!-- Section: Panorama -->
-            <section id="panorama" class="scroll-mt-32 bg-surface-card border border-subtle r rounded-lgounded-lg p-8 shadow-sm rounded-lg">
+            <section id="panorama" class="scroll-mt-32 bg-surface-card border border-subtle rounded-lg p-8 shadow-sm rounded-lg">
               <h2 class="text-2xl font-light text-text-primary mb-6">Panorama do Mercado</h2>
               
-              <div class="bg-surface-subtle p-8 border border-hairline mb-8 r rounded-lgounded-lg rounded-lg">
+              <div class="bg-surface-subtle p-8 border border-hairline mb-8 rounded-lg rounded-lg">
                 <p class="text-secondary font-light leading-relaxed mb-6">
                   O mercado imobiliário de alto padrão no Brasil apresenta características únicas que demandam soluções digitais sofisticadas e experiências diferenciadas.
                 </p>
@@ -63,17 +63,17 @@ useSeoMeta({
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div class="bg-surface-subtle p-6 border border-hairline r rounded-lgounded-lg text-center rounded-lg">
+                <div class="bg-surface-subtle p-6 border border-hairline rounded-lg text-center rounded-lg">
                   <span class="block text-4xl font-light text-action-primary mb-2">+15%</span>
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest">Crescimento YoY</span>
                   <p class="text-xs text-secondary font-light mt-2">Mercado de alto padrão</p>
                 </div>
-                <div class="bg-surface-subtle p-6 border border-hairline r rounded-lgounded-lg text-center rounded-lg">
+                <div class="bg-surface-subtle p-6 border border-hairline rounded-lg text-center rounded-lg">
                   <span class="block text-4xl font-light text-action-primary mb-2">68%</span>
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest">Mobile First</span>
                   <p class="text-xs text-secondary font-light mt-2">Primeiras buscas</p>
                 </div>
-                <div class="bg-surface-subtle p-6 border border-hairline r rounded-lgounded-lg text-center rounded-lg">
+                <div class="bg-surface-subtle p-6 border border-hairline rounded-lg text-center rounded-lg">
                   <span class="block text-4xl font-light text-action-primary mb-2">Visual</span>
                   <span class="text-xs font-mono text-secondary uppercase tracking-widest">Driven</span>
                   <p class="text-xs text-secondary font-light mt-2">Decisão por imagem</p>
@@ -82,7 +82,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Tendências -->
-            <section id="tendencias" class="scroll-mt-32 bg-surface-card border border-subtle r rounded-lgounded-lg p-8 shadow-sm rounded-lg">
+            <section id="tendencias" class="scroll-mt-32 bg-surface-card border border-subtle rounded-lg p-8 shadow-sm rounded-lg">
               <h2 class="text-2xl font-light text-text-primary mb-6">Tendências Identificadas</h2>
               
               <div class="space-y-6">
@@ -122,7 +122,7 @@ useSeoMeta({
             </section>
 
             <!-- Section: Oportunidades -->
-            <section id="oportunidades" class="scroll-mt-32 bg-surface-card border border-subtle r rounded-lgounded-lg p-8 shadow-sm rounded-lg">
+            <section id="oportunidades" class="scroll-mt-32 bg-surface-card border border-subtle rounded-lg p-8 shadow-sm rounded-lg">
               <h2 class="text-2xl font-light text-text-primary mb-6">Oportunidades Identificadas</h2>
               
               <div class="grid grid-cols-1 gap-4">
@@ -188,6 +188,7 @@ useSeoMeta({
     </main>
   </div>
 </template>
+
 
 
 
