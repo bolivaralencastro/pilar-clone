@@ -1,11 +1,12 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Benchmarking Global - Pilar Homes',
-  description: 'Análise de referências globais em imobiliárias de luxo.'
+  description: 'Análise de referências globais em luxo e design.'
 })
 
 interface Competitor {
   name: string
+  segment: string
   country: string
   flag: string
   url: string
@@ -15,253 +16,253 @@ interface Competitor {
   opportunities: string[]
 }
 
-interface Region {
+interface Segment {
   name: string
+  icon: string
   competitors: Competitor[]
 }
 
-const regions: Region[] = [
+const segments: Segment[] = [
   {
-    name: 'América do Norte',
+    name: 'Real Estate',
+    icon: '',
     competitors: [
       {
         name: 'Douglas Elliman',
+        segment: 'Real Estate',
         country: 'EUA',
         flag: '🇺🇸',
         url: 'https://www.elliman.com',
         image: '/images/benchmarking/douglas-elliman.png',
         summary: 'Uma das maiores redes dos EUA em imóveis premium, forte em NY, Miami e LA.',
-        strengths: ['Conteúdo editorial forte', 'Navegação clean', 'Fotografia impecável', 'Credibilidade'],
-        opportunities: ['Filtros pouco avançados', 'Experiência mobile pode melhorar']
+        strengths: ['Conteúdo editorial forte', 'Navegação clean', 'Fotografia impecável'],
+        opportunities: ['Filtros pouco avançados', 'Experiência mobile']
       },
       {
         name: 'The Agency',
+        segment: 'Real Estate',
         country: 'EUA',
         flag: '🇺🇸',
         url: 'https://www.theagencyre.com',
         image: '/images/benchmarking/the-agency.png',
         summary: 'Marca de luxo com storytelling aspiracional e produção audiovisual de altíssimo nível.',
         strengths: ['Branding excepcional', 'Vídeos high-end', 'Experiência inspiracional'],
-        opportunities: ['Menos dados estruturados', 'Foco maior na emoção do que na função']
+        opportunities: ['Menos dados estruturados', 'Foco na emoção vs função']
       },
-      {
-        name: 'Compass',
-        country: 'EUA',
-        flag: '🇺🇸',
-        url: 'https://www.compass.com',
-        image: '/images/benchmarking/compass.png',
-        summary: 'Maior case de tecnologia aplicada ao mercado imobiliário premium.',
-        strengths: ['UX fluida', 'Busca inteligente', 'CRM para corretores', 'Dados integrados'],
-        opportunities: ['Visual não tão aspiracional quanto concorrentes de luxo puro']
-      },
-      {
-        name: 'Hammond International Properties',
-        country: 'Canadá',
-        flag: '🇨🇦',
-        url: 'https://hammondinternationalproperties.com',
-        image: '/images/benchmarking/hammond.png',
-        summary: 'Marca de luxo extremo, forte em Toronto.',
-        strengths: ['Narrativa forte', 'Fotografias muito refinadas'],
-        opportunities: ['Layout menos funcional', 'Prioriza emoção sobre busca']
-      }
-    ]
-  },
-  {
-    name: 'Europa',
-    competitors: [
       {
         name: 'Knight Frank',
+        segment: 'Real Estate',
         country: 'Reino Unido',
         flag: '🇬🇧',
         url: 'https://www.knightfrank.co.uk',
         image: '/images/benchmarking/knight-frank.png',
         summary: 'Potência global em imóveis premium e ultra-prime.',
         strengths: ['Relatórios de mercado impecáveis', 'Organização exemplar'],
-        opportunities: ['Design mais tradicional', 'Pode parecer "frio" para padrões modernos']
-      },
+        opportunities: ['Design mais tradicional', 'Pode parecer "frio"']
+      }
+    ]
+  },
+  {
+    name: 'Moda & Luxo',
+    icon: '',
+    competitors: [
       {
-        name: 'Savills',
-        country: 'Reino Unido',
-        flag: '🇬🇧',
-        url: 'https://www.savills.co.uk',
-        image: '/images/benchmarking/savills.png',
-        summary: 'Rede global com força em pesquisa e inteligência de mercado.',
-        strengths: ['Autoridade', 'Dados confiáveis', 'Clareza na navegação'],
-        opportunities: ['Pouca emoção visual', 'Parece mais corporate']
-      },
-      {
-        name: 'Barnes International Realty',
+        name: 'Hermès',
+        segment: 'Moda',
         country: 'França',
         flag: '🇫🇷',
-        url: 'https://www.barnes-international.com',
-        image: '/images/benchmarking/barnes.png',
-        summary: 'Marca de luxo clássico, forte em Paris, Riviera Francesa, Genebra.',
-        strengths: ['Elegância', 'Simplicidade', 'Consistência fotográfica'],
-        opportunities: ['UX pouco interativa', 'Busca poderia ser mais intuitiva']
+        url: 'https://www.hermes.com',
+        image: '/images/benchmarking/hermes.png',
+        summary: 'Referência absoluta em luxo atemporal, artesania e exclusividade.',
+        strengths: ['Design minimalista', 'Storytelling rico', 'Fotografia impecável'],
+        opportunities: ['E-commerce limitado propositalmente']
       },
       {
-        name: 'Daniel Féau',
-        country: 'França',
-        flag: '🇫🇷',
-        url: 'https://www.danielfeau.com',
-        image: '/images/benchmarking/daniel-feau.png',
-        summary: 'Especialista absoluto no mercado prime parisiense.',
-        strengths: ['Refinamento visual', 'Informação profunda sobre bairros'],
-        opportunities: ['Pouca escalabilidade de UX', 'Foco restrito']
-      },
-      {
-        name: 'Engel & Völkers',
-        country: 'Alemanha',
-        flag: '🇩🇪',
-        url: 'https://www.engelvoelkers.com',
-        image: '/images/benchmarking/engel-volkers.png',
-        summary: 'Uma das maiores redes globais, mix de premium e mainstream.',
-        strengths: ['Escopo mundial', 'Estrutura robusta', 'Layout eficiente'],
-        opportunities: ['Visual datado', 'Páginas longas e às vezes pesadas']
-      },
-      {
-        name: 'Lionard Luxury Real Estate',
+        name: 'Loro Piana',
+        segment: 'Moda',
         country: 'Itália',
         flag: '🇮🇹',
-        url: 'https://www.lionard.com',
-        image: '/images/benchmarking/lionard.png',
-        summary: 'Especialista em vilas italianas, castelos e propriedades históricas.',
-        strengths: ['Fotografia cinematográfica', 'Storytelling de propriedade único'],
-        opportunities: ['Muito visual', 'Poucos dados estruturados']
-      },
-      {
-        name: 'Lucas Fox',
-        country: 'Espanha',
-        flag: '🇪🇸',
-        url: 'https://www.lucasfox.com',
-        image: '/images/benchmarking/lucas-fox.png',
-        summary: 'Principal imobiliária de luxo da Espanha.',
-        strengths: ['UI moderna', 'Experiência clara e leve'],
-        opportunities: ['Alguns fluxos dependem de verificações (cloudflare)', 'Atrito na navegação']
-      },
-      {
-        name: 'Lisbon Estates',
-        country: 'Portugal',
-        flag: '🇵🇹',
-        url: 'https://www.lisbonestates.com',
-        image: '/images/benchmarking/lisbon-estates.png',
-        summary: 'Boutique premium com forte presença no mercado português.',
-        strengths: ['Estética moderna', 'Boas descrições'],
-        opportunities: ['Filtro limitado', 'Pouca profundidade de dados']
-      },
-      {
-        name: 'Kalinka Ecosystem',
-        country: 'Rússia',
-        flag: '🇷🇺',
-        url: 'https://kalinka-realty.com',
-        image: '/images/benchmarking/kalinka.png',
-        summary: 'Rede premium de Moscou com foco em ultra-luxo.',
-        strengths: ['Curadoria e exclusividade'],
-        opportunities: ['Site frequentemente inacessível', 'Tecnologia fraca']
+        url: 'https://www.loropiana.com',
+        image: '/images/benchmarking/loro-piana.png',
+        summary: 'Luxo discreto e qualidade suprema em tecidos nobres.',
+        strengths: ['Elegância sutil', 'Foco em materiais', 'UX refinada'],
+        opportunities: ['Navegação pode ser mais fluida']
       }
     ]
   },
   {
-    name: 'Ásia & Oriente Médio',
+    name: 'Automotivo',
+    icon: '',
     competitors: [
       {
-        name: 'Metropolitan Premium Properties',
-        country: 'Emirados Árabes',
-        flag: '🇦🇪',
-        url: 'https://metropolitan.realestate',
-        image: '/images/benchmarking/metropolitan.png',
-        summary: 'Especialista em Dubai, foco em novos lançamentos e investimento estrangeiro.',
-        strengths: ['Muito conteúdo', 'Dados de ROI e plantas baixas', 'CTAs fortes'],
-        opportunities: ['Visual carregado', 'Excesso de informações']
+        name: 'Rolls-Royce',
+        segment: 'Automotivo',
+        country: 'Reino Unido',
+        flag: '🇬🇧',
+        url: 'https://www.rolls-roycemotorcars.com',
+        image: '/images/benchmarking/rolls-royce.png',
+        summary: 'Epítome do luxo automotivo com experiência digital imersiva.',
+        strengths: ['Experiência imersiva', 'Configurador 3D', 'Branding majestoso'],
+        opportunities: ['Carregamento pesado em conexões lentas']
       },
       {
-        name: 'India Sotheby\'s International Realty',
-        country: 'Índia',
-        flag: '🇮🇳',
-        url: 'https://www.indiasothebysrealty.com',
-        image: '/images/benchmarking/india-sothebys.png',
-        summary: 'Marca premium fortíssima em Delhi e Mumbai.',
-        strengths: ['Forte reputação global', 'Foco em HNWI e UHNW'],
-        opportunities: ['Site pesado', 'Navegação lenta']
-      },
-      {
-        name: 'Savills China',
-        country: 'China',
-        flag: '🇨🇳',
-        url: 'https://www.savills.com.cn',
-        image: '/images/benchmarking/savills-china.png',
-        summary: 'Mais institucional; forte em comercial e consultoria.',
-        strengths: ['Autoridade e dados robustos'],
-        opportunities: ['Pouca oferta residencial', 'Não serve bem como inspiração de UX']
-      },
-      {
-        name: 'Ken Corporation',
-        country: 'Japão',
-        flag: '🇯🇵',
-        url: 'https://www.kencorp.com',
-        image: '/images/benchmarking/ken-corporation.png',
-        summary: 'Especialista em imóveis premium e expatriados em Tóquio.',
-        strengths: ['Foco claro', 'Excelente reputação'],
-        opportunities: ['Site muito antigo', 'Baixa inspiração visual']
+        name: 'Bentley',
+        segment: 'Automotivo',
+        country: 'Reino Unido',
+        flag: '🇬🇧',
+        url: 'https://www.bentleymotors.com',
+        image: '/images/benchmarking/bentley.png',
+        summary: 'Luxo britânico com forte ênfase em personalização.',
+        strengths: ['Configurador detalhado', 'Conteúdo editorial', 'Navegação clara'],
+        opportunities: ['Design pode ser mais ousado']
       }
     ]
   },
   {
-    name: 'Oceania',
+    name: 'Hotelaria & Turismo',
+    icon: '',
     competitors: [
       {
-        name: 'Schmith Estate Agents',
-        country: 'Austrália',
-        flag: '🇦🇺',
-        url: 'https://schmith.com.au',
-        image: '/images/benchmarking/schmith.png',
-        summary: 'Agência boutique moderna, com forte apelo visual.',
-        strengths: ['UI clean', 'Imagens grandes', 'Fluxo simples'],
-        opportunities: ['Páginas inconsistentes entre si', 'Alguns elementos escondidos']
+        name: 'Aman Resorts',
+        segment: 'Hotelaria',
+        country: 'Global',
+        flag: '🌍',
+        url: 'https://www.aman.com',
+        image: '/images/benchmarking/aman.png',
+        summary: 'Referência em hospitalidade de ultra-luxo e design minimalista.',
+        strengths: ['Fotografia excepcional', 'Minimalismo', 'Atmosfera zen'],
+        opportunities: ['Informações práticas poderiam ser mais acessíveis']
+      },
+      {
+        name: 'Four Seasons',
+        segment: 'Hotelaria',
+        country: 'Canadá',
+        flag: '🇨🇦',
+        url: 'https://www.fourseasons.com',
+        image: '/images/benchmarking/four-seasons.png',
+        summary: 'Líder global em hospitalidade de luxo com UX exemplar.',
+        strengths: ['Sistema de reservas fluido', 'Conteúdo rico', 'UX impecável'],
+        opportunities: ['Visual poderia ser mais aspiracional']
       }
     ]
   },
   {
-    name: 'América Latina',
+    name: 'Design & Interiores',
+    icon: '',
     competitors: [
       {
-        name: 'Bossa Nova Sotheby\'s International Realty',
-        country: 'Brasil',
-        flag: '🇧🇷',
-        url: 'https://www.bossanovasir.com.br',
-        image: '/images/benchmarking/bossa-nova-sothebys.png',
-        summary: 'Principal marca premium no Brasil, afiliada à Sotheby\'s.',
-        strengths: ['Repertório de luxo', 'Boa curadoria', 'Credibilidade altíssima'],
-        opportunities: ['UI irregular', 'Dificuldade para encontrar imóveis específicos']
+        name: 'B&B Italia',
+        segment: 'Design',
+        country: 'Itália',
+        flag: '🇮🇹',
+        url: 'https://www.bebitalia.com',
+        image: '/images/benchmarking/bb-italia.png',
+        summary: 'Design italiano contemporâneo de alto padrão.',
+        strengths: ['Catálogo visual forte', 'Filtros eficientes', 'Inspiração'],
+        opportunities: ['Poderia ter mais storytelling']
+      },
+      {
+        name: 'Minotti',
+        segment: 'Design',
+        country: 'Itália',
+        flag: '🇮🇹',
+        url: 'https://www.minotti.com',
+        image: '/images/benchmarking/minotti.png',
+        summary: 'Mobiliário de luxo com estética atemporal.',
+        strengths: ['Design clean', 'Fotografia profissional', 'Elegância'],
+        opportunities: ['E-commerce limitado']
+      }
+    ]
+  },
+  {
+    name: 'Bebidas',
+    icon: '',
+    competitors: [
+      {
+        name: 'Hennessy',
+        segment: 'Bebidas',
+        country: 'França',
+        flag: '🇫🇷',
+        url: 'https://www.hennessy.com',
+        image: '/images/benchmarking/hennessy.png',
+        summary: 'Maison de cognac mais prestigiada do mundo, referência em luxo, herança e colaborações culturais icônicas.',
+        strengths: ['Storytelling cultural excepcional', 'Colaborações com ícones (LeBron, Tems)', 'Experiência imersiva de marca'],
+        opportunities: ['Age-gate pode prejudicar UX inicial', 'Navegação poderia ser mais direta']
       }
     ]
   }
 ]
 
-const activeRegion = ref(0)
+const activeSegment = ref(0)
+
+const showMenu = ref(false)
+
+const navigationLinks = [
+  { title: 'Briefing', path: '/briefing' },
+  { title: 'Planejamento', path: '/programacao' },
+  { title: 'Discovery', path: '/pesquisa' },
+  { title: 'Estratégia', path: '/estrategia' },
+  { title: 'Ideação', path: '/ideacao' },
+  { title: 'UI Design', path: '/ui-design' },
+  { title: 'Protótipo', path: '/prototipo' },
+  { title: 'Roadmap', path: '/entrega' }
+]
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value
+}
+
+const handleNavigation = () => {
+  showMenu.value = false
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-subtle">
+    <header class="bg-white border-b border-subtle relative z-50">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
           <div class="h-4 w-px bg-subtle"></div>
-          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
+          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mt-[6px]">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
             <NuxtLink to="/pesquisa" class="text-secondary hover:text-text-primary transition-colors">Discovery</NuxtLink>
             <span class="text-text-primary/20">/</span>
-            <NuxtLink to="/pesquisa/design" class="text-secondary hover:text-text-primary transition-colors">Design</NuxtLink>
-            <span class="text-text-primary/20">/</span>
             <span class="text-text-primary">Benchmarking</span>
           </nav>
         </div>
-        <div class="text-xs font-mono text-action-primary tracking-widest uppercase">Bolívar Alencastro</div>
+        <!-- Menu Button with Dropdown -->
+        <div class="relative">
+          <button 
+            @click="toggleMenu"
+            class="flex items-center gap-2 text-xs font-mono text-action-primary tracking-widest uppercase mt-[6px] hover:text-text-primary transition-colors cursor-pointer"
+          >
+            <i class="lni lni-menu text-base"></i>
+            <span>Menu</span>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div 
+            v-if="showMenu"
+            class="absolute right-0 mt-3 w-56 bg-white border border-subtle rounded-lg shadow-xl z-[9999]"
+          >
+            <nav class="py-2">
+              <NuxtLink
+                v-for="link in navigationLinks"
+                :key="link.path"
+                :to="link.path"
+                class="block px-4 py-2.5 text-sm font-light text-text-primary hover:bg-surface-subtle transition-colors cursor-pointer"
+                @click="handleNavigation"
+              >
+                {{ link.title }}
+              </NuxtLink>
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -269,131 +270,103 @@ const activeRegion = ref(0)
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         <!-- Intro -->
-        <div class="mb-16 border-b border-subtle pb-12">
+        <div class="mb-16">
           <span class="text-xs font-mono text-action-primary tracking-widest uppercase mb-4 block">Cluster 03 · Design & Referências</span>
-          <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-8 text-text-primary">Benchmarking Global</h1>
+          <h1 class="text-5xl font-light tracking-tighter mb-8 text-text-primary">Benchmarking de Luxo</h1>
           <p class="text-secondary text-xl font-light leading-relaxed max-w-3xl">
-            Análise de 19 imobiliárias de luxo em 5 continentes. Identificamos padrões de UX, pontos fortes e oportunidades de diferenciação para a Pilar Homes.
+            Análise de marcas de luxo em diversos segmentos. Identificamos padrões de UX, storytelling e oportunidades de diferenciação para a Pilar Homes.
           </p>
         </div>
 
-        <!-- Region Tabs -->
+        <!-- Segment Tabs -->
         <div class="flex flex-wrap gap-2 mb-12">
           <button
-            v-for="(region, index) in regions"
-            :key="region.name"
-            @click="activeRegion = index"
-            class="px-4 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-300"
-            :class="activeRegion === index 
-              ? 'bg-mat-stone text-off-white' 
-              : 'bg-surface-card text-secondary hover:text-text-primary border rounded-lg border-subtle hover:border-strong'"
+            v-for="(segment, index) in segments"
+            :key="segment.name"
+            @click="activeSegment = index"
+            class="px-4 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-300 rounded-lg flex items-center gap-2 border"
+            :class="activeSegment === index 
+              ? 'bg-white text-action-primary border-action-primary' 
+              : 'bg-surface-card text-secondary hover:text-text-primary border-subtle hover:border-strong'"
           >
-            {{ region.name }}
+            <span>{{ segment.name }}</span>
           </button>
         </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
-            <span class="block text-3xl font-light text-action-primary mb-1">19</span>
-            <span class="text-xs font-mono text-secondary uppercase">Empresas</span>
-          </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
-            <span class="block text-3xl font-light text-action-primary mb-1">14</span>
-            <span class="text-xs font-mono text-secondary uppercase">Países</span>
-          </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
-            <span class="block text-3xl font-light text-action-primary mb-1">5</span>
-            <span class="text-xs font-mono text-secondary uppercase">Continentes</span>
-          </div>
-          <div class="bg-surface-card p-6 border rounded-lg border-subtle text-center">
-            <span class="block text-3xl font-light text-action-primary mb-1">100%</span>
-            <span class="text-xs font-mono text-secondary uppercase">Premium</span>
-          </div>
-        </div>
-
         <!-- Competitors Grid -->
-        <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <TransitionGroup name="fade">
             <div 
-              v-for="competitor in regions[activeRegion].competitors" 
+              v-for="competitor in segments[activeSegment].competitors" 
               :key="competitor.name"
-              class="bg-surface-card border rounded-lg border-subtle hover:border-strong transition-all duration-500 overflow-hidden"
+              class="bg-surface-card border rounded-lg border-subtle hover:border-strong transition-all duration-500 overflow-hidden group"
             >
-              <div class="flex flex-col md:flex-row">
-                <!-- Cover Image -->
-                <div class="md:w-72 lg:w-80 xl:w-96 flex-shrink-0">
+              <!-- Cover Image -->
+              <a 
+                :href="competitor.url" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="block relative overflow-hidden"
+              >
+                <div 
+                  class="w-full h-40 bg-gradient-to-br from-mat-stone to-soft-beige group-hover:scale-105 transition-transform duration-700 flex items-center justify-center"
+                >
+                  <span class="text-2xl font-light text-off-white opacity-50">{{ competitor.flag }}</span>
+                </div>
+              </a>
+
+              <!-- Content -->
+              <div class="p-5">
+                <!-- Header -->
+                <div class="mb-3">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-lg">{{ competitor.flag }}</span>
+                    <h3 class="text-lg font-light text-text-primary">{{ competitor.name }}</h3>
+                  </div>
                   <a 
                     :href="competitor.url" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    class="block h-full"
+                    class="text-xs text-action-primary hover:underline font-mono"
                   >
-                    <img 
-                      :src="competitor.image" 
-                      :alt="`Screenshot do site ${competitor.name}`"
-                      class="w-full h-48 md:h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                    />
+                    {{ competitor.url.replace('https://www.', '').replace('https://', '') }} ↗
                   </a>
                 </div>
 
-                <!-- Content -->
-                <div class="flex-1 p-8">
-                  <!-- Header -->
-                  <div class="flex items-start justify-between mb-6">
-                    <div>
-                      <div class="flex items-center gap-3 mb-2">
-                        <span class="text-2xl">{{ competitor.flag }}</span>
-                        <h3 class="text-2xl font-light text-text-primary">{{ competitor.name }}</h3>
-                      </div>
-                      <a 
-                        :href="competitor.url" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="text-xs font-mono text-action-primary hover:underline"
-                      >
-                        {{ competitor.url.replace('https://', '') }}
-                      </a>
-                    </div>
-                    <span class="text-xs font-mono text-secondary uppercase tracking-widest px-3 py-1 bg-surface-subtle">
-                      {{ competitor.country }}
-                    </span>
+                <!-- Summary -->
+                <p class="text-sm text-secondary font-light mb-4 leading-relaxed">
+                  {{ competitor.summary }}
+                </p>
+
+                <!-- Strengths & Opportunities -->
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <span class="font-mono text-[10px] text-action-primary uppercase tracking-widest block mb-2">Pontos Fortes</span>
+                    <ul class="space-y-1">
+                      <li v-for="strength in competitor.strengths.slice(0, 2)" :key="strength" class="text-secondary">
+                        • {{ strength }}
+                      </li>
+                    </ul>
                   </div>
-
-                  <!-- Summary -->
-                  <p class="text-secondary font-light leading-relaxed mb-8">
-                    {{ competitor.summary }}
-                  </p>
-
-                  <!-- Analysis -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-surface-subtle/50 p-5 border-l-2 border-green-600/50">
-                      <span class="text-xs font-bold uppercase tracking-widest text-text-primary mb-3 flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-green-600"></span>
-                        Forças
-                      </span>
-                      <ul class="text-sm text-secondary space-y-2">
-                        <li v-for="strength in competitor.strengths" :key="strength">
-                          {{ strength }}
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="bg-surface-subtle/50 p-5 border-l-2 border-amber-500/50">
-                      <span class="text-xs font-bold uppercase tracking-widest text-text-primary mb-3 flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                        Oportunidades
-                      </span>
-                      <ul class="text-sm text-secondary space-y-2">
-                        <li v-for="opportunity in competitor.opportunities" :key="opportunity">
-                          {{ opportunity }}
-                        </li>
-                      </ul>
-                    </div>
+                  <div>
+                    <span class="font-mono text-[10px] text-secondary uppercase tracking-widest block mb-2">Oportunidades</span>
+                    <ul class="space-y-1">
+                      <li v-for="opportunity in competitor.opportunities.slice(0, 2)" :key="opportunity" class="text-secondary">
+                        • {{ opportunity }}
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </TransitionGroup>
+        </div>
+
+        <!-- Navigation -->
+        <div class="pt-8 border-t border-subtle flex justify-between items-center mt-12">
+          <NuxtLink to="/pesquisa" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-secondary hover:text-action-primary transition-colors">
+            <span class="text-lg">←</span> Voltar para Discovery
+          </NuxtLink>
         </div>
 
       </div>
@@ -404,15 +377,22 @@ const activeRegion = ref(0)
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.fade-enter-from {
   opacity: 0;
   transform: translateY(10px);
 }
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Navigation spacing */
+.navigation-back {
+  margin-top: 3rem;
+}
 </style>
-
-
 

@@ -26,15 +26,26 @@ export default defineNuxtConfig({
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400;500;700&display=swap' },
+        { rel: 'stylesheet', href: 'https://cdn.lineicons.com/4.0/lineicons.css' }
       ]
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
+
+  loading: {
+    color: '#D5500B',
+    height: '2px',
+    throttle: 0,
+    continuous: true
+  },
+  // https://nuxt.com/docs/api/configuration/nuxt-config
 
   runtimeConfig: {
     pilarApiUrl: process.env.PILAR_API_URL || 'https://pilarhomes.com.br',
     public: {
-      googleMapsKey: process.env.NUXT_PUBLIC_GOOGLE_MAPS_KEY || ''
+      googleMapsKey: process.env.NUXT_PUBLIC_GOOGLE_MAPS_KEY || '',
+      clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || ''
     }
   },
 

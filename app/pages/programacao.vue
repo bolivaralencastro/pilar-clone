@@ -1,33 +1,87 @@
 <script setup lang="ts">
+const showMenu = ref(false)
+
+const navigationLinks = [
+  { title: 'Briefing', path: '/briefing' },
+  { title: 'Planejamento', path: '/programacao' },
+  { title: 'Discovery', path: '/pesquisa' },
+  { title: 'Estratégia', path: '/estrategia' },
+  { title: 'Ideação', path: '/ideacao' },
+  { title: 'UI Design', path: '/ui-design' },
+  { title: 'Protótipo', path: '/prototipo' },
+  { title: 'Roadmap', path: '/entrega' }
+]
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value
+}
+
+const handleNavigation = () => {
+  showMenu.value = false
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
+    <!-- Background SVG -->
+    <div class="fixed bottom-0 left-0 opacity-[0.02] pointer-events-none z-0 scale-[3] origin-bottom-left">
+      <svg width="380" height="328" viewBox="0 0 380 328" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M95 0L0 163.917L95 327.834H285L380 163.917L285 0H95ZM252.274 307.033L34.4494 181.755L283.277 38.6387L252.274 307.033Z" fill="black"/>
+      </svg>
+    </div>
+
     <!-- Header -->
-    <header class="bg-white border-b border-subtle">
+    <header class="bg-white border-b border-subtle relative z-50">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
             <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
           <div class="h-4 w-px bg-subtle"></div>
-          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
+          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mt-[6px]">
             <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
             <span class="text-text-primary/20">/</span>
             <span class="text-text-primary">Programação</span>
           </nav>
         </div>
-        <div class="text-xs font-mono text-action-primary tracking-widest uppercase">Bolívar Alencastro</div>
+        <!-- Menu Button with Dropdown -->
+        <div class="relative">
+          <button 
+            @click="toggleMenu"
+            class="flex items-center gap-2 text-xs font-mono text-action-primary tracking-widest uppercase mt-[6px] hover:text-text-primary transition-colors cursor-pointer"
+          >
+            <i class="lni lni-menu text-base"></i>
+            <span>Menu</span>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div 
+            v-if="showMenu"
+            class="absolute right-0 mt-3 w-56 bg-white border border-subtle rounded-lg shadow-xl z-[9999]"
+          >
+            <nav class="py-2">
+              <NuxtLink
+                v-for="link in navigationLinks"
+                :key="link.path"
+                :to="link.path"
+                class="block px-4 py-2.5 text-sm font-light text-text-primary hover:bg-surface-subtle transition-colors cursor-pointer"
+                @click="handleNavigation"
+              >
+                {{ link.title }}
+              </NuxtLink>
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main class="py-16">
+    <main class="py-16 relative z-0">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
         
         <!-- Header Section -->
         <div class="mb-12">
           <span class="text-xs font-mono text-action-primary tracking-widest uppercase mb-4 block">Agenda & Planejamento</span>
-          <h1 class="text-5xl font-light tracking-tighter mb-6 text-text-primary">Cronograma</h1>
+          <h1 class="text-5xl font-light tracking-tighter mb-8 text-text-primary">Cronograma</h1>
           <p class="text-secondary text-lg font-light leading-relaxed max-w-3xl">
             Organização do cronograma para entrega do desafio em 1 semana, conciliando com jornada de trabalho integral (08h às 17h).
           </p>

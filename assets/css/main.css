@@ -66,6 +66,44 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* OVERLAY DE RUÍDO NO FUNDO */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+
+  /* CONTROLES DO EFEITO */
+  background-size: 180px 180px;                /* nitidez do grão */
+  animation: noise-animation 0.25s steps(3) infinite; 
+  opacity: 0.45;                               /* intensidade no fundo branco */
+  filter: contrast(1.6);                      /* definição do ruído */
+  mix-blend-mode: multiply;                   /* integração com fundo branco */
+
+  will-change: transform;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* ANIMAÇÃO DO RUÍDO */
+@keyframes noise-animation {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-2%, -3%); }
+  20%  { transform: translate(-4%, 2%); }
+  30%  { transform: translate(2%, -4%); }
+  40%  { transform: translate(-2%, 5%); }
+  50%  { transform: translate(-4%, 2%); }
+  60%  { transform: translate(3%, 0); }
+  70%  { transform: translate(0, 3%); }
+  80%  { transform: translate(-3%, 0); }
+  90%  { transform: translate(2%, 2%); }
+  100% { transform: translate(1%, 0); }
+}
+
 /* Utility Classes */
 @layer components {
   .btn-primary {

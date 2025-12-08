@@ -74,31 +74,69 @@ const goToSlide = (index: number) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-deep-brown text-off-white selection:bg-soft-beige selection:text-deep-brown">
+  <div class="min-h-screen bg-off-white text-rich-black selection:bg-brand-orange selection:text-white relative">
+    <!-- Background SVG -->
+    <div class="fixed bottom-0 left-0 opacity-[0.02] pointer-events-none z-0 scale-[3] origin-bottom-left">
+      <svg width="380" height="328" viewBox="0 0 380 328" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M95 0L0 163.917L95 327.834H285L380 163.917L285 0H95ZM252.274 307.033L34.4494 181.755L283.277 38.6387L252.274 307.033Z" fill="black"/>
+      </svg>
+    </div>
+
     <!-- Header -->
-    <header class="bg-deep-brown border-b border-off-white/10">
+    <header class="bg-off-white border-b border-chromium relative z-10">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
-            <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto invert" />
+            <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
           </NuxtLink>
-          <div class="h-4 w-px bg-off-white/20"></div>
-          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase">
-            <NuxtLink to="/" class="text-off-white/60 hover:text-off-white transition-colors">Home</NuxtLink>
-            <span class="text-off-white/20">/</span>
-            <span class="text-off-white">Apresentação</span>
+          <div class="h-4 w-px bg-chromium"></div>
+          <nav class="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mt-[6px]">
+            <NuxtLink to="/" class="text-secondary hover:text-text-primary transition-colors">Home</NuxtLink>
+            <span class="text-text-primary/20">/</span>
+            <span class="text-text-primary">Apresentação</span>
           </nav>
         </div>
-        <span class="text-xs font-mono text-off-white/60 tracking-widest">
-          {{ String(currentSlide + 1).padStart(2, '0') }} / {{ String(slides.length).padStart(2, '0') }}
-        </span>
+        
+        <div class="flex items-center gap-4 mt-[6px]">
+          <!-- Previous Arrow -->
+          <button 
+            :disabled="currentSlide === 0"
+            :class="[
+              'text-2xl transition-all duration-300',
+              currentSlide === 0 
+                ? 'text-platinum cursor-not-allowed' 
+                : 'text-secondary hover:text-text-primary'
+            ]"
+            @click="prevSlide"
+          >
+            ←
+          </button>
+
+          <span class="text-xs font-mono text-secondary tracking-widest">
+            {{ String(currentSlide + 1).padStart(2, '0') }} / {{ String(slides.length).padStart(2, '0') }}
+          </span>
+
+          <!-- Next Arrow -->
+          <button 
+            :disabled="currentSlide === slides.length - 1"
+            :class="[
+              'text-2xl transition-all duration-300',
+              currentSlide === slides.length - 1 
+                ? 'text-platinum cursor-not-allowed' 
+                : 'text-secondary hover:text-text-primary'
+            ]"
+            @click="nextSlide"
+          >
+            →
+          </button>
+        </div>
       </div>
     </header>
 
     <!-- Main Slide -->
     <main class="py-16 min-h-screen flex items-center relative overflow-hidden">
       <!-- Background Element -->
-      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-off-white/5 to-transparent pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-chromium/30 to-transparent pointer-events-none"></div>
       
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 w-full relative z-10">
         <template v-for="(slide, index) in slides" :key="slide.id">
@@ -107,14 +145,13 @@ const goToSlide = (index: number) => {
             class="slide-content grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
           >
             <!-- Left Column: Title -->
-            <div class="lg:col-span-5 space-y-6">
-              <div class="inline-block px-3 py-1 border border-action-primary/30 rounded-full text-[10px] uppercase tracking-[0.2em] text-action-primary mb-4">
+            <div class="lg:col-span-5">
+              <span class="text-[10px] uppercase tracking-[0.2em] text-secondary mb-4 block">
                 {{ slide.subtitle }}
-              </div>
-              <h1 class="text-6xl md:text-8xl font-light tracking-tighter text-off-white leading-[0.9]">
+              </span>
+              <h1 class="text-6xl md:text-8xl font-light tracking-tighter text-text-primary leading-[0.9]">
                 {{ slide.title }}
               </h1>
-              <div class="w-24 h-1 bg-action-primary mt-8"></div>
             </div>
 
             <!-- Right Column: Content -->
@@ -125,8 +162,8 @@ const goToSlide = (index: number) => {
                   :key="i"
                   class="flex items-start gap-6 group"
                 >
-                  <span class="text-action-primary font-mono text-sm mt-1 opacity-50 group-hover:opacity-100 transition-opacity">0{{ i + 1 }}</span>
-                  <p class="text-xl md:text-2xl font-light text-off-white/80 leading-relaxed group-hover:text-off-white transition-colors duration-300">
+                  <span class="text-secondary font-mono text-sm mt-1 group-hover:text-text-primary transition-colors">0{{ i + 1 }}</span>
+                  <p class="text-xl md:text-2xl font-light text-secondary leading-relaxed group-hover:text-text-primary transition-colors duration-300">
                     {{ point }}
                   </p>
                 </li>
@@ -136,56 +173,6 @@ const goToSlide = (index: number) => {
         </template>
       </div>
     </main>
-
-    <!-- Navigation -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-deep-brown/80 backdrop-blur-md border-t border-off-white/10">
-      <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-8">
-        <div class="flex items-center justify-between">
-          <!-- Progress Dots -->
-          <div class="flex gap-3">
-            <button 
-              v-for="(slide, index) in slides" 
-              :key="slide.id"
-              :class="[
-                'h-1 transition-all duration-500 rounded-full',
-                currentSlide === index 
-                  ? 'w-12 bg-action-primary' 
-                  : 'w-2 bg-off-white/20 hover:bg-off-white/40'
-              ]"
-              @click="goToSlide(index)"
-            />
-          </div>
-
-          <!-- Arrows -->
-          <div class="flex gap-4">
-            <button 
-              :disabled="currentSlide === 0"
-              :class="[
-                'w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300',
-                currentSlide === 0 
-                  ? 'border-off-white/10 text-off-white/10 cursor-not-allowed' 
-                  : 'border-off-white/20 text-off-white hover:border-action-primary hover:text-action-primary'
-              ]"
-              @click="prevSlide"
-            >
-              ←
-            </button>
-            <button 
-              :disabled="currentSlide === slides.length - 1"
-              :class="[
-                'w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300',
-                currentSlide === slides.length - 1 
-                  ? 'border-off-white/10 text-off-white/10 cursor-not-allowed' 
-                  : 'border-off-white/20 text-off-white hover:border-action-primary hover:text-action-primary'
-              ]"
-              @click="nextSlide"
-            >
-              →
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
   </div>
 </template>
 

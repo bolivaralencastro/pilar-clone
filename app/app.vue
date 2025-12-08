@@ -56,12 +56,14 @@ const handleKeydown = (e: KeyboardEvent) => {
     return
   }
 
-  const currentPath = route.path
+  const currentPath = route.path.replace(/\/$/, '') || '/'
   
   // 1. Identify current main section
   let mainIndex = mainFlow.indexOf(currentPath)
   let currentMain = currentPath
   
+  console.log('Keydown:', e.key, 'CurrentPath:', currentPath, 'MainIndex:', mainIndex)
+
   // If not exact match, check if it's a sub-page (e.g. /pesquisa/personas is part of /pesquisa)
   if (mainIndex === -1) {
     const parent = mainFlow.find(p => currentPath.startsWith(p + '/'))

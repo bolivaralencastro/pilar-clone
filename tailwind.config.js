@@ -52,6 +52,11 @@ export default {
         'status-alert': '#FFA400',
         'status-error': '#ED3A3D',
         
+        // Presentation Colors
+        'deep-brown': '#1A1410',     // Fundo escuro da apresentação
+        'off-white': '#F5F5F0',      // Texto claro da apresentação
+        'soft-beige': '#E8E6E1',     // Accent da apresentação
+        
         // ═══════════════════════════════════════════════════════════
         // 2. TOKENS SEMÂNTICOS (Alias Tokens)
         // Conectados a variáveis CSS - mudam com tema
@@ -91,6 +96,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Matter SQ', 'Matter', 'Inter', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
         roboto: ['Roboto', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },

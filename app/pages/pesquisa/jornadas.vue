@@ -3,12 +3,33 @@ useSeoMeta({
   title: 'Jornadas do Usuário - Pilar Homes',
   description: 'Mapeamento das jornadas e pontos de contato dos usuários.'
 })
+
+const showMenu = ref(false)
+
+const navigationLinks = [
+  { title: 'Briefing', path: '/briefing' },
+  { title: 'Planejamento', path: '/programacao' },
+  { title: 'Discovery', path: '/pesquisa' },
+  { title: 'Estratégia', path: '/estrategia' },
+  { title: 'Ideação', path: '/ideacao' },
+  { title: 'UI Design', path: '/ui-design' },
+  { title: 'Protótipo', path: '/prototipo' },
+  { title: 'Roadmap', path: '/entrega' }
+]
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value
+}
+
+const handleNavigation = () => {
+  showMenu.value = false
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Header -->
-    <header class="bg-white border-b border-subtle">
+    <header class="bg-white border-b border-subtle relative z-50">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <NuxtLink to="/" class="flex items-center gap-2 group">
@@ -20,12 +41,37 @@ useSeoMeta({
             <span class="text-text-primary/20">/</span>
             <NuxtLink to="/pesquisa" class="text-secondary hover:text-text-primary transition-colors">Discovery</NuxtLink>
             <span class="text-text-primary/20">/</span>
-            <NuxtLink to="/pesquisa/usuario" class="text-secondary hover:text-text-primary transition-colors">Usuário</NuxtLink>
-            <span class="text-text-primary/20">/</span>
             <span class="text-text-primary">Jornadas</span>
           </nav>
         </div>
-        <div class="text-xs font-mono text-action-primary tracking-widest uppercase">Bolívar Alencastro</div>
+        <!-- Menu Button with Dropdown -->
+        <div class="relative">
+          <button 
+            @click="toggleMenu"
+            class="flex items-center gap-2 text-xs font-mono text-action-primary tracking-widest uppercase hover:text-text-primary transition-colors cursor-pointer"
+          >
+            <i class="lni lni-menu text-base"></i>
+            <span>Menu</span>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div 
+            v-if="showMenu"
+            class="absolute right-0 mt-3 w-56 bg-white border border-subtle rounded-lg shadow-xl z-[9999]"
+          >
+            <nav class="py-2">
+              <NuxtLink
+                v-for="link in navigationLinks"
+                :key="link.path"
+                :to="link.path"
+                class="block px-4 py-2.5 text-sm font-light text-text-primary hover:bg-surface-subtle transition-colors cursor-pointer"
+                @click="handleNavigation"
+              >
+                {{ link.title }}
+              </NuxtLink>
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -97,6 +143,14 @@ useSeoMeta({
                 </div>
               </div>
             </div>
+
+            <!-- Navigation -->
+            <div class="pt-8 border-t border-subtle flex justify-between items-center">
+              <NuxtLink to="/pesquisa" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-secondary hover:text-action-primary transition-colors">
+                <span class="text-lg">←</span> Voltar para Discovery
+              </NuxtLink>
+            </div>
+
           </div>
         </div>
       </div>

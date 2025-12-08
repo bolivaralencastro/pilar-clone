@@ -5,6 +5,7 @@ Contorna CORS servindo a API através de um servidor Flask
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os
 import requests
 
 app = Flask(__name__)
@@ -81,4 +82,5 @@ if __name__ == '__main__':
     print("  - http://localhost:5000/api/properties/clusters")
     print("  - http://localhost:5000/health")
     print("=" * 50)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host='0.0.0.0', port=5000, debug=debug_mode)
