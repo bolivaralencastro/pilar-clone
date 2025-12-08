@@ -7,7 +7,7 @@
         <button class="w-9 h-9 flex items-center justify-center hover:text-text-primary transition-colors" title="Buscar">
           <i class="lni lni-search text-base"></i>
         </button>
-        <a href="#" class="hover:text-text-primary transition-colors">Comprar</a>
+        <NuxtLink to="/prototipo/resultados?tab=new" class="hover:text-text-primary transition-colors">Comprar</NuxtLink>
         <a href="#" class="hover:text-text-primary transition-colors">Vender</a>
       </nav>
 
@@ -20,7 +20,9 @@
 
     <!-- Center: Logo -->
     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-5 w-auto" />
+      <NuxtLink to="/prototipo/home?tab=new">
+        <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-5 w-auto hover:opacity-80 transition-opacity cursor-pointer" />
+      </NuxtLink>
     </div>
   </header>
 </template>

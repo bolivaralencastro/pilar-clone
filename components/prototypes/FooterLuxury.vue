@@ -4,24 +4,24 @@
     <!-- 1. SEO & REGIONS (Horizontal Accordion) -->
     <div class="w-full border-t border-white/10 border-b border-white/10 px-6 md:px-16 py-12">
       
-      <!-- Groups -->
-      <div class="flex flex-col gap-6">
-        <div v-for="(group, groupIndex) in seoGroups" :key="groupIndex" class="border-b border-white/5 last:border-b-0 pb-6 last:pb-0">
+      <!-- Groups - Single line layout -->
+      <div class="flex flex-wrap items-start justify-center gap-8 md:gap-12">
+        <div v-for="(group, groupIndex) in seoGroups" :key="groupIndex" class="flex-shrink-0">
           
-          <!-- Header Line -->
-          <div class="flex flex-wrap items-center gap-6">
+          <!-- Header Line - Inline layout -->
+          <div class="flex flex-wrap items-center gap-3 md:gap-6">
             <!-- Label (Lighter weight) -->
-            <span class="text-xs uppercase tracking-[0.2em] font-light text-white/40">
+            <span class="text-xs uppercase tracking-[0.2em] font-light text-white/40 whitespace-nowrap">
               {{ group.label }}
             </span>
 
             <!-- Tabs -->
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4 md:gap-6">
               <button 
                 v-for="(tab, tabIndex) in group.tabs" 
                 :key="tabIndex"
                 @click="toggleTab(groupIndex, tabIndex)"
-                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-colors duration-300 focus:outline-none group"
+                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-colors duration-300 focus:outline-none group whitespace-nowrap"
                 :class="isTabActive(groupIndex, tabIndex) ? 'text-white font-medium' : 'text-white/50 hover:text-white font-normal'"
               >
                 <span>{{ tab.name }}</span>
@@ -178,7 +178,7 @@ const getActiveTabContent = (groupIndex: number) => {
 // --- Dados Mockados (SEO Links) ---
 const seoGroups = ref([
   {
-    label: 'Tipos de imóvel por Bairro',
+    label: 'Imóvel por Bairro',
     tabs: [
       {
         name: 'São Paulo',
@@ -225,7 +225,7 @@ const seoGroups = ref([
     ]
   },
   {
-    label: 'Tipos de imóvel por Endereço e Ponto de interesse',
+    label: 'Imóvel por Endereço e Ponto de interesse',
     tabs: [
       {
         name: 'São Paulo',

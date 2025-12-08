@@ -4,6 +4,8 @@ import FlowchartViewer from '../../../components/FlowchartViewer.vue'
 import MermaidRenderer from '../../../components/MermaidRenderer.vue'
 import HomeV2 from '../../../components/prototypes/HomeV2.vue'
 import SearchResultsV2 from '../../../components/prototypes/SearchResultsV2.vue'
+import PropertyDetailV2 from '../../../components/prototypes/PropertyDetailV2.vue'
+import CurationV2 from '../../../components/prototypes/CurationV2.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -143,10 +145,34 @@ const isFullscreen = ref(false)
 const showInfo = ref(false)
 const showHeader = ref(true)
 
+// Initialize tab from URL
+const initTab = Array.isArray(route.query.tab) ? route.query.tab[0] : route.query.tab
+if (initTab && ['current', 'flowchart', 'new'].includes(initTab)) {
+  activeTab.value = initTab as 'current' | 'flowchart' | 'new'
+}
+
 // Watchers
 watch(activeTab, (newTab) => {
   if (newTab === 'flowchart') {
     viewMode.value = 'desktop'
+  }
+  
+  // Update URL to make state shareable
+  if (route.query.tab !== newTab) {
+    router.replace({ 
+      query: { 
+        ...route.query, 
+        tab: newTab 
+      } 
+    })
+  }
+})
+
+// Watch URL changes (back/forward navigation)
+watch(() => route.query.tab, (newTab) => {
+  const tab = Array.isArray(newTab) ? newTab[0] : newTab
+  if (tab && ['current', 'flowchart', 'new'].includes(tab) && tab !== activeTab.value) {
+    activeTab.value = tab as 'current' | 'flowchart' | 'new'
   }
 })
 
@@ -349,6 +375,16 @@ if (!currentPrototype.value) {
         <!-- New Version (Search Results) -->
         <div v-else-if="activeTab === 'new' && slug === 'resultados'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
            <SearchResultsV2 />
+        </div>
+
+        <!-- New Version (Property Detail) -->
+        <div v-else-if="activeTab === 'new' && slug === 'imovel'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
+           <PropertyDetailV2 />
+        </div>
+
+        <!-- New Version (Curation) -->
+        <div v-else-if="activeTab === 'new' && slug === 'curadoria'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
+           <CurationV2 />
         </div>
 
         <!-- Empty State (New Version) -->
