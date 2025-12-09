@@ -98,16 +98,6 @@ const findScrollableParent = (el: HTMLElement | null): HTMLElement | null => {
   return null
 }
 
-const getOffsetTop = (el: HTMLElement, ancestor: HTMLElement | null) => {
-  let offset = 0
-  let node: HTMLElement | null = el
-  while (node && node !== ancestor) {
-    offset += node.offsetTop
-    node = node.offsetParent as HTMLElement | null
-  }
-  return offset
-}
-
 const updateScroll = () => {
   if (!sectionRef.value || !trackRef.value) return
 
@@ -116,26 +106,42 @@ const updateScroll = () => {
     ? window.innerHeight
     : (scrollTarget as HTMLElement).clientHeight
 
-  const sectionOffset = isWindow
-    ? sectionRef.value.getBoundingClientRect().top + window.scrollY
-    : getOffsetTop(sectionRef.value, scrollTarget as HTMLElement)
+  // Calculate section offset relative to the scroll container's content top
+  let sectionOffsetTop = 0
+  let currentScrollTop = 0
 
-  const currentScroll = isWindow
-    ? window.scrollY
-    : (scrollTarget as HTMLElement).scrollTop
+  if (isWindow) {
+    sectionOffsetTop = sectionRef.value.getBoundingClientRect().top + window.scrollY
+    currentScrollTop = window.scrollY
+  } else {
+    const targetEl = scrollTarget as HTMLElement
+    const sectionRect = sectionRef.value.getBoundingClientRect()
+    const targetRect = targetEl.getBoundingClientRect()
+    
+    // Distance from visual top of container to visual top of section
+    const relativeTop = sectionRect.top - targetRect.top
+    
+    // Add scrollTop to get absolute position within scrollable content
+    sectionOffsetTop = relativeTop + targetEl.scrollTop
+    currentScrollTop = targetEl.scrollTop
+  }
 
-  const scrolledDistance = currentScroll - sectionOffset
+  const scrolledDistance = currentScrollTop - sectionOffsetTop
   const sectionHeight = sectionRef.value.offsetHeight
   const scrollableDistance = sectionHeight - viewportHeight
 
   let currentProgress = scrollableDistance > 0 ? scrolledDistance / scrollableDistance : 0
+  
+  // Clamp progress
   if (currentProgress < 0) currentProgress = 0
   if (currentProgress > 1) currentProgress = 1
 
   progress.value = currentProgress
 
   const maxTranslate = trackRef.value.scrollWidth - (isWindow ? window.innerWidth : (scrollTarget as HTMLElement).clientWidth)
+  
   if (maxTranslate <= 0) return
+  
   const currentTranslate = maxTranslate * currentProgress
 
   trackRef.value.style.transform = `translateX(-${currentTranslate}px)`

@@ -1,5 +1,8 @@
 <template>
-  <header class="w-full z-[200] py-6 sticky top-0 bg-surface-base">
+  <header 
+    class="w-full z-[200] py-6 bg-surface-base transition-all duration-300"
+    :class="[ sticky ? 'sticky top-0' : 'relative' ]"
+  >
     <div class="container mx-auto px-8 flex items-center justify-between">
       
       <!-- Left: Nav Links -->
@@ -30,4 +33,10 @@
 <script setup lang="ts">
 // Header component - standalone luxury navigation
 // Can be extended with props for variants (transparent, dark, etc.)
+defineProps({
+  sticky: {
+    type: Boolean,
+    default: true
+  }
+})
 </script>

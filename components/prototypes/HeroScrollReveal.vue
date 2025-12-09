@@ -1,44 +1,28 @@
 <template>
-  <section class="relative bg-surface-base py-24 md:py-32">
-    <div class="container mx-auto px-6">
-      <!-- Content -->
-      <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
-        <!-- Tag -->
-        <span class="text-xs tracking-[0.2em] uppercase text-text-secondary mb-6 border-t border-border-subtle pt-4">
-          SÃO PAULO • CURITIBA
-        </span>
-        
-        <!-- Title -->
-        <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-text-primary mb-6 leading-tight">
-          Curadoria de imóveis<br>de alto padrão
-        </h1>
-        
-        <!-- Description -->
-        <p class="text-text-secondary text-base md:text-lg max-w-lg mb-10 leading-relaxed">
-          Atendimento personalizado e o maior portfólio de imóveis exclusivos em localização privilegiada.
-        </p>
-        
-        <!-- Search Bar -->
-        <div class="flex w-full max-w-md bg-white rounded-full shadow-lg border border-border-subtle overflow-hidden">
-          <input 
-            type="text" 
-            placeholder="Buscar por bairro, cidade..." 
-            class="flex-1 px-6 py-3 text-sm text-text-primary placeholder-text-secondary outline-none bg-transparent"
-            @keyup.enter="router.push('/prototipo/resultados?tab=new')"
-          >
-          <button 
-            type="button"
-            class="px-6 py-3 bg-text-primary text-white text-xs font-bold tracking-wider uppercase hover:bg-accent-gold transition-colors"
-            @click="router.push('/prototipo/resultados?tab=new')"
-          >
-            Buscar
-          </button>
-        </div>
-      </div>
+  <div class="hero-scroll-reveal-container">
+    <!-- 1. CAMADA DE FUNDO (Texto Fixo) -->
+    <section class="hero-text-section" ref="heroTextRef">
+      <span class="hero-tag">SÃO PAULO • CURITIBA</span>
+      <h1>Curadoria de imóveis<br>de alto padrão</h1>
+      <p class="hero-desc">Atendimento personalizado e o maior portfólio de imóveis exclusivos em localização privilegiada.</p>
       
-      <!-- Video -->
-      <div class="mt-16 md:mt-20">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-5xl mx-auto">
+      <form class="hero-search" @submit.prevent="handleSearch">
+        <input 
+          type="text" 
+          placeholder="Buscar por bairro, cidade..." 
+          v-model="searchQuery"
+        >
+        <button type="submit">BUSCAR</button>
+      </form>
+    </section>
+
+    <!-- 2. ESPAÇADOR INVISÍVEL (Define o tempo de leitura antes do scroll) -->
+    <div class="scroll-spacer"></div>
+
+    <!-- 3. CAMADA DE FRENTE (Container do Vídeo com animação Sticky) -->
+    <div class="video-container-wrapper" ref="videoWrapperRef">
+      <div class="video-sticky-stage">
+        <div class="video-frame" ref="videoFrameRef">
           <video 
             autoplay 
             muted 
@@ -48,12 +32,262 @@
           >
             <source src="/video/hero-video.mp4" type="video/mp4">
           </video>
+          
+          <div class="video-overlay-text" ref="videoTextRef">
+            <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Experience Living</h3>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+
 const router = useRouter()
+const searchQuery = ref('')
+
+const heroTextRef = ref<HTMLElement | null>(null)
+const videoFrameRef = ref<HTMLElement | null>(null)
+const videoTextRef = ref<HTMLElement | null>(null)
+const videoWrapperRef = ref<HTMLElement | null>(null)
+
+let scrollParent: HTMLElement | Window = window
+
+const handleSearch = () => {
+  router.push({ path: '/prototipo/resultados', query: { tab: 'new', q: searchQuery.value } })
+}
+
+const getScrollParent = (node: HTMLElement | null): HTMLElement | Window => {
+  if (!node) return window
+  
+  const style = getComputedStyle(node)
+  const overflowY = style.overflowY
+  // Simplificado: se tem overflow auto/scroll, é o container de scroll
+  if (overflowY === 'auto' || overflowY === 'scroll') {
+    return node
+  }
+  
+  return getScrollParent(node.parentElement)
+}
+
+const handleScroll = () => {
+  if (!videoFrameRef.value || !heroTextRef.value) return
+
+  // Garante que pegamos o scroll correto
+  const scrollY = scrollParent === window 
+    ? window.scrollY 
+    : (scrollParent as HTMLElement).scrollTop
+    
+  const viewportHeight = scrollParent === window 
+    ? window.innerHeight 
+    : (scrollParent as HTMLElement).clientHeight
+  
+  // --- CÁLCULOS ---
+  const expansionThreshold = viewportHeight * 0.8
+  let progress = Math.min(scrollY / expansionThreshold, 1)
+  if (progress < 0) progress = 0
+
+  // FASE 1: Expansão (60% -> 100%)
+  let newSize = 60 + (40 * progress)
+  // Border radius vai de 20px para 0 quando atinge 100%
+  let newRadius = progress >= 1 ? 0 : 20 - (20 * progress)
+
+  // Aplica expansão apenas se estiver no topo da página
+  if (scrollY < viewportHeight * 1.5) {
+    videoFrameRef.value.style.width = `${newSize}%`
+    videoFrameRef.value.style.height = `${newSize}vh`
+    videoFrameRef.value.style.borderRadius = `${newRadius}px`
+    videoFrameRef.value.filter = `blur(0px)`
+    videoFrameRef.value.transform = `scale(1)`
+  }
+
+  // Texto do fundo some suavemente
+  heroTextRef.value.style.opacity = String(Math.max(0, 1 - (progress * 1.5)))
+  heroTextRef.value.style.transform = `translateY(-${progress * 50}px) scale(${1 - (progress * 0.05)})`
+
+  // FASE 2: Blur e saída (Quando o usuário continua descendo para a próxima section)
+  const blurStart = viewportHeight * 1.2
+  
+  if (scrollY > blurStart) {
+    let blurProgress = (scrollY - blurStart) / (viewportHeight * 0.8)
+    blurProgress = Math.min(blurProgress, 1)
+    if(blurProgress < 0) blurProgress = 0
+
+    // Diminui levemente e desfoca
+    let scale = 1 - (blurProgress * 0.1)
+    let blurAmount = blurProgress * 10
+
+    videoFrameRef.value.style.transform = `scale(${scale})`
+    videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${1 - blurProgress * 0.3})`
+    
+    if (videoTextRef.value) {
+      videoTextRef.value.style.opacity = String(blurProgress)
+      videoTextRef.value.style.transform = `translateY(${20 - (blurProgress * 20)}px)`
+    }
+  } else {
+    if (videoTextRef.value) videoTextRef.value.style.opacity = '0'
+  }
+}
+
+onMounted(() => {
+  // Encontra o container de scroll (pode ser a janela ou um elemento pai)
+  scrollParent = getScrollParent(heroTextRef.value)
+  
+  // Adiciona listener no container encontrado
+  scrollParent.addEventListener('scroll', handleScroll)
+  // Adiciona listener na janela também para garantir (resize, etc)
+  window.addEventListener('resize', handleScroll)
+  
+  // Força uma verificação inicial após um breve delay para garantir renderização
+  setTimeout(handleScroll, 100)
+})
+
+onUnmounted(() => {
+  scrollParent.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleScroll)
+})
 </script>
+
+<style scoped>
+/* Variáveis locais para garantir isolamento */
+.hero-scroll-reveal-container {
+  --hero-bg: #F7F7F7;
+  --hero-text: #1A1A1A;
+  --hero-secondary: #666;
+  --hero-gold: #C5A059;
+  position: relative;
+  width: 100%;
+}
+
+/* TEXTO FIXO */
+.hero-text-section {
+  position: absolute; /* Mudado de fixed - não funciona bem dentro de container com overflow */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 0; /* Camada inferior */
+  padding: 0 20px;
+  background-color: transparent;
+  will-change: transform, opacity;
+  pointer-events: none; /* CRÍTICO: permite scroll através deste elemento */
+}
+
+/* Reabilitar pointer-events para elementos interativos dentro */
+.hero-text-section form,
+.hero-text-section button,
+.hero-text-section input {
+  pointer-events: auto;
+}
+
+.hero-tag {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--hero-secondary);
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.hero-text-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--hero-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  max-width: 900px;
+}
+
+.hero-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  color: var(--hero-secondary);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+/* BUSCA */
+.hero-search {
+  display: flex;
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid #eee;
+}
+.hero-search input {
+  flex: 1; border: none; outline: none; padding: 0 20px;
+  font-family: 'Manrope', sans-serif; font-size: 0.95rem;
+  color: var(--hero-text);
+}
+.hero-search button {
+  background: var(--hero-text); color: white; border: none;
+  padding: 10px 24px; border-radius: 30px; font-size: 0.75rem;
+  font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+}
+.hero-search button:hover { background: var(--hero-gold); }
+
+/* ESPAÇADOR */
+.scroll-spacer {
+  height: 50vh; /* Altura reduzida para menos gap entre texto e vídeo */
+  position: relative;
+  z-index: 5;
+  pointer-events: none; 
+  background: transparent;
+}
+
+/* VÍDEO WRAPPER */
+.video-container-wrapper {
+  position: relative;
+  z-index: 10; /* Superior ao texto */
+  width: 100%;
+  height: 200vh; /* Altura para controlar duração da animação */
+  background: transparent;
+}
+
+.video-sticky-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none; /* Permite scroll através dele se necessário, mas aqui queremos que ele ocupe espaço */
+}
+
+.video-frame {
+  width: 60%; /* Largura Inicial */
+  height: 60vh; /* Altura Inicial */
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  transform-origin: center center;
+  will-change: width, height, transform, filter, border-radius;
+}
+
+.video-frame img, .video-frame video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.video-overlay-text {
+  position: absolute; bottom: 40px; left: 40px; color: white;
+  opacity: 0; transform: translateY(20px); transition: 0.5s;
+  z-index: 2;
+}
+</style>

@@ -474,13 +474,13 @@ if (!currentPrototype.value) {
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-1 relative z-10 bg-mat-stone/5 overflow-hidden flex items-center justify-center">
+    <main class="flex-1 relative z-10 bg-mat-stone/5 flex items-center justify-center overflow-hidden">
       
       <!-- Prototype Container -->
       <div 
-        class="bg-white shadow-2xl transition-all duration-500 relative overflow-hidden"
+        class="bg-white shadow-2xl transition-all duration-500 relative"
         :class="[
-          viewMode === 'mobile' ? 'w-[375px] h-[calc(100%-48px)] max-h-[812px] rounded-[40px] border-[8px] border-text-primary' : 'w-full h-full border-none'
+          viewMode === 'mobile' ? 'w-[375px] h-[calc(100%-48px)] max-h-[812px] rounded-[40px] border-[8px] border-text-primary overflow-hidden' : 'w-full h-full border-none overflow-hidden'
         ]"
       >
         <!-- Iframe for Content (Current Version) -->
@@ -510,7 +510,7 @@ if (!currentPrototype.value) {
         />
 
         <!-- New Version (Home) -->
-        <div v-else-if="activeTab === 'new' && slug === 'home'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
+        <div v-else-if="activeTab === 'new' && slug === 'home'" class="w-full h-full overflow-y-auto overflow-x-hidden bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
            <HomeV2 />
         </div>
 

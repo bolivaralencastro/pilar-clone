@@ -1,14 +1,14 @@
 <template>
-  <div class="font-sans text-text-primary min-h-screen overflow-x-hidden bg-surface-base">
+  <div class="font-sans text-text-primary min-h-screen bg-surface-base relative">
     
-    <!-- Header (Fixed) -->
-    <HeaderLuxury />
+    <!-- Header (Not Fixed) -->
+    <HeaderLuxury :sticky="false" />
 
     <!-- Hero Scroll Reveal -->
     <HeroScrollReveal />
 
     <!-- Section 2: Editorial Horizontal Scroll -->
-    <EditorialHorizontalScroll />
+    <EditorialHorizontalScroll class="relative z-10" />
 
     <!-- Main Content -->
     <div class="relative z-20 bg-surface-base">
