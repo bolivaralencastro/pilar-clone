@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="group cursor-pointer flex flex-col relative"
+    class="group cursor-pointer flex flex-col relative p-16"
     @click="handleClick"
   >
     <!-- Selection Overlay/Border -->
@@ -46,11 +46,12 @@
       <div v-if="!selectionMode" class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <!-- Salvar -->
         <button 
-          class="w-9 h-9 bg-surface-card/90 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-surface-card transition-colors"
+          class="w-9 h-9 bg-surface-card/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors"
+          :class="isSaved ? 'text-red-500 hover:text-red-600' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           title="Salvar"
           @click.stop
         >
-          <i class="lni lni-heart text-base"></i>
+          <i class="lni lni-heart text-base" :style="isSaved ? 'font-weight: 900;' : ''"></i>
         </button>
       </div>
     </div>
@@ -106,12 +107,14 @@ interface Props {
   imageHeight?: 'tall' | 'medium' | 'short'
   selectionMode?: boolean
   isSelected?: boolean
+  isSaved?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   imageHeight: 'medium',
   selectionMode: false,
-  isSelected: false
+  isSelected: false,
+  isSaved: false
 })
 
 const emit = defineEmits(['click', 'toggle-selection'])

@@ -2,62 +2,57 @@
   <footer class="bg-[#121212] text-[#F9F9F9] font-sans flex flex-col justify-between pb-10">
     
     <!-- 1. SEO & REGIONS (Horizontal Accordion) -->
-    <div class="w-full border-t border-white/10 border-b border-white/10 px-6 md:px-16 py-12">
+    <div class="w-full border-t border-white/10 border-b border-white/10 px-6 md:px-16">
       
-      <!-- Groups -->
-      <div class="flex flex-col gap-6">
-        <div v-for="(group, groupIndex) in seoGroups" :key="groupIndex" class="border-b border-white/5 last:border-b-0 pb-6 last:pb-0">
-          
-          <!-- Header Line -->
-          <div class="flex flex-wrap items-center gap-6">
-            <!-- Label (Lighter weight) -->
-            <span class="text-xs uppercase tracking-[0.2em] font-light text-white/40">
-              {{ group.label }}
-            </span>
+      <!-- Header Line - Always visible at top -->
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 py-8 border-b border-white/10">
+        <div v-for="(group, groupIndex) in seoGroups" :key="groupIndex" class="flex flex-wrap items-center gap-3 md:gap-6">
+          <!-- Label -->
+          <span class="text-xs uppercase tracking-[0.2em] font-light text-white/40 whitespace-nowrap">
+            {{ group.label }}
+          </span>
 
-            <!-- Tabs -->
-            <div class="flex items-center gap-6">
-              <button 
-                v-for="(tab, tabIndex) in group.tabs" 
-                :key="tabIndex"
-                @click="toggleTab(groupIndex, tabIndex)"
-                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-colors duration-300 focus:outline-none group"
-                :class="isTabActive(groupIndex, tabIndex) ? 'text-white font-medium' : 'text-white/50 hover:text-white font-normal'"
+          <!-- Tabs -->
+          <div class="flex items-center gap-4 md:gap-6">
+            <button 
+              v-for="(tab, tabIndex) in group.tabs" 
+              :key="tabIndex"
+              @click="toggleTab(groupIndex, tabIndex)"
+              class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-colors duration-300 focus:outline-none group whitespace-nowrap"
+              :class="isTabActive(groupIndex, tabIndex) ? 'text-white font-medium' : 'text-white/50 hover:text-white font-normal'"
+            >
+              <span>{{ tab.name }}</span>
+              <!-- Icon -->
+              <span 
+                class="text-lg leading-none transform transition-transform duration-300" 
+                :class="isTabActive(groupIndex, tabIndex) ? 'text-white' : 'text-white/30 group-hover:text-white'"
               >
-                <span>{{ tab.name }}</span>
-                <!-- Icon -->
-                <span 
-                  class="text-lg leading-none transform transition-transform duration-300" 
-                  :class="isTabActive(groupIndex, tabIndex) ? 'text-white' : 'text-white/30 group-hover:text-white'"
-                >
-                  {{ isTabActive(groupIndex, tabIndex) ? '×' : '+' }}
-                </span>
-              </button>
+                {{ isTabActive(groupIndex, tabIndex) ? '×' : '+' }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Area - Opens below the header line -->
+      <div 
+        class="overflow-hidden transition-all duration-500 ease-in-out"
+        :style="{ maxHeight: activeState ? '800px' : '0px', opacity: activeState ? '1' : '0' }"
+      >
+        <div v-if="activeState" class="grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-8 py-12 animate-fade-in">
+          <div v-for="(contentGroup, i) in getActiveTabContent(activeState.group)" :key="i" class="space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-white/40">{{ contentGroup.subtitle }}</h4>
+            <div class="flex flex-col gap-2">
+              <a 
+                v-for="(link, j) in contentGroup.items" 
+                :key="j" 
+                href="#" 
+                class="text-sm text-gray-400 hover:text-white transition-colors hover:translate-x-1 duration-300 block"
+              >
+                {{ link }}
+              </a>
             </div>
           </div>
-
-          <!-- Content Area -->
-          <div 
-            class="overflow-hidden transition-all duration-500 ease-in-out"
-            :style="{ maxHeight: isGroupActive(groupIndex) ? '800px' : '0px', opacity: isGroupActive(groupIndex) ? '1' : '0', marginTop: isGroupActive(groupIndex) ? '2rem' : '0px' }"
-          >
-            <div v-if="isGroupActive(groupIndex)" class="grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-8 pb-4 animate-fade-in">
-                <div v-for="(contentGroup, i) in getActiveTabContent(groupIndex)" :key="i" class="space-y-4">
-                  <h4 class="text-xs font-bold uppercase tracking-widest text-white/40">{{ contentGroup.subtitle }}</h4>
-                  <div class="flex flex-col gap-2">
-                    <a 
-                      v-for="(link, j) in contentGroup.items" 
-                      :key="j" 
-                      href="#" 
-                      class="text-sm text-gray-400 hover:text-white transition-colors hover:translate-x-1 duration-300 block"
-                    >
-                      {{ link }}
-                    </a>
-                  </div>
-                </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -178,7 +173,7 @@ const getActiveTabContent = (groupIndex: number) => {
 // --- Dados Mockados (SEO Links) ---
 const seoGroups = ref([
   {
-    label: 'Tipos de imóvel por Bairro',
+    label: 'Imóvel por Bairro',
     tabs: [
       {
         name: 'São Paulo',
@@ -225,7 +220,7 @@ const seoGroups = ref([
     ]
   },
   {
-    label: 'Tipos de imóvel por Endereço e Ponto de interesse',
+    label: 'Imóvel por Endereço e Ponto de interesse',
     tabs: [
       {
         name: 'São Paulo',

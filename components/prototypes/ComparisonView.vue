@@ -1,106 +1,108 @@
 <template>
-  <div class="w-full min-h-screen font-sans text-text-primary bg-surface-base flex justify-center p-4 pb-24">
+  <div class="w-full min-h-screen font-sans text-text-primary bg-surface-base">
     
-    <div class="w-full max-w-[1120px]">
-      <!-- Topbar -->
-      <header class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-12">
-        <div class="flex items-center gap-4">
-          <button @click="backToListing" class="flex items-center gap-2 text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors">
-            <i class="lni lni-arrow-left"></i>
-            Voltar
-          </button>
-          <div class="h-4 w-px bg-border-subtle"></div>
-          <span class="text-xs uppercase tracking-widest text-text-tertiary">{{ selectedProperties.length }} imóveis em comparação</span>
-        </div>
-        <div class="w-10 h-10 rounded-full border border-border-subtle flex items-center justify-center text-xs font-serif italic text-text-primary">
-          PH
+    <div class="w-full">
+      <!-- Topbar com ações -->
+      <header class="sticky top-0 z-50 bg-surface-base/95 backdrop-blur-sm border-b border-border-subtle">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <button @click="backToListing" class="flex items-center gap-2 text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors">
+              <i class="lni lni-arrow-left"></i>
+              Voltar
+            </button>
+          </div>
+          
+          <div class="flex items-center gap-3">
+            <div class="h-4 w-px bg-border-subtle hidden md:block"></div>
+            <button class="hidden md:flex border border-border-strong px-4 py-2 rounded text-xs uppercase tracking-widest font-medium text-text-primary hover:bg-surface-subtle transition-colors items-center gap-2" @click="saveComparison">
+              <i class="lni lni-bookmark"></i>
+              Salvar
+            </button>
+            <button class="bg-text-primary text-surface-base px-4 py-2 rounded text-xs uppercase tracking-widest font-medium hover:bg-text-primary/90 transition-colors flex items-center gap-2" @click="contactConcierge">
+              <i class="lni lni-comments-alt"></i>
+              <span class="hidden md:inline">Falar com Concierge</span>
+              <span class="md:hidden">Contato</span>
+            </button>
+          </div>
         </div>
       </header>
 
-      <!-- Hero Section -->
-      <section class="bg-surface-card border border-border-subtle rounded-lg p-6 md:p-8 shadow-sm mb-6">
-        <div class="mb-8">
-          <h1 class="text-2xl md:text-3xl font-serif font-light tracking-tight text-text-primary mb-2">Comparação curada</h1>
-          <p class="text-sm font-light text-text-secondary leading-relaxed max-w-2xl">
-            Uma visão clara das diferenças que realmente importam entre os imóveis selecionados.
-          </p>
-        </div>
-        
-        <!-- Header Row (Imóveis) -->
-        <div class="grid gap-4" :style="gridStyle">
-          <div class="hidden md:block"></div> <!-- Canto vazio -->
-          
-          <div v-for="prop in selectedProperties" :key="prop.id" class="bg-surface-offset/50 rounded border border-border-subtle p-4 flex flex-col gap-2">
-            <div class="font-serif text-lg leading-tight text-text-primary">{{ prop.name }}</div>
-            <div class="text-[10px] uppercase tracking-widest text-text-tertiary">{{ prop.location }}</div>
-            <div class="font-medium text-sm text-text-primary mt-1">{{ prop.price }}</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Toolbar -->
-      <section class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-        <div class="flex items-center gap-6">
-          <label class="flex items-center gap-2 text-xs text-text-secondary cursor-pointer select-none hover:text-text-primary transition-colors">
-            <input type="checkbox" v-model="showDifferencesOnly" class="accent-text-primary w-3 h-3" />
-            Mostrar apenas diferenças
-          </label>
-          <span class="px-2 py-1 rounded-full border border-border-subtle text-[10px] uppercase tracking-widest text-text-tertiary bg-surface-card">
-            Comparação privada
-          </span>
-        </div>
-        <button class="text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2" @click="showConciergeHint">
-          <i class="lni lni-question-circle"></i>
-          O que muda realmente?
-        </button>
-      </section>
-
-      <!-- Seções de Comparação -->
-      <section class="space-y-6">
-        <div v-for="section in sections" :key="section.id" class="bg-surface-card border border-border-subtle rounded-lg p-6">
-          <div class="mb-6 border-b border-border-subtle pb-4">
-            <h3 class="text-sm font-medium text-text-primary uppercase tracking-widest mb-1">{{ section.title }}</h3>
-            <p class="text-xs text-text-tertiary font-light">{{ section.subtitle }}</p>
-          </div>
-
-          <div class="flex flex-col gap-2">
-            <template v-for="row in section.rows" :key="row.key">
-              <!-- Renderiza apenas se não estiver filtrando diferenças OU se houver diferença -->
-              <div 
-                v-if="!showDifferencesOnly || isRowDifferent(row.key)" 
-                class="grid gap-4 items-center py-3 border-b border-dashed border-border-subtle last:border-0" 
-                :style="gridStyle"
-              >
-                <div class="text-xs font-medium text-text-secondary uppercase tracking-wide">{{ row.label }}</div>
-                
-                <div 
-                  v-for="prop in selectedProperties" 
-                  :key="prop.id" 
-                  class="text-sm font-light text-text-primary break-words pl-2"
-                  :class="{ 'border-l-2 border-text-primary font-medium': isRowDifferent(row.key) }"
-                >
-                  {{ prop[row.key] || '—' }}
+      <!-- Sticky header com cards dos imóveis -->
+      <div class="sticky top-[53px] z-40 bg-surface-base/95 backdrop-blur-sm border-b border-border-subtle">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-4">
+          <div class="grid gap-6" :style="cardsGridStyle">
+            <div class="w-[200px]"></div>
+            <div v-for="prop in selectedProperties" :key="prop.id">
+              <div class="bg-surface-card border border-border-subtle rounded-lg p-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-offset flex-shrink-0">
+                    <img 
+                      :src="prop.image" 
+                      :alt="prop.name"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="font-serif text-sm leading-tight text-text-primary truncate">{{ prop.name }}</div>
+                    <div class="text-xs font-semibold text-text-secondary mt-0.5">{{ prop.price }}</div>
+                  </div>
                 </div>
               </div>
-            </template>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Actions Footer -->
-      <section class="mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex gap-4">
-          <button class="bg-text-primary text-surface-base px-6 py-3 rounded text-xs uppercase tracking-widest font-medium hover:bg-text-primary/90 transition-colors" @click="contactConcierge">
-            Falar com um concierge
-          </button>
-          <button class="border border-border-strong px-6 py-3 rounded text-xs uppercase tracking-widest font-medium text-text-primary hover:bg-surface-subtle transition-colors" @click="saveComparison">
-            Salvar comparação
-          </button>
+      <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-6">
+        <!-- Seções de comparação -->
+        <div class="space-y-4">
+          <div v-for="section in sections" :key="section.id">
+            <!-- Título da seção como botão de accordion -->
+            <button 
+              @click="toggleSection(section.id)"
+              class="w-full mb-3 flex items-center group pr-0"
+            >
+              <h3 class="text-[10px] font-medium text-text-secondary uppercase tracking-widest">
+                {{ section.title }}
+              </h3>
+              <div class="flex-1 h-px bg-border-subtle ml-4"></div>
+              <span class="text-lg font-light text-text-secondary ml-4">
+                {{ expandedSections.includes(section.id) ? '−' : '+' }}
+              </span>
+            </button>
+
+            <!-- Conteúdo do accordion -->
+            <div 
+              v-show="expandedSections.includes(section.id)"
+              class="grid gap-6 transition-all duration-200"
+              :style="cardsGridStyle"
+            >
+              <!-- Labels das linhas -->
+              <div class="w-[200px]">
+                <div v-for="row in section.rows" :key="row.key" class="h-[56px] flex items-center border-b border-border-subtle last:border-0">
+                  <div class="text-xs font-normal text-text-primary">{{ row.label }}</div>
+                </div>
+              </div>
+
+              <!-- Cards de cada imóvel para esta seção -->
+              <div v-for="prop in selectedProperties" :key="prop.id">
+                <div class="bg-surface-card border border-border-subtle rounded-lg overflow-hidden">
+                  <!-- Valores das linhas -->
+                  <div class="px-6">
+                    <div v-for="row in section.rows" :key="row.key" class="h-[56px] flex items-center border-b border-border-subtle last:border-0">
+                      <div class="text-sm font-light text-text-primary break-words w-full"
+                           :class="{ 'font-semibold text-brand-primary': isRowDifferent(row.key) }">
+                        {{ prop[row.key] || '—' }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="text-[10px] text-text-tertiary max-w-xs text-center md:text-right leading-relaxed">
-          Esta visão é uma simulação. Na interface final, este fluxo conecta ao CRM e agenda visitas.
-        </div>
-      </section>
+      </div>
+
     </div>
   </div>
 </template>
@@ -119,6 +121,7 @@ const allProperties = [
     name: "Cobertura Jardins",
     location: "Jardins, SP",
     price: "R$ 9.250.000",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
     area: "420 m²",
     suites: "4 suítes",
     ceiling: "3,2 m",
@@ -135,6 +138,7 @@ const allProperties = [
     name: "Residencial Dos Lagos",
     location: "Itaim Bibi, SP",
     price: "R$ 7.800.000",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
     area: "380 m²",
     suites: "4 suítes",
     ceiling: "2,8 m",
@@ -151,6 +155,7 @@ const allProperties = [
     name: "Villa Toscana",
     location: "Vila Nova Conceição, SP",
     price: "R$ 6.950.000",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop",
     area: "350 m²",
     suites: "3 suítes",
     ceiling: "3,0 m",
@@ -161,6 +166,23 @@ const allProperties = [
     walkability: "Média",
     condoFee: "R$ 6.000",
     iptu: "R$ 2.100",
+  },
+  {
+    id: "p4",
+    name: "Edifício Atlântica",
+    location: "Morumbi, SP",
+    price: "R$ 8.750.000",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
+    area: "480 m²",
+    suites: "5 suítes",
+    ceiling: "3,5 m",
+    light: "Alta",
+    security: "Portaria 24h, biometria, câmeras",
+    concierge: "Sim",
+    schoolDistance: "10 min",
+    walkability: "Média",
+    condoFee: "R$ 7.500",
+    iptu: "R$ 2.400",
   }
 ]
 
@@ -168,7 +190,6 @@ const sections = [
   {
     id: "essence",
     title: "Essência",
-    subtitle: "Fundamentos da propriedade.",
     rows: [
       { label: "Localização", key: "location" },
       { label: "Área privativa", key: "area" },
@@ -177,8 +198,7 @@ const sections = [
   },
   {
     id: "experience",
-    title: "Experiência do espaço",
-    subtitle: "Qualidade espacial, luz e sensação.",
+    title: "Experiência",
     rows: [
       { label: "Pé-direito", key: "ceiling" },
       { label: "Iluminação natural", key: "light" },
@@ -186,8 +206,7 @@ const sections = [
   },
   {
     id: "amenities",
-    title: "Comodidades & serviços",
-    subtitle: "Serviços, segurança e facilidades.",
+    title: "Comodidades",
     rows: [
       { label: "Segurança", key: "security" },
       { label: "Concierge", key: "concierge" },
@@ -195,8 +214,7 @@ const sections = [
   },
   {
     id: "financial",
-    title: "Visão financeira",
-    subtitle: "Custos recorrentes estimados.",
+    title: "Financeiro",
     rows: [
       { label: "Condomínio", key: "condoFee" },
       { label: "IPTU (mensal)", key: "iptu" },
@@ -205,23 +223,34 @@ const sections = [
 ]
 
 // --- Estado ---
-const selectedIds = ref(["p1", "p2", "p3"])
+const selectedIds = ref(["p1", "p2", "p3", "p4"])
 const showDifferencesOnly = ref(false)
+const expandedSections = ref(["essence", "experience", "amenities", "financial"]) // Todas expandidas por padrão
 
 // --- Computed ---
 const selectedProperties = computed(() => {
   return allProperties.filter(p => selectedIds.value.includes(p.id))
 })
 
-// Calcula o grid dinamicamente baseado no número de colunas
-const gridStyle = computed(() => {
+// Calcula o grid dinamicamente baseado no número de colunas para os cards
+const cardsGridStyle = computed(() => {
   const count = selectedProperties.value.length
   return {
-    gridTemplateColumns: `140px repeat(${count}, minmax(0, 1fr))`
+    gridTemplateColumns: `200px repeat(${count}, minmax(280px, 1fr))`
   }
 })
 
 // --- Métodos ---
+
+// Toggle de seção do accordion
+const toggleSection = (sectionId: string) => {
+  const index = expandedSections.value.indexOf(sectionId)
+  if (index > -1) {
+    expandedSections.value.splice(index, 1)
+  } else {
+    expandedSections.value.push(sectionId)
+  }
+}
 
 // Verifica se os valores de uma linha são diferentes entre os imóveis selecionados
 const isRowDifferent = (key: string) => {
@@ -234,10 +263,6 @@ const isRowDifferent = (key: string) => {
 const backToListing = () => {
   // Emite evento ou navega de volta
   router.back()
-}
-
-const showConciergeHint = () => {
-  alert("O Concierge explicaria aqui: 'A cobertura tem custo fixo 30% maior, mas oferece o dobro de área externa.'")
 }
 
 const contactConcierge = () => {

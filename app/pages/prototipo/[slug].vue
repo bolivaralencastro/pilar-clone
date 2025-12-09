@@ -4,6 +4,8 @@ import FlowchartViewer from '../../../components/FlowchartViewer.vue'
 import MermaidRenderer from '../../../components/MermaidRenderer.vue'
 import HomeV2 from '../../../components/prototypes/HomeV2.vue'
 import SearchResultsV2 from '../../../components/prototypes/SearchResultsV2.vue'
+import PropertyDetailV2 from '../../../components/prototypes/PropertyDetailV2.vue'
+import CurationV2 from '../../../components/prototypes/CurationV2.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -143,10 +145,34 @@ const isFullscreen = ref(false)
 const showInfo = ref(false)
 const showHeader = ref(true)
 
+// Initialize tab from URL
+const initTab = Array.isArray(route.query.tab) ? route.query.tab[0] : route.query.tab
+if (initTab && ['current', 'flowchart', 'new'].includes(initTab)) {
+  activeTab.value = initTab as 'current' | 'flowchart' | 'new'
+}
+
 // Watchers
 watch(activeTab, (newTab) => {
   if (newTab === 'flowchart') {
     viewMode.value = 'desktop'
+  }
+  
+  // Update URL to make state shareable
+  if (route.query.tab !== newTab) {
+    router.replace({ 
+      query: { 
+        ...route.query, 
+        tab: newTab 
+      } 
+    })
+  }
+})
+
+// Watch URL changes (back/forward navigation)
+watch(() => route.query.tab, (newTab) => {
+  const tab = Array.isArray(newTab) ? newTab[0] : newTab
+  if (tab && ['current', 'flowchart', 'new'].includes(tab) && tab !== activeTab.value) {
+    activeTab.value = tab as 'current' | 'flowchart' | 'new'
   }
 })
 
@@ -224,25 +250,25 @@ if (!currentPrototype.value) {
 
       <!-- Center: Version Tabs -->
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div class="bg-surface-card p-1 rounded-lg border border-subtle flex items-center gap-1">
+        <div class="bg-surface-subtle p-1.5 rounded-lg border border-border-subtle flex items-center gap-1.5">
           <button 
             @click="activeTab = 'current'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'current' ? 'bg-white text-text-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'current' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Versão Atual
           </button>
           <button 
             @click="activeTab = 'flowchart'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'flowchart' ? 'bg-white text-text-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'flowchart' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Fluxograma
           </button>
           <button 
             @click="activeTab = 'new'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'new' ? 'bg-white text-action-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'new' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Nova Proposta
           </button>
@@ -349,6 +375,16 @@ if (!currentPrototype.value) {
         <!-- New Version (Search Results) -->
         <div v-else-if="activeTab === 'new' && slug === 'resultados'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
            <SearchResultsV2 />
+        </div>
+
+        <!-- New Version (Property Detail) -->
+        <div v-else-if="activeTab === 'new' && slug === 'imovel'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
+           <PropertyDetailV2 />
+        </div>
+
+        <!-- New Version (Curation) -->
+        <div v-else-if="activeTab === 'new' && slug === 'curadoria'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
+           <CurationV2 />
         </div>
 
         <!-- Empty State (New Version) -->
