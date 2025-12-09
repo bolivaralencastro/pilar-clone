@@ -2,7 +2,7 @@
   <div class="font-sans text-text-primary min-h-screen bg-surface-base">
     
     <!-- Header -->
-    <HeaderLuxury />
+    <HeaderLuxury :sticky="false" />
 
     <div class="relative">
       <!-- HERO EDITORIAL (Estilo Aman Resorts) -->
