@@ -533,6 +533,135 @@ const handleNavigation = () => {
                 </p>
               </ContentCard>
 
+              <h3 class="text-xl font-light text-text-primary mb-6">Stack Técnica</h3>
+              
+              <div class="space-y-6 mb-12">
+                <!-- Frontend -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">Frontend</h4>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Nuxt.js 3</strong> — Framework SSR para renderização no servidor</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Vue.js</strong> — Biblioteca JavaScript para construção de interfaces</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Tailwind CSS</strong> — Framework utility-first para estilização</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">SSR/SSG</strong> — Rendering otimizado para SEO e performance</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">PWA</strong> — Capacidades offline e performance aprimorada</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">Backend & Infraestrutura</h4>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Python</strong> — Linguagem principal para backend</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">MongoDB</strong> — Banco de dados NoSQL para escalabilidade</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">AWS</strong> — Cloud infrastructure (CloudFront CDN, Load Balancer)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Java</strong> — Parte do stack para serviços específicos</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Node.js</strong> — Runtime para aplicações JavaScript server-side</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI & Automation -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">AI & Automação</h4>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Anthropic Claude 3.5 Sonnet</strong> — Geração de relatórios e assistentes</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Python Scripts</strong> — Automação de workflows de negócio</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Jira Service Desk</strong> — Sistema de suporte operacional</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Slack Bots</strong> — Integração com ferramentas de comunicação</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Agentic AI</strong> — Soluções avançadas de IA autônomas</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mobile & Outros -->
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg hover:border-action-primary/20 transition-colors">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-1">
+                      <h4 class="text-lg font-medium text-text-primary mb-2">Mobile & Outras Tecnologias</h4>
+                      <ul class="space-y-2 text-sm text-secondary">
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Flutter</strong> — Desenvolvimento mobile multiplataforma</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">React</strong> — Biblioteca para interfaces de usuário</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">Angular</strong> — Framework para aplicações web</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">TypeScript</strong> — Superset tipado do JavaScript</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-action-primary mt-1">•</span>
+                          <span><strong class="text-text-primary">WebP</strong> — Otimização de imagens para web</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Existing tools section -->
               <h3 class="text-xl font-light text-text-primary mb-6">Principais Ferramentas</h3>
               
               <div class="space-y-6">
@@ -599,6 +728,25 @@ const handleNavigation = () => {
                         </li>
                       </ul>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Engineering Culture -->
+              <div class="mt-12 bg-gradient-to-br from-action-primary/5 to-action-primary/10 p-8 rounded-lg border border-action-primary/20">
+                <h3 class="text-xl font-light text-text-primary mb-4">Cultura de Engenharia</h3>
+                <p class="text-secondary font-light leading-relaxed mb-4">
+                  A Pilar investe pesadamente em sua equipe de tecnologia, com <strong class="text-text-primary font-medium">10-12 engenheiros</strong> formando cerca de <strong class="text-text-primary font-medium">40% do time total</strong>.
+                </p>
+                <p class="text-secondary font-light leading-relaxed mb-4">
+                  A empresa mantém um blog técnico (<a href="https://engineering.soupilar.com.br/" target="_blank" class="text-action-primary hover:underline">engineering.soupilar.com.br</a>) que compartilha insights sobre arquitetura, decisões técnicas e experiências com ferramentas de ponta.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  <div class="bg-white/50 p-4 rounded border border-action-primary/30">
+                    <p class="text-sm text-text-primary font-light"><strong class="font-medium">NPS de Engenharia:</strong> 70+</p>
+                  </div>
+                  <div class="bg-white/50 p-4 rounded border border-action-primary/30">
+                    <p class="text-sm text-text-primary font-light"><strong class="font-medium">Turnover Técnico:</strong> 0%</p>
                   </div>
                 </div>
               </div>

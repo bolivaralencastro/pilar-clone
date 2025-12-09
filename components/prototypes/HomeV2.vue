@@ -19,11 +19,11 @@
     </div>
 
     <!-- Regions -->
-    <section class="py-20 md:pt-32 bg-surface-base text-text-primary overflow-hidden relative z-20">
+    <section class="regions-section py-20 md:pt-32 bg-surface-base text-text-primary overflow-hidden relative z-20">
       <div class="container mx-auto px-6">
         
         <!-- 1. EDITORIAL HEADER (Grid Assimétrico) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-end">
+        <div class="regions-header grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-end">
           
           <!-- Título (Lado Esquerdo) -->
           <div class="lg:col-span-6">
@@ -50,10 +50,10 @@
           <!-- Scroll Container -->
           <div 
             ref="regionsCarousel"
-            class="flex gap-6 overflow-x-auto hide-scrollbar pb-20 pr-16 -mr-6 md:-mr-24 pl-1 scroll-smooth"
+            class="regions-carousel flex gap-6 overflow-x-auto hide-scrollbar pb-20 pr-16 -mr-6 md:-mr-24 pl-1 scroll-smooth"
           >
             
-            <div v-for="(region, index) in regions" :key="index" class="group min-w-[70vw] md:min-w-[25vw] cursor-pointer">
+            <div v-for="(region, index) in regions" :key="index" class="region-card group min-w-[70vw] md:min-w-[25vw] cursor-pointer">
               <div class="aspect-[2/3] w-full bg-surface-offset overflow-hidden mb-4 relative" style="border-radius: 4px;">
                 <img :src="region.image" class="w-full h-full object-cover img-zoom opacity-90 group-hover:opacity-100 transition-opacity" alt="Region Image">
                  <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Controles de navegação do carrossel -->
-        <div class="mt-8 flex justify-end items-center">
+        <div class="carousel-controls mt-8 flex justify-end items-center">
           <div class="flex gap-2">
             <button 
               @click="scrollRegions('left')"
@@ -176,19 +176,19 @@ const regions = ref([
   /* ======== MOBILE RESPONSIVENESS ======== */
   @media (max-width: 768px) {
     /* Regions Section */
-    section.py-20 {
+    .regions-section {
       padding-top: 48px;
       padding-bottom: 48px;
     }
 
     /* Header Grid - stack vertically */
-    .grid.grid-cols-1.lg\\:grid-cols-12 {
+    .regions-header {
       gap: 16px;
       margin-bottom: 24px;
     }
 
     /* Carousel adjustments */
-    .flex.gap-6.overflow-x-auto {
+    .regions-carousel {
       gap: 16px;
       padding-bottom: 16px;
       padding-right: 24px;
@@ -196,22 +196,17 @@ const regions = ref([
     }
 
     /* Cards in carousel */
-    .group.min-w-\\[70vw\\] {
+    .region-card {
       min-width: 75vw;
     }
 
-    /* Card image */
-    .aspect-\\[2\\/3\\] {
-      aspect-ratio: 3/4;
-    }
-
     /* Navigation controls */
-    .mt-8.flex.justify-end {
+    .carousel-controls {
       margin-top: 16px;
       justify-content: center;
     }
 
-    .flex.gap-2 button {
+    .carousel-controls button {
       width: 44px;
       height: 44px;
     }
