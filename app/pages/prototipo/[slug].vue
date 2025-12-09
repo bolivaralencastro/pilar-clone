@@ -250,25 +250,25 @@ if (!currentPrototype.value) {
 
       <!-- Center: Version Tabs -->
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div class="bg-surface-card p-1 rounded-lg border border-subtle flex items-center gap-1">
+        <div class="bg-surface-subtle p-1.5 rounded-lg border border-border-subtle flex items-center gap-1.5">
           <button 
             @click="activeTab = 'current'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'current' ? 'bg-white text-text-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'current' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Versão Atual
           </button>
           <button 
             @click="activeTab = 'flowchart'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'flowchart' ? 'bg-white text-text-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'flowchart' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Fluxograma
           </button>
           <button 
             @click="activeTab = 'new'"
-            class="px-4 py-1.5 rounded text-xs font-medium transition-all duration-300"
-            :class="activeTab === 'new' ? 'bg-white text-action-primary shadow-sm' : 'text-secondary hover:text-text-primary'"
+            class="px-5 py-2 rounded-md text-xs font-semibold transition-all duration-200 uppercase tracking-wider"
+            :class="activeTab === 'new' ? 'bg-text-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary hover:bg-surface-card'"
           >
             Nova Proposta
           </button>

@@ -4,14 +4,12 @@
     <div class="w-full">
       <!-- Topbar com ações -->
       <header class="sticky top-0 z-50 bg-surface-base/95 backdrop-blur-sm border-b border-border-subtle">
-        <div class="max-w-[1280px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
           <div class="flex items-center gap-4">
             <button @click="backToListing" class="flex items-center gap-2 text-xs uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors">
               <i class="lni lni-arrow-left"></i>
               Voltar
             </button>
-            <div class="h-4 w-px bg-border-subtle"></div>
-            <span class="text-xs uppercase tracking-widest text-text-tertiary">{{ selectedProperties.length }} imóveis</span>
           </div>
           
           <div class="flex items-center gap-3">
@@ -29,59 +27,80 @@
         </div>
       </header>
 
-      <!-- Sticky header com nome e preço dos imóveis -->
+      <!-- Sticky header com cards dos imóveis -->
       <div class="sticky top-[53px] z-40 bg-surface-base/95 backdrop-blur-sm border-b border-border-subtle">
-        <div class="max-w-[1280px] mx-auto px-4 md:px-8 py-3">
-          <!-- Usando pl-6 para compensar o padding interno dos cards (p-6) -->
-          <div class="grid gap-4 pl-6" :style="gridStyle">
-            <div class="hidden md:block"></div>
-            <div v-for="prop in selectedProperties" :key="prop.id" class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded overflow-hidden flex-shrink-0 bg-surface-offset">
-                <img 
-                  :src="prop.image" 
-                  :alt="prop.name"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div class="min-w-0">
-                <div class="font-serif text-sm leading-tight text-text-primary truncate">{{ prop.name }}</div>
-                <div class="text-xs font-medium text-text-secondary">{{ prop.price }}</div>
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-4">
+          <div class="grid gap-6" :style="cardsGridStyle">
+            <div class="w-[200px]"></div>
+            <div v-for="prop in selectedProperties" :key="prop.id">
+              <div class="bg-surface-card border border-border-subtle rounded-lg p-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-offset flex-shrink-0">
+                    <img 
+                      :src="prop.image" 
+                      :alt="prop.name"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="font-serif text-sm leading-tight text-text-primary truncate">{{ prop.name }}</div>
+                    <div class="text-xs font-semibold text-text-secondary mt-0.5">{{ prop.price }}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="max-w-[1280px] mx-auto px-4 md:px-8 py-6">
-        <!-- Seções de Comparação -->
-        <section class="space-y-4">
-        <div v-for="section in sections" :key="section.id" class="bg-surface-card border border-border-subtle rounded-lg p-6">
-          <div class="mb-6 border-b border-border-subtle pb-4">
-            <h3 class="text-sm font-medium text-text-primary uppercase tracking-widest mb-1">{{ section.title }}</h3>
-            <p class="text-xs text-text-tertiary font-light">{{ section.subtitle }}</p>
-          </div>
+      <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-6">
+        <!-- Seções de comparação -->
+        <div class="space-y-4">
+          <div v-for="section in sections" :key="section.id">
+            <!-- Título da seção como botão de accordion -->
+            <button 
+              @click="toggleSection(section.id)"
+              class="w-full mb-3 flex items-center group pr-0"
+            >
+              <h3 class="text-[10px] font-medium text-text-secondary uppercase tracking-widest">
+                {{ section.title }}
+              </h3>
+              <div class="flex-1 h-px bg-border-subtle ml-4"></div>
+              <span class="text-lg font-light text-text-secondary ml-4">
+                {{ expandedSections.includes(section.id) ? '−' : '+' }}
+              </span>
+            </button>
 
-          <div class="flex flex-col gap-2">
-            <template v-for="row in section.rows" :key="row.key">
-              <div 
-                class="grid gap-4 items-center py-3 border-b border-dashed border-border-subtle last:border-0" 
-                :style="gridStyle"
-              >
-                <div class="text-xs font-medium text-text-secondary uppercase tracking-wide">{{ row.label }}</div>
-                
-                <div 
-                  v-for="prop in selectedProperties" 
-                  :key="prop.id" 
-                  class="text-sm font-light text-text-primary break-words pl-2"
-                  :class="{ 'border-l-2 border-text-primary font-medium': isRowDifferent(row.key) }"
-                >
-                  {{ prop[row.key] || '—' }}
+            <!-- Conteúdo do accordion -->
+            <div 
+              v-show="expandedSections.includes(section.id)"
+              class="grid gap-6 transition-all duration-200"
+              :style="cardsGridStyle"
+            >
+              <!-- Labels das linhas -->
+              <div class="w-[200px]">
+                <div v-for="row in section.rows" :key="row.key" class="h-[56px] flex items-center border-b border-border-subtle last:border-0">
+                  <div class="text-xs font-normal text-text-primary">{{ row.label }}</div>
                 </div>
               </div>
-            </template>
+
+              <!-- Cards de cada imóvel para esta seção -->
+              <div v-for="prop in selectedProperties" :key="prop.id">
+                <div class="bg-surface-card border border-border-subtle rounded-lg overflow-hidden">
+                  <!-- Valores das linhas -->
+                  <div class="px-6">
+                    <div v-for="row in section.rows" :key="row.key" class="h-[56px] flex items-center border-b border-border-subtle last:border-0">
+                      <div class="text-sm font-light text-text-primary break-words w-full"
+                           :class="{ 'font-semibold text-brand-primary': isRowDifferent(row.key) }">
+                        {{ prop[row.key] || '—' }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
       </div>
 
     </div>
@@ -147,6 +166,23 @@ const allProperties = [
     walkability: "Média",
     condoFee: "R$ 6.000",
     iptu: "R$ 2.100",
+  },
+  {
+    id: "p4",
+    name: "Edifício Atlântica",
+    location: "Morumbi, SP",
+    price: "R$ 8.750.000",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
+    area: "480 m²",
+    suites: "5 suítes",
+    ceiling: "3,5 m",
+    light: "Alta",
+    security: "Portaria 24h, biometria, câmeras",
+    concierge: "Sim",
+    schoolDistance: "10 min",
+    walkability: "Média",
+    condoFee: "R$ 7.500",
+    iptu: "R$ 2.400",
   }
 ]
 
@@ -154,7 +190,6 @@ const sections = [
   {
     id: "essence",
     title: "Essência",
-    subtitle: "Fundamentos da propriedade.",
     rows: [
       { label: "Localização", key: "location" },
       { label: "Área privativa", key: "area" },
@@ -163,8 +198,7 @@ const sections = [
   },
   {
     id: "experience",
-    title: "Experiência do espaço",
-    subtitle: "Qualidade espacial, luz e sensação.",
+    title: "Experiência",
     rows: [
       { label: "Pé-direito", key: "ceiling" },
       { label: "Iluminação natural", key: "light" },
@@ -172,8 +206,7 @@ const sections = [
   },
   {
     id: "amenities",
-    title: "Comodidades & serviços",
-    subtitle: "Serviços, segurança e facilidades.",
+    title: "Comodidades",
     rows: [
       { label: "Segurança", key: "security" },
       { label: "Concierge", key: "concierge" },
@@ -181,8 +214,7 @@ const sections = [
   },
   {
     id: "financial",
-    title: "Visão financeira",
-    subtitle: "Custos recorrentes estimados.",
+    title: "Financeiro",
     rows: [
       { label: "Condomínio", key: "condoFee" },
       { label: "IPTU (mensal)", key: "iptu" },
@@ -191,23 +223,34 @@ const sections = [
 ]
 
 // --- Estado ---
-const selectedIds = ref(["p1", "p2", "p3"])
+const selectedIds = ref(["p1", "p2", "p3", "p4"])
 const showDifferencesOnly = ref(false)
+const expandedSections = ref(["essence", "experience", "amenities", "financial"]) // Todas expandidas por padrão
 
 // --- Computed ---
 const selectedProperties = computed(() => {
   return allProperties.filter(p => selectedIds.value.includes(p.id))
 })
 
-// Calcula o grid dinamicamente baseado no número de colunas
-const gridStyle = computed(() => {
+// Calcula o grid dinamicamente baseado no número de colunas para os cards
+const cardsGridStyle = computed(() => {
   const count = selectedProperties.value.length
   return {
-    gridTemplateColumns: `120px repeat(${count}, minmax(0, 1fr))`
+    gridTemplateColumns: `200px repeat(${count}, minmax(280px, 1fr))`
   }
 })
 
 // --- Métodos ---
+
+// Toggle de seção do accordion
+const toggleSection = (sectionId: string) => {
+  const index = expandedSections.value.indexOf(sectionId)
+  if (index > -1) {
+    expandedSections.value.splice(index, 1)
+  } else {
+    expandedSections.value.push(sectionId)
+  }
+}
 
 // Verifica se os valores de uma linha são diferentes entre os imóveis selecionados
 const isRowDifferent = (key: string) => {

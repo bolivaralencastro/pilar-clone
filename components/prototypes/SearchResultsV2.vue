@@ -31,25 +31,26 @@
       <div class="container mx-auto px-6 h-14 flex justify-between items-center text-[10px] uppercase tracking-[0.15em] font-medium text-text-primary">
         
         <!-- Lado Esquerdo: Filtros, Ordenação e Busca -->
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4 md:gap-6 overflow-x-auto hide-scrollbar max-w-[60%] md:max-w-none">
           <button 
             @click="showFilters = true"
-            class="flex items-center gap-2 hover:text-text-secondary transition-colors"
+            class="flex items-center gap-2 hover:text-text-secondary transition-colors whitespace-nowrap"
           >
             <i class="lni lni-funnel text-xs"></i>
-            <span>Aplicar Filtros</span>
+            <span>Filtrar</span>
           </button>
           
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-border-subtle flex-shrink-0"></div>
 
-          <button class="flex items-center gap-2 hover:text-text-secondary transition-colors group">
-            <span>Ordenar por Recomendados</span>
+          <button class="flex items-center gap-2 hover:text-text-secondary transition-colors group whitespace-nowrap">
+            <i class="lni lni-sort-amount-dsc text-xs"></i>
+            <span class="hidden sm:inline">Ordenar</span>
             <i class="lni lni-chevron-down text-[8px] group-hover:rotate-180 transition-transform"></i>
           </button>
 
-          <div class="h-4 w-px bg-border-subtle"></div>
+          <div class="h-4 w-px bg-border-subtle flex-shrink-0 hidden md:block"></div>
 
-          <!-- Busca inline -->
+          <!-- Busca inline (Desktop) -->
           <div class="relative hidden md:block">
             <input 
               type="text" 
@@ -61,17 +62,34 @@
               <i class="lni lni-search text-[10px]"></i>
             </div>
           </div>
+
+          <!-- Busca Mobile Toggle -->
+          <button 
+            class="md:hidden flex items-center gap-2 hover:text-text-secondary transition-colors"
+            @click="showMobileSearch = !showMobileSearch"
+          >
+            <i class="lni lni-search text-xs"></i>
+          </button>
         </div>
 
         <!-- Lado Direito: Comparar + Mapa -->
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4 md:gap-6 flex-shrink-0">
           <button 
             @click="toggleComparisonMode"
-            class="flex items-center gap-2 transition-colors"
-            :class="isComparisonMode ? 'text-text-primary font-medium' : 'hover:text-text-secondary'"
+            class="flex items-center gap-2 transition-all duration-300 whitespace-nowrap"
+            :class="isComparisonMode 
+              ? 'text-text-primary font-medium scale-105' 
+              : 'hover:text-text-secondary hover:scale-105'"
           >
-            <span>Comparar</span>
-            <span v-if="selectedProperties.length > 0" class="bg-text-primary text-surface-base text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+            <span class="hidden sm:inline">Comparar</span>
+            <span class="sm:hidden"><i class="lni lni-layers text-xs"></i></span>
+            
+            <!-- Badge contador com animação -->
+            <span 
+              v-if="selectedProperties.length > 0" 
+              class="bg-text-primary text-surface-base text-[9px] w-4 h-4 rounded-full flex items-center justify-center transition-transform duration-200"
+              :class="selectedProperties.length > 0 ? 'scale-100' : 'scale-0'"
+            >
               {{ selectedProperties.length }}
             </span>
           </button>
@@ -80,18 +98,33 @@
 
           <button 
             @click="viewMode = viewMode === 'grid' ? 'map' : 'grid'"
-            class="flex items-center gap-2 hover:text-text-secondary transition-colors"
+            class="flex items-center gap-2 hover:text-text-secondary transition-colors whitespace-nowrap"
           >
-            <span>{{ viewMode === 'grid' ? 'Ver Mapa' : 'Ver Grid' }}</span>
+            <span class="hidden sm:inline">{{ viewMode === 'grid' ? 'Ver Mapa' : 'Ver Grid' }}</span>
+            <span class="sm:hidden">{{ viewMode === 'grid' ? 'Mapa' : 'Grid' }}</span>
             <i :class="viewMode === 'grid' ? 'lni-map' : 'lni-grid-alt'" class="lni text-xs"></i>
           </button>
         </div>
 
       </div>
+      
+      <!-- Mobile Search Bar (Expandable) -->
+      <div v-if="showMobileSearch" class="md:hidden px-6 py-3 border-t border-border-subtle bg-surface-base animate-fade-in">
+        <div class="relative">
+          <input 
+            type="text" 
+            v-model="searchQuery"
+            placeholder="Buscar por bairro, condomínio..."
+            class="w-full bg-surface-offset rounded px-3 py-2 text-xs text-text-primary focus:outline-none border border-transparent focus:border-border-strong"
+            autoFocus
+          />
+          <i class="lni lni-search absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary text-xs"></i>
+        </div>
+      </div>
     </div>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 pb-16 mt-12">
+    <main class="container mx-auto px-6 pb-16 mt-6">
       
       <!-- Editorial Grid View -->
       <div v-if="viewMode === 'grid'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -111,14 +144,37 @@
       </div>
 
       <!-- Map View -->
-      <div v-else class="flex gap-6 items-start relative">
+      <div v-else class="flex flex-col md:flex-row gap-6 items-start relative h-[calc(100vh-140px)] md:h-auto">
         <!-- Sidebar with Cards (scroll com a página) -->
-        <div class="w-full md:w-[420px] space-y-4 pb-16">
+        <div class="hidden md:block w-full md:w-[420px] space-y-4 pb-16">
           <div 
             v-for="property in properties" 
             :key="property.id" 
-            class="bg-surface-card rounded-lg overflow-hidden flex shadow-sm border border-border-subtle group cursor-pointer hover:shadow-md transition-shadow"
+            class="bg-surface-card rounded-lg overflow-hidden flex shadow-sm border border-border-subtle group hover:shadow-md transition-all relative"
+            :class="{
+              'cursor-pointer': !isComparisonMode,
+              'ring-2 ring-text-primary': isComparisonMode && selectedProperties.some(p => p.id === property.id)
+            }"
+            @click="isComparisonMode ? handleSelection(property) : null"
           >
+            <!-- Selection Checkbox (Comparison Mode) -->
+            <div 
+              v-if="isComparisonMode"
+              class="absolute top-2 left-2 z-10"
+            >
+              <div 
+                class="w-5 h-5 rounded border-2 flex items-center justify-center transition-all"
+                :class="selectedProperties.some(p => p.id === property.id) 
+                  ? 'bg-text-primary border-text-primary' 
+                  : 'bg-white border-border-strong'"
+              >
+                <i 
+                  v-if="selectedProperties.some(p => p.id === property.id)"
+                  class="lni lni-checkmark text-white text-xs font-bold"
+                ></i>
+              </div>
+            </div>
+
             <!-- Image -->
             <div class="w-32 h-32 bg-surface-offset flex-shrink-0 overflow-hidden relative">
               <img 
@@ -141,16 +197,25 @@
                 <p class="text-[9px] uppercase tracking-widest text-text-tertiary">{{ property.neighborhood }}</p>
                 <h3 class="font-serif font-semibold text-sm text-text-primary leading-tight mt-1">{{ property.name }}</h3>
               </div>
-              <div>
+              <div class="space-y-1">
                 <p class="font-bold text-sm text-text-primary">{{ property.price }}</p>
                 <p class="font-mono text-[10px] text-text-secondary">{{ property.specs }}</p>
+                <!-- Agent Info -->
+                <div class="flex items-center gap-2 pt-1 border-t border-border-subtle/50 mt-2">
+                  <div class="w-5 h-5 rounded-full bg-surface-offset flex items-center justify-center flex-shrink-0">
+                    <i class="lni lni-user text-[8px] text-text-tertiary"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[9px] text-text-secondary truncate">{{ property.agent.name }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
         <!-- Map Placeholder (Sticky) -->
-        <div class="hidden md:block flex-1 sticky top-[80px] h-[calc(100vh-104px)] z-10">
+        <div class="block flex-1 sticky top-[80px] h-full md:h-[calc(100vh-104px)] z-10 w-full">
           <div class="w-full h-full bg-surface-offset rounded-lg flex items-center justify-center border border-border-subtle">
             <div class="text-center">
               <div class="w-16 h-16 bg-surface-card rounded-full flex items-center justify-center mx-auto mb-4 border border-border-subtle">
@@ -182,296 +247,15 @@
       :selected-properties="selectedProperties"
       @remove="removeSelection"
       @compare="navigateToCompare"
+      @cancel="toggleComparisonMode"
     />
 
-    <!-- FILTERS PANEL (Painel Flutuante) -->
-    <Teleport to="body">
-      <Transition name="fade">
-        <div 
-          v-if="showFilters" 
-          class="fixed inset-0 z-50 flex items-stretch justify-end p-4"
-        >
-          <!-- Backdrop -->
-          <div 
-            class="absolute inset-0 bg-text-primary/40 backdrop-blur-sm"
-            @click="showFilters = false"
-          ></div>
-          
-          <!-- Panel -->
-          <div class="relative w-full max-w-md bg-surface-base rounded-lg shadow-2xl overflow-hidden flex flex-col animate-slide-in-right">
-            
-            <!-- Header do Painel -->
-            <div class="flex items-center justify-between px-6 py-5 border-b border-border-subtle">
-              <h2 class="text-lg font-light tracking-tight text-text-primary">Filtros</h2>
-              <button 
-                @click="showFilters = false"
-                class="w-8 h-8 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
-              >
-                <i class="lni lni-close text-lg"></i>
-              </button>
-            </div>
-
-            <!-- Conteúdo Scrollável -->
-            <div class="flex-1 overflow-y-auto px-6 py-6 space-y-8">
-              
-              <!-- BAIRROS -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('bairros')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Bairros</span>
-                  <i :class="openSections.includes('bairros') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('bairros')" class="space-y-3">
-                  <!-- Busca -->
-                  <div class="relative">
-                    <input 
-                      type="text" 
-                      placeholder="Buscar por bairros"
-                      class="w-full bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary transition-colors"
-                    />
-                  </div>
-                  
-                  <!-- Em destaque -->
-                  <p class="text-[10px] uppercase tracking-widest text-text-tertiary">Bairros em destaque</p>
-                  <div class="flex flex-wrap gap-2">
-                    <button 
-                      v-for="bairro in ['Itaim Bibi', 'Jardim Paulista', 'Vila Nova Conceição', 'Jardim América', 'Higienópolis']" 
-                      :key="bairro"
-                      class="px-3 py-1.5 text-xs border border-border-subtle rounded-full hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                    >
-                      {{ bairro }}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ÁREA ÚTIL -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('area')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Área útil</span>
-                  <i :class="openSections.includes('area') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('area')" class="flex gap-3">
-                  <input type="text" placeholder="Mín m²" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                  <input type="text" placeholder="Máx m²" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                </div>
-              </div>
-
-              <!-- VALOR DE VENDA -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('valor')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Valor de venda</span>
-                  <i :class="openSections.includes('valor') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('valor')" class="flex gap-3">
-                  <input type="text" placeholder="Mín R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                  <input type="text" placeholder="Máx R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                </div>
-              </div>
-
-              <!-- TIPO DE IMÓVEL -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('tipo')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Tipo de imóvel</span>
-                  <i :class="openSections.includes('tipo') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('tipo')" class="space-y-3">
-                  <div class="relative">
-                    <input 
-                      type="text" 
-                      placeholder="Buscar por tipo de imóvel"
-                      class="w-full bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary transition-colors"
-                    />
-                  </div>
-                  
-                  <p class="text-[10px] uppercase tracking-widest text-text-tertiary">Tipo de imóvel em destaque</p>
-                  <div class="flex flex-wrap gap-2">
-                    <button 
-                      v-for="tipo in ['Apartamento', 'Cobertura', 'Duplex', 'Casa de vila']" 
-                      :key="tipo"
-                      class="px-3 py-1.5 text-xs border border-border-subtle rounded-full hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                    >
-                      {{ tipo }}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CÔMODOS -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('comodos')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Cômodos</span>
-                  <i :class="openSections.includes('comodos') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('comodos')" class="space-y-5">
-                  <!-- Quartos -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Quartos</p>
-                    <div class="flex gap-2">
-                      <button 
-                        v-for="opt in ['Qualquer', '+1', '+2', '+3', '+4', '+5']" 
-                        :key="opt"
-                        class="flex-1 py-2 text-xs border border-border-subtle rounded hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                      >
-                        {{ opt }}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Suítes -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Suítes</p>
-                    <div class="flex gap-2">
-                      <button 
-                        v-for="opt in ['Qualquer', '+1', '+2', '+3', '+4', '+5']" 
-                        :key="opt"
-                        class="flex-1 py-2 text-xs border border-border-subtle rounded hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                      >
-                        {{ opt }}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Banheiros -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Banheiros</p>
-                    <div class="flex gap-2">
-                      <button 
-                        v-for="opt in ['Qualquer', '+1', '+2', '+3', '+4', '+5']" 
-                        :key="opt"
-                        class="flex-1 py-2 text-xs border border-border-subtle rounded hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                      >
-                        {{ opt }}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Vagas -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Vagas</p>
-                    <div class="flex gap-2">
-                      <button 
-                        v-for="opt in ['Qualquer', '+1', '+2', '+3', '+4', '+5']" 
-                        :key="opt"
-                        class="flex-1 py-2 text-xs border border-border-subtle rounded hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                      >
-                        {{ opt }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- MAIS FILTROS -->
-              <div class="space-y-4">
-                <button 
-                  @click="toggleSection('mais')"
-                  class="w-full flex items-center justify-between text-sm font-medium text-text-primary"
-                >
-                  <span>Mais filtros</span>
-                  <i :class="openSections.includes('mais') ? 'lni-chevron-up' : 'lni-chevron-down'" class="lni text-xs"></i>
-                </button>
-                
-                <div v-if="openSections.includes('mais')" class="space-y-5">
-                  <!-- Características -->
-                  <div class="space-y-3">
-                    <div class="relative">
-                      <input 
-                        type="text" 
-                        placeholder="Buscar por características"
-                        class="w-full bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary transition-colors"
-                      />
-                    </div>
-                    
-                    <p class="text-[10px] uppercase tracking-widest text-text-tertiary">Características em destaque</p>
-                    <div class="flex flex-wrap gap-2">
-                      <button 
-                        v-for="carac in ['Piscina privativa', 'Varanda gourmet', 'Academia', 'Ar-condicionado']" 
-                        :key="carac"
-                        class="px-3 py-1.5 text-xs border border-border-subtle rounded-full hover:border-text-primary hover:bg-surface-subtle transition-colors"
-                      >
-                        {{ carac }}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Status -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Status do imóvel</p>
-                    <div class="flex gap-2">
-                      <button class="px-3 py-1.5 text-xs border border-border-subtle rounded-full hover:border-text-primary hover:bg-surface-subtle transition-colors">
-                        Exclusivo
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Valor m² -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Valor do m²</p>
-                    <div class="flex gap-3">
-                      <input type="text" placeholder="Mín R$/m²" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                      <input type="text" placeholder="Máx R$/m²" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                    </div>
-                  </div>
-                  
-                  <!-- IPTU -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">IPTU mensal</p>
-                    <div class="flex gap-3">
-                      <input type="text" placeholder="Mín R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                      <input type="text" placeholder="Máx R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                    </div>
-                  </div>
-                  
-                  <!-- Condomínio -->
-                  <div class="space-y-2">
-                    <p class="text-xs text-text-secondary">Taxa de condomínio mensal</p>
-                    <div class="flex gap-3">
-                      <input type="text" placeholder="Mín R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                      <input type="text" placeholder="Máx R$" class="flex-1 bg-surface-card border border-border-subtle rounded px-3 py-2 text-sm placeholder:text-text-tertiary focus:outline-none focus:border-text-primary" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Footer do Painel -->
-            <div class="px-6 py-5 border-t border-border-subtle bg-surface-base flex items-center justify-between gap-4">
-              <button class="text-xs uppercase tracking-widest text-text-tertiary hover:text-text-primary transition-colors underline underline-offset-4">
-                Limpar filtros
-              </button>
-              <button 
-                @click="showFilters = false"
-                class="flex-1 bg-text-primary text-surface-base py-3 text-xs uppercase tracking-widest font-medium hover:bg-text-primary/90 transition-colors rounded"
-              >
-                Ver 16.215 imóveis
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </Transition>
-    </Teleport>
+    <!-- FILTERS PANEL -->
+    <FiltersPanel 
+      v-model="showFilters"
+      @apply="handleApplyFilters"
+      @clear="handleClearFilters"
+    />
 
     <!-- Flowchart Toggle -->
     <button 
@@ -522,6 +306,7 @@ import HeaderLuxury from './HeaderLuxury.vue'
 import FooterLuxury from './FooterLuxury.vue'
 import PropertyCardV2 from './PropertyCardV2.vue'
 import ComparisonFloatingBar from './ComparisonFloatingBar.vue'
+import FiltersPanel from './FiltersPanel.vue'
 import FlowchartViewer from '../FlowchartViewer.vue'
 import MermaidRenderer from '../MermaidRenderer.vue'
 
@@ -625,7 +410,7 @@ interface GridRow {
 const viewMode = ref<'grid' | 'map'>('grid')
 const searchQuery = ref('')
 const showFilters = ref(false)
-const openSections = ref<string[]>(['bairros'])
+const showMobileSearch = ref(false)
 const imageErrors = ref<Set<number>>(new Set())
 const showFlowchart = ref(false)
 
@@ -649,7 +434,7 @@ const handleSelection = (property: Property) => {
   if (index >= 0) {
     selectedProperties.value.splice(index, 1)
   } else {
-    if (selectedProperties.value.length < 3) {
+    if (selectedProperties.value.length < 4) {
       selectedProperties.value.push(property)
     }
   }
@@ -667,13 +452,15 @@ const navigateToCompare = async () => {
   await navigateTo('/compare')
 }
 
-// Toggle seção do filtro
-const toggleSection = (section: string) => {
-  if (openSections.value.includes(section)) {
-    openSections.value = openSections.value.filter(s => s !== section)
-  } else {
-    openSections.value.push(section)
-  }
+// Handlers para o painel de filtros
+const handleApplyFilters = () => {
+  // Lógica de aplicação de filtros
+  console.log('Filtros aplicados')
+}
+
+const handleClearFilters = () => {
+  // Lógica de limpeza de filtros
+  console.log('Filtros limpos')
 }
 
 // ============================================
@@ -864,51 +651,5 @@ const properties = ref<Property[]>([
 }
 .group:hover .img-zoom { 
   transform: scale(1.05); 
-}
-
-/* Animação do painel de filtros */
-.animate-slide-in-right {
-  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Transição fade para backdrop */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active .animate-slide-in-right {
-  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-leave-active .animate-slide-in-right {
-  animation: slideOutRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
 }
 </style>

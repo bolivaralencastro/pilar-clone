@@ -120,7 +120,7 @@ const updateDisplay = (curatorId: string) => {
 
 /* --- LADO ESQUERDO (TEXTO) --- */
 .left-panel {
-  background-color: rgb(242, 242, 237); /* var(--bg-left) equivalente a surface-subtle */
+  background-color: var(--surface-subtle);
   padding: 60px;
   display: flex;
   flex-direction: column;
@@ -143,17 +143,18 @@ const updateDisplay = (curatorId: string) => {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-weight: 600;
-  color: var(--text-tertiary);
+  font-weight: 300;
+  color: var(--text-primary);
 }
 
 .brand-serif {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
   line-height: 0.9;
   font-style: italic;
   font-weight: 300;
-  color: var(--text-primary);
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
 /* Lista de Nomes (Esquerda Centro) */
@@ -247,6 +248,7 @@ const updateDisplay = (curatorId: string) => {
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
   background-color: var(--surface-offset);
+  border-radius: 4px;
 }
 
 .curator-portrait {

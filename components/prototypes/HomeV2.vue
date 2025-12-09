@@ -63,9 +63,9 @@
     <!-- Section: Selected Properties -->
     <section class="py-16 bg-surface-base text-text-primary">
       <div class="container mx-auto px-6">
-        <div class="mb-10">
-          <h2 class="text-xl md:text-2xl font-light mb-2 tracking-tight uppercase">Selecionados <br><span class="text-3xl md:text-4xl italic font-serif text-text-secondary opacity-60 normal-case">para você</span></h2>
-          <p class="text-text-secondary">A partir de imóveis que chamaram sua atenção</p>
+        <div class="mb-10 text-center">
+          <h2 class="text-xs md:text-sm font-light mb-2 tracking-[0.2em] uppercase">Selecionados <br><span class="text-6xl md:text-7xl italic font-serif text-text-primary opacity-60 normal-case">para você</span></h2>
+          <p class="text-text-secondary">A partir de imóveis que chamaram <br>sua atenção</p>
         </div>
 
         <!-- Horizontal Scroll Container -->
@@ -110,49 +110,8 @@
       </div>
     </section>
 
-    <!-- Value Proposition -->
-    <section class="py-16 bg-surface-subtle text-text-primary border-t border-border-subtle">
-      <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10">
-        <div class="space-y-4">
-          <h3 class="text-2xl font-light tracking-tight">Liderança no alto padrão</h3>
-          <div class="h-px w-full bg-border-strong"></div>
-          <p class="text-text-secondary leading-relaxed">Mais de R$ 3 bilhões negociados nos últimos 12 meses.</p>
-        </div>
-        <div class="space-y-4">
-          <h3 class="text-2xl font-light tracking-tight">Atendimento sob medida</h3>
-          <div class="h-px w-full bg-border-strong"></div>
-          <p class="text-text-secondary leading-relaxed">Conexão direta com corretores especialistas nos melhores endereços.</p>
-        </div>
-        <div class="space-y-4">
-          <h3 class="text-2xl font-light tracking-tight">O maior portfólio atualizado</h3>
-          <div class="h-px w-full bg-border-strong"></div>
-          <p class="text-text-secondary leading-relaxed">Mais opções e imóveis que você só encontra aqui.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navigation Cards (Tabs) -->
-    <section class="py-12 bg-surface-base">
-      <div class="container mx-auto px-6">
-        <div class="flex gap-8 mb-8 border-b border-border-subtle pb-4 text-text-secondary">
-          <button @click="router.push('/prototipo/resultados?tab=new')" class="text-text-primary font-medium border-b-2 border-text-primary pb-4 -mb-4.5">Quero comprar</button>
-          <button class="hover:text-text-primary transition-colors">Quero vender</button>
-          <button class="hover:text-text-primary transition-colors">Sou corretor</button>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-          <div v-for="(card, index) in navCards" :key="index" class="relative h-64 rounded-lg overflow-hidden group cursor-pointer bg-surface-card border border-border-subtle shadow-sm">
-            <div class="absolute inset-0 bg-surface-offset group-hover:bg-surface-subtle transition-colors"></div>
-            <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-surface-card/90 to-transparent">
-              <h3 class="text-xl text-text-primary font-medium flex items-center justify-between">
-                {{ card.title }}
-                <span class="text-lg">↗</span>
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Navigation Monochrome -->
+    <NavigationMonochrome />
 
     <!-- Regions -->
     <section class="py-20 md:pt-32 bg-surface-base text-text-primary overflow-hidden">
@@ -163,9 +122,9 @@
           
           <!-- Título (Lado Esquerdo) -->
           <div class="lg:col-span-6">
-            <h2 class="text-xl md:text-2xl font-light tracking-tight leading-[1.1] text-text-primary uppercase">
+            <h2 class="text-base md:text-xl font-light tracking-tight leading-[1.1] text-text-primary uppercase">
               Nossas <br>
-              <span class="text-3xl md:text-4xl text-text-secondary opacity-60 italic font-serif normal-case">Regiões</span>
+              <span class="text-4xl md:text-5xl text-text-secondary opacity-60 italic font-serif normal-case">Regiões</span>
             </h2>
           </div>
 
@@ -189,8 +148,8 @@
             class="flex gap-6 overflow-x-auto hide-scrollbar pb-20 pr-16 -mr-6 md:-mr-24 pl-1 scroll-smooth"
           >
             
-            <div v-for="(region, index) in regions" :key="index" class="group min-w-[85vw] md:min-w-[30vw] cursor-pointer">
-              <div class="aspect-[2/3] w-full bg-surface-offset overflow-hidden rounded-sm mb-4 relative">
+            <div v-for="(region, index) in regions" :key="index" class="group min-w-[70vw] md:min-w-[25vw] cursor-pointer">
+              <div class="aspect-[2/3] w-full bg-surface-offset overflow-hidden mb-4 relative" style="border-radius: 4px;">
                 <img :src="region.image" class="w-full h-full object-cover img-zoom opacity-90 group-hover:opacity-100 transition-opacity" alt="Region Image">
                  <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span class="bg-surface-card/90 backdrop-blur px-3 py-1 text-[9px] uppercase tracking-widest font-bold text-text-primary">{{ region.label }}</span>
@@ -234,7 +193,7 @@
     <section class="py-16 bg-surface-subtle text-text-primary">
       <div class="container mx-auto px-6">
         <div class="mb-10">
-          <h2 class="text-xl md:text-2xl font-light tracking-tight uppercase">Exclusivos <br><span class="text-3xl md:text-4xl italic font-serif text-text-secondary opacity-60 normal-case">PilarHomes</span></h2>
+          <h2 class="text-base md:text-xl font-light tracking-tight uppercase">Exclusivos <br><span class="text-4xl md:text-5xl italic font-serif text-text-secondary opacity-60 normal-case">PilarHomes</span></h2>
           <p class="text-text-secondary mt-1">Imóveis únicos, listados apenas no PilarHomes.</p>
         </div>
 
@@ -294,6 +253,7 @@ import FooterLuxury from './FooterLuxury.vue'
 import PropertyCardV2 from './PropertyCardV2.vue'
 import CuratedCollectionsSplit from './CuratedCollectionsSplit.vue'
 import TestimonialsRefined from './TestimonialsRefined.vue'
+import NavigationMonochrome from './NavigationMonochrome.vue'
 
 const router = useRouter()
 
@@ -388,10 +348,10 @@ const navCards = ref([
 ]);
 
 const regions = ref([
-  { name: 'São Paulo', image: 'https://images.unsplash.com/photo-1548027965-d296cf679064?w=800&h=1200&fit=crop&q=80', label: 'Capital' },
-  { name: 'Curitiba', image: 'https://images.unsplash.com/photo-1609676371242-c5986c9dbb88?w=800&h=1200&fit=crop&q=80', label: 'Sul' },
-  { name: 'Parque Ibirapuera', image: 'https://images.unsplash.com/photo-1587897773780-fe188d7b5ab6?w=800&h=1200&fit=crop&q=80', label: 'Parques' },
-  { name: 'Zona Sul', image: 'https://images.unsplash.com/photo-1548027965-d296cf679064?w=800&h=1200&fit=crop&q=80&sat=-100', label: 'SP' }
+  { name: 'São Paulo', image: '/images/sao-paulo.jpeg', label: 'Capital' },
+  { name: 'Curitiba', image: '/images/curitiba.png', label: 'Sul' },
+  { name: 'Boa Vista', image: '/images/boa vista.jpeg', label: 'Campo' },
+  { name: 'Alphaville', image: '/images/alphaville.jpeg', label: 'Grande SP' }
 ])
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full min-h-screen flex flex-col justify-between py-16 md:py-20 px-6 md:px-16 bg-surface-base">
+  <section class="w-full min-h-screen flex flex-col justify-between py-16 md:py-20 px-6 md:px-16 bg-surface-subtle">
     
     <!-- Título da Seção -->
     <div class="text-center mb-12">
@@ -12,10 +12,12 @@
     <!-- Citação (Topo) -->
     <div class="flex-grow flex items-center justify-center max-w-4xl mx-auto text-center pb-8">
       <h2 
-        class="font-serif text-3xl md:text-4xl font-light italic leading-tight text-text-primary transition-all duration-500 ease-out"
+        class="font-serif text-3xl md:text-4xl font-light italic leading-tight text-text-primary transition-all duration-500 ease-out relative"
         :class="{ 'opacity-100 translate-y-0': quoteVisible, 'opacity-0 translate-y-4': !quoteVisible }"
       >
+        <span class="text-5xl md:text-6xl opacity-30 absolute -top-4 -left-8">“</span>
         {{ activeQuote }}
+        <span class="text-5xl md:text-6xl opacity-30 absolute -bottom-8 -right-8">”</span>
       </h2>
     </div>
 
@@ -41,7 +43,7 @@
           </h3>
           
           <!-- Foto (Menor) -->
-          <div class="w-full aspect-square overflow-hidden rounded-sm relative">
+          <div class="w-full aspect-square overflow-hidden rounded relative" style="border-radius: 4px;">
             <img 
               :src="client.photo" 
               :alt="client.name"
