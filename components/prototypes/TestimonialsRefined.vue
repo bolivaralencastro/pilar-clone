@@ -1,5 +1,6 @@
 <template>
-  <section class="w-full min-h-screen flex flex-col justify-between py-16 md:py-20 px-6 md:px-16 bg-surface-subtle">
+  <section class="w-full min-h-screen bg-surface-subtle py-16 md:py-20">
+    <div class="container mx-auto px-6 h-full flex flex-col justify-between">
     
     <!-- Título da Seção -->
     <div class="text-center mb-12">
@@ -77,6 +78,7 @@
 
       </div>
 
+    </div>
   </section>
 </template>
 

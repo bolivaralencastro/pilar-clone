@@ -5,10 +5,18 @@ export default defineNuxtConfig({
   // Ensure auto-import of components from the `components/` directory
   components: [
     {
-      path: 'components',
+      path: '~/../components',
       pathPrefix: false
     }
   ],
+
+  vite: {
+    server: {
+      hmr: {
+        port: 24689
+      }
+    }
+  },
 
   modules: [
     '@nuxtjs/tailwindcss',
@@ -40,7 +48,7 @@ export default defineNuxtConfig({
     continuous: true
   },
   // https://nuxt.com/docs/api/configuration/nuxt-config
-
+  // Trigger restart
   runtimeConfig: {
     pilarApiUrl: process.env.PILAR_API_URL || 'https://pilarhomes.com.br',
     public: {

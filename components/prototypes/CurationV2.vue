@@ -247,6 +247,46 @@
       @cancel="toggleComparisonMode"
     />
 
+    <!-- Flowchart Toggle -->
+    <button 
+      @click="showFlowchart = true"
+      class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-surface-base border border-border-subtle rounded-full flex items-center justify-center shadow-xl hover:bg-surface-subtle hover:scale-105 transition-all text-text-secondary group"
+      title="Ver Fluxo"
+    >
+      <i class="lni lni-network text-xl group-hover:text-text-primary transition-colors"></i>
+    </button>
+
+    <!-- Flowchart Modal -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div v-if="showFlowchart" class="fixed inset-0 z-[60] bg-surface-base/95 backdrop-blur-sm flex flex-col">
+          <!-- Header -->
+          <div class="flex items-center justify-between px-6 py-4 border-b border-border-subtle bg-surface-base">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-surface-offset rounded flex items-center justify-center">
+                <i class="lni lni-network text-text-primary"></i>
+              </div>
+              <div>
+                <h2 class="text-sm font-medium uppercase tracking-widest text-text-primary">Fluxo de Curadoria</h2>
+                <p class="text-[10px] text-text-tertiary">Diagrama de coleções e comparação</p>
+              </div>
+            </div>
+            <button 
+              @click="showFlowchart = false" 
+              class="w-10 h-10 flex items-center justify-center hover:bg-surface-offset rounded-full transition-colors text-text-secondary hover:text-text-primary"
+            >
+              <i class="lni lni-close text-lg"></i>
+            </button>
+          </div>
+          <!-- Viewer -->
+          <div class="flex-1 overflow-hidden relative bg-surface-offset/30">
+             <FlowchartViewer>
+               <MermaidRenderer :code="mermaidCode" />
+             </FlowchartViewer>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
@@ -258,6 +298,62 @@ import FooterLuxury from './FooterLuxury.vue'
 import PropertyCardV2 from './PropertyCardV2.vue'
 import ComparisonFloatingBar from './ComparisonFloatingBar.vue'
 import FiltersPanel from './FiltersPanel.vue'
+import FlowchartViewer from '../FlowchartViewer.vue'
+import MermaidRenderer from '../MermaidRenderer.vue'
+
+const showFlowchart = ref(false)
+
+const mermaidCode = `
+flowchart TD
+    %% Estados Iniciais
+    subgraph Pages [Páginas de Listagem]
+        Results[SearchResultsV2.vue<br/>Busca Geral]
+        Curation[CurationV2.vue<br/>Curadoria/Coleções]
+    end
+
+    %% Componentes de Controle
+    subgraph Controls [Barra de Controle Sticky]
+        Filters[Painel de Filtros]
+        Sort[Ordenação]
+        ViewToggle[Alternar Mapa/Grid]
+        CompareToggle[Modo Comparação]
+    end
+
+    %% Componentes de Interface
+    subgraph UI [Interface Principal]
+        Grid[Grid de Cards]
+        Map[Mapa Interativo]
+        FloatBar[ComparisonFloatingBar.vue<br/>Barra Flutuante]
+    end
+
+    %% Fluxo Resultados
+    Results --> Controls
+    Results --> Grid
+    
+    %% Fluxo Curadoria
+    Curation --> Controls
+    Curation --> Grid
+    Curation -->|Tabs| SwitchCollection[Trocar Coleção]
+
+    %% Interações
+    ViewToggle -->|Click| Map
+    CompareToggle -->|Ativar| SelectionMode[Modo de Seleção Ativo]
+    
+    SelectionMode -->|Selecionar Imóveis| FloatBar
+    FloatBar -->|Click Comparar| ComparePage[ComparisonView.vue<br/>Comparador Side-by-Side]
+    
+    Grid -->|Click Card| Detail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    Map -->|Click Pin| Detail
+
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef ui fill:#e1f5fe,stroke:#0277bd,stroke-width:1px;
+    classDef logic fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+
+    class Results,Curation,ComparePage,Detail page;
+    class Grid,Map,FloatBar,Filters ui;
+    class SelectionMode logic;
+`
 
 const router = useRouter()
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TheBackgroundLogo from '../../components/TheBackgroundLogo.vue'
+
 useSeoMeta({
   title: 'Pilar Homes - Desafio Técnico',
   description: 'Dashboard do desafio técnico Pilar Homes'
@@ -29,11 +31,7 @@ const handleNavigation = () => {
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Background SVG -->
-    <div class="fixed bottom-0 left-0 opacity-[0.02] pointer-events-none z-0 scale-[3] origin-bottom-left">
-      <svg width="380" height="328" viewBox="0 0 380 328" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M95 0L0 163.917L95 327.834H285L380 163.917L285 0H95ZM252.274 307.033L34.4494 181.755L283.277 38.6387L252.274 307.033Z" fill="black"/>
-      </svg>
-    </div>
+    <TheBackgroundLogo />
 
     <!-- Header Minimal -->
     <header class="bg-white border-b border-subtle relative z-50">
@@ -92,7 +90,15 @@ const handleNavigation = () => {
         </div>
 
         <!-- Navigation Grid (The Index) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-subtle border border-subtle rounded-lg overflow-hidden">
+        <div class="relative">
+          <img 
+            src="/images/notebook.png" 
+            alt="Pilar Homes Notebook" 
+            class="absolute z-20 pointer-events-none hidden md:block
+                   md:w-[500px] md:-top-[16.5rem] md:right-[0.4rem]
+                   lg:w-[800px] lg:-top-[26.3rem] lg:right-0" 
+          />
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-subtle border border-subtle rounded-lg overflow-hidden relative z-10">
           
           <!-- Column 1: Context -->
           <div class="bg-white p-12 group hover:bg-surface-card transition-colors duration-500">
@@ -147,6 +153,7 @@ const handleNavigation = () => {
             </div>
           </div>
 
+        </div>
         </div>
 
       </div>

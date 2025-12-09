@@ -305,7 +305,7 @@ const updateDisplay = (curatorId: string) => {
   }
 
   .left-panel {
-    padding: 40px 20px;
+    padding: 40px 24px;
     min-height: 50vh;
   }
 

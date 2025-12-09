@@ -45,8 +45,8 @@
     </header>
 
     <!-- Hero Video Section -->
-    <section class="h-[90vh] p-6 bg-surface-base">
-      <div class="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900">
+    <section class="h-[90vh] px-6 pb-6 bg-surface-base">
+      <div class="container mx-auto h-full relative rounded-2xl overflow-hidden bg-gray-900">
         <!-- Video Background -->
         <video 
           autoplay 
@@ -243,6 +243,47 @@
 
     <!-- Footer Luxury Component -->
     <FooterLuxury />
+
+    <!-- Flowchart Toggle -->
+    <button 
+      @click="showFlowchart = true"
+      class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-surface-base border border-border-subtle rounded-full flex items-center justify-center shadow-xl hover:bg-surface-subtle hover:scale-105 transition-all text-text-secondary group"
+      title="Ver Fluxo"
+    >
+      <i class="lni lni-network text-xl group-hover:text-text-primary transition-colors"></i>
+    </button>
+
+    <!-- Flowchart Modal -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div v-if="showFlowchart" class="fixed inset-0 z-[60] bg-surface-base/95 backdrop-blur-sm flex flex-col">
+          <!-- Header -->
+          <div class="flex items-center justify-between px-6 py-4 border-b border-border-subtle bg-surface-base">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-surface-offset rounded flex items-center justify-center">
+                <i class="lni lni-network text-text-primary"></i>
+              </div>
+              <div>
+                <h2 class="text-sm font-medium uppercase tracking-widest text-text-primary">Fluxo da Home</h2>
+                <p class="text-[10px] text-text-tertiary">Diagrama de navegação e seções</p>
+              </div>
+            </div>
+            <button 
+              @click="showFlowchart = false" 
+              class="w-10 h-10 flex items-center justify-center hover:bg-surface-offset rounded-full transition-colors text-text-secondary hover:text-text-primary"
+            >
+              <i class="lni lni-close text-lg"></i>
+            </button>
+          </div>
+          <!-- Viewer -->
+          <div class="flex-1 overflow-hidden relative bg-surface-offset/30">
+             <FlowchartViewer>
+               <MermaidRenderer :code="mermaidCode" />
+             </FlowchartViewer>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
     </div>
   </div>
 </template>
@@ -254,6 +295,59 @@ import PropertyCardV2 from './PropertyCardV2.vue'
 import CuratedCollectionsSplit from './CuratedCollectionsSplit.vue'
 import TestimonialsRefined from './TestimonialsRefined.vue'
 import NavigationMonochrome from './NavigationMonochrome.vue'
+import FlowchartViewer from '../FlowchartViewer.vue'
+import MermaidRenderer from '../MermaidRenderer.vue'
+
+const showFlowchart = ref(false)
+
+const mermaidCode = `
+flowchart TD
+    %% Nós Principais
+    Start((Início)) --> Home[HomeV2.vue<br/>Landing Page]
+    
+    %% Seções da Home
+    subgraph Hero [Hero Section]
+        SearchInput[Barra de Busca]
+        VideoBg[Vídeo Background]
+    end
+    
+    subgraph Sections [Seções de Conteúdo]
+        Selected[Selecionados para Você<br/>Carrossel]
+        NavMono[Navegação Monocromática]
+        Regions[Regiões<br/>Carrossel]
+        Exclusive[Exclusivos PilarHomes]
+        Collections[Coleções Curadas]
+    end
+    
+    %% Conexões Internas
+    Home --> Hero
+    Home --> Sections
+    
+    %% Ações de Navegação
+    SearchInput -->|Enter/Click| ResultsPage[SearchResultsV2.vue<br/>Resultados de Busca]
+    
+    Selected -->|Click Card| PropertyDetail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    Selected -->|Ver Todos| ResultsPage
+    
+    NavMono -->|Quero Comprar| ResultsPage
+    NavMono -->|Quero Vender| SellerForm[Formulário de Venda]
+    NavMono -->|Sou Corretor| BrokerForm[Cadastro de Corretor]
+    
+    Regions -->|Click Região| ResultsPageFiltered[Resultados Filtrados<br/>por Região]
+    
+    Exclusive -->|Click Card| PropertyDetail
+    Exclusive -->|Ver Todos| ResultsPage
+    
+    Collections -->|Click Coleção| CurationPage[CurationV2.vue<br/>Página de Curadoria]
+    
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef component fill:#e1f5fe,stroke:#0277bd,stroke-width:1px;
+    classDef action fill:#fff9c4,stroke:#fbc02d,stroke-width:1px;
+    
+    class Home,ResultsPage,PropertyDetail,CurationPage page;
+    class SearchInput,Selected,NavMono,Regions,Exclusive,Collections component;
+`
 
 const router = useRouter()
 

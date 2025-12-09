@@ -277,8 +277,8 @@
                 <i class="lni lni-network text-text-primary"></i>
               </div>
               <div>
-                <h2 class="text-sm font-medium uppercase tracking-widest text-text-primary">Fluxo de Comparação</h2>
-                <p class="text-[10px] text-text-tertiary">Diagrama de estados e interações</p>
+                <h2 class="text-sm font-medium uppercase tracking-widest text-text-primary">Fluxo de Resultados</h2>
+                <p class="text-[10px] text-text-tertiary">Diagrama de busca e curadoria</p>
               </div>
             </div>
             <button 
@@ -312,75 +312,54 @@ import MermaidRenderer from '../MermaidRenderer.vue'
 
 const mermaidCode = `
 flowchart TD
-    %% --- CAMADA DE NAVEGAÇÃO ---
-    subgraph Navigation ["📍 Navegação & Páginas"]
-        direction TB
-        Home["🏠 Pág 01: Home<br/>(Porta de Entrada)"]
-        Results["📋 Pág 02: Resultados<br/>(Busca & Mapa)"]
-        Curation["✨ Pág 04: Curadoria<br/>(Coleções Temáticas)"]
-        Details["💎 Pág 03: Detalhe (Single)<br/>(Imersão Total)"]
-
-        %% Fluxo de navegação básica
-        Home --> Results & Curation
-        Results -.->|Clica no Card| Details
-        Curation -.->|Clica no Card| Details
+    %% Estados Iniciais
+    subgraph Pages [Páginas de Listagem]
+        Results[SearchResultsV2.vue<br/>Busca Geral]
+        Curation[CurationV2.vue<br/>Curadoria/Coleções]
     end
 
-    %% --- CAMADA DE PERSISTÊNCIA (BARRA FLUTUANTE) ---
-    subgraph PersistentUI ["⚓ Barra Flutuante de Comparação"]
-        direction TB
-        %% Ações de adicionar à comparação vindas de várias origens
-        ActionAdd["🖱️ Ação: Selecionar Card<br/>(Checkbox ou Botão)"]
-        
-        Results --> ActionAdd
-        Curation --> ActionAdd
-        Details --> ActionAdd
-        
-        ActionAdd --> FloatingBar["🚧 Barra Flutuante Ativa<br/>(Persiste no rodapé/topo)"]
-        
-        %% Lógica de Estado da Barra
-        FloatingBar --> CheckState{"Qtd. Selecionada?"}
-        
-        CheckState -- "< 2 Imóveis" --> KeepBrowsing["👀 Botão 'Comparar' Inativo<br/>User continua navegando"]
-        CheckState -- ">= 2 Imóveis" --> ReadyState["✅ Botão 'Comparar' Ativo"]
-        
-        %% O loop de persistência: volta para a navegação visualmente
-        KeepBrowsing -.->|Barra permanece visível| Navigation
-        ReadyState -.->|Barra permanece visível| Navigation
+    %% Componentes de Controle
+    subgraph Controls [Barra de Controle Sticky]
+        Filters[Painel de Filtros]
+        Sort[Ordenação]
+        ViewToggle[Alternar Mapa/Grid]
+        CompareToggle[Modo Comparação]
     end
 
-    %% --- FLUXO DE EXECUÇÃO (COMPARAR) ---
-    subgraph CompareFlow ["Tela de Comparação"]
-        ReadyState -->|Clicou Comparar| ManualView["📊 Tabela Side-by-Side<br/>(Página de Comparação)"]
-        ManualView --> Insights["💡 Insights de IA<br/>sobre a seleção"]
-        ManualView --> Actions["⚡ Ações Finais:<br/>Agendar, Ofertar"]
+    %% Componentes de Interface
+    subgraph UI [Interface Principal]
+        Grid[Grid de Cards]
+        Map[Mapa Interativo]
+        FloatBar[ComparisonFloatingBar.vue<br/>Barra Flutuante]
     end
 
-    %% --- FLUXO DE IA (EXCLUSIVO SINGLE PAGE) ---
-    subgraph AIFlow ["Fluxo IA (Exclusivo Single-Page)"]
-        direction TB
-        Details -->|Botão 'Analisar Valor'| Analyze["🤖 Processar Análise IA"]
-        Analyze --> AutoView["📈 Popup IA:<br/>Preço, Similares, Fatores"]
-        
-        %% Integração: Da IA para a Barra Flutuante
-        AutoView -->|Botão 'Add à Comparação'| FloatingBar
-    end
+    %% Fluxo Resultados
+    Results --> Controls
+    Results --> Grid
+    
+    %% Fluxo Curadoria
+    Curation --> Controls
+    Curation --> Grid
+    Curation -->|Tabs| SwitchCollection[Trocar Coleção]
 
-    %% --- ESTILIZAÇÃO ---
-    classDef nav fill:#f1faee,stroke:#1d3557,stroke-width:2px,color:#1d3557,rx:5,ry:5
-    classDef bar fill:#cdb4db,stroke:#5c2a9d,stroke-width:2px,color:#333,rx:10,ry:10
-    classDef action fill:#bde0fe,stroke:#457b9d,stroke-width:1px,color:#1d3557,rx:5,ry:5
-    classDef manual fill:#e9c46a,stroke:#d4a373,stroke-width:1px,color:#333,rx:5,ry:5
-    classDef ai fill:#a2d2ff,stroke:#023e8a,stroke-width:1px,color:#1d3557,rx:5,ry:5
-    classDef decision fill:#ffafcc,stroke:#e63946,stroke-width:1px,color:#333,rx:5,ry:5
+    %% Interações
+    ViewToggle -->|Click| Map
+    CompareToggle -->|Ativar| SelectionMode[Modo de Seleção Ativo]
+    
+    SelectionMode -->|Selecionar Imóveis| FloatBar
+    FloatBar -->|Click Comparar| ComparePage[ComparisonView.vue<br/>Comparador Side-by-Side]
+    
+    Grid -->|Click Card| Detail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    Map -->|Click Pin| Detail
 
-    %% Aplicação das Classes
-    class Home,Results,Curation,Details nav
-    class FloatingBar,KeepBrowsing,ReadyState bar
-    class ActionAdd action
-    class ManualView,Insights,Actions manual
-    class Analyze,AutoView ai
-    class CheckState decision
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef ui fill:#e1f5fe,stroke:#0277bd,stroke-width:1px;
+    classDef logic fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+
+    class Results,Curation,ComparePage,Detail page;
+    class Grid,Map,FloatBar,Filters ui;
+    class SelectionMode logic;
 `
 
 // Types

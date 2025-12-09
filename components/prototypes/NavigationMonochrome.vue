@@ -25,7 +25,7 @@
     </div>
 
     <!-- NAVEGAÇÃO -->
-    <div class="nav-section">
+    <div class="nav-section container mx-auto px-6">
       <ul class="nav-list">
         
         <li 
@@ -205,7 +205,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 10vw;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .nav-list {
@@ -361,7 +362,8 @@ onUnmounted(() => {
   }
 
   .nav-section {
-    padding: 60px 5vw;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .nav-item:last-child {
