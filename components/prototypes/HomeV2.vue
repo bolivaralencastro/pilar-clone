@@ -172,4 +172,48 @@ const regions = ref([
   /* Micro-interação de Zoom suave do DS */
   .img-zoom { transition: transform 1.4s cubic-bezier(0.25, 1, 0.5, 1); }
   .group:hover .img-zoom { transform: scale(1.05); }
+
+  /* ======== MOBILE RESPONSIVENESS ======== */
+  @media (max-width: 768px) {
+    /* Regions Section */
+    section.py-20 {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    /* Header Grid - stack vertically */
+    .grid.grid-cols-1.lg\\:grid-cols-12 {
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Carousel adjustments */
+    .flex.gap-6.overflow-x-auto {
+      gap: 16px;
+      padding-bottom: 16px;
+      padding-right: 24px;
+      margin-right: -20px;
+    }
+
+    /* Cards in carousel */
+    .group.min-w-\\[70vw\\] {
+      min-width: 75vw;
+    }
+
+    /* Card image */
+    .aspect-\\[2\\/3\\] {
+      aspect-ratio: 3/4;
+    }
+
+    /* Navigation controls */
+    .mt-8.flex.justify-end {
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .flex.gap-2 button {
+      width: 44px;
+      height: 44px;
+    }
+  }
 </style>

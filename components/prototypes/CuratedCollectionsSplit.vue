@@ -341,4 +341,72 @@ const updateDisplay = (curatorId: string) => {
     height: 400px;
   }
 }
+
+@media (max-width: 768px) {
+  .split-stage {
+    grid-template-rows: auto 300px;
+    min-height: auto;
+  }
+
+  .left-panel {
+    padding: 32px 20px;
+    min-height: auto;
+  }
+
+  .top-brand {
+    margin-bottom: 24px;
+  }
+
+  .brand-sans {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .brand-serif {
+    font-size: 2rem;
+  }
+
+  .curator-menu {
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .curator-name {
+    font-size: 1.5rem;
+  }
+
+  .curator-role {
+    font-size: 9px;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    padding-left: 12px;
+  }
+
+  .bottom-desc {
+    margin-top: 24px;
+    font-size: 10px;
+    max-width: 100%;
+    padding-top: 12px;
+  }
+
+  .center-wrapper {
+    margin: -80px auto 24px auto;
+    width: 160px;
+  }
+
+  .center-card {
+    width: 160px;
+  }
+
+  .card-cta {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .right-panel {
+    height: 300px;
+  }
+}
 </style>

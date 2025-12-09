@@ -1,5 +1,52 @@
 <template>
-  <section class="horizontal-scroll-container" ref="sectionRef">
+  <!-- MOBILE VERSION: Vertical Swipe Carousel -->
+  <section v-if="isMobile" class="mobile-editorial-section">
+    <div class="mobile-header">
+      <span class="mobile-label">Imóveis em Destaque</span>
+      <h2 class="mobile-title">Curadoria<br><span class="italic">Exclusiva</span></h2>
+    </div>
+    
+    <div 
+      class="mobile-carousel" 
+      ref="mobileCarouselRef"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
+    >
+      <div 
+        class="mobile-track" 
+        :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
+      >
+        <div v-for="(property, index) in properties" :key="index" class="mobile-slide">
+          <div class="mobile-slide-image">
+            <img :src="property.image" :alt="property.title">
+          </div>
+          <div class="mobile-slide-content">
+            <span class="mobile-meta">{{ property.location }}</span>
+            <h3 class="mobile-slide-title">{{ property.title }}</h3>
+            <p class="mobile-slide-desc">{{ property.description }}</p>
+            <button class="mobile-cta" @click="router.push('/prototipo/imovel?tab=new')">
+              Ver Imóvel
+              <i class="lni lni-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Indicadores -->
+    <div class="mobile-indicators">
+      <button 
+        v-for="(_, index) in properties" 
+        :key="index"
+        class="mobile-dot"
+        :class="{ active: currentSlide === index }"
+        @click="currentSlide = index"
+      ></button>
+    </div>
+  </section>
+
+  <!-- DESKTOP VERSION: Horizontal Scroll -->
+  <section v-else class="horizontal-scroll-container" ref="sectionRef">
     <div class="sticky-wrapper">
       <div class="horizontal-track" ref="trackRef">
         
@@ -77,15 +124,71 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const sectionRef = ref<HTMLElement | null>(null)
 const trackRef = ref<HTMLElement | null>(null)
+const mobileCarouselRef = ref<HTMLElement | null>(null)
 const progress = ref(0)
+const isMobile = ref(false)
+const currentSlide = ref(0)
 let scrollTarget: HTMLElement | Window = window
+let touchStartX = 0
+
+// Dados dos imóveis para mobile
+const properties = ref([
+  {
+    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
+    location: 'São Paulo — Jardins',
+    title: 'Refúgio Urbano',
+    description: 'O equilíbrio perfeito entre a arquitetura brutalista e o conforto orgânico em 420m².'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop',
+    location: 'Curitiba — Batel',
+    title: 'Glass House',
+    description: 'Projetada ao redor da luz. Paredes de vidro integram o jardim ao living principal.'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop',
+    location: 'Vila Nova — SP',
+    title: 'Villa Toscana',
+    description: 'Acabamentos importados e design assinado. Um ícone de sofisticação.'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop',
+    location: 'Itaim Bibi — SP',
+    title: 'Penthouse Lumière',
+    description: 'Vista panorâmica de 360° e terraço privativo com piscina de borda infinita.'
+  }
+])
+
+const handleTouchStart = (e: TouchEvent) => {
+  if (e.touches && e.touches[0]) {
+    touchStartX = e.touches[0].clientX
+  }
+}
+
+const handleTouchEnd = (e: TouchEvent) => {
+  if (!e.changedTouches || !e.changedTouches[0]) return
+  const touchEndX = e.changedTouches[0].clientX
+  const diff = touchStartX - touchEndX
+  
+  if (Math.abs(diff) > 50) {
+    if (diff > 0 && currentSlide.value < properties.value.length - 1) {
+      currentSlide.value++
+    } else if (diff < 0 && currentSlide.value > 0) {
+      currentSlide.value--
+    }
+  }
+}
+
+const checkMobile = () => {
+  isMobile.value = window.innerWidth < 768
+}
 
 const findScrollableParent = (el: HTMLElement | null): HTMLElement | null => {
   let node: HTMLElement | null = el
@@ -99,6 +202,7 @@ const findScrollableParent = (el: HTMLElement | null): HTMLElement | null => {
 }
 
 const updateScroll = () => {
+  if (isMobile.value) return
   if (!sectionRef.value || !trackRef.value) return
 
   const isWindow = scrollTarget === window
@@ -148,6 +252,9 @@ const updateScroll = () => {
 }
 
 onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+  
   // Suporta tanto scroll global quanto dentro do viewer (overflow auto)
   const found = findScrollableParent(sectionRef.value)
   if (found) {
@@ -162,6 +269,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile)
   if (scrollTarget instanceof HTMLElement) {
     scrollTarget.removeEventListener('scroll', updateScroll)
   } else {
@@ -370,5 +478,152 @@ onUnmounted(() => {
   .slide-layout-3 .image-block.panoramic {
     width: 70%;
   }
+}
+
+/* ======== MOBILE EDITORIAL SECTION ======== */
+.mobile-editorial-section {
+  background-color: var(--surface-subtle, #F2F2F2);
+  padding: 48px 0;
+  min-height: auto;
+}
+
+.mobile-header {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.mobile-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary, #666);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mobile-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-primary, #1A1A1A);
+  margin: 0;
+}
+
+.mobile-title .italic {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.mobile-carousel {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-x;
+}
+
+.mobile-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-slide {
+  min-width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.mobile-slide-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-slide-content {
+  padding: 0 4px;
+}
+
+.mobile-meta {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary, #666);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mobile-slide-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--text-primary, #1A1A1A);
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+}
+
+.mobile-slide-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #555);
+  margin: 0 0 20px 0;
+}
+
+.mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--text-primary, #1A1A1A);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.mobile-cta:hover {
+  opacity: 0.85;
+}
+
+.mobile-cta i {
+  font-size: 0.9rem;
+}
+
+.mobile-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0 24px;
+}
+
+.mobile-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-subtle, #ddd);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.mobile-dot.active {
+  background: var(--text-primary, #1A1A1A);
+  width: 24px;
+  border-radius: 4px;
 }
 </style>

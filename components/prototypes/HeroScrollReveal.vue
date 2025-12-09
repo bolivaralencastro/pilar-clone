@@ -201,7 +201,7 @@ onUnmounted(() => {
 
 .hero-text-section h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   font-weight: 400;
   color: var(--hero-text);
   margin-bottom: 1.5rem;
@@ -289,5 +289,76 @@ onUnmounted(() => {
   position: absolute; bottom: 40px; left: 40px; color: white;
   opacity: 0; transform: translateY(20px); transition: 0.5s;
   z-index: 2;
+}
+
+/* ======== MOBILE RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .hero-text-section {
+    padding: 0 16px;
+    justify-content: flex-start;
+    padding-top: 25vh;
+  }
+
+  .hero-tag {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text-section h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    padding: 0 8px;
+  }
+
+  .hero-search {
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 12px;
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .hero-search input {
+    padding: 12px 16px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-search button {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+  }
+
+  .scroll-spacer {
+    height: 30vh;
+  }
+
+  .video-container-wrapper {
+    height: 150vh;
+  }
+
+  .video-frame {
+    width: 90%;
+    height: 50vh;
+    border-radius: 12px;
+  }
+
+  .video-overlay-text {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .video-overlay-text h3 {
+    font-size: 1.25rem !important;
+  }
 }
 </style>

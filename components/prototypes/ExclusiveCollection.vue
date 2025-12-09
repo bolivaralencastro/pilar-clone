@@ -146,4 +146,83 @@
     animation-play-state: running;
   }
 }
+
+@media (max-width: 768px) {
+  section.w-full.h-screen {
+    height: auto;
+    min-height: 100vh;
+    padding: 16px;
+  }
+
+  .luxury-container {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 1fr;
+    min-height: 90vh;
+  }
+
+  .visual-side {
+    grid-columns: 2 !important;
+    height: 40vh;
+    order: 1;
+    padding: 12px;
+    gap: 12px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  }
+
+  .marquee-col.col-3 {
+    display: none !important;
+  }
+
+  .marquee-col {
+    gap: 12px;
+  }
+
+  .card {
+    aspect-ratio: 1/1;
+  }
+
+  .content-side {
+    order: 2;
+    padding: 32px 24px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .content-side .label {
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 0.65rem;
+  }
+
+  .content-side .label::before {
+    display: none;
+  }
+
+  .content-side h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .content-side h1 span {
+    display: inline;
+  }
+
+  .content-side p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .content-side .cta-btn {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  /* Faster animation on mobile */
+  .col-1 { animation-duration: 20s; }
+  .col-2 { animation-duration: 25s; }
+}
 </style>

@@ -354,12 +354,41 @@ onUnmounted(() => {
   }
 
   .nav-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    min-height: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav-item {
+    padding: 16px 0;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+  }
+
+  .nav-num {
+    font-size: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 7vw;
+    justify-self: start;
+    opacity: 1;
+  }
+
+  .arrow-icon {
+    font-size: 1.2rem;
+    opacity: 0.5;
+    transform: translateX(0);
   }
 
   .nav-item:last-child {
     border-bottom: none;
+  }
+
+  .nav-list {
+    gap: 0;
   }
 }
 </style>

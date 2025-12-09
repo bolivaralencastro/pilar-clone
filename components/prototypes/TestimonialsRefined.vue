@@ -163,4 +163,90 @@ const setTestimonial = (index: number) => {
     filter: grayscale(0%);
   }
 }
+
+/* ======== MOBILE RESPONSIVENESS ======== */
+@media (max-width: 768px) {
+  section.w-full.min-h-screen {
+    min-height: auto;
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Título ajustado */
+  .text-center.mb-12 {
+    margin-bottom: 24px;
+  }
+
+  /* Quote container */
+  .flex-grow.flex.items-center {
+    padding-bottom: 24px;
+  }
+
+  .font-playfair.text-3xl {
+    font-size: 1.25rem;
+    padding: 0 32px;
+  }
+
+  .font-playfair.text-3xl span.absolute.-top-4.-left-8 {
+    top: -8px;
+    left: 8px;
+    font-size: 2.5rem;
+  }
+
+  .font-playfair.text-3xl span.absolute.-bottom-8.-right-8 {
+    bottom: -16px;
+    right: 8px;
+    font-size: 2.5rem;
+  }
+
+  /* Client cards - horizontal scroll */
+  .w-full.flex.justify-between {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .w-full.flex.justify-between::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cursor-pointer.flex.flex-col {
+    min-width: 140px;
+    width: 140px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* Smaller name text */
+  .font-sans.text-\[9px\] {
+    font-size: 8px;
+  }
+
+  /* Smaller footer text */
+  .text-\[6px\] {
+    font-size: 5px;
+  }
+
+  .text-\[9px\] {
+    font-size: 8px;
+  }
+
+  .text-\[8px\] {
+    font-size: 7px;
+  }
+
+  /* Smaller avatars */
+  .w-4.h-4 {
+    width: 12px;
+    height: 12px;
+  }
+}
 </style>
