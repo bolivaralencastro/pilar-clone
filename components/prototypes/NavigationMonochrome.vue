@@ -3,9 +3,9 @@
     
     <!-- BACKGROUNDS -->
     <div class="bg-container">
-      <div class="bg-image active"></div>
+      <div class="bg-image"></div>
       <img 
-        src="https://images.unsplash.com/photo-1600596542815-2a4d9f6facb8?q=80&w=2069" 
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2069" 
         class="bg-image" 
         id="bg-buy" 
         alt="Comprar"
@@ -34,10 +34,8 @@
           @mouseenter="handleMouseEnter"
           @mouseleave="handleMouseLeave"
         >
-          <div class="nav-content">
-            <span class="nav-num">01</span>
-            <a href="#" class="nav-link" @click.prevent="router.push('/prototipo/resultados?tab=new')">Quero Comprar</a>
-          </div>
+          <span class="nav-num">01</span>
+          <a href="#" class="nav-link font-playfair" @click.prevent="router.push('/prototipo/resultados?tab=new')">Quero Comprar</a>
           <span class="arrow-icon">→</span>
         </li>
 
@@ -47,10 +45,8 @@
           @mouseenter="handleMouseEnter"
           @mouseleave="handleMouseLeave"
         >
-          <div class="nav-content">
-            <span class="nav-num">02</span>
-            <a href="#" class="nav-link">Quero Vender</a>
-          </div>
+          <span class="nav-num">02</span>
+          <a href="#" class="nav-link font-playfair">Quero Vender</a>
           <span class="arrow-icon">→</span>
         </li>
 
@@ -60,10 +56,8 @@
           @mouseenter="handleMouseEnter"
           @mouseleave="handleMouseLeave"
         >
-          <div class="nav-content">
-            <span class="nav-num">03</span>
-            <a href="#" class="nav-link">Sou Corretor</a>
-          </div>
+          <span class="nav-num">03</span>
+          <a href="#" class="nav-link font-playfair">Sou Corretor</a>
           <span class="arrow-icon">→</span>
         </li>
 
@@ -71,16 +65,18 @@
     </div>
 
     <!-- UI FLUTUANTE -->
-    <div 
-      ref="infoCard" 
-      class="floating-details" 
-      :class="{ visible: cardVisible }"
-      :style="{ left: cardPosition.x + 'px', top: cardPosition.y + 'px' }"
-    >
-      <span class="detail-label">Pilar Homes</span>
-      <span class="detail-stat">{{ currentStat }}</span>
-      <p class="detail-desc">{{ currentDesc }}</p>
-    </div>
+    <Teleport to="body">
+      <div 
+        ref="infoCard" 
+        class="floating-details" 
+        :class="{ visible: cardVisible }"
+        :style="{ left: cardPosition.x + 'px', top: cardPosition.y + 'px' }"
+      >
+        <span class="detail-label">Pilar Homes</span>
+        <span class="detail-stat">{{ currentStat }}</span>
+        <p class="detail-desc">{{ currentDesc }}</p>
+      </div>
+    </Teleport>
 
   </section>
 </template>
@@ -156,7 +152,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap');
 
 /* --- CONFIGURAÇÕES VISUAIS --- */
 .nav-monochrome {
@@ -193,7 +189,7 @@ onUnmounted(() => {
 }
 
 .bg-image.active {
-  opacity: 0.12;
+  opacity: 0.06;
   transform: scale(1);
 }
 
@@ -222,11 +218,11 @@ onUnmounted(() => {
 .nav-item {
   position: relative;
   padding: 25px 0;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.1);
   transition: border-color 0.4s;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
 }
 
 .nav-item:last-child {
@@ -237,23 +233,17 @@ onUnmounted(() => {
   border-bottom-color: #121212;
 }
 
-.nav-content {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
 .nav-num {
   font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
   color: #666666;
-  margin-right: 30px;
   font-weight: 500;
   transition: color 0.3s;
+  justify-self: start;
 }
 
 .nav-link {
-  font-family: 'Italiana', serif;
+  font-family: "Playfair Display", serif;
   font-size: 4.5vw;
   line-height: 1;
   color: #121212;
@@ -262,6 +252,7 @@ onUnmounted(() => {
   transition: padding-left 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s;
   display: block;
   opacity: 0.6;
+  justify-self: center;
 }
 
 .nav-item:hover .nav-link {
@@ -279,6 +270,7 @@ onUnmounted(() => {
   transform: translateX(-15px);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   color: #121212;
+  justify-self: end;
 }
 
 .nav-item:hover .arrow-icon {
@@ -293,7 +285,7 @@ onUnmounted(() => {
   background: #ffffff;
   padding: 30px;
   pointer-events: none;
-  z-index: 20;
+  z-index: 9999;
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 0.3s, transform 0.15s linear;
@@ -320,7 +312,7 @@ onUnmounted(() => {
 
 .detail-stat {
   display: block;
-  font-family: 'Italiana', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   line-height: 1.2;
   color: #121212;

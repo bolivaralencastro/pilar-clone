@@ -16,7 +16,7 @@
       <div class="w-12 h-px bg-border-strong mx-auto mb-4"></div>
       
       <!-- Título Principal - Serif Display -->
-      <h1 class="text-5xl md:text-6xl font-serif font-light text-text-primary mb-3 tracking-tight whitespace-nowrap">Curadoria de imóveis de alto padrão</h1>
+      <h1 class="text-5xl md:text-6xl font-playfair font-light text-text-primary mb-3 tracking-tight whitespace-nowrap">Curadoria de imóveis de alto padrão</h1>
       
       <!-- Descrição Elegante -->
       <p class="text-sm md:text-base font-light text-text-secondary leading-relaxed mb-6 max-w-2xl mx-auto">
@@ -64,7 +64,7 @@
     <section class="py-16 bg-surface-base text-text-primary">
       <div class="container mx-auto px-6">
         <div class="mb-10 text-center">
-          <h2 class="text-xs md:text-sm font-light mb-2 tracking-[0.2em] uppercase">Selecionados <br><span class="text-6xl md:text-7xl italic font-serif text-text-primary opacity-60 normal-case">para você</span></h2>
+          <h2 class="text-sm md:text-base font-light mb-2 tracking-[0.2em] uppercase">Selecionados <br><span class="text-5xl md:text-6xl italic font-playfair text-text-primary opacity-60 normal-case">para você</span></h2>
           <p class="text-text-secondary">A partir de imóveis que chamaram <br>sua atenção</p>
         </div>
 
@@ -110,6 +110,11 @@
       </div>
     </section>
 
+    <!-- Section: Exclusive Collection -->
+    <section class="py-20 bg-surface-base flex justify-center">
+      <ExclusiveCollection />
+    </section>
+
     <!-- Navigation Monochrome -->
     <NavigationMonochrome />
 
@@ -122,9 +127,9 @@
           
           <!-- Título (Lado Esquerdo) -->
           <div class="lg:col-span-6">
-            <h2 class="text-base md:text-xl font-light tracking-tight leading-[1.1] text-text-primary uppercase">
+            <h2 class="text-sm md:text-base font-light tracking-[0.2em] leading-[1.1] text-text-primary uppercase">
               Nossas <br>
-              <span class="text-4xl md:text-5xl text-text-secondary opacity-60 italic font-serif normal-case">Regiões</span>
+              <span class="text-5xl md:text-6xl text-text-secondary opacity-60 italic font-playfair normal-case">Regiões</span>
             </h2>
           </div>
 
@@ -189,51 +194,7 @@
       </div>
     </section>
 
-    <!-- Exclusive Properties -->
-    <section class="py-16 bg-surface-subtle text-text-primary">
-      <div class="container mx-auto px-6">
-        <div class="mb-10">
-          <h2 class="text-base md:text-xl font-light tracking-tight uppercase">Exclusivos <br><span class="text-4xl md:text-5xl italic font-serif text-text-secondary opacity-60 normal-case">PilarHomes</span></h2>
-          <p class="text-text-secondary mt-1">Imóveis únicos, listados apenas no PilarHomes.</p>
-        </div>
 
-        <div class="flex gap-6 overflow-x-auto pb-8 snap-x hide-scrollbar">
-          <div v-for="i in 3" :key="i" class="min-w-[320px] md:min-w-[450px] snap-center">
-            <div class="bg-surface-card border border-border-subtle rounded-lg overflow-hidden shadow-sm">
-               
-               <div class="h-64 bg-surface-offset relative"></div>
-               
-               <div class="p-5">
-                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-text-tertiary/30 rounded-full"></div>
-                    <div>
-                      <div class="h-3 w-24 bg-text-tertiary/20 rounded mb-1"></div>
-                      <div class="h-2 w-16 bg-text-tertiary/30 rounded"></div>
-                    </div>
-                 </div>
-                 
-                 <div class="space-y-2 border-t border-border-subtle pt-4">
-                   <div class="flex justify-between">
-                     <div class="h-6 w-28 bg-text-tertiary/20 rounded"></div>
-                     <div class="h-3 w-10 bg-text-tertiary/30 rounded"></div>
-                   </div>
-                   <div class="h-3 w-full bg-text-tertiary/30 rounded"></div>
-                   <div class="h-3 w-1/2 bg-text-tertiary/30 rounded"></div>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-8 flex justify-between items-center">
-             <button @click="router.push('/prototipo/resultados?tab=new')" class="border border-border-strong text-text-primary px-6 py-3 rounded text-sm hover:bg-surface-subtle transition-colors">Ver todos os imóveis ↗</button>
-             <div class="flex gap-2">
-               <button class="w-10 h-10 border border-border-strong rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-subtle transition-colors">←</button>
-               <button class="w-10 h-10 border border-border-strong rounded-full flex items-center justify-center text-text-primary hover:bg-surface-subtle transition-colors">→</button>
-             </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Curated Collections Split -->
     <CuratedCollectionsSplit />

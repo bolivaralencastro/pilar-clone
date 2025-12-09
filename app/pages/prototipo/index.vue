@@ -101,11 +101,11 @@ const handleNavigation = () => {
                     A nova porta de entrada da Pilar Homes. Foco em curadoria, storytelling e acesso rápido aos imóveis mais exclusivos.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <a href="https://www.pilarhomes.com.br/" target="_blank" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/home?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
                       Versão Atual <i class="lni lni-arrow-right-circle"></i>
-                    </a>
-                    <NuxtLink to="/prototipo/home" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/home?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
                       Nova Versão <span class="text-lg">→</span>
                     </NuxtLink>
                   </div>
@@ -123,11 +123,11 @@ const handleNavigation = () => {
                     Experiência de busca refinada com filtros inteligentes, mapa interativo e cards que valorizam a fotografia.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <a href="https://pilarhomes.com.br/venda/imoveis/sao-paulo-sp-brasil" target="_blank" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/resultados?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
                       Versão Atual <i class="lni lni-arrow-right-circle"></i>
-                    </a>
-                    <NuxtLink to="/prototipo/resultados" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/resultados?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
                       Nova Versão <span class="text-lg">→</span>
                     </NuxtLink>
                   </div>
@@ -145,11 +145,11 @@ const handleNavigation = () => {
                     Imersão total. Uma página desenhada para contar a história de cada propriedade com elegância e clareza técnica.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <a href="https://pilarhomes.com.br/imovel/CA16821/cobertura-4-quartos-vila-romana-sao-paulo" target="_blank" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/imovel?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
                       Versão Atual <i class="lni lni-arrow-right-circle"></i>
-                    </a>
-                    <NuxtLink to="/prototipo/imovel" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/imovel?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
                       Nova Versão <span class="text-lg">→</span>
                     </NuxtLink>
                   </div>
@@ -167,11 +167,11 @@ const handleNavigation = () => {
                     Coleções exclusivas e seleções temáticas que elevam a percepção de valor do portfólio.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <a href="https://pilarhomes.com.br/venda/imoveis/sao-paulo-sp-brasil" target="_blank" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/curadoria?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
                       Versão Atual <i class="lni lni-arrow-right-circle"></i>
-                    </a>
-                    <NuxtLink to="/prototipo/curadoria" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/curadoria?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
                       Nova Versão <span class="text-lg">→</span>
                     </NuxtLink>
                   </div>

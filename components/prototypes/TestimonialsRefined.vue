@@ -4,16 +4,16 @@
     
     <!-- Título da Seção -->
     <div class="text-center mb-12">
-      <h2 class="text-xl md:text-2xl font-light text-text-primary mb-2 uppercase tracking-tight">
+      <h2 class="text-sm md:text-base font-light text-text-primary mb-2 uppercase tracking-[0.2em]">
         O que dizem <br>
-        <span class="text-3xl md:text-4xl font-serif italic text-text-secondary opacity-60 normal-case">nossos clientes</span>
+        <span class="text-5xl md:text-6xl font-playfair italic text-text-secondary opacity-60 normal-case">nossos clientes</span>
       </h2>
     </div>
     
     <!-- Citação (Topo) -->
     <div class="flex-grow flex items-center justify-center max-w-4xl mx-auto text-center pb-8">
       <h2 
-        class="font-serif text-3xl md:text-4xl font-light italic leading-tight text-text-primary transition-all duration-500 ease-out relative"
+        class="font-playfair text-3xl md:text-4xl font-light italic leading-tight text-text-primary transition-all duration-500 ease-out relative"
         :class="{ 'opacity-100 translate-y-0': quoteVisible, 'opacity-0 translate-y-4': !quoteVisible }"
       >
         <span class="text-5xl md:text-6xl opacity-30 absolute -top-4 -left-8">“</span>
