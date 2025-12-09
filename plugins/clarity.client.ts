@@ -1,4 +1,4 @@
-import { init } from '@microsoft/clarity'
+import Clarity from '@microsoft/clarity'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
@@ -6,10 +6,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   if (clarityId) {
     try {
-      init(clarityId)
-      console.log('Microsoft Clarity initialized')
+      Clarity.init(clarityId)
+      console.log('Microsoft Clarity initialized with ID:', clarityId)
     } catch (error) {
       console.error('Failed to initialize Microsoft Clarity:', error)
     }
+  } else {
+    console.warn('Microsoft Clarity ID not configured')
   }
 })

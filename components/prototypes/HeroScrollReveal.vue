@@ -94,44 +94,51 @@ const handleScroll = () => {
   let progress = Math.min(scrollY / expansionThreshold, 1)
   if (progress < 0) progress = 0
 
-  // FASE 1: Expansão (60% -> 100%)
-  let newSize = 60 + (40 * progress)
-  // Border radius vai de 20px para 0 quando atinge 100%
-  let newRadius = progress >= 1 ? 0 : 20 - (20 * progress)
-
-  // Aplica expansão apenas se estiver no topo da página
-  if (scrollY < viewportHeight * 1.5) {
-    videoFrameRef.value.style.width = `${newSize}%`
-    videoFrameRef.value.style.height = `${newSize}vh`
-    videoFrameRef.value.style.borderRadius = `${newRadius}px`
-    videoFrameRef.value.filter = `blur(0px)`
-    videoFrameRef.value.transform = `scale(1)`
-  }
+  // FASE 1: Expansão (60% -> 96%) - mantém margem e border radius
+  let newSize = 60 + (36 * progress) // 60 + 36 = 96%
+  // Border radius vai de 20px para 8px (mantém arredondamento)
+  let newRadius = 20 - (12 * progress) // 20 -> 8px
 
   // Texto do fundo some suavemente
   heroTextRef.value.style.opacity = String(Math.max(0, 1 - (progress * 1.5)))
   heroTextRef.value.style.transform = `translateY(-${progress * 50}px) scale(${1 - (progress * 0.05)})`
 
-  // FASE 2: Blur e saída (Quando o usuário continua descendo para a próxima section)
-  const blurStart = viewportHeight * 1.2
+  // FASE 2: Diminuição e Blur (Quando o usuário continua descendo para a próxima section)
+  const shrinkStart = viewportHeight * 1.0
   
-  if (scrollY > blurStart) {
-    let blurProgress = (scrollY - blurStart) / (viewportHeight * 0.8)
-    blurProgress = Math.min(blurProgress, 1)
-    if(blurProgress < 0) blurProgress = 0
+  if (scrollY > shrinkStart) {
+    let shrinkProgress = (scrollY - shrinkStart) / (viewportHeight * 1.2)
+    shrinkProgress = Math.min(shrinkProgress, 1)
+    if(shrinkProgress < 0) shrinkProgress = 0
 
-    // Diminui levemente e desfoca
-    let scale = 1 - (blurProgress * 0.1)
-    let blurAmount = blurProgress * 10
+    // Diminui de 96% para 65% progressivamente
+    let shrinkSize = 96 - (31 * shrinkProgress) // 96 -> 65%
+    let shrinkHeight = 96 - (36 * shrinkProgress) // 96vh -> 60vh
+    // Border radius aumenta de 8px para 16px
+    let shrinkRadius = 8 + (8 * shrinkProgress) // 8 -> 16px
+    // Blur aumenta progressivamente
+    let blurAmount = shrinkProgress * 12
+    // Brightness diminui
+    let brightness = 1 - (shrinkProgress * 0.35)
 
-    videoFrameRef.value.style.transform = `scale(${scale})`
-    videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${1 - blurProgress * 0.3})`
+    videoFrameRef.value.style.width = `${shrinkSize}%`
+    videoFrameRef.value.style.height = `${shrinkHeight}vh`
+    videoFrameRef.value.style.borderRadius = `${shrinkRadius}px`
+    videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${brightness})`
+    videoFrameRef.value.style.transform = `scale(1)`
     
     if (videoTextRef.value) {
-      videoTextRef.value.style.opacity = String(blurProgress)
-      videoTextRef.value.style.transform = `translateY(${20 - (blurProgress * 20)}px)`
+      videoTextRef.value.style.opacity = String(shrinkProgress)
+      videoTextRef.value.style.transform = `translateY(${20 - (shrinkProgress * 20)}px)`
     }
   } else {
+    // Fase 1: Aplicar expansão normal
+    videoFrameRef.value.style.width = `${newSize}%`
+    videoFrameRef.value.style.height = `${newSize}vh`
+    videoFrameRef.value.style.borderRadius = `${newRadius}px`
+    videoFrameRef.value.style.filter = `blur(0px) brightness(1)`
+    videoFrameRef.value.style.transform = `scale(1)`
+    
     if (videoTextRef.value) videoTextRef.value.style.opacity = '0'
   }
 }
@@ -180,6 +187,7 @@ onUnmounted(() => {
   text-align: center;
   z-index: 0; /* Camada inferior */
   padding: 0 20px;
+  padding-bottom: 25vh; /* Move o conteúdo para cima, evitando ficar atrás do vídeo */
   background-color: transparent;
   will-change: transform, opacity;
   pointer-events: none; /* CRÍTICO: permite scroll através deste elemento */
@@ -301,7 +309,8 @@ onUnmounted(() => {
   .hero-text-section {
     padding: 0 16px;
     justify-content: flex-start;
-    padding-top: 25vh;
+    padding-top: 15vh;
+    padding-bottom: 35vh; /* Compensa o vídeo no mobile */
   }
 
   .hero-tag {

@@ -81,7 +81,7 @@ const handleNavigation = () => {
               <h1 class="text-5xl font-light tracking-tighter mb-8 text-text-primary">Ideação</h1>
               <div class="w-12 h-1 bg-mat-stone mb-8"></div>
               <p class="text-secondary text-lg font-light leading-relaxed">
-                Exploração de soluções, fluxos de navegação e definição das funcionalidades chave.
+                Exploração de soluções, fluxos de navegação e definição das funcionalidades chave com base na análise de oportunidades identificadas na fase de discovery.
               </p>
             </div>
           </div>
@@ -95,21 +95,98 @@ const handleNavigation = () => {
                   <div class="p-6 bg-surface-subtle">
                     <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">Core Feature</span>
                     <h4 class="text-lg font-medium mb-2 text-text-primary">Comparador Lado a Lado</h4>
-                    <p class="text-secondary font-light text-sm">Visualização simultânea de até 4 imóveis com destaque para diferenças.</p>
+                    <p class="text-secondary font-light text-sm">Visualização simultânea de até 4 imóveis com destaque para diferenças, permitindo tomada de decisão mais informada.</p>
                   </div>
                   <div class="p-6 bg-surface-subtle">
                     <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">Discovery</span>
                     <h4 class="text-lg font-medium mb-2 text-text-primary">Filtros Inteligentes</h4>
-                    <p class="text-secondary font-light text-sm">Sistema de filtragem rápido e contextual sem recarregamento de página.</p>
+                    <p class="text-secondary font-light text-sm">Sistema de filtragem avançado com busca contextual sem recarregamento de página para experiência fluida.</p>
+                  </div>
+                  <div class="p-6 bg-surface-subtle">
+                    <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">UX Enhancement</span>
+                    <h4 class="text-lg font-medium mb-2 text-text-primary">Barra de Comparação Flutuante</h4>
+                    <p class="text-secondary font-light text-sm">Componente persistente que permite adicionar imóveis à comparação de qualquer página, com visualização em tempo real.</p>
+                  </div>
+                  <div class="p-6 bg-surface-subtle">
+                    <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">AI Integration</span>
+                    <h4 class="text-lg font-medium mb-2 text-text-primary">Análise de Valor por IA</h4>
+                    <p class="text-secondary font-light text-sm">Ferramenta de análise automatizada que fornece insights sobre o valor do imóvel com base em dados de mercado.</p>
                   </div>
                 </div>
               </div>
 
               <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
                 <h3 class="text-2xl font-light mb-6 text-text-primary">Fluxos e Wireframes</h3>
-                <p class="text-secondary font-light leading-relaxed">
-                  O fluxo foi desenhado para ser linear mas flexível, permitindo que o usuário entre no funil de comparação a partir de qualquer ponto da listagem.
+                <p class="text-secondary font-light leading-relaxed mb-6">
+                  O fluxo foi desenhado para ser linear mas flexível, permitindo que o usuário entre no funil de comparação a partir de qualquer ponto da listagem, com persistência do estado de comparação entre diferentes páginas.
                 </p>
+                
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="text-lg font-medium mb-3 text-text-primary">Fluxo Principal</h4>
+                    <ul class="space-y-2 text-secondary font-light">
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Início em qualquer página de listagem ou detalhe de imóvel</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Selecão de imóveis para comparação via checkbox ou botão</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Barra flutuante mostra itens selecionados e ativa modo comparação</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Navegação contínua mantendo o estado da comparação</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Visualização side-by-side quando dois ou mais imóveis são selecionados</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 class="text-lg font-medium mb-3 text-text-primary">Fluxos Alternativos</h4>
+                    <ul class="space-y-2 text-secondary font-light">
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Recomendação de imóveis similares com base na comparação</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Análise de valor por IA em páginas de imóvel individual</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span>Compartilhamento de seleções de comparação</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+                <h3 class="text-2xl font-light mb-6 text-text-primary">Estratégia de Implementação</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div class="p-6 bg-surface-subtle">
+                    <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">Fase 1</span>
+                    <h4 class="text-lg font-medium mb-2 text-text-primary">Core Features</h4>
+                    <p class="text-secondary font-light text-sm">Implementação do comparador básico e da barra flutuante com persistência de estado.</p>
+                  </div>
+                  <div class="p-6 bg-surface-subtle">
+                    <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">Fase 2</span>
+                    <h4 class="text-lg font-medium mb-2 text-text-primary">AI Enhancement</h4>
+                    <p class="text-secondary font-light text-sm">Integração da análise de valor por IA e recomendações inteligentes.</p>
+                  </div>
+                  <div class="p-6 bg-surface-subtle">
+                    <span class="text-xs font-mono text-secondary uppercase tracking-widest mb-2 block">Fase 3</span>
+                    <h4 class="text-lg font-medium mb-2 text-text-primary">User Experience</h4>
+                    <p class="text-secondary font-light text-sm">Refinamento da experiência com base em testes de usabilidade e feedback.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
