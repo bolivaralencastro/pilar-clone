@@ -24,11 +24,7 @@ const handleNavigation = () => {
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
     <!-- Background SVG -->
-    <div class="fixed bottom-0 left-0 opacity-[0.02] pointer-events-none z-0 scale-[3] origin-bottom-left">
-      <svg width="380" height="328" viewBox="0 0 380 328" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M95 0L0 163.917L95 327.834H285L380 163.917L285 0H95ZM252.274 307.033L34.4494 181.755L283.277 38.6387L252.274 307.033Z" fill="black"/>
-      </svg>
-    </div>
+    <TheBackgroundLogo />
 
     <!-- Header -->
     <header class="bg-white border-b border-subtle relative z-50">
@@ -95,7 +91,7 @@ const handleNavigation = () => {
             <div class="grid grid-cols-1 gap-8">
               
               <!-- Home -->
-              <NuxtLink to="/prototipo/home" class="group block">
+              <div class="group block">
                 <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
@@ -105,14 +101,19 @@ const handleNavigation = () => {
                     A nova porta de entrada da Pilar Homes. Foco em curadoria, storytelling e acesso rápido aos imóveis mais exclusivos.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-2 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 text-action-primary">
-                    Visualizar Protótipo <span class="text-lg">→</span>
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/home?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                      Versão Atual <i class="lni lni-arrow-right-circle"></i>
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/home?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                      Nova Versão <span class="text-lg">→</span>
+                    </NuxtLink>
                   </div>
                 </div>
-              </NuxtLink>
+              </div>
 
               <!-- Resultados -->
-              <NuxtLink to="/prototipo/resultados" class="group block">
+              <div class="group block">
                 <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
@@ -122,14 +123,19 @@ const handleNavigation = () => {
                     Experiência de busca refinada com filtros inteligentes, mapa interativo e cards que valorizam a fotografia.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-2 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 text-action-primary">
-                    Visualizar Protótipo <span class="text-lg">→</span>
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/resultados?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                      Versão Atual <i class="lni lni-arrow-right-circle"></i>
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/resultados?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                      Nova Versão <span class="text-lg">→</span>
+                    </NuxtLink>
                   </div>
                 </div>
-              </NuxtLink>
+              </div>
 
               <!-- Imóvel -->
-              <NuxtLink to="/prototipo/imovel" class="group block">
+              <div class="group block">
                 <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
@@ -139,14 +145,19 @@ const handleNavigation = () => {
                     Imersão total. Uma página desenhada para contar a história de cada propriedade com elegância e clareza técnica.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-2 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 text-action-primary">
-                    Visualizar Protótipo <span class="text-lg">→</span>
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/imovel?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                      Versão Atual <i class="lni lni-arrow-right-circle"></i>
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/imovel?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                      Nova Versão <span class="text-lg">→</span>
+                    </NuxtLink>
                   </div>
                 </div>
-              </NuxtLink>
+              </div>
 
               <!-- Curadoria -->
-              <NuxtLink to="/prototipo/curadoria" class="group block">
+              <div class="group block">
                 <div class="bg-surface-card border rounded-lg border-subtle p-8 transition-all duration-500 hover:border-action-primary/30 hover:shadow-xl relative overflow-hidden">
                   <div class="absolute top-0 left-0 w-1 h-full bg-mat-stone transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                   
@@ -156,11 +167,16 @@ const handleNavigation = () => {
                     Coleções exclusivas e seleções temáticas que elevam a percepção de valor do portfólio.
                   </p>
                   
-                  <div class="mt-8 flex items-center gap-2 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 text-action-primary">
-                    Visualizar Protótipo <span class="text-lg">→</span>
+                  <div class="mt-8 flex items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0 relative z-10">
+                    <NuxtLink to="/prototipo/curadoria?tab=current" class="text-xs font-mono uppercase tracking-widest text-secondary hover:text-action-primary transition-colors flex items-center gap-2">
+                      Versão Atual <i class="lni lni-arrow-right-circle"></i>
+                    </NuxtLink>
+                    <NuxtLink to="/prototipo/curadoria?tab=new" class="text-xs font-mono uppercase tracking-widest text-action-primary hover:text-text-primary transition-colors flex items-center gap-2">
+                      Nova Versão <span class="text-lg">→</span>
+                    </NuxtLink>
                   </div>
                 </div>
-              </NuxtLink>
+              </div>
 
             </div>
           </div>

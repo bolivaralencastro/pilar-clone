@@ -5,10 +5,18 @@ export default defineNuxtConfig({
   // Ensure auto-import of components from the `components/` directory
   components: [
     {
-      path: 'components',
+      path: '~/../components',
       pathPrefix: false
     }
   ],
+
+  vite: {
+    server: {
+      hmr: {
+        port: 24689
+      }
+    }
+  },
 
   modules: [
     '@nuxtjs/tailwindcss',
@@ -26,7 +34,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400;500;700&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap' },
         { rel: 'stylesheet', href: 'https://cdn.lineicons.com/4.0/lineicons.css' }
       ]
     },
@@ -40,7 +48,7 @@ export default defineNuxtConfig({
     continuous: true
   },
   // https://nuxt.com/docs/api/configuration/nuxt-config
-
+  // Trigger restart
   runtimeConfig: {
     pilarApiUrl: process.env.PILAR_API_URL || 'https://pilarhomes.com.br',
     public: {

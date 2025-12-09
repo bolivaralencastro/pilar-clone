@@ -7,7 +7,7 @@
       <!-- Título Misto (Top Left) -->
       <header class="top-brand">
         <span class="brand-sans">Coleção</span>
-        <span class="brand-serif">Assinada</span>
+        <span class="brand-serif font-playfair">Assinada</span>
       </header>
 
       <!-- Menu de Curadoras -->
@@ -32,15 +32,18 @@
 
     </div>
 
-    <!-- FOTO CENTRAL (CURADORA) - OVERLAY -->
-    <div class="center-card">
-      <div 
-        v-for="curator in curators" 
-        :key="`port-${curator.id}`"
-        class="curator-portrait"
-        :class="{ 'active': activeCurator === curator.id }"
-        :style="{ backgroundImage: `url(${curator.portraitImage})` }"
-      ></div>
+    <!-- WRAPPER CENTRAL -->
+    <div class="center-wrapper">
+      <!-- FOTO CENTRAL (CURADORA) - OVERLAY -->
+      <div class="center-card">
+        <div 
+          v-for="curator in curators" 
+          :key="`port-${curator.id}`"
+          class="curator-portrait"
+          :class="{ 'active': activeCurator === curator.id }"
+          :style="{ backgroundImage: `url(${curator.portraitImage})` }"
+        ></div>
+      </div>
       
       <button 
         class="card-cta"
@@ -140,16 +143,16 @@ const updateDisplay = (curatorId: string) => {
 }
 
 .brand-sans {
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 0.2em;
   font-weight: 300;
   color: var(--text-primary);
 }
 
 .brand-serif {
   font-family: 'Playfair Display', serif;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 0.9;
   font-style: italic;
   font-weight: 300;
@@ -237,14 +240,22 @@ const updateDisplay = (curatorId: string) => {
 }
 
 /* --- ELEMENTO CENTRAL (CURADORA) --- */
-.center-card {
+.center-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.center-card {
+  position: relative;
   width: 280px;
   aspect-ratio: 2 / 3;
-  z-index: 10;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
   background-color: var(--surface-offset);
@@ -270,12 +281,8 @@ const updateDisplay = (curatorId: string) => {
   transform: scale(1);
 }
 
-/* Link CTA dentro do card central */
+/* Link CTA abaixo do card central */
 .card-cta {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   color: #fff;
   font-size: 10px;
   text-transform: uppercase;
@@ -284,15 +291,14 @@ const updateDisplay = (curatorId: string) => {
   border-bottom: 1px solid #fff;
   padding-bottom: 3px;
   background: transparent;
-  z-index: 2;
-  mix-blend-mode: difference;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s 0.3s;
+  opacity: 1;
+  transition: opacity 0.3s;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.center-card:hover .card-cta {
-  opacity: 1;
+.card-cta:hover {
+  opacity: 0.8;
 }
 
 /* --- RESPONSIVO --- */
@@ -305,7 +311,7 @@ const updateDisplay = (curatorId: string) => {
   }
 
   .left-panel {
-    padding: 40px 20px;
+    padding: 40px 24px;
     min-height: 50vh;
   }
 
@@ -323,7 +329,7 @@ const updateDisplay = (curatorId: string) => {
     margin-top: 40px;
   }
 
-  .center-card {
+  .center-wrapper {
     position: relative;
     top: auto;
     left: auto;

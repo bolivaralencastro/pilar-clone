@@ -95,6 +95,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
         display: ['Matter SQ', 'Matter', 'Inter', 'sans-serif'],
         playfair: ['"Playfair Display"', 'serif'],
         roboto: ['Roboto', 'sans-serif'],
