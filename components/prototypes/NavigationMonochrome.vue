@@ -1,5 +1,5 @@
 <template>
-  <section class="nav-monochrome">
+  <section class="nav-monochrome" :class="{ 'is-mobile': isMobile }">
     
     <!-- BACKGROUNDS -->
     <div class="bg-container">
@@ -37,6 +37,11 @@
           <span class="nav-num">01</span>
           <a href="#" class="nav-link font-playfair" @click.prevent="router.push('/prototipo/resultados?tab=new')">Quero Comprar</a>
           <span class="arrow-icon">→</span>
+          <!-- Mobile inline details -->
+          <div class="mobile-details">
+            <span class="detail-stat">{{ navData['bg-buy'].stat }}</span>
+            <p class="detail-desc">{{ navData['bg-buy'].desc }}</p>
+          </div>
         </li>
 
         <li 
@@ -48,6 +53,11 @@
           <span class="nav-num">02</span>
           <a href="#" class="nav-link font-playfair">Quero Vender</a>
           <span class="arrow-icon">→</span>
+          <!-- Mobile inline details -->
+          <div class="mobile-details">
+            <span class="detail-stat">{{ navData['bg-sell'].stat }}</span>
+            <p class="detail-desc">{{ navData['bg-sell'].desc }}</p>
+          </div>
         </li>
 
         <li 
@@ -59,12 +69,17 @@
           <span class="nav-num">03</span>
           <a href="#" class="nav-link font-playfair">Sou Corretor</a>
           <span class="arrow-icon">→</span>
+          <!-- Mobile inline details -->
+          <div class="mobile-details">
+            <span class="detail-stat">{{ navData['bg-broker'].stat }}</span>
+            <p class="detail-desc">{{ navData['bg-broker'].desc }}</p>
+          </div>
         </li>
 
       </ul>
     </div>
 
-    <!-- UI FLUTUANTE -->
+    <!-- UI FLUTUANTE (Desktop only) -->
     <Teleport to="body">
       <div 
         ref="infoCard" 
@@ -82,9 +97,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
 
 const router = useRouter()
+
+// Inject forceMobile from parent
+const injectedForceMobile = inject<{ value: boolean }>('forceMobile', { value: false })
+const isMobile = computed(() => injectedForceMobile.value)
 
 const cardVisible = ref(false)
 const currentStat = ref('')
@@ -332,25 +351,40 @@ onUnmounted(() => {
   }
 }
 
+/* Mobile inline details - hidden by default */
+.mobile-details {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  /* Hide floating tooltip on mobile */
   .floating-details {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    width: auto;
-    top: auto !important;
-    transform: none !important;
-    opacity: 0;
-    transition: opacity 0.3s;
+    display: none !important;
   }
 
-  .floating-details.visible {
-    opacity: 1;
+  /* Show inline details on mobile */
+  .mobile-details {
+    display: block;
+    grid-column: 1 / -1;
+    padding-top: 12px;
+    padding-left: 28px;
+    border-top: none;
   }
 
-  .nav-link {
-    font-size: 8vw;
+  .mobile-details .detail-stat {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: #121212;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .mobile-details .detail-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0;
   }
 
   .nav-section {
@@ -362,24 +396,29 @@ onUnmounted(() => {
   }
 
   .nav-item {
-    padding: 16px 0;
-    grid-template-columns: auto 1fr auto;
-    gap: 12px;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
   }
 
   .nav-num {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    min-width: 20px;
   }
 
   .nav-link {
-    font-size: 7vw;
+    font-size: 1.5rem;
     justify-self: start;
     opacity: 1;
+    flex: 1;
+    text-transform: none;
   }
 
   .arrow-icon {
-    font-size: 1.2rem;
-    opacity: 0.5;
+    font-size: 1rem;
+    opacity: 0.4;
     transform: translateX(0);
   }
 
@@ -390,5 +429,77 @@ onUnmounted(() => {
   .nav-list {
     gap: 0;
   }
+}
+
+/* Support for .is-mobile class (forced mobile mode) */
+.is-mobile .floating-details {
+  display: none !important;
+}
+
+.is-mobile .mobile-details {
+  display: block;
+  grid-column: 1 / -1;
+  padding-top: 12px;
+  padding-left: 28px;
+  border-top: none;
+}
+
+.is-mobile .mobile-details .detail-stat {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #121212;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.is-mobile .mobile-details .detail-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0;
+}
+
+.is-mobile .nav-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  min-height: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.is-mobile .nav-item {
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.is-mobile .nav-num {
+  font-size: 0.7rem;
+  min-width: 20px;
+}
+
+.is-mobile .nav-link {
+  font-size: 1.5rem;
+  justify-self: start;
+  opacity: 1;
+  flex: 1;
+  text-transform: none;
+}
+
+.is-mobile .arrow-icon {
+  font-size: 1rem;
+  opacity: 0.4;
+  transform: translateX(0);
+}
+
+.is-mobile .nav-item:last-child {
+  border-bottom: none;
+}
+
+.is-mobile .nav-list {
+  gap: 0;
 }
 </style>

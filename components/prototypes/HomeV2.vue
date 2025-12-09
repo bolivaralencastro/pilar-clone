@@ -183,40 +183,156 @@ const regions = ref([
 
   /* ======== MOBILE RESPONSIVENESS ======== */
   @media (max-width: 768px) {
-    /* Regions Section */
+    /* Regions Section - Complete Mobile Layout */
     .regions-section {
-      padding-top: 48px;
-      padding-bottom: 48px;
+      padding: 32px 0;
     }
 
-    /* Header Grid - stack vertically */
+    .regions-section .container {
+      padding: 0 16px;
+    }
+
+    /* Header - Compact stacked Layout */
     .regions-header {
-      gap: 16px;
-      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
-    /* Carousel adjustments */
+    .regions-header h2 {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+    }
+
+    .regions-header h2 span {
+      font-size: 1.5rem;
+    }
+
+    .regions-header p {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .regions-header a {
+      font-size: 0.6rem;
+    }
+
+    /* Carousel - Compact cards with 2:3 ratio */
     .regions-carousel {
-      gap: 16px;
-      padding-bottom: 16px;
-      padding-right: 24px;
-      margin-right: -20px;
+      gap: 10px;
+      padding-bottom: 8px;
+      padding-right: 16px;
+      margin-right: -16px;
+      padding-left: 0;
+      scroll-snap-type: x mandatory;
     }
 
-    /* Cards in carousel */
+    /* Cards in carousel - Much smaller with 2:3 aspect ratio */
     .region-card {
-      min-width: 75vw;
+      min-width: 35vw;
+      scroll-snap-align: start;
     }
 
-    /* Navigation controls */
+    .region-card .aspect-\[2\/3\] {
+      aspect-ratio: 2/3;
+    }
+
+    .region-card h3 {
+      font-size: 0.75rem;
+      margin-top: 6px;
+    }
+
+    .region-card .absolute {
+      top: 6px;
+      right: 6px;
+    }
+
+    .region-card .absolute span {
+      font-size: 6px;
+      padding: 2px 6px;
+    }
+
+    /* Navigation controls - Inline arrows like Section 2 */
     .carousel-controls {
       margin-top: 16px;
       justify-content: center;
     }
 
     .carousel-controls button {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
     }
+  }
+
+  /* Force mobile when .is-mobile class present */
+  .is-mobile .regions-section {
+    padding: 32px 0;
+  }
+
+  .is-mobile .regions-section .container {
+    padding: 0 16px;
+  }
+
+  .is-mobile .regions-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .is-mobile .regions-header h2 {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+  }
+
+  .is-mobile .regions-header h2 span {
+    font-size: 1.5rem;
+  }
+
+  .is-mobile .regions-header p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .is-mobile .regions-header a {
+    font-size: 0.6rem;
+  }
+
+  .is-mobile .regions-carousel {
+    gap: 10px;
+    padding-bottom: 8px;
+    padding-right: 16px;
+    margin-right: -16px;
+    padding-left: 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .is-mobile .region-card {
+    min-width: 35vw;
+    scroll-snap-align: start;
+  }
+
+  .is-mobile .region-card .aspect-\[2\/3\] {
+    aspect-ratio: 2/3;
+  }
+
+  .is-mobile .region-card h3 {
+    font-size: 0.75rem;
+    margin-top: 6px;
+  }
+
+  .is-mobile .carousel-controls {
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .is-mobile .carousel-controls button {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 </style>

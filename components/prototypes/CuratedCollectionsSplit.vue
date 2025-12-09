@@ -304,7 +304,7 @@ const updateDisplay = (curatorId: string) => {
 @media (max-width: 1024px) {
   .split-stage {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 400px;
+    grid-template-rows: auto 350px;
     height: auto;
     min-height: 100vh;
   }
@@ -338,75 +338,189 @@ const updateDisplay = (curatorId: string) => {
   }
 
   .right-panel {
-    height: 400px;
+    height: 350px;
   }
 }
 
 @media (max-width: 768px) {
   .split-stage {
-    grid-template-rows: auto 300px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 280px;
     min-height: auto;
+    height: auto;
   }
 
   .left-panel {
-    padding: 32px 20px;
+    padding: 32px 20px 24px;
     min-height: auto;
+    order: 1;
   }
 
   .top-brand {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
   }
 
   .brand-sans {
-    font-size: 12px;
-    letter-spacing: 0.15em;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
   }
 
   .brand-serif {
-    font-size: 2rem;
-  }
-
-  .curator-menu {
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .curator-name {
     font-size: 1.5rem;
   }
 
+  .curator-menu {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .curator-name {
+    font-size: 1.25rem;
+  }
+
   .curator-role {
-    font-size: 9px;
+    font-size: 8px;
+  }
+
+  .menu-item {
+    padding-left: 0;
+    border-left-width: 2px;
   }
 
   .menu-item:hover,
   .menu-item.active {
-    padding-left: 12px;
+    padding-left: 10px;
   }
 
   .bottom-desc {
-    margin-top: 24px;
-    font-size: 10px;
+    margin-top: 20px;
+    font-size: 0.7rem;
     max-width: 100%;
     padding-top: 12px;
+    line-height: 1.5;
   }
 
   .center-wrapper {
-    margin: -80px auto 24px auto;
-    width: 160px;
+    order: 2;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 140px;
+    align-items: center;
   }
 
   .center-card {
-    width: 160px;
+    width: 140px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
   }
 
   .card-cta {
-    font-size: 9px;
-    letter-spacing: 1.5px;
+    font-size: 8px;
+    letter-spacing: 1px;
   }
 
   .right-panel {
-    height: 300px;
+    order: 3;
+    height: 280px;
   }
+}
+
+/* Force mobile with .is-mobile class */
+.is-mobile .split-stage {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 280px;
+  min-height: auto;
+  height: auto;
+}
+
+.is-mobile .left-panel {
+  padding: 32px 20px 24px;
+  min-height: auto;
+  order: 1;
+}
+
+.is-mobile .top-brand {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.is-mobile .brand-sans {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+
+.is-mobile .brand-serif {
+  font-size: 1.5rem;
+}
+
+.is-mobile .curator-menu {
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.is-mobile .curator-name {
+  font-size: 1.25rem;
+}
+
+.is-mobile .curator-role {
+  font-size: 8px;
+}
+
+.is-mobile .menu-item {
+  border-left-width: 2px;
+}
+
+.is-mobile .menu-item:hover,
+.is-mobile .menu-item.active {
+  padding-left: 10px;
+}
+
+.is-mobile .bottom-desc {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: 20px;
+  font-size: 0.7rem;
+  max-width: 100%;
+  padding-top: 12px;
+  line-height: 1.5;
+}
+
+.is-mobile .center-wrapper {
+  order: 2;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 140px;
+  align-items: center;
+}
+
+.is-mobile .center-card {
+  width: 140px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.is-mobile .card-cta {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.is-mobile .right-panel {
+  order: 3;
+  height: 280px;
 }
 </style>

@@ -643,6 +643,646 @@ const handleNavigation = () => {
 
                 </div>
               </div>
+              <!-- Atomic Design Components -->
+              <div class="bg-surface-card border rounded-lg border-subtle p-8 hover:border-action-primary/30 transition-colors duration-500">
+                <h3 class="text-2xl font-light mb-6 text-text-primary">Componentes - Atomic Design</h3>
+                
+                <!-- Comparison Floating Bar Component -->
+                <div class="mb-12">
+                  <h4 class="text-xl font-light mb-4 text-text-primary flex items-center gap-2">
+                    <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">Molecule</span>
+                    Barra de Comparação Flutuante
+                  </h4>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Descrição</h5>
+                    <p class="text-sm text-secondary font-light leading-relaxed">
+                      Componente que permite ao usuário selecionar múltiplos imóveis para comparação side-by-side. 
+                      A barra aparece de forma persistente na parte inferior da tela e se expande em um modal quando 
+                      dois ou mais imóveis são selecionados.
+                    </p>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Estrutura Atômica</h5>
+                    <ul class="text-sm text-secondary font-light space-y-2">
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Átomos:</strong> Botões (adicionar, remover, comparar), ícones, imagens de miniatura, texto de contagem</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Moléculas:</strong> Avatar de propriedade com imagem e ícone de remoção, grupo de botões de ação</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Organismos:</strong> Barra flutuante completa (Contendo avatares, botões e rótulos)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Passo a Passo de Interações</h5>
+                    <div class="space-y-4">
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">1</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Visualização Inicial</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Barra aparece na parte inferior da tela com espaço para selecionar até 4 imóveis</p>
+                          <div class="p-4 bg-surface-card rounded-lg border border-border-subtle inline-block">
+                            <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 w-auto justify-between md:justify-start">
+                              <div class="flex flex-col">
+                                <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
+                                <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">0 de 4</span>
+                              </div>
+                              <div class="flex items-center -space-x-2 md:-space-x-3 pl-2 md:pl-4">
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                              </div>
+                              <button class="px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-medium bg-surface-offset/50 text-text-secondary/50 backdrop-blur-sm ml-2 cursor-not-allowed">
+                                Comparar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">2</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Adição de Imóvel</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Usuário seleciona um imóvel (checkbox ou botão) e o avatar do imóvel aparece na barra</p>
+                          <div class="p-4 bg-surface-card rounded-lg border border-border-subtle inline-block">
+                            <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 w-auto justify-between md:justify-start">
+                              <div class="flex flex-col">
+                                <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
+                                <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">1 de 4</span>
+                              </div>
+                              <div class="flex items-center -space-x-2 md:-space-x-3 pl-2 md:pl-4">
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative overflow-hidden bg-surface-offset shadow-md">
+                                  <div class="w-full h-full bg-gradient-to-br from-brand-orange to-mat-stone rounded-full flex items-center justify-center text-white font-bold">A</div>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                              </div>
+                              <button class="px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-medium bg-surface-offset/50 text-text-secondary/50 backdrop-blur-sm ml-2 cursor-not-allowed">
+                                Comparar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">3</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Expansão</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Ao selecionar 2 ou mais imóveis, o botão "Comparar" é habilitado e a barra permanece visível</p>
+                          <div class="p-4 bg-surface-card rounded-lg border border-border-subtle inline-block">
+                            <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 w-auto justify-between md:justify-start">
+                              <div class="flex flex-col">
+                                <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
+                                <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">2 de 4</span>
+                              </div>
+                              <div class="flex items-center -space-x-2 md:-space-x-3 pl-2 md:pl-4">
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative overflow-hidden bg-surface-offset shadow-md">
+                                  <div class="w-full h-full bg-gradient-to-br from-brand-orange to-mat-stone rounded-full flex items-center justify-center text-white font-bold">A</div>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative overflow-hidden bg-surface-offset shadow-md">
+                                  <div class="w-full h-full bg-gradient-to-br from-mat-stone to-surface-offset rounded-full flex items-center justify-center text-white font-bold">B</div>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                              </div>
+                              <button class="px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-medium bg-text-primary text-white ml-2 transform shadow-md hover:bg-text-primary/90">
+                                Comparar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">4</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Comparação</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Ao clicar em "Comparar", um modal se abre mostrando os imóveis lado a lado</p>
+                          <div class="p-4 bg-surface-card rounded-lg border border-border-subtle inline-block">
+                            <div class="w-80 h-64 bg-surface-subtle rounded-lg border border-border-subtle flex items-center justify-center">
+                              <div class="text-center">
+                                <i class="lni lni-stats-up text-3xl text-text-secondary mb-2"></i>
+                                <p class="text-sm text-text-secondary font-light">Modal de Comparação</p>
+                                <p class="text-xs text-text-tertiary mt-1">Visualização side-by-side</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">5</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Remoção</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Usuário pode remover imóveis da comparação clicando no ícone de remoção</p>
+                          <div class="p-4 bg-surface-card rounded-lg border border-border-subtle inline-block">
+                            <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 w-auto justify-between md:justify-start">
+                              <div class="flex flex-col">
+                                <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
+                                <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">1 de 4</span>
+                              </div>
+                              <div class="flex items-center -space-x-2 md:-space-x-3 pl-2 md:pl-4">
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative overflow-hidden bg-surface-offset shadow-md">
+                                  <div class="w-full h-full bg-gradient-to-br from-brand-orange to-mat-stone rounded-full flex items-center justify-center text-white font-bold">A</div>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner">
+                                  <i class="lni lni-plus text-sm"></i>
+                                </div>
+                              </div>
+                              <button class="px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-medium bg-surface-offset/50 text-text-secondary/50 backdrop-blur-sm ml-2 cursor-not-allowed">
+                                Comparar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="p-6 bg-surface-subtle rounded-lg border border-hairline">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Preview Funcional</h5>
+                    <div class="flex items-center justify-center h-40 bg-surface-card rounded-lg border border-border-subtle relative">
+                      <div class="flex flex-col items-center gap-2 w-full max-w-md">
+                        <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 relative w-full md:w-auto justify-between md:justify-start">
+                          <div class="flex flex-col">
+                            <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
+                            <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">2 de 4</span>
+                          </div>
+                          <div class="flex items-center -space-x-2 md:-space-x-3 pl-2 md:pl-4">
+                            <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative group cursor-pointer overflow-hidden bg-surface-offset shadow-md hover:shadow-lg transition-all hover:scale-105">
+                              <div class="w-full h-full bg-gradient-to-br from-brand-orange to-mat-stone rounded-full flex items-center justify-center text-white font-bold">A</div>
+                              <!-- Hover Remove Icon -->
+                              <div class="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                                <i class="lni lni-minus text-white text-xs md:text-lg"></i>
+                              </div>
+                            </div>
+                            <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white relative group cursor-pointer overflow-hidden bg-surface-offset shadow-md hover:shadow-lg transition-all hover:scale-105">
+                              <div class="w-full h-full bg-gradient-to-br from-mat-stone to-surface-offset rounded-full flex items-center justify-center text-white font-bold">B</div>
+                              <!-- Hover Remove Icon -->
+                              <div class="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                                <i class="lni lni-minus text-white text-xs md:text-lg"></i>
+                              </div>
+                            </div>
+                            <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner transition-all">
+                              <i class="lni lni-plus text-sm"></i>
+                            </div>
+                            <div class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner transition-all">
+                              <i class="lni lni-plus text-sm"></i>
+                            </div>
+                          </div>
+                          <button class="px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-medium bg-text-primary text-white hover:bg-text-primary/90 hover:scale-105 hover:shadow-lg active:scale-95 ml-2 transform shadow-md transition-all duration-300">
+                            Comparar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Property Card Component -->
+                <div>
+                  <h4 class="text-xl font-light mb-4 text-text-primary flex items-center gap-2">
+                    <span class="inline-block px-2 py-1 bg-surface-subtle rounded text-xs font-mono">Organism</span>
+                    Cards de Imóveis (Vertical e Horizontal)
+                  </h4>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Descrição</h5>
+                    <p class="text-sm text-secondary font-light leading-relaxed">
+                      Componente para exibição de informações de imóveis em diferentes layouts. 
+                      Disponível em versão vertical (padrão para listagens) e horizontal (para comparação e detalhes).
+                    </p>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Estrutura Atômica</h5>
+                    <ul class="text-sm text-secondary font-light space-y-2">
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Átomos:</strong> Imagem, texto de título, preço, especificações, ícones</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Moléculas:</strong> Cabeçalho com nome e localização, rodapé com preço e avatar do agente</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-action-primary mt-1">•</span>
+                        <span><strong class="text-text-primary">Organismos:</strong> Card completo de imóvel (contendo imagem, conteúdo e rodapé)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h5 class="text-base font-medium text-text-primary mb-3">Passo a Passo de Interações</h5>
+                    <div class="space-y-4">
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">1</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Visualização Padrão</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Card exibe imagem, nome do imóvel, bairro, especificações e preço</p>
+                          <div class="bg-surface-card rounded-lg border border-border-subtle p-4 inline-block">
+                            <div class="flex flex-col relative">
+                              <!-- Image Container -->
+                              <div class="relative overflow-hidden rounded bg-surface-offset h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                                  <div class="text-center p-4">
+                                    <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                                    <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Content -->
+                              <div class="pt-4">
+                                <!-- Meta Row -->
+                                <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                                  <span class="text-text-tertiary">Vila Madalena</span>
+                                  <span class="text-text-tertiary/60">REF: 001</span>
+                                </div>
+                                
+                                <!-- Property Name -->
+                                <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                                  Cobertura Exclusiva
+                                </h3>
+                                
+                                <!-- Specs -->
+                                <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                                
+                                <!-- Footer -->
+                                <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                                  <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                                  
+                                  <!-- Agent Avatar -->
+                                  <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                      <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">2</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Hover</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Ao passar o mouse, botão de ação (salvar) aparece no canto superior direito</p>
+                          <div class="bg-surface-card rounded-lg border border-border-subtle p-4 inline-block">
+                            <div class="group flex flex-col relative">
+                              <!-- Image Container -->
+                              <div class="relative overflow-hidden rounded bg-surface-offset h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                                  <div class="text-center p-4">
+                                    <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                                    <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                                  </div>
+                                </div>
+                                
+                                <!-- Hover Actions (always visible for demo purposes) -->
+                                <div class="absolute top-3 right-3">
+                                  <button class="w-9 h-9 bg-surface-card/90 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-surface-card">
+                                    <i class="lni lni-heart text-base"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <!-- Content -->
+                              <div class="pt-4">
+                                <!-- Meta Row -->
+                                <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                                  <span class="text-text-tertiary">Vila Madalena</span>
+                                  <span class="text-text-tertiary/60">REF: 001</span>
+                                </div>
+                                
+                                <!-- Property Name -->
+                                <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                                  Cobertura Exclusiva
+                                </h3>
+                                
+                                <!-- Specs -->
+                                <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                                
+                                <!-- Footer -->
+                                <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                                  <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                                  
+                                  <!-- Agent Avatar -->
+                                  <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                      <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">3</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Modo Seleção</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Checkbox aparece no canto superior esquerdo para adicionar à comparação</p>
+                          <div class="bg-surface-card rounded-lg border border-border-subtle p-4 inline-block">
+                            <div class="flex flex-col relative">
+                              <!-- Selection Overlay -->
+                              <div class="absolute inset-0 z-20 rounded border-2 border-transparent bg-text-primary/5"></div>
+                              
+                              <!-- Image Container -->
+                              <div class="relative overflow-hidden rounded bg-surface-offset h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                                  <div class="text-center p-4">
+                                    <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                                    <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                                  </div>
+                                </div>
+                                
+                                <!-- Selection Checkbox -->
+                                <div class="absolute top-3 left-3 z-30">
+                                  <div class="w-6 h-6 rounded-full border bg-text-primary border-text-primary text-surface-base flex items-center justify-center">
+                                    <i class="lni lni-checkmark text-xs font-bold"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Content -->
+                              <div class="pt-4">
+                                <!-- Meta Row -->
+                                <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                                  <span class="text-text-tertiary">Vila Madalena</span>
+                                  <span class="text-text-tertiary/60">REF: 001</span>
+                                </div>
+                                
+                                <!-- Property Name -->
+                                <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                                  Cobertura Exclusiva
+                                </h3>
+                                
+                                <!-- Specs -->
+                                <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                                
+                                <!-- Footer -->
+                                <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                                  <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                                  
+                                  <!-- Agent Avatar -->
+                                  <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                      <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">4</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Seleção</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Ao selecionar, o card é marcado e adicionado à barra de comparação</p>
+                          <div class="bg-surface-card rounded-lg border border-border-subtle p-4 inline-block">
+                            <div class="flex flex-col relative">
+                              <!-- Selection Overlay -->
+                              <div class="absolute inset-0 z-20 rounded border-2 border-transparent bg-text-primary/5"></div>
+                              
+                              <!-- Image Container -->
+                              <div class="relative overflow-hidden rounded bg-surface-offset h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                                  <div class="text-center p-4">
+                                    <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                                    <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                                  </div>
+                                </div>
+                                
+                                <!-- Selection Checkbox -->
+                                <div class="absolute top-3 left-3 z-30">
+                                  <div class="w-6 h-6 rounded-full border bg-text-primary border-text-primary text-surface-base flex items-center justify-center">
+                                    <i class="lni lni-checkmark text-xs font-bold"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Content -->
+                              <div class="pt-4">
+                                <!-- Meta Row -->
+                                <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                                  <span class="text-text-tertiary">Vila Madalena</span>
+                                  <span class="text-text-tertiary/60">REF: 001</span>
+                                </div>
+                                
+                                <!-- Property Name -->
+                                <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                                  Cobertura Exclusiva
+                                </h3>
+                                
+                                <!-- Specs -->
+                                <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                                
+                                <!-- Footer -->
+                                <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                                  <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                                  
+                                  <!-- Agent Avatar -->
+                                  <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                      <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="flex items-start gap-4 p-4 bg-surface-subtle rounded-lg border border-hairline">
+                        <span class="text-lg font-bold text-action-primary bg-surface-card w-8 h-8 rounded-full flex items-center justify-center">5</span>
+                        <div class="flex-1">
+                          <h6 class="font-medium text-text-primary">Clique</h6>
+                          <p class="text-sm text-secondary font-light mb-3">Ao clicar no card (fora da seleção), usuário é levado à página de detalhes</p>
+                          <div class="bg-surface-card rounded-lg border border-border-subtle p-4 inline-block">
+                            <div class="flex flex-col relative">
+                              <!-- Image Container -->
+                              <div class="relative overflow-hidden rounded bg-surface-offset h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                                  <div class="text-center p-4">
+                                    <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                                    <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Content -->
+                              <div class="pt-4">
+                                <!-- Meta Row -->
+                                <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                                  <span class="text-text-tertiary">Vila Madalena</span>
+                                  <span class="text-text-tertiary/60">REF: 001</span>
+                                </div>
+                                
+                                <!-- Property Name -->
+                                <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                                  Cobertura Exclusiva
+                                </h3>
+                                
+                                <!-- Specs -->
+                                <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                                
+                                <!-- Footer -->
+                                <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                                  <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                                  
+                                  <!-- Agent Avatar -->
+                                  <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                      <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Vertical Card -->
+                  <div class="mb-6">
+                    <h6 class="text-sm font-medium text-text-primary mb-3">Versão Vertical</h6>
+                    <div class="bg-surface-card rounded-lg border border-border-subtle p-4">
+                      <div class="flex flex-col relative">
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden rounded bg-surface-offset h-64">
+                          <div class="w-full h-full bg-gradient-to-br from-brand-orange/20 to-mat-stone/20 flex items-center justify-center">
+                            <div class="text-center p-4">
+                              <i class="lni lni-home text-3xl text-text-secondary mb-2 block"></i>
+                              <span class="text-xs text-text-secondary font-medium">Imagem do Imóvel</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="pt-4">
+                          <!-- Meta Row -->
+                          <div class="flex justify-between items-center text-[9px] uppercase tracking-widest mb-2">
+                            <span class="text-text-tertiary">Vila Madalena</span>
+                            <span class="text-text-tertiary/60">REF: 001</span>
+                          </div>
+                          
+                          <!-- Property Name -->
+                          <h3 class="font-light text-text-primary leading-tight tracking-tight text-base">
+                            Cobertura Exclusiva com Vista Deslumbrante
+                          </h3>
+                          
+                          <!-- Specs -->
+                          <p class="font-mono text-xs text-text-secondary mt-1">280m² | 4 suítes | 4 vagas</p>
+                          
+                          <!-- Footer -->
+                          <div class="flex justify-between items-center pt-3 mt-3 border-t border-border-subtle">
+                            <span class="font-bold text-sm text-text-primary">R$ 2.800.000</span>
+                            
+                            <!-- Agent Avatar -->
+                            <div class="flex items-center gap-2">
+                              <div class="w-6 h-6 bg-surface-offset rounded-full flex items-center justify-center">
+                                <span class="text-text-tertiary text-[9px] font-medium">J</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Horizontal Card -->
+                  <div>
+                    <h6 class="text-sm font-medium text-text-primary mb-3">Versão Horizontal</h6>
+                    <div class="bg-surface-card rounded-lg border border-border-subtle p-4">
+                      <div class="flex items-center gap-4">
+                        <!-- Image -->
+                        <div class="flex-shrink-0 w-32 h-32 rounded overflow-hidden bg-surface-offset">
+                          <div class="w-full h-full bg-gradient-to-br from-mat-stone/30 to-brand-orange/20 flex items-center justify-center">
+                            <i class="lni lni-home text-2xl text-text-secondary"></i>
+                          </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="flex-grow min-w-0">
+                          <div class="flex justify-between items-start">
+                            <div>
+                              <h3 class="font-medium text-text-primary leading-tight text-sm">
+                                Apartamento Moderno
+                              </h3>
+                              <p class="text-[10px] text-text-secondary mt-1 uppercase tracking-wider">Jardins</p>
+                            </div>
+                            <button class="text-text-secondary hover:text-status-error ml-2">
+                              <i class="lni lni-trash-can text-sm"></i>
+                            </button>
+                          </div>
+                          
+                          <p class="font-mono text-xs text-text-secondary mt-2">160m² | 3 suítes | 2 vagas</p>
+                          
+                          <div class="mt-2">
+                            <p class="text-xs text-text-secondary font-bold">R$ 1.450.000</p>
+                          </div>
+                          
+                          <div class="flex items-center gap-2 mt-2">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary border border-border-subtle whitespace-nowrap">
+                              Segurança 24h
+                            </span>
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary border border-border-subtle whitespace-nowrap">
+                              Concierge
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

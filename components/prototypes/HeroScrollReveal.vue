@@ -1,44 +1,82 @@
 <template>
   <div class="hero-scroll-reveal-container" :class="{ 'is-mobile': isMobile }">
-    <!-- 1. CAMADA DE FUNDO (Texto Fixo) -->
-    <section class="hero-text-section" ref="heroTextRef">
-      <span class="hero-tag">SÃO PAULO • CURITIBA</span>
-      <h1>Curadoria de imóveis<br>de alto padrão</h1>
-      <p class="hero-desc">Atendimento personalizado e o maior portfólio de imóveis exclusivos em localização privilegiada.</p>
-      
-      <form class="hero-search" @submit.prevent="handleSearch">
-        <input 
-          type="text" 
-          placeholder="Buscar por bairro, cidade..." 
-          v-model="searchQuery"
+    
+    <!-- ========== MOBILE HERO (Vídeo como Background) ========== -->
+    <section v-if="isMobile || isMobileViewport" class="hero-mobile">
+      <!-- Video Background -->
+      <div class="hero-mobile-video">
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          class="w-full h-full object-cover"
         >
-        <button type="submit">BUSCAR</button>
-      </form>
+          <source src="/video/hero-video.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay escuro com degradê -->
+        <div class="hero-mobile-overlay"></div>
+      </div>
+      
+      <!-- Conteúdo sobre o vídeo -->
+      <div class="hero-mobile-content">
+        <span class="hero-tag">SÃO PAULO • CURITIBA</span>
+        <h1>Curadoria de imóveis<br>de alto padrão</h1>
+        <p class="hero-desc">Atendimento personalizado e o maior portfólio de imóveis exclusivos.</p>
+        
+        <form class="hero-search" @submit.prevent="handleSearch">
+          <input 
+            type="text" 
+            placeholder="Buscar por bairro, cidade..." 
+            v-model="searchQuery"
+          >
+          <button type="submit">BUSCAR</button>
+        </form>
+      </div>
     </section>
 
-    <!-- 2. ESPAÇADOR INVISÍVEL (Define o tempo de leitura antes do scroll) -->
-    <div class="scroll-spacer"></div>
-
-    <!-- 3. CAMADA DE FRENTE (Container do Vídeo com animação Sticky) -->
-    <div class="video-container-wrapper" ref="videoWrapperRef">
-      <div class="video-sticky-stage">
-        <div class="video-frame" ref="videoFrameRef">
-          <video 
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            class="w-full h-full object-cover"
+    <!-- ========== DESKTOP HERO (Efeito de Scroll) ========== -->
+    <template v-else>
+      <!-- 1. CAMADA DE FUNDO (Texto Fixo) -->
+      <section class="hero-text-section" ref="heroTextRef">
+        <span class="hero-tag">SÃO PAULO • CURITIBA</span>
+        <h1>Curadoria de imóveis<br>de alto padrão</h1>
+        <p class="hero-desc">Atendimento personalizado e o maior portfólio de imóveis exclusivos em localização privilegiada.</p>
+        
+        <form class="hero-search" @submit.prevent="handleSearch">
+          <input 
+            type="text" 
+            placeholder="Buscar por bairro, cidade..." 
+            v-model="searchQuery"
           >
-            <source src="/video/hero-video.mp4" type="video/mp4">
-          </video>
-          
-          <div class="video-overlay-text" ref="videoTextRef">
-            <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Experience Living</h3>
+          <button type="submit">BUSCAR</button>
+        </form>
+      </section>
+
+      <!-- 2. ESPAÇADOR INVISÍVEL (Define o tempo de leitura antes do scroll) -->
+      <div class="scroll-spacer"></div>
+
+      <!-- 3. CAMADA DE FRENTE (Container do Vídeo com animação Sticky) -->
+      <div class="video-container-wrapper" ref="videoWrapperRef">
+        <div class="video-sticky-stage">
+          <div class="video-frame" ref="videoFrameRef">
+            <video 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              class="w-full h-full object-cover"
+            >
+              <source src="/video/hero-video.mp4" type="video/mp4">
+            </video>
+            
+            <div class="video-overlay-text" ref="videoTextRef">
+              <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Experience Living</h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -52,6 +90,13 @@ const searchQuery = ref('')
 // Inject forceMobile from parent
 const injectedForceMobile = inject<{ value: boolean }>('forceMobile', { value: false })
 const isMobile = computed(() => injectedForceMobile.value)
+
+// Detecta viewport mobile
+const isMobileViewport = ref(false)
+
+const checkMobileViewport = () => {
+  isMobileViewport.value = window.innerWidth <= 768
+}
 
 const heroTextRef = ref<HTMLElement | null>(null)
 const videoFrameRef = ref<HTMLElement | null>(null)
@@ -78,6 +123,9 @@ const getScrollParent = (node: HTMLElement | null): HTMLElement | Window => {
 }
 
 const handleScroll = () => {
+  // No mobile, não aplicamos efeito de scroll
+  if (isMobile.value || isMobileViewport.value) return
+  
   if (!videoFrameRef.value || !heroTextRef.value) return
 
   // Garante que pegamos o scroll correto
@@ -88,77 +136,147 @@ const handleScroll = () => {
   const viewportHeight = scrollParent === window 
     ? window.innerHeight 
     : (scrollParent as HTMLElement).clientHeight
+
+  // Detecta se é mobile (via classe ou viewport)
+  const isMobileView = isMobile.value || window.innerWidth <= 768
   
   // --- CÁLCULOS ---
   const expansionThreshold = viewportHeight * 0.8
   let progress = Math.min(scrollY / expansionThreshold, 1)
   if (progress < 0) progress = 0
 
-  // FASE 1: Expansão (60% -> 96%) - mantém margem e border radius
-  let newSize = 60 + (36 * progress) // 60 + 36 = 96%
-  // Border radius vai de 20px para 8px (mantém arredondamento)
-  let newRadius = 20 - (12 * progress) // 20 -> 8px
-
   // Texto do fundo some suavemente
   heroTextRef.value.style.opacity = String(Math.max(0, 1 - (progress * 1.5)))
   heroTextRef.value.style.transform = `translateY(-${progress * 50}px) scale(${1 - (progress * 0.05)})`
 
-  // FASE 2: Diminuição e Blur (Quando o usuário continua descendo para a próxima section)
-  const shrinkStart = viewportHeight * 1.0
-  
-  if (scrollY > shrinkStart) {
-    let shrinkProgress = (scrollY - shrinkStart) / (viewportHeight * 1.2)
-    shrinkProgress = Math.min(shrinkProgress, 1)
-    if(shrinkProgress < 0) shrinkProgress = 0
-
-    // Diminui de 96% para 65% progressivamente
-    let shrinkSize = 96 - (31 * shrinkProgress) // 96 -> 65%
-    let shrinkHeight = 96 - (36 * shrinkProgress) // 96vh -> 60vh
-    // Border radius aumenta de 8px para 16px
-    let shrinkRadius = 8 + (8 * shrinkProgress) // 8 -> 16px
-    // Blur aumenta progressivamente
-    let blurAmount = shrinkProgress * 12
-    // Brightness diminui
-    let brightness = 1 - (shrinkProgress * 0.35)
-
-    videoFrameRef.value.style.width = `${shrinkSize}%`
-    videoFrameRef.value.style.height = `${shrinkHeight}vh`
-    videoFrameRef.value.style.borderRadius = `${shrinkRadius}px`
-    videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${brightness})`
-    videoFrameRef.value.style.transform = `scale(1)`
+  if (isMobileView) {
+    // === MOBILE: Vídeo 16:9 -> 9:16 ===
+    // FASE 1: Expansão de aspect-ratio
+    // Começa em 16:9 (1.78) e vai para 9:16 (0.5625)
+    const startRatio = 16 / 9 // 1.78
+    const endRatio = 9 / 16   // 0.5625
     
-    if (videoTextRef.value) {
-      videoTextRef.value.style.opacity = String(shrinkProgress)
-      videoTextRef.value.style.transform = `translateY(${20 - (shrinkProgress * 20)}px)`
+    // Largura vai de 90% para 96%
+    let mobileWidth = 90 + (6 * progress)
+    // Altura calculada pelo aspect ratio que transiciona
+    let currentRatio = startRatio - ((startRatio - endRatio) * progress)
+    // Altura máxima vai de 40vh para 85vh
+    let mobileMaxHeight = 40 + (45 * progress)
+    // Border radius vai de 12px para 8px
+    let mobileRadius = 12 - (4 * progress)
+    
+    const shrinkStart = viewportHeight * 0.9
+    
+    if (scrollY > shrinkStart) {
+      // FASE 2: Diminuição e blur
+      let shrinkProgress = (scrollY - shrinkStart) / (viewportHeight * 0.8)
+      shrinkProgress = Math.min(shrinkProgress, 1)
+      if(shrinkProgress < 0) shrinkProgress = 0
+
+      let shrinkWidth = 96 - (20 * shrinkProgress)
+      let shrinkMaxHeight = 85 - (25 * shrinkProgress)
+      let shrinkRadius = 8 + (8 * shrinkProgress)
+      let blurAmount = shrinkProgress * 10
+      let brightness = 1 - (shrinkProgress * 0.3)
+
+      videoFrameRef.value.style.width = `${shrinkWidth}%`
+      videoFrameRef.value.style.aspectRatio = `${endRatio}`
+      videoFrameRef.value.style.maxHeight = `${shrinkMaxHeight}vh`
+      videoFrameRef.value.style.height = 'auto'
+      videoFrameRef.value.style.borderRadius = `${shrinkRadius}px`
+      videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${brightness})`
+      
+      if (videoTextRef.value) {
+        videoTextRef.value.style.opacity = String(shrinkProgress)
+        videoTextRef.value.style.transform = `translateY(${20 - (shrinkProgress * 20)}px)`
+      }
+    } else {
+      // FASE 1: Expansão mobile
+      videoFrameRef.value.style.width = `${mobileWidth}%`
+      videoFrameRef.value.style.aspectRatio = `${currentRatio}`
+      videoFrameRef.value.style.maxHeight = `${mobileMaxHeight}vh`
+      videoFrameRef.value.style.height = 'auto'
+      videoFrameRef.value.style.borderRadius = `${mobileRadius}px`
+      videoFrameRef.value.style.filter = `blur(0px) brightness(1)`
+      
+      if (videoTextRef.value) videoTextRef.value.style.opacity = '0'
     }
   } else {
-    // Fase 1: Aplicar expansão normal
-    videoFrameRef.value.style.width = `${newSize}%`
-    videoFrameRef.value.style.height = `${newSize}vh`
-    videoFrameRef.value.style.borderRadius = `${newRadius}px`
-    videoFrameRef.value.style.filter = `blur(0px) brightness(1)`
-    videoFrameRef.value.style.transform = `scale(1)`
+    // === DESKTOP: Comportamento original ===
+    // FASE 1: Expansão (60% -> 96%) - mantém margem e border radius
+    let newSize = 60 + (36 * progress) // 60 + 36 = 96%
+    // Border radius vai de 20px para 8px (mantém arredondamento)
+    let newRadius = 20 - (12 * progress) // 20 -> 8px
+
+    // FASE 2: Diminuição e Blur (Quando o usuário continua descendo para a próxima section)
+    const shrinkStart = viewportHeight * 1.0
     
-    if (videoTextRef.value) videoTextRef.value.style.opacity = '0'
+    if (scrollY > shrinkStart) {
+      let shrinkProgress = (scrollY - shrinkStart) / (viewportHeight * 1.2)
+      shrinkProgress = Math.min(shrinkProgress, 1)
+      if(shrinkProgress < 0) shrinkProgress = 0
+
+      // Diminui de 96% para 65% progressivamente
+      let shrinkSize = 96 - (31 * shrinkProgress) // 96 -> 65%
+      let shrinkHeight = 96 - (36 * shrinkProgress) // 96vh -> 60vh
+      // Border radius aumenta de 8px para 16px
+      let shrinkRadius = 8 + (8 * shrinkProgress) // 8 -> 16px
+      // Blur aumenta progressivamente
+      let blurAmount = shrinkProgress * 12
+      // Brightness diminui
+      let brightness = 1 - (shrinkProgress * 0.35)
+
+      videoFrameRef.value.style.width = `${shrinkSize}%`
+      videoFrameRef.value.style.height = `${shrinkHeight}vh`
+      videoFrameRef.value.style.aspectRatio = 'auto'
+      videoFrameRef.value.style.maxHeight = 'none'
+      videoFrameRef.value.style.borderRadius = `${shrinkRadius}px`
+      videoFrameRef.value.style.filter = `blur(${blurAmount}px) brightness(${brightness})`
+      videoFrameRef.value.style.transform = `scale(1)`
+      
+      if (videoTextRef.value) {
+        videoTextRef.value.style.opacity = String(shrinkProgress)
+        videoTextRef.value.style.transform = `translateY(${20 - (shrinkProgress * 20)}px)`
+      }
+    } else {
+      // Fase 1: Aplicar expansão normal
+      videoFrameRef.value.style.width = `${newSize}%`
+      videoFrameRef.value.style.height = `${newSize}vh`
+      videoFrameRef.value.style.aspectRatio = 'auto'
+      videoFrameRef.value.style.maxHeight = 'none'
+      videoFrameRef.value.style.borderRadius = `${newRadius}px`
+      videoFrameRef.value.style.filter = `blur(0px) brightness(1)`
+      videoFrameRef.value.style.transform = `scale(1)`
+      
+      if (videoTextRef.value) videoTextRef.value.style.opacity = '0'
+    }
   }
 }
 
 onMounted(() => {
-  // Encontra o container de scroll (pode ser a janela ou um elemento pai)
-  scrollParent = getScrollParent(heroTextRef.value)
+  // Verifica viewport mobile inicialmente
+  checkMobileViewport()
+  window.addEventListener('resize', checkMobileViewport)
   
-  // Adiciona listener no container encontrado
-  scrollParent.addEventListener('scroll', handleScroll)
-  // Adiciona listener na janela também para garantir (resize, etc)
-  window.addEventListener('resize', handleScroll)
-  
-  // Força uma verificação inicial após um breve delay para garantir renderização
-  setTimeout(handleScroll, 100)
+  // Se não é mobile, configura scroll listeners
+  if (!isMobile.value && !isMobileViewport.value) {
+    // Encontra o container de scroll (pode ser a janela ou um elemento pai)
+    scrollParent = getScrollParent(heroTextRef.value)
+    
+    // Adiciona listener no container encontrado
+    scrollParent.addEventListener('scroll', handleScroll)
+    // Adiciona listener na janela também para garantir (resize, etc)
+    window.addEventListener('resize', handleScroll)
+    
+    // Força uma verificação inicial após um breve delay para garantir renderização
+    setTimeout(handleScroll, 100)
+  }
 })
 
 onUnmounted(() => {
   scrollParent.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', handleScroll)
+  window.removeEventListener('resize', checkMobileViewport)
 })
 </script>
 
@@ -306,142 +424,327 @@ onUnmounted(() => {
 /* ======== MOBILE RESPONSIVE ======== */
 /* Applied via media query OR .is-mobile class from parent */
 @media (max-width: 768px) {
+  .hero-scroll-reveal-container {
+    min-height: auto;
+  }
+
   .hero-text-section {
-    padding: 0 16px;
-    justify-content: flex-start;
-    padding-top: 15vh;
-    padding-bottom: 35vh; /* Compensa o vídeo no mobile */
+    position: relative;
+    height: auto;
+    min-height: auto;
+    padding: 60px 20px 32px;
+    justify-content: center;
   }
 
   .hero-tag {
-    font-size: 0.6rem;
-    letter-spacing: 2px;
+    font-size: 0.5rem;
+    letter-spacing: 1.5px;
     margin-bottom: 1rem;
+    padding-top: 0.5rem;
   }
 
   .hero-text-section h1 {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.875rem;
     max-width: 100%;
+    line-height: 1.2;
   }
 
   .hero-desc {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     max-width: 100%;
-    margin-bottom: 2rem;
-    padding: 0 8px;
+    margin-bottom: 1.25rem;
+    padding: 0;
+    line-height: 1.5;
   }
 
   .hero-search {
     flex-direction: column;
-    border-radius: 12px;
-    padding: 12px;
+    border-radius: 14px;
+    padding: 10px;
     max-width: 100%;
     gap: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   }
 
   .hero-search input {
-    padding: 12px 16px;
-    font-size: 1rem;
+    padding: 12px 14px;
+    font-size: 0.9rem;
     text-align: center;
+    border-radius: 8px;
+    background: #f8f8f8;
   }
 
   .hero-search button {
     width: 100%;
-    padding: 14px 24px;
+    padding: 12px 20px;
     border-radius: 8px;
+    font-size: 0.75rem;
   }
 
   .scroll-spacer {
-    height: 30vh;
+    height: 16vh;
   }
 
   .video-container-wrapper {
-    height: 150vh;
+    height: 100vh;
   }
 
+  .video-sticky-stage {
+    height: 70vh;
+  }
+
+  /* Vídeo começa em 16:9 e expande para 9:16 */
   .video-frame {
     width: 90%;
-    height: 50vh;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 40vh;
     border-radius: 12px;
   }
 
   .video-overlay-text {
-    bottom: 20px;
-    left: 20px;
+    bottom: 12px;
+    left: 12px;
   }
 
   .video-overlay-text h3 {
-    font-size: 1.25rem !important;
+    font-size: 1rem !important;
   }
 }
 
 /* Force mobile styles when .is-mobile class is present */
+.is-mobile .hero-scroll-reveal-container {
+  min-height: auto;
+}
+
 .is-mobile .hero-text-section {
-  padding: 0 16px;
-  justify-content: flex-start;
-  padding-top: 25vh;
+  position: relative;
+  height: auto;
+  min-height: auto;
+  padding: 60px 20px 32px;
+  justify-content: center;
 }
 
 .is-mobile .hero-tag {
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.5rem;
+  letter-spacing: 1.5px;
   margin-bottom: 1rem;
+  padding-top: 0.5rem;
 }
 
 .is-mobile .hero-text-section h1 {
   font-size: 1.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
   max-width: 100%;
+  line-height: 1.2;
 }
 
 .is-mobile .hero-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   max-width: 100%;
-  margin-bottom: 2rem;
-  padding: 0 8px;
+  margin-bottom: 1.25rem;
+  padding: 0;
+  line-height: 1.5;
 }
 
 .is-mobile .hero-search {
   flex-direction: column;
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 10px;
   max-width: 100%;
   gap: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
 .is-mobile .hero-search input {
-  padding: 12px 16px;
-  font-size: 1rem;
+  padding: 12px 14px;
+  font-size: 0.9rem;
   text-align: center;
+  border-radius: 8px;
+  background: #f8f8f8;
 }
 
 .is-mobile .hero-search button {
   width: 100%;
-  padding: 14px 24px;
+  padding: 12px 20px;
   border-radius: 8px;
+  font-size: 0.75rem;
 }
 
 .is-mobile .scroll-spacer {
-  height: 30vh;
+  height: 16vh;
 }
 
 .is-mobile .video-container-wrapper {
-  height: 150vh;
+  height: 100vh;
 }
 
+.is-mobile .video-sticky-stage {
+  height: 70vh;
+}
+
+/* Vídeo começa em 16:9 e expande para 9:16 */
 .is-mobile .video-frame {
   width: 90%;
-  height: 50vh;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: 40vh;
   border-radius: 12px;
 }
 
 .is-mobile .video-overlay-text {
-  bottom: 20px;
-  left: 20px;
+  bottom: 12px;
+  left: 12px;
 }
 
 .is-mobile .video-overlay-text h3 {
   font-size: 1.25rem !important;
+}
+
+/* ========================================
+   MOBILE HERO - Video as Background
+   ======================================== */
+.hero-mobile {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-mobile-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-mobile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 2;
+}
+
+.hero-mobile-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Override text colors for mobile hero on dark background */
+.hero-mobile .hero-tag {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  padding-top: 0;
+}
+
+.hero-mobile h1 {
+  color: #FFFFFF;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-mobile .hero-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  padding: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-mobile .hero-search {
+  flex-direction: column;
+  border-radius: 14px;
+  padding: 12px;
+  max-width: 100%;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.hero-mobile .hero-search input {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 8px;
+  background: #f8f8f8;
+  color: #1A1A1A;
+}
+
+.hero-mobile .hero-search input::placeholder {
+  color: #888;
+}
+
+.hero-mobile .hero-search button {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Force mobile hero styles when .is-mobile class is present */
+.is-mobile .hero-mobile {
+  display: flex;
+}
+
+.is-mobile .hero-mobile .hero-tag {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  padding-top: 0;
+}
+
+.is-mobile .hero-mobile h1 {
+  color: #FFFFFF;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.is-mobile .hero-mobile .hero-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.is-mobile .hero-mobile .hero-search {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 </style>
