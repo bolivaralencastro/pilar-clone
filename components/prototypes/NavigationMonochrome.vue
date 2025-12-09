@@ -243,7 +243,7 @@ onUnmounted(() => {
 }
 
 .nav-link {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 4.5vw;
   line-height: 1;
   color: #121212;
@@ -312,7 +312,7 @@ onUnmounted(() => {
 
 .detail-stat {
   display: block;
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   line-height: 1.2;
   color: #121212;

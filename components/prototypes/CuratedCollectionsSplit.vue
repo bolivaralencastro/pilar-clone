@@ -186,7 +186,7 @@ const updateDisplay = (curatorId: string) => {
 }
 
 .curator-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   color: var(--text-primary);
   margin-bottom: 5px;
