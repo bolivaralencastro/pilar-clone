@@ -138,6 +138,7 @@
             imageHeight="medium" 
             :selectionMode="isComparisonMode"
             :isSelected="selectedProperties.some(p => p.id === property.id)"
+            :isDisabled="isSelectionLimitReached && !selectedProperties.some(p => p.id === property.id)"
             @toggle-selection="handleSelection"
           />
         </div>
@@ -246,7 +247,7 @@
       :is-visible="isComparisonMode"
       :selected-properties="selectedProperties"
       @remove="removeSelection"
-      @compare="navigateToCompare"
+      @compare="handleCompare"
       @cancel="toggleComparisonMode"
     />
 
@@ -304,6 +305,10 @@ const handleImageError = (id: number) => {
 // Comparison State
 const isComparisonMode = ref(false)
 const selectedProperties = ref<Property[]>([])
+const MAX_SELECTION = 4
+
+// Computed para verificar se limite foi atingido
+const isSelectionLimitReached = computed(() => selectedProperties.value.length >= MAX_SELECTION)
 
 const toggleComparisonMode = () => {
   isComparisonMode.value = !isComparisonMode.value
@@ -317,7 +322,7 @@ const handleSelection = (property: Property) => {
   if (index >= 0) {
     selectedProperties.value.splice(index, 1)
   } else {
-    if (selectedProperties.value.length < 4) {
+    if (selectedProperties.value.length < MAX_SELECTION) {
       selectedProperties.value.push(property)
     }
   }
@@ -330,9 +335,11 @@ const removeSelection = (id: number) => {
   }
 }
 
-const router = useRouter()
-const navigateToCompare = async () => {
-  await navigateTo('/compare')
+// O modal de comparação é gerenciado pelo ComparisonFloatingBar
+const handleCompare = () => {
+  // O modal já é aberto pelo componente ComparisonFloatingBar
+  // Esta função pode ser usada para analytics ou outras lógicas
+  console.log('Comparação iniciada com', selectedProperties.value.length, 'imóveis')
 }
 
 // Handlers para o painel de filtros

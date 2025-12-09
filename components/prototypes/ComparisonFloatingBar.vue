@@ -11,8 +11,26 @@
     >
       <div 
         v-if="isVisible && !isModalOpen" 
-        class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-4 w-[90%] max-w-md md:w-auto"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 w-[90%] max-w-md md:w-auto"
       >
+        <!-- Tooltip de Limite Atingido -->
+        <Transition
+          enter-active-class="transition duration-300 ease-out"
+          enter-from-class="opacity-0 translate-y-2 scale-95"
+          enter-to-class="opacity-100 translate-y-0 scale-100"
+          leave-active-class="transition duration-200 ease-in"
+          leave-from-class="opacity-100 translate-y-0 scale-100"
+          leave-to-class="opacity-0 translate-y-2 scale-95"
+        >
+          <div 
+            v-if="showLimitTooltip"
+            class="bg-text-primary text-white text-xs px-4 py-2 rounded-full shadow-lg flex items-center gap-2 mb-1"
+          >
+            <i class="lni lni-information text-sm"></i>
+            <span class="font-light">Limite de {{ MAX_ITEMS }} imóveis atingido</span>
+          </div>
+        </Transition>
+
         <!-- The Bar - Glassmorphism Light -->
         <div class="backdrop-blur-xl bg-white/80 text-text-primary rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center py-2 md:py-3 pl-4 md:pl-6 pr-2 md:pr-3 gap-3 md:gap-6 border border-white/60 ring-1 ring-black/5 relative w-full md:w-auto justify-between md:justify-start">
           
@@ -28,7 +46,9 @@
           <!-- Label -->
           <div class="flex flex-col">
             <span class="font-serif italic text-base md:text-lg leading-none text-text-primary whitespace-nowrap">Sua Seleção</span>
-            <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">{{ selectedProperties.length }} Imóveis</span>
+            <span class="text-[8px] md:text-[9px] uppercase tracking-widest text-text-secondary mt-1">
+              {{ selectedProperties.length }} de {{ MAX_ITEMS }}
+            </span>
           </div>
 
           <!-- Avatars -->
@@ -48,7 +68,8 @@
               </div>
               <div 
                 v-else
-                class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner"
+                class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-border-subtle bg-surface-offset/40 backdrop-blur-sm flex items-center justify-center text-text-secondary/40 shadow-inner transition-all"
+                :class="{ 'border-dashed animate-pulse': isLimitReached }"
               >
                 <i class="lni lni-plus text-sm"></i>
               </div>
@@ -288,7 +309,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 
 interface Property {
   id: number | string
@@ -327,6 +348,23 @@ const MAX_ITEMS = 4
 // State
 const isModalOpen = ref(false)
 const expandedSections = ref(['essence', 'details', 'costs', 'amenities'])
+const showLimitTooltip = ref(false)
+let tooltipTimeout: ReturnType<typeof setTimeout> | null = null
+
+// Computed
+const isLimitReached = computed(() => props.selectedProperties.length >= MAX_ITEMS)
+
+// Watch para mostrar tooltip quando limite é atingido
+watch(() => props.selectedProperties.length, (newLen, oldLen) => {
+  if (newLen >= MAX_ITEMS && oldLen < MAX_ITEMS) {
+    showLimitTooltip.value = true
+    // Auto-hide after 3 seconds
+    if (tooltipTimeout) clearTimeout(tooltipTimeout)
+    tooltipTimeout = setTimeout(() => {
+      showLimitTooltip.value = false
+    }, 3000)
+  }
+})
 
 // Comparison sections configuration
 const sections = [

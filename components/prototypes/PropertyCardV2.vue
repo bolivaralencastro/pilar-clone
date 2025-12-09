@@ -7,7 +7,13 @@
     <div 
       v-if="selectionMode"
       class="absolute inset-0 z-20 rounded border-2 transition-colors pointer-events-none"
-      :class="isSelected ? 'border-transparent bg-text-primary/5' : 'border-transparent hover:border-text-primary/30'"
+      :class="[
+        isSelected 
+          ? 'border-transparent bg-text-primary/5' 
+          : isDisabled 
+            ? 'border-transparent opacity-60' 
+            : 'border-transparent hover:border-text-primary/30'
+      ]"
     ></div>
 
     <!-- Image Container -->
@@ -36,7 +42,13 @@
       >
         <div 
           class="w-6 h-6 rounded-full border flex items-center justify-center transition-colors shadow-sm"
-          :class="isSelected ? 'bg-text-primary border-text-primary text-surface-base' : 'bg-surface-card/90 border-border-subtle text-transparent hover:border-text-primary'"
+          :class="[
+            isSelected 
+              ? 'bg-text-primary border-text-primary text-surface-base' 
+              : isDisabled 
+                ? 'bg-surface-offset/60 border-border-subtle text-transparent cursor-not-allowed opacity-50' 
+                : 'bg-surface-card/90 border-border-subtle text-transparent hover:border-text-primary'
+          ]"
         >
           <i class="lni lni-checkmark text-xs font-bold"></i>
         </div>
@@ -107,6 +119,7 @@ interface Props {
   imageHeight?: 'tall' | 'medium' | 'short'
   selectionMode?: boolean
   isSelected?: boolean
+  isDisabled?: boolean
   isSaved?: boolean
 }
 
@@ -114,6 +127,7 @@ const props = withDefaults(defineProps<Props>(), {
   imageHeight: 'medium',
   selectionMode: false,
   isSelected: false,
+  isDisabled: false,
   isSaved: false
 })
 
@@ -123,6 +137,10 @@ const imageError = ref(false)
 
 const handleClick = () => {
   if (props.selectionMode) {
+    // Se está desabilitado e não está selecionado, não faz nada
+    if (props.isDisabled && !props.isSelected) {
+      return
+    }
     emit('toggle-selection', props.property)
   } else {
     emit('click')
