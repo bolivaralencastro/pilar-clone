@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-scroll-reveal-container">
+  <div class="hero-scroll-reveal-container" :class="{ 'is-mobile': isMobile }">
     <!-- 1. CAMADA DE FUNDO (Texto Fixo) -->
     <section class="hero-text-section" ref="heroTextRef">
       <span class="hero-tag">SÃO PAULO • CURITIBA</span>
@@ -43,11 +43,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const searchQuery = ref('')
+
+// Inject forceMobile from parent
+const injectedForceMobile = inject<{ value: boolean }>('forceMobile', { value: false })
+const isMobile = computed(() => injectedForceMobile.value)
 
 const heroTextRef = ref<HTMLElement | null>(null)
 const videoFrameRef = ref<HTMLElement | null>(null)
@@ -292,6 +296,7 @@ onUnmounted(() => {
 }
 
 /* ======== MOBILE RESPONSIVE ======== */
+/* Applied via media query OR .is-mobile class from parent */
 @media (max-width: 768px) {
   .hero-text-section {
     padding: 0 16px;
@@ -360,5 +365,74 @@ onUnmounted(() => {
   .video-overlay-text h3 {
     font-size: 1.25rem !important;
   }
+}
+
+/* Force mobile styles when .is-mobile class is present */
+.is-mobile .hero-text-section {
+  padding: 0 16px;
+  justify-content: flex-start;
+  padding-top: 25vh;
+}
+
+.is-mobile .hero-tag {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.is-mobile .hero-text-section h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.is-mobile .hero-desc {
+  font-size: 0.9rem;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  padding: 0 8px;
+}
+
+.is-mobile .hero-search {
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 12px;
+  max-width: 100%;
+  gap: 8px;
+}
+
+.is-mobile .hero-search input {
+  padding: 12px 16px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.is-mobile .hero-search button {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 8px;
+}
+
+.is-mobile .scroll-spacer {
+  height: 30vh;
+}
+
+.is-mobile .video-container-wrapper {
+  height: 150vh;
+}
+
+.is-mobile .video-frame {
+  width: 90%;
+  height: 50vh;
+  border-radius: 12px;
+}
+
+.is-mobile .video-overlay-text {
+  bottom: 20px;
+  left: 20px;
+}
+
+.is-mobile .video-overlay-text h3 {
+  font-size: 1.25rem !important;
 }
 </style>

@@ -293,6 +293,23 @@ if (initTab && ['current', 'flowchart', 'new'].includes(initTab)) {
   activeTab.value = initTab as 'current' | 'flowchart' | 'new'
 }
 
+// Initialize viewMode from URL
+const initView = Array.isArray(route.query.view) ? route.query.view[0] : route.query.view
+if (initView && ['desktop', 'mobile'].includes(initView)) {
+  viewMode.value = initView as 'desktop' | 'mobile'
+}
+
+// Helper to update URL with current state
+const updateUrl = () => {
+  router.replace({ 
+    query: { 
+      ...route.query, 
+      tab: activeTab.value,
+      view: viewMode.value
+    } 
+  })
+}
+
 // Watchers
 watch(activeTab, (newTab) => {
   if (newTab === 'flowchart') {
@@ -300,23 +317,26 @@ watch(activeTab, (newTab) => {
   }
   
   // Update URL to make state shareable
-  if (route.query.tab !== newTab) {
-    router.replace({ 
-      query: { 
-        ...route.query, 
-        tab: newTab 
-      } 
-    })
-  }
+  updateUrl()
+})
+
+// Watch viewMode changes
+watch(viewMode, () => {
+  updateUrl()
 })
 
 // Watch URL changes (back/forward navigation)
-watch(() => route.query.tab, (newTab) => {
-  const tab = Array.isArray(newTab) ? newTab[0] : newTab
+watch(() => route.query, (newQuery) => {
+  const tab = Array.isArray(newQuery.tab) ? newQuery.tab[0] : newQuery.tab
   if (tab && ['current', 'flowchart', 'new'].includes(tab) && tab !== activeTab.value) {
     activeTab.value = tab as 'current' | 'flowchart' | 'new'
   }
-})
+  
+  const view = Array.isArray(newQuery.view) ? newQuery.view[0] : newQuery.view
+  if (view && ['desktop', 'mobile'].includes(view) && view !== viewMode.value) {
+    viewMode.value = view as 'desktop' | 'mobile'
+  }
+}, { deep: true })
 
 // Actions
 const toggleFullscreen = () => {
@@ -510,23 +530,23 @@ if (!currentPrototype.value) {
         />
 
         <!-- New Version (Home) -->
-        <div v-else-if="activeTab === 'new' && slug === 'home'" class="w-full h-full overflow-y-auto overflow-x-hidden bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
-           <HomeV2 />
+        <div v-else-if="activeTab === 'new' && slug === 'home'" class="w-full h-full overflow-y-auto overflow-x-hidden bg-white" :class="[viewMode === 'mobile' ? 'rounded-[32px] force-mobile' : '', ]">
+           <HomeV2 :forceMobile="viewMode === 'mobile'" />
         </div>
 
         <!-- New Version (Search Results) -->
-        <div v-else-if="activeTab === 'new' && slug === 'resultados'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
-           <SearchResultsV2 />
+        <div v-else-if="activeTab === 'new' && slug === 'resultados'" class="w-full h-full overflow-y-auto bg-white" :class="[viewMode === 'mobile' ? 'rounded-[32px] force-mobile' : '']">
+           <SearchResultsV2 :forceMobile="viewMode === 'mobile'" />
         </div>
 
         <!-- New Version (Property Detail) -->
-        <div v-else-if="activeTab === 'new' && slug === 'imovel'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
-           <PropertyDetailV2 />
+        <div v-else-if="activeTab === 'new' && slug === 'imovel'" class="w-full h-full overflow-y-auto bg-white" :class="[viewMode === 'mobile' ? 'rounded-[32px] force-mobile' : '']">
+           <PropertyDetailV2 :forceMobile="viewMode === 'mobile'" />
         </div>
 
         <!-- New Version (Curation) -->
-        <div v-else-if="activeTab === 'new' && slug === 'curadoria'" class="w-full h-full overflow-y-auto bg-white" :class="{ 'rounded-[32px]': viewMode === 'mobile' }">
-           <CurationV2 />
+        <div v-else-if="activeTab === 'new' && slug === 'curadoria'" class="w-full h-full overflow-y-auto bg-white" :class="[viewMode === 'mobile' ? 'rounded-[32px] force-mobile' : '']">
+           <CurationV2 :forceMobile="viewMode === 'mobile'" />
         </div>
 
         <!-- Empty State (New Version) -->

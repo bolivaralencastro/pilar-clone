@@ -6,7 +6,7 @@
     <div class="container mx-auto px-8 flex items-center justify-between">
       
       <!-- Left: Nav Links (Desktop) -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-sans font-medium uppercase tracking-widest text-text-secondary">
+      <nav v-if="!showMobileNav" class="hidden md:flex items-center gap-6 text-xs font-sans font-medium uppercase tracking-widest text-text-secondary">
         <button class="w-9 h-9 flex items-center justify-center hover:text-text-primary transition-colors" title="Buscar">
           <i class="lni lni-search text-base"></i>
         </button>
@@ -14,8 +14,21 @@
         <a href="#" class="hover:text-text-primary transition-colors">Vender</a>
       </nav>
 
-      <!-- Left: Mobile Menu Button -->
+      <!-- Left: Mobile Menu Button (shown when forceMobile OR on small screens) -->
       <button 
+        v-if="showMobileNav"
+        class="w-10 h-10 flex items-center justify-center text-text-primary"
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        :aria-expanded="mobileMenuOpen"
+        aria-label="Menu"
+      >
+        <i v-if="!mobileMenuOpen" class="lni lni-menu text-xl"></i>
+        <i v-else class="lni lni-close text-xl"></i>
+      </button>
+
+      <!-- Left: Mobile Menu Button (natural responsive) -->
+      <button 
+        v-if="!showMobileNav"
         class="md:hidden w-10 h-10 flex items-center justify-center text-text-primary"
         @click="mobileMenuOpen = !mobileMenuOpen"
         :aria-expanded="mobileMenuOpen"
@@ -27,7 +40,7 @@
 
       <!-- Right Actions -->
       <div class="flex items-center gap-8 text-xs font-sans font-medium uppercase tracking-widest text-text-secondary">
-        <a href="#" class="hidden md:block hover:text-text-primary transition-colors">Magazine</a>
+        <a v-if="!showMobileNav" href="#" class="hidden md:block hover:text-text-primary transition-colors">Magazine</a>
         <a href="#" class="hover:text-text-primary transition-colors">Entrar</a>
       </div>
     </div>
@@ -43,7 +56,8 @@
     <Transition name="mobile-menu">
       <div 
         v-if="mobileMenuOpen" 
-        class="md:hidden fixed inset-0 top-[72px] bg-surface-base z-[199]"
+        class="fixed inset-0 top-[72px] bg-surface-base z-[199]"
+        :class="{ 'md:hidden': !showMobileNav }"
       >
         <nav class="flex flex-col items-center justify-center h-full gap-8 text-center">
           <NuxtLink 
@@ -84,18 +98,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 // Header component - standalone luxury navigation
 // Can be extended with props for variants (transparent, dark, etc.)
-defineProps({
-  sticky: {
-    type: Boolean,
-    default: true
-  }
-})
+const props = defineProps<{
+  sticky?: boolean
+  forceMobile?: boolean
+}>()
 
 const mobileMenuOpen = ref(false)
+
+// Show mobile menu when forceMobile is true
+const showMobileNav = computed(() => props.forceMobile ?? false)
 </script>
 
 <style scoped>

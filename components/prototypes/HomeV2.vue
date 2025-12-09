@@ -1,8 +1,8 @@
 <template>
-  <div class="font-sans text-text-primary min-h-screen bg-surface-base relative">
+  <div class="font-sans text-text-primary min-h-screen bg-surface-base relative" :class="{ 'is-mobile': forceMobile }">
     
     <!-- Header (Not Fixed) -->
-    <HeaderLuxury :sticky="false" />
+    <HeaderLuxury :sticky="false" :forceMobile="forceMobile" />
 
     <!-- Hero Scroll Reveal -->
     <HeroScrollReveal />
@@ -119,6 +119,7 @@
 </template>
 
 <script setup lang="ts">
+import { provide, computed } from 'vue'
 import HeaderLuxury from './HeaderLuxury.vue'
 import FooterLuxury from './FooterLuxury.vue'
 import CuratedCollectionsSplit from './CuratedCollectionsSplit.vue'
@@ -127,6 +128,13 @@ import NavigationMonochrome from './NavigationMonochrome.vue'
 import ExclusiveCollection from './ExclusiveCollection.vue'
 import HeroScrollReveal from './HeroScrollReveal.vue'
 import EditorialHorizontalScroll from './EditorialHorizontalScroll.vue'
+
+const props = defineProps<{
+  forceMobile?: boolean
+}>()
+
+// Provide forceMobile to all child components
+provide('forceMobile', computed(() => props.forceMobile ?? false))
 
 const router = useRouter()
 

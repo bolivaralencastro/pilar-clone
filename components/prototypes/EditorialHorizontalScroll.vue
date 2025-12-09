@@ -124,19 +124,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, inject } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
+// Inject forceMobile from parent (prototype viewer)
+const injectedForceMobile = inject<{ value: boolean }>('forceMobile', { value: false })
 
 const sectionRef = ref<HTMLElement | null>(null)
 const trackRef = ref<HTMLElement | null>(null)
 const mobileCarouselRef = ref<HTMLElement | null>(null)
 const progress = ref(0)
-const isMobile = ref(false)
+const windowIsMobile = ref(false)
 const currentSlide = ref(0)
 let scrollTarget: HTMLElement | Window = window
 let touchStartX = 0
+
+// isMobile is true if either injected forceMobile is true OR window width is mobile
+const isMobile = computed(() => injectedForceMobile.value || windowIsMobile.value)
 
 // Dados dos imóveis para mobile
 const properties = ref([
@@ -187,7 +193,7 @@ const handleTouchEnd = (e: TouchEvent) => {
 }
 
 const checkMobile = () => {
-  isMobile.value = window.innerWidth < 768
+  windowIsMobile.value = window.innerWidth < 768
 }
 
 const findScrollableParent = (el: HTMLElement | null): HTMLElement | null => {
