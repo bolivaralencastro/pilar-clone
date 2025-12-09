@@ -248,7 +248,7 @@ const updateDisplay = (curatorId: string) => {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 15px;
 }
 
@@ -283,22 +283,21 @@ const updateDisplay = (curatorId: string) => {
 
 /* Link CTA abaixo do card central */
 .card-cta {
-  color: #fff;
+  color: var(--text-primary);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--text-primary);
   padding-bottom: 3px;
   background: transparent;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .card-cta:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* --- RESPONSIVO --- */

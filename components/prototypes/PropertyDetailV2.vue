@@ -204,46 +204,6 @@
     <!-- Footer -->
     <FooterLuxury />
 
-    <!-- Flowchart Toggle -->
-    <button 
-      @click="showFlowchart = true"
-      class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-surface-base border border-border-subtle rounded-full flex items-center justify-center shadow-xl hover:bg-surface-subtle hover:scale-105 transition-all text-text-secondary group"
-      title="Ver Fluxo"
-    >
-      <i class="lni lni-network text-xl group-hover:text-text-primary transition-colors"></i>
-    </button>
-
-    <!-- Flowchart Modal -->
-    <Teleport to="body">
-      <Transition name="fade">
-        <div v-if="showFlowchart" class="fixed inset-0 z-[60] bg-surface-base/95 backdrop-blur-sm flex flex-col">
-          <!-- Header -->
-          <div class="flex items-center justify-between px-6 py-4 border-b border-border-subtle bg-surface-base">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 bg-surface-offset rounded flex items-center justify-center">
-                <i class="lni lni-network text-text-primary"></i>
-              </div>
-              <div>
-                <h2 class="text-sm font-medium uppercase tracking-widest text-text-primary">Fluxo de Detalhe</h2>
-                <p class="text-[10px] text-text-tertiary">Diagrama de conversão e imersão</p>
-              </div>
-            </div>
-            <button 
-              @click="showFlowchart = false" 
-              class="w-10 h-10 flex items-center justify-center hover:bg-surface-offset rounded-full transition-colors text-text-secondary hover:text-text-primary"
-            >
-              <i class="lni lni-close text-lg"></i>
-            </button>
-          </div>
-          <!-- Viewer -->
-          <div class="flex-1 overflow-hidden relative bg-surface-offset/30">
-             <FlowchartViewer>
-               <MermaidRenderer :code="mermaidCode" />
-             </FlowchartViewer>
-          </div>
-        </div>
-      </Transition>
-    </Teleport>
   </div>
 </template>
 
@@ -251,62 +211,6 @@
 import { ref, computed } from 'vue'
 import HeaderLuxury from './HeaderLuxury.vue'
 import FooterLuxury from './FooterLuxury.vue'
-import FlowchartViewer from '../FlowchartViewer.vue'
-import MermaidRenderer from '../MermaidRenderer.vue'
-
-const showFlowchart = ref(false)
-
-const mermaidCode = `
-flowchart TD
-    %% Página Principal
-    Detail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
-    
-    %% Seções
-    subgraph Content [Conteúdo Rico]
-        Gallery[Galeria Fullscreen]
-        Info[Informações Principais]
-        Specs[Características & Comodidades]
-        MapSection[Localização]
-    end
-    
-    %% Ações Flutuantes / Header
-    subgraph Actions [Ações de Conversão]
-        Contact[Contatar Concierge]
-        Schedule[Agendar Visita]
-        Share[Compartilhar]
-        Save[Salvar/Favoritar]
-    end
-    
-    %% Fluxos Avançados
-    subgraph Advanced [Fluxos Avançados]
-        AIAnalysis[Análise de Valor (IA)]
-        AddToCompare[Adicionar à Comparação]
-    end
-
-    %% Conexões
-    Detail --> Content
-    Detail --> Actions
-    
-    %% Interações
-    Gallery -->|Navegar| ViewImages[Visualizar Fotos]
-    
-    Contact -->|Click| WhatsApp[WhatsApp / Chat]
-    Schedule -->|Click| CalendarModal[Modal de Agendamento]
-    
-    AddToCompare -->|Click| FloatBar[ComparisonFloatingBar.vue]
-    FloatBar -->|Comparar| ComparePage[ComparisonView.vue]
-    
-    AIAnalysis -->|Click| AIModal[Modal de Insights de Preço]
-
-    %% Estilização
-    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef section fill:#fff3e0,stroke:#ef6c00,stroke-width:1px;
-    classDef external fill:#eceff1,stroke:#455a64,stroke-width:1px;
-
-    class Detail,ComparePage page;
-    class Gallery,Info,Specs,MapSection section;
-    class WhatsApp,CalendarModal,AIModal external;
-`
 
 const currentImageIndex = ref(0)
 

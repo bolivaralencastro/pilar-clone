@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full z-50 py-8 relative bg-surface-base">
+  <header class="w-full z-[200] py-6 sticky top-0 bg-surface-base">
     <div class="container mx-auto px-8 flex items-center justify-between">
       
       <!-- Left: Nav Links -->

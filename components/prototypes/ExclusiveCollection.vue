@@ -1,5 +1,6 @@
 <template>
-  <div class="luxury-container w-full max-w-[1400px] h-[85vh] bg-pure-white rounded text-rich-black shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] grid grid-cols-1 lg:grid-cols-[60%_40%] relative overflow-hidden mx-auto">
+  <section class="w-full h-screen bg-surface-base p-4">
+    <div class="luxury-container w-full h-full bg-pure-white rounded text-rich-black shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] grid grid-cols-1 lg:grid-cols-[60%_40%] relative overflow-hidden">
     
     <!-- LADO ESQUERDO: VISUAL (Move com o hover no container) -->
     <div class="visual-side relative h-full overflow-hidden grid grid-cols-2 md:grid-cols-3 gap-5 p-5 bg-porcelain">
@@ -94,7 +95,8 @@
       </a>
     </div>
 
-  </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">

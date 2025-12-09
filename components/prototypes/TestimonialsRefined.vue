@@ -1,6 +1,6 @@
 <template>
-  <section class="w-full min-h-screen bg-surface-subtle py-16 md:py-20">
-    <div class="container mx-auto px-6 h-full flex flex-col justify-between">
+  <section class="w-full min-h-screen bg-surface-subtle pt-16 md:pt-20 pb-3 md:pb-4 flex flex-col">
+    <div class="container mx-auto px-6 flex-1 flex flex-col">
     
     <!-- Título da Seção -->
     <div class="text-center mb-12">
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Grid de Clientes (Baixo) - Largura total com cards pequenos distribuídos -->
-    <div class="w-full flex justify-between items-end">
+    <div class="w-full flex justify-between items-end mt-auto">
         
         <div 
           v-for="(client, index) in clients" 

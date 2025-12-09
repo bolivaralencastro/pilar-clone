@@ -19,7 +19,54 @@ const prototypes = {
     description: 'Página inicial com nova proposta de valor e navegação simplificada.',
     newUrl: '/',
     oldUrl: 'https://www.pilarhomes.com.br/',
-    flowchartUrl: '/images/logo-pilar.svg', // Placeholder
+    mermaidCode: `
+flowchart TD
+    %% Nós Principais
+    Start((Início)) --> Home[HomeV2.vue<br/>Landing Page]
+    
+    %% Seções da Home
+    subgraph Hero [Hero Section]
+        SearchInput[Barra de Busca]
+        VideoBg[Vídeo Background]
+    end
+    
+    subgraph Sections [Seções de Conteúdo]
+        Selected[Selecionados para Você<br/>Carrossel]
+        NavMono[Navegação Monocromática]
+        Regions[Regiões<br/>Carrossel]
+        Exclusive[Exclusivos PilarHomes]
+        Collections[Coleções Curadas]
+    end
+    
+    %% Conexões Internas
+    Home --> Hero
+    Home --> Sections
+    
+    %% Ações de Navegação
+    SearchInput -->|Enter/Click| ResultsPage[SearchResultsV2.vue<br/>Resultados de Busca]
+    
+    Selected -->|Click Card| PropertyDetail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    Selected -->|Ver Todos| ResultsPage
+    
+    NavMono -->|Quero Comprar| ResultsPage
+    NavMono -->|Quero Vender| SellerForm[Formulário de Venda]
+    NavMono -->|Sou Corretor| BrokerForm[Cadastro de Corretor]
+    
+    Regions -->|Click Região| ResultsPageFiltered[Resultados Filtrados<br/>por Região]
+    
+    Exclusive -->|Click Card| PropertyDetail
+    Exclusive -->|Ver Todos| ResultsPage
+    
+    Collections -->|Click Coleção| CurationPage[CurationV2.vue<br/>Página de Curadoria]
+    
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef component fill:#e1f5fe,stroke:#0277bd,stroke-width:1px;
+    classDef action fill:#fff9c4,stroke:#fbc02d,stroke-width:1px;
+    
+    class Home,ResultsPage,PropertyDetail,CurationPage page;
+    class SearchInput,Selected,NavMono,Regions,Exclusive,Collections component;
+`,
     features: [
       'Hero section imersiva',
       'Busca simplificada',
@@ -29,9 +76,8 @@ const prototypes = {
   resultados: {
     title: 'Resultados de Busca',
     description: 'Listagem de imóveis com filtros avançados e visualização em mapa.',
-    newUrl: '/?search=true', // Placeholder
+    newUrl: '/?search=true',
     oldUrl: 'https://pilarhomes.com.br/venda/imoveis/sao-paulo-sp-brasil',
-    flowchartUrl: '/images/logo-pilar.svg', // Placeholder
     mermaidCode: `
 flowchart TD
     %% --- CAMADA DE NAVEGAÇÃO ---
@@ -113,9 +159,59 @@ flowchart TD
   imovel: {
     title: 'Detalhe do Imóvel',
     description: 'Página de detalhes com foco na experiência visual e informações estruturadas.',
-    newUrl: '/imovel/exemplo', // Placeholder
+    newUrl: '/imovel/exemplo',
     oldUrl: 'https://pilarhomes.com.br/imovel/CA16821/cobertura-4-quartos-vila-romana-sao-paulo',
-    flowchartUrl: '/images/logo-pilar.svg', // Placeholder
+    mermaidCode: `
+flowchart TD
+    %% Página Principal
+    Detail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    
+    %% Seções
+    subgraph Content [Conteúdo Rico]
+        Gallery[Galeria Fullscreen]
+        Info[Informações Principais]
+        Specs[Características & Comodidades]
+        MapSection[Localização]
+    end
+    
+    %% Ações Flutuantes / Header
+    subgraph Actions [Ações de Conversão]
+        Contact[Contatar Concierge]
+        Schedule[Agendar Visita]
+        Share[Compartilhar]
+        Save[Salvar/Favoritar]
+    end
+    
+    %% Fluxos Avançados
+    subgraph Advanced [Fluxos Avançados]
+        AIAnalysis[Análise de Valor IA]
+        AddToCompare[Adicionar à Comparação]
+    end
+
+    %% Conexões
+    Detail --> Content
+    Detail --> Actions
+    
+    %% Interações
+    Gallery -->|Navegar| ViewImages[Visualizar Fotos]
+    
+    Contact -->|Click| WhatsApp[WhatsApp / Chat]
+    Schedule -->|Click| CalendarModal[Modal de Agendamento]
+    
+    AddToCompare -->|Click| FloatBar[ComparisonFloatingBar.vue]
+    FloatBar -->|Comparar| ComparePage[ComparisonView.vue]
+    
+    AIAnalysis -->|Click| AIModal[Modal de Insights de Preço]
+
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef section fill:#fff3e0,stroke:#ef6c00,stroke-width:1px;
+    classDef external fill:#eceff1,stroke:#455a64,stroke-width:1px;
+
+    class Detail,ComparePage page;
+    class Gallery,Info,Specs,MapSection section;
+    class WhatsApp,CalendarModal,AIModal external;
+`,
     features: [
       'Galeria imersiva',
       'Informações técnicas claras',
@@ -125,9 +221,55 @@ flowchart TD
   curadoria: {
     title: 'Curadoria (Imóveis Salvos)',
     description: 'Área exclusiva para o cliente gerenciar seus imóveis favoritos, com uma experiência de "coleção privada".',
-    newUrl: '/curadoria', // Placeholder
+    newUrl: '/curadoria',
     oldUrl: 'https://pilarhomes.com.br/venda/imoveis/sao-paulo-sp-brasil',
-    flowchartUrl: '/images/logo-pilar.svg', // Placeholder
+    mermaidCode: `
+flowchart TD
+    %% Estados Iniciais
+    subgraph Pages [Páginas de Listagem]
+        Results[SearchResultsV2.vue<br/>Busca Geral]
+        Curation[CurationV2.vue<br/>Curadoria/Coleções]
+    end
+
+    %% Componentes de Controle
+    subgraph Controls [Barra de Controle Sticky]
+        Filters[Painel de Filtros]
+        Sort[Ordenação]
+        ViewToggle[Alternar Mapa/Grid]
+        CompareToggle[Modo Comparação]
+    end
+
+    %% Componentes de Interface
+    subgraph UI [Interface Principal]
+        Grid[Grid de Cards]
+        Map[Mapa Interativo]
+        FloatBar[ComparisonFloatingBar.vue<br/>Barra Flutuante]
+    end
+
+    %% Fluxo Curadoria
+    Curation --> Controls
+    Curation --> Grid
+    Curation -->|Tabs| SwitchCollection[Trocar Coleção]
+
+    %% Interações
+    ViewToggle -->|Click| Map
+    CompareToggle -->|Ativar| SelectionMode[Modo de Seleção Ativo]
+    
+    SelectionMode -->|Selecionar Imóveis| FloatBar
+    FloatBar -->|Click Comparar| ComparePage[ComparisonView.vue<br/>Comparador Side-by-Side]
+    
+    Grid -->|Click Card| Detail[PropertyDetailV2.vue<br/>Detalhe do Imóvel]
+    Map -->|Click Pin| Detail
+
+    %% Estilização
+    classDef page fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef ui fill:#e1f5fe,stroke:#0277bd,stroke-width:1px;
+    classDef logic fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+
+    class Results,Curation,ComparePage,Detail page;
+    class Grid,Map,FloatBar,Filters ui;
+    class SelectionMode logic;
+`,
     features: [
       'Visualização em galeria',
       'Notas pessoais',
