@@ -567,37 +567,139 @@ if (!currentPrototype.value) {
 
       <!-- Info Panel (Floating) -->
       <Transition name="slide-right">
-        <div v-if="showInfo" class="absolute right-0 top-0 h-full w-96 bg-white border-l border-subtle shadow-xl z-30 p-8 overflow-y-auto">
+        <div v-if="showInfo" class="fixed right-0 top-0 h-full w-96 bg-white border-l border-subtle shadow-2xl z-[200] p-8 overflow-y-auto">
           <div class="flex items-center justify-between mb-8">
-            <h2 class="text-lg font-light text-text-primary">Sobre o Design</h2>
+            <h2 class="text-lg font-light text-text-primary">Sobre este Protótipo</h2>
             <button @click="showInfo = false" class="text-secondary hover:text-text-primary">
               <AppIcon name="lni-close" />
             </button>
           </div>
 
-          <div class="space-y-8">
+          <div class="space-y-6">
+            <!-- Title & Description -->
             <div>
-              <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-2">Contexto</span>
+              <h3 class="text-xl font-light text-text-primary mb-2">{{ currentPrototype?.title }}</h3>
               <p class="text-secondary font-light leading-relaxed text-sm">
                 {{ currentPrototype?.description }}
               </p>
             </div>
 
-            <div>
-              <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-2">Melhorias Chave</span>
-              <ul class="space-y-3">
-                <li v-for="feature in currentPrototype?.features" :key="feature" class="flex items-start gap-3 text-sm text-secondary font-light">
-                  <AppIcon name="lni-checkmark-circle" class="mt-0.5 text-action-primary shrink-0" />
-                  <span>{{ feature }}</span>
-                </li>
-              </ul>
+            <!-- Problem & Solution -->
+            <div class="border-t border-subtle pt-6">
+              <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Observação do Site Atual</span>
+              <div v-if="slug === 'home'">
+                <p class="text-sm text-secondary font-light mb-4">
+                  A home atual utiliza estrutura convencional de portais imobiliários: hero estático com busca centralizada, múltiplos carrosséis de cards (Selecionados, Exclusivos, Regiões), dropdowns "Comprar/Vender" com muitas opções, densidade alta de conteúdo e seções institucionais em grid padrão.
+                </p>
+                <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Proposta de Design</span>
+                <ul class="space-y-2 text-sm text-secondary font-light">
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>HeroScrollReveal:</strong> Hero com parallax e conteúdo progressivo que se revela no scroll (vs hero estático)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>NavigationMonochrome:</strong> Header limpo inspirado em revistas de arquitetura, sem dropdowns pesados</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>EditorialHorizontalScroll:</strong> Scroll horizontal com imagens grandes e tipografia editorial (vs carrosséis verticais)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>Regiões:</strong> Grid assimétrico 6/5 cols no header + scroll horizontal fluido com micro-interações</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Hierarquia reduzida: menos blocos, mais respiração entre seções</span>
+                  </li>
+                </ul>
+              </div>
+              <div v-else-if="slug === 'resultados'">
+                <p class="text-sm text-secondary font-light mb-4">
+                  A página de resultados atual possui filtros com layout tradicional em sidebar, ausência de ferramenta de comparação integrada e cards de imóveis com apresentação convencional.
+                </p>
+                <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Proposta de Design</span>
+                <ul class="space-y-2 text-sm text-secondary font-light">
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>AIComparisonModal:</strong> Comparação direta com análise inteligente de diferenças</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>ComparisonFloatingBar:</strong> Barra flutuante persistente mostrando imóveis selecionados</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>FiltersPanel:</strong> Painel com hierarquia visual e agrupamento lógico melhorados</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>PropertyCardV2:</strong> Cards redesenhados com melhor uso de espaço e hierarquia</span>
+                  </li>
+                </ul>
+              </div>
+              <div v-else-if="slug === 'detalhe'">
+                <p class="text-sm text-secondary font-light mb-4">
+                  A página de detalhe atual apresenta galeria em grid ou carrossel padrão, informações técnicas em lista e layout informativo e funcional sem diferenciação premium.
+                </p>
+                <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Proposta de Design</span>
+                <ul class="space-y-2 text-sm text-secondary font-light">
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>PropertyDetailV2:</strong> Layout imersivo com foco na experiência visual</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Galeria expandida com transições suaves e navegação otimizada</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Hierarquia de informações mais clara e escaneável</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Micro-interações que enriquecem a navegação e reforçam o caráter premium</span>
+                  </li>
+                </ul>
+              </div>
+              <div v-else-if="slug === 'curadoria'">
+                <p class="text-sm text-secondary font-light mb-4">
+                  O site atual apresenta curadorias (Lucila Zahran Turqueto, Fernanda Berendt, Nicole Gomes) com cards simples de foto + descrição e apresentação editorial básica focada em conteúdo funcional.
+                </p>
+                <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Proposta de Design</span>
+                <ul class="space-y-2 text-sm text-secondary font-light">
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span><strong>CurationV2:</strong> Layout assimétrico inspirado em editoriais de moda e arquitetura</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Grid quebrado com variação de tamanhos de imagem e proporções</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Apresentação mais visual e menos funcional, priorizando storytelling</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-action-primary">•</span>
+                    <span>Narrativa visual que comunica exclusividade e curadoria especializada</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div class="p-4 bg-surface-card rounded-lg border border-subtle">
-              <span class="text-xs font-mono text-secondary uppercase tracking-widest block mb-2">Status</span>
-              <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-amber-500"></div>
-                <span class="text-sm font-medium text-text-primary">Em Construção</span>
+            <!-- Status -->
+            <div class="border-t border-subtle pt-6">
+              <span class="text-xs font-mono text-action-primary uppercase tracking-widest block mb-3">Status</span>
+              <div class="p-4 bg-surface-card rounded-lg border border-subtle">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                  <span class="text-sm font-medium text-text-primary">Protótipo de Alta Fidelidade</span>
+                </div>
+                <p class="text-xs text-secondary font-light">
+                  Design interativo implementado para visualização e comparação com a versão atual.
+                </p>
               </div>
             </div>
           </div>
