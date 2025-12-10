@@ -306,10 +306,10 @@ const handleNavigation = () => {
                 :href="competitor.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block relative overflow-hidden"
+                class="block relative"
               >
                 <div
-                  class="w-full h-40 bg-white border-b border-subtle group-hover:scale-105 transition-transform duration-700 flex items-center justify-center"
+                  class="w-full h-40 bg-white border-b border-subtle overflow-hidden group-hover:scale-105 transition-transform duration-700 flex items-center justify-center"
                 >
                   <img
                     :src="competitor.image"
