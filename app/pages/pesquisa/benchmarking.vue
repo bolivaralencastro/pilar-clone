@@ -33,7 +33,7 @@ const segments: Segment[] = [
         country: 'EUA',
         flag: '🇺🇸',
         url: 'https://www.elliman.com',
-        image: '/images/benchmarking/douglas-elliman.png',
+        image: '/images/Logos/Douglas-Elliman-logo.jpg',
         summary: 'Uma das maiores redes dos EUA em imóveis premium, forte em NY, Miami e LA.',
         strengths: ['Conteúdo editorial forte', 'Navegação clean', 'Fotografia impecável'],
         opportunities: ['Filtros pouco avançados', 'Experiência mobile']
@@ -44,7 +44,7 @@ const segments: Segment[] = [
         country: 'EUA',
         flag: '🇺🇸',
         url: 'https://www.theagencyre.com',
-        image: '/images/benchmarking/the-agency.png',
+        image: '/images/Logos/The-Agency-logo.png',
         summary: 'Marca de luxo com storytelling aspiracional e produção audiovisual de altíssimo nível.',
         strengths: ['Branding excepcional', 'Vídeos high-end', 'Experiência inspiracional'],
         opportunities: ['Menos dados estruturados', 'Foco na emoção vs função']
@@ -55,7 +55,7 @@ const segments: Segment[] = [
         country: 'Reino Unido',
         flag: '🇬🇧',
         url: 'https://www.knightfrank.co.uk',
-        image: '/images/benchmarking/knight-frank.png',
+        image: '/images/Logos/Knight-Frank-logo.png',
         summary: 'Potência global em imóveis premium e ultra-prime.',
         strengths: ['Relatórios de mercado impecáveis', 'Organização exemplar'],
         opportunities: ['Design mais tradicional', 'Pode parecer "frio"']
@@ -72,7 +72,7 @@ const segments: Segment[] = [
         country: 'França',
         flag: '🇫🇷',
         url: 'https://www.hermes.com',
-        image: '/images/benchmarking/hermes.png',
+        image: '/images/Logos/Hermes-logo.png',
         summary: 'Referência absoluta em luxo atemporal, artesania e exclusividade.',
         strengths: ['Design minimalista', 'Storytelling rico', 'Fotografia impecável'],
         opportunities: ['E-commerce limitado propositalmente']
@@ -83,7 +83,7 @@ const segments: Segment[] = [
         country: 'Itália',
         flag: '🇮🇹',
         url: 'https://www.loropiana.com',
-        image: '/images/benchmarking/loro-piana.png',
+        image: '/images/Logos/Loro-Piana-logo.png',
         summary: 'Luxo discreto e qualidade suprema em tecidos nobres.',
         strengths: ['Elegância sutil', 'Foco em materiais', 'UX refinada'],
         opportunities: ['Navegação pode ser mais fluida']
@@ -100,7 +100,7 @@ const segments: Segment[] = [
         country: 'Reino Unido',
         flag: '🇬🇧',
         url: 'https://www.rolls-roycemotorcars.com',
-        image: '/images/benchmarking/rolls-royce.png',
+        image: '/images/Logos/Rolls-Royce-logo.png',
         summary: 'Epítome do luxo automotivo com experiência digital imersiva.',
         strengths: ['Experiência imersiva', 'Configurador 3D', 'Branding majestoso'],
         opportunities: ['Carregamento pesado em conexões lentas']
@@ -111,7 +111,7 @@ const segments: Segment[] = [
         country: 'Reino Unido',
         flag: '🇬🇧',
         url: 'https://www.bentleymotors.com',
-        image: '/images/benchmarking/bentley.png',
+        image: '/images/Logos/Bentley-Motors-logo.png',
         summary: 'Luxo britânico com forte ênfase em personalização.',
         strengths: ['Configurador detalhado', 'Conteúdo editorial', 'Navegação clara'],
         opportunities: ['Design pode ser mais ousado']
@@ -128,7 +128,7 @@ const segments: Segment[] = [
         country: 'Global',
         flag: '🌍',
         url: 'https://www.aman.com',
-        image: '/images/benchmarking/aman.png',
+        image: '/images/Logos/Aman-Resorts-logo.png',
         summary: 'Referência em hospitalidade de ultra-luxo e design minimalista.',
         strengths: ['Fotografia excepcional', 'Minimalismo', 'Atmosfera zen'],
         opportunities: ['Informações práticas poderiam ser mais acessíveis']
@@ -139,7 +139,7 @@ const segments: Segment[] = [
         country: 'Canadá',
         flag: '🇨🇦',
         url: 'https://www.fourseasons.com',
-        image: '/images/benchmarking/four-seasons.png',
+        image: '/images/Logos/Four-Seasons-logo.jpg',
         summary: 'Líder global em hospitalidade de luxo com UX exemplar.',
         strengths: ['Sistema de reservas fluido', 'Conteúdo rico', 'UX impecável'],
         opportunities: ['Visual poderia ser mais aspiracional']
@@ -156,7 +156,7 @@ const segments: Segment[] = [
         country: 'Itália',
         flag: '🇮🇹',
         url: 'https://www.bebitalia.com',
-        image: '/images/benchmarking/bb-italia.png',
+        image: '/images/Logos/BB-Italia-logo.webp',
         summary: 'Design italiano contemporâneo de alto padrão.',
         strengths: ['Catálogo visual forte', 'Filtros eficientes', 'Inspiração'],
         opportunities: ['Poderia ter mais storytelling']
@@ -167,7 +167,7 @@ const segments: Segment[] = [
         country: 'Itália',
         flag: '🇮🇹',
         url: 'https://www.minotti.com',
-        image: '/images/benchmarking/minotti.png',
+        image: '/images/Logos/Minotti-logo.png',
         summary: 'Mobiliário de luxo com estética atemporal.',
         strengths: ['Design clean', 'Fotografia profissional', 'Elegância'],
         opportunities: ['E-commerce limitado']
@@ -184,7 +184,7 @@ const segments: Segment[] = [
         country: 'França',
         flag: '🇫🇷',
         url: 'https://www.hennessy.com',
-        image: '/images/benchmarking/hennessy.png',
+        image: '/images/Logos/Hennessy-logo.png',
         summary: 'Maison de cognac mais prestigiada do mundo, referência em luxo, herança e colaborações culturais icônicas.',
         strengths: ['Storytelling cultural excepcional', 'Colaborações com ícones (LeBron, Tems)', 'Experiência imersiva de marca'],
         opportunities: ['Age-gate pode prejudicar UX inicial', 'Navegação poderia ser mais direta']
@@ -302,16 +302,20 @@ const handleNavigation = () => {
               class="bg-surface-card border rounded-lg border-subtle hover:border-strong transition-all duration-500 overflow-hidden group"
             >
               <!-- Cover Image -->
-              <a 
-                :href="competitor.url" 
-                target="_blank" 
+              <a
+                :href="competitor.url"
+                target="_blank"
                 rel="noopener noreferrer"
                 class="block relative overflow-hidden"
               >
-                <div 
-                  class="w-full h-40 bg-gradient-to-br from-mat-stone to-soft-beige group-hover:scale-105 transition-transform duration-700 flex items-center justify-center"
+                <div
+                  class="w-full h-40 bg-white border-b border-subtle group-hover:scale-105 transition-transform duration-700 flex items-center justify-center"
                 >
-                  <span class="text-2xl font-light text-off-white opacity-50">{{ competitor.flag }}</span>
+                  <img
+                    :src="competitor.image"
+                    :alt="competitor.name"
+                    class="max-h-16 max-w-[80%] object-contain p-2"
+                  />
                 </div>
               </a>
 

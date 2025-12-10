@@ -11,13 +11,21 @@
               Voltar
             </button>
           </div>
-          
+
           <div class="flex items-center gap-3">
             <div class="h-4 w-px bg-border-subtle hidden md:block"></div>
             <button class="hidden md:flex border border-border-strong px-4 py-2 rounded text-xs uppercase tracking-widest font-medium text-text-primary hover:bg-surface-subtle transition-colors items-center gap-2" @click="saveComparison">
               <i class="lni lni-bookmark"></i>
               Salvar
             </button>
+            <button
+              class="hidden md:flex border border-border-strong px-4 py-2 rounded text-xs uppercase tracking-widest font-medium text-text-primary hover:bg-surface-subtle transition-colors items-center gap-2"
+              @click="showAIComparison = true"
+            >
+              <i class="lni lni-ai"></i>
+              Análise com IA
+            </button>
+            <div class="h-4 w-px bg-border-subtle hidden md:block"></div>
             <button class="bg-text-primary text-surface-base px-4 py-2 rounded text-xs uppercase tracking-widest font-medium hover:bg-text-primary/90 transition-colors flex items-center gap-2" @click="contactConcierge">
               <i class="lni lni-comments-alt"></i>
               <span class="hidden md:inline">Falar com Concierge</span>
@@ -36,8 +44,8 @@
               <div class="bg-surface-card border border-border-subtle rounded-lg p-3">
                 <div class="flex items-center gap-3">
                   <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-offset flex-shrink-0">
-                    <img 
-                      :src="prop.image" 
+                    <img
+                      :src="prop.image"
                       :alt="prop.name"
                       class="w-full h-full object-cover"
                     />
@@ -52,6 +60,13 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal de Análise com IA -->
+      <AIComparisonModal
+        :isOpen="showAIComparison"
+        :properties="selectedProperties"
+        @close="showAIComparison = false"
+      />
 
       <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-6">
         <!-- Seções de comparação -->
@@ -110,6 +125,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import AIComparisonModal from './AIComparisonModal.vue'
 
 const router = useRouter()
 
@@ -226,6 +242,7 @@ const sections = [
 const selectedIds = ref(["p1", "p2", "p3", "p4"])
 const showDifferencesOnly = ref(false)
 const expandedSections = ref(["essence", "experience", "amenities", "financial"]) // Todas expandidas por padrão
+const showAIComparison = ref(false)
 
 // --- Computed ---
 const selectedProperties = computed(() => {
