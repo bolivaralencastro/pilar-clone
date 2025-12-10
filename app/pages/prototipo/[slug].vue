@@ -2,6 +2,7 @@
 import AppIcon from '../../../components/AppIcon.vue'
 import FlowchartViewer from '../../../components/FlowchartViewer.vue'
 import MermaidRenderer from '../../../components/MermaidRenderer.vue'
+import PrototypeTutorial from '../../../components/PrototypeTutorial.vue'
 import HomeV2 from '../../../components/prototypes/HomeV2.vue'
 import SearchResultsV2 from '../../../components/prototypes/SearchResultsV2.vue'
 import PropertyDetailV2 from '../../../components/prototypes/PropertyDetailV2.vue'
@@ -380,6 +381,9 @@ if (!currentPrototype.value) {
 
 <template>
   <div class="h-screen flex flex-col bg-porcelain overflow-hidden relative">
+    <!-- Tutorial de Protótipo -->
+    <PrototypeTutorial />
+    
     <!-- Floating Header Toggle (Hover Area) -->
     <div 
       v-if="!showHeader"

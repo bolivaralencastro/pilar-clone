@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TheBackgroundLogo from '../../components/TheBackgroundLogo.vue'
+import FirstVisitTutorial from '../../components/FirstVisitTutorial.vue'
 
 useSeoMeta({
   title: 'Pilar Homes - Desafio Técnico',
@@ -30,6 +31,9 @@ const handleNavigation = () => {
 
 <template>
   <div class="min-h-screen bg-porcelain text-text-primary selection:bg-soft-beige selection:text-text-primary">
+    <!-- Tutorial de Primeira Visita -->
+    <FirstVisitTutorial />
+    
     <!-- Background SVG -->
     <TheBackgroundLogo />
 
@@ -37,7 +41,9 @@ const handleNavigation = () => {
     <header class="bg-white border-b border-subtle relative z-50">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div class="flex items-center gap-4">
-          <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
+          <NuxtLink to="/" class="flex items-center gap-2 group">
+            <img src="/images/logo-pilar.svg" alt="Pilar Homes" class="h-6 w-auto" />
+          </NuxtLink>
           <span class="text-xs font-mono text-secondary tracking-widest uppercase border-l border-subtle pl-4 mt-[6px]">por Bolívar Alencastro</span>
         </div>
         
