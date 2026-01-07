@@ -11,7 +11,7 @@ useSeoMeta({
 const activeSection = ref('sobre')
 
 const updateActiveSection = () => {
-  const sections = ['sobre', 'timeline', 'estrutura', 'tecnologia', 'servicos', 'hubs', 'modelo']
+  const sections = ['sobre', 'timeline', 'estrutura', 'tecnologia', 'servicos', 'hubs', 'pesquisa', 'modelo']
   const scrollPosition = window.scrollY + 200 // offset for better UX
   
   for (let i = sections.length - 1; i >= 0; i--) {
@@ -137,6 +137,10 @@ const handleNavigation = () => {
               <a href="#hubs" 
                 :class="activeSection === 'hubs' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
                 Hubs Físicos
+              </a>
+              <a href="#pesquisa" 
+                :class="activeSection === 'pesquisa' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
+                Pesquisa com Corretores
               </a>
               <a href="#modelo" 
                 :class="activeSection === 'modelo' ? 'block text-sm font-medium text-action-primary' : 'block text-sm font-light text-secondary hover:text-text-primary transition-colors'">
@@ -827,6 +831,152 @@ const handleNavigation = () => {
               </div>
             </PageSection>
 
+            <!-- Section: Pesquisa com Corretores -->
+            <PageSection id="pesquisa">
+              <h2 class="text-3xl font-light text-text-primary mb-8">Pesquisa com Corretores</h2>
+
+              <ContentCard variant="subtle" padding="md" class="mb-8">
+                <div class="space-y-2">
+                  <p class="text-sm text-secondary font-light">Relatório de Pesquisa: Experiência do Corretor Pilar Homes</p>
+                  <p class="text-sm text-secondary font-light">Data: <strong class="text-text-primary font-medium">06/01/2026</strong></p>
+                  <p class="text-sm text-secondary font-light">
+                    Objetivo: Mapear a satisfação, dores e oportunidades de melhoria na plataforma Pilar Homes sob a ótica dos parceiros.
+                  </p>
+                </div>
+              </ContentCard>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                  <p class="text-xs font-mono uppercase tracking-widest text-secondary mb-2">Total de Corretores</p>
+                  <p class="text-3xl font-light text-text-primary">20</p>
+                </div>
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                  <p class="text-xs font-mono uppercase tracking-widest text-secondary mb-2">Taxa de Resposta</p>
+                  <p class="text-3xl font-light text-text-primary">50%</p>
+                </div>
+                <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                  <p class="text-xs font-mono uppercase tracking-widest text-secondary mb-2">Base Compilada</p>
+                  <p class="text-3xl font-light text-text-primary">10</p>
+                  <p class="text-xs text-secondary mt-1">10 aguardando / em andamento</p>
+                </div>
+              </div>
+
+              <div class="space-y-6 mb-10">
+                <h3 class="text-xl font-light text-text-primary">Compilação Detalhada dos Feedbacks</h3>
+                <div class="space-y-3">
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Usabilidade e experiência do portal</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Interface limpa e boa usabilidade.</li>
+                        <li>• Portal confuso por anúncios duplicados com preços diferentes.</li>
+                        <li>• Preferência por busca interna da própria imobiliária.</li>
+                      </ul>
+                    </div>
+                  </details>
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Leads e relevância do ticket</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Leads percebidos como qualificados e geradores de autoridade.</li>
+                        <li>• Volume de leads considerado insuficiente por parte dos corretores.</li>
+                        <li>• Desalinhamento de ticket (ex.: leads de R$ 800k–R$ 1.5mi para portfólios acima de R$ 3mi).</li>
+                      </ul>
+                    </div>
+                  </details>
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Modelo de cobrança e margem</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Percepção de fee elevado quando somado à mensalidade e parcerias.</li>
+                        <li>• Uso mais atrativo para imóveis de alto padrão.</li>
+                      </ul>
+                    </div>
+                  </details>
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Concorrência e canibalização</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Insegurança ao compartilhar links quando há imóveis duplicados.</li>
+                        <li>• Necessidade de páginas exclusivas por corretor para envio ao cliente.</li>
+                        <li>• Não exibir imóveis repetidos ao cliente é visto como ponto positivo.</li>
+                      </ul>
+                    </div>
+                  </details>
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Funcionalidades e operações</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Melhorias no CRM são prioritárias.</li>
+                        <li>• Registro de visitas direto no sistema do lead.</li>
+                        <li>• Filtro de “pacote” (aluguel + condomínio + IPTU).</li>
+                      </ul>
+                    </div>
+                  </details>
+                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
+                    <summary class="cursor-pointer list-none flex items-center justify-between">
+                      <span class="text-base font-medium text-text-primary">Conteúdo e proteção de ativos</span>
+                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
+                    </summary>
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Melhoria na divulgação/marketing dos imóveis.</li>
+                        <li>• Proteção de imagens (marca d’água dinâmica ou bloqueio de download).</li>
+                        <li>• Desejo de mais anúncios/imóveis na plataforma.</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <h3 class="text-xl font-light text-text-primary">Insights Consolidados e Padrões</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                    <h4 class="text-base font-medium text-text-primary mb-3">Financeiro & Modelo de Negócio (Crítico)</h4>
+                    <p class="text-sm text-secondary font-light">
+                      Insatisfação com o Success Fee (10%). Somando taxas e parcerias, a margem fica comprimida e desestimula uso para imóveis fora do super alto padrão.
+                    </p>
+                  </div>
+                  <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                    <h4 class="text-base font-medium text-text-primary mb-3">Concorrência e Canibalização</h4>
+                    <p class="text-sm text-secondary font-light">
+                      Duplicidade de anúncios gera insegurança ao compartilhar links. Oportunidade de links whitelabel ou páginas exclusivas por corretor.
+                    </p>
+                  </div>
+                  <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                    <h4 class="text-base font-medium text-text-primary mb-3">Algoritmo e Distribuição</h4>
+                    <p class="text-sm text-secondary font-light">
+                      Home page pouco rotativa e leads desalinhados com ticket sugerem ajustes de distribuição e qualificação de tráfego.
+                    </p>
+                  </div>
+                  <div class="bg-surface-card p-6 border border-subtle rounded-lg">
+                    <h4 class="text-base font-medium text-text-primary mb-3">Funcionalidades de Produto (Backlog)</h4>
+                    <ul class="text-sm text-secondary font-light space-y-2">
+                      <li>• Filtro de valor total/pacote (aluguel + taxas).</li>
+                      <li>• Gestão de visitas no CRM.</li>
+                      <li>• Proteção de imagens (marca d'água dinâmica ou bloqueio de download).</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </PageSection>
+
             <!-- Section: Modelo de Remuneração -->
             <PageSection id="modelo">
               <h2 class="text-3xl font-light text-text-primary mb-8">Modelo de Remuneração</h2>
@@ -948,9 +1098,6 @@ const handleNavigation = () => {
     </main>
   </div>
 </template>
-
-
-
 
 
 
