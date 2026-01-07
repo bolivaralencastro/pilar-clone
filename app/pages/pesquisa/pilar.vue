@@ -866,109 +866,79 @@ const handleNavigation = () => {
                 <div class="space-y-3">
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Marcus Leite (Vila Moema)</span>
+                      <span class="text-base font-medium text-text-primary">Usabilidade e experiência do portal</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
                     <div class="mt-4 space-y-2 text-sm text-secondary font-light">
-                      <p><strong class="text-text-primary font-medium">Ponto forte:</strong> UX e interface limpa; não exibe anúncios repetidos ao cliente.</p>
                       <ul class="space-y-2">
-                        <li>• Home privilegia sempre os mesmos corretores/imobiliárias.</li>
-                        <li>• Leads de baixo valor (R$ 800k–R$ 1.5mi) para portfólio acima de R$ 3mi.</li>
-                        <li>• Casos de cópias de fotos/dados por corretores externos.</li>
-                      </ul>
-                    </div>
-                  </details>
-                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
-                    <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Mariana</span>
-                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
-                    </summary>
-                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
-                      <p><strong class="text-text-primary font-medium">Ponto forte:</strong> Leads qualificados e autoridade para a marca.</p>
-                      <p>Dores: Fee de 10% + mensalidade + % de parceria considerado abusivo para margens menores.</p>
-                      <p>Sugestão: aumentar volume de leads para compensar custos.</p>
-                    </div>
-                  </details>
-                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
-                    <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">João Roncatto</span>
-                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
-                    </summary>
-                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
-                      <p><strong class="text-text-primary font-medium">Ponto forte:</strong> vitrine para alto padrão e confiança.</p>
-                      <ul class="space-y-2">
-                        <li>• Canibalização: mesmo imóvel aparece com concorrentes.</li>
-                        <li>• Sugere filtro de “pacote” (aluguel + condomínio + IPTU).</li>
-                        <li>• Sugere página exclusiva por corretor (portfólio isolado).</li>
-                      </ul>
-                    </div>
-                  </details>
-                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
-                    <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Lucia</span>
-                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
-                    </summary>
-                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
-                      <p><strong class="text-text-primary font-medium">Ponto forte:</strong> volume de inventário.</p>
-                      <ul class="space-y-2">
+                        <li>• Interface limpa e boa usabilidade.</li>
                         <li>• Portal confuso por anúncios duplicados com preços diferentes.</li>
-                        <li>• Taxas corroem a comissão.</li>
-                        <li>• Prefere busca interna da própria imobiliária.</li>
+                        <li>• Preferência por busca interna da própria imobiliária.</li>
                       </ul>
                     </div>
                   </details>
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Edu Alperovitch</span>
+                      <span class="text-base font-medium text-text-primary">Leads e relevância do ticket</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Vê a Pilar como ferramenta complementar para vendas. Sugere foco em melhorias de CRM.
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Leads percebidos como qualificados e geradores de autoridade.</li>
+                        <li>• Volume de leads considerado insuficiente por parte dos corretores.</li>
+                        <li>• Desalinhamento de ticket (ex.: leads de R$ 800k–R$ 1.5mi para portfólios acima de R$ 3mi).</li>
+                      </ul>
                     </div>
                   </details>
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Walderez Viscelli (Wal)</span>
+                      <span class="text-base font-medium text-text-primary">Modelo de cobrança e margem</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Usa apenas para imóveis acima de R$ 2 mi. Sugere maior volume de leads.
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Percepção de fee elevado quando somado à mensalidade e parcerias.</li>
+                        <li>• Uso mais atrativo para imóveis de alto padrão.</li>
+                      </ul>
                     </div>
                   </details>
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Lucas de Almeida</span>
+                      <span class="text-base font-medium text-text-primary">Concorrência e canibalização</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Satisfeito (início de jornada). Sugere registrar visitas diretamente no sistema do lead.
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Insegurança ao compartilhar links quando há imóveis duplicados.</li>
+                        <li>• Necessidade de páginas exclusivas por corretor para envio ao cliente.</li>
+                        <li>• Não exibir imóveis repetidos ao cliente é visto como ponto positivo.</li>
+                      </ul>
                     </div>
                   </details>
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Anauê Pinotti</span>
+                      <span class="text-base font-medium text-text-primary">Funcionalidades e operações</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Usa como vitrine para enviar opções organizadas; foco em locações acima de R$ 50 mil.
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Melhorias no CRM são prioritárias.</li>
+                        <li>• Registro de visitas direto no sistema do lead.</li>
+                        <li>• Filtro de “pacote” (aluguel + condomínio + IPTU).</li>
+                      </ul>
                     </div>
                   </details>
                   <details class="group bg-surface-card border border-subtle rounded-lg p-5">
                     <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">Virginia Guimarães</span>
+                      <span class="text-base font-medium text-text-primary">Conteúdo e proteção de ativos</span>
                       <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
                     </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Foco em parcerias; sugere melhorar divulgação/marketing dos imóveis.
-                    </div>
-                  </details>
-                  <details class="group bg-surface-card border border-subtle rounded-lg p-5">
-                    <summary class="cursor-pointer list-none flex items-center justify-between">
-                      <span class="text-base font-medium text-text-primary">FH</span>
-                      <span class="text-xs font-mono uppercase tracking-widest text-secondary group-open:text-action-primary">ver detalhes</span>
-                    </summary>
-                    <div class="mt-4 text-sm text-secondary font-light">
-                      Usa para captação de clientes; gostaria de ver mais anúncios/imóveis.
+                    <div class="mt-4 space-y-2 text-sm text-secondary font-light">
+                      <ul class="space-y-2">
+                        <li>• Melhoria na divulgação/marketing dos imóveis.</li>
+                        <li>• Proteção de imagens (marca d’água dinâmica ou bloqueio de download).</li>
+                        <li>• Desejo de mais anúncios/imóveis na plataforma.</li>
+                      </ul>
                     </div>
                   </details>
                 </div>
@@ -1128,7 +1098,6 @@ const handleNavigation = () => {
     </main>
   </div>
 </template>
-
 
 
 
